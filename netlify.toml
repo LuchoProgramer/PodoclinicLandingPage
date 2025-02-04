@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "out" # 👈 MUY IMPORTANTE: Publicar desde "out/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

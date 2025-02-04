@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* styles/globals.css */
+
+@font-face {
+    font-family: 'MinionPro';
+    src: url('/fonts/MinionPro-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MinionPro';
+    src: url('/fonts/MinionPro-It.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MinionPro';
+    src: url('/fonts/MinionPro-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MinionPro';
+    src: url('/fonts/MinionPro-BoldIt.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Agrega las demás variantes según lo necesites... */
+
+body {
+    font-family: 'MinionPro', sans-serif;
+}

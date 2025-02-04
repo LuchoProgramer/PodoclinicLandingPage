@@ -1,6 +1,7 @@
+// app/layout.js
 import Navbar from "../components/Navbar";
 import { Footer } from "../components/Footer";
-import WhatsAppButton from "../components/WhatsAppButton"; // 👈 Importa el botón flotante
+import WhatsAppButton from "../components/WhatsAppButton";
 import "../styles/globals.css";
 
 export default function RootLayout({ children }) {
@@ -10,7 +11,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <WhatsAppButton /> {/* 👈 Agregamos el botón flotante aquí */}
+        <WhatsAppButton />
       </body>
     </html>
   );
