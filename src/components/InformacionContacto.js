@@ -60,7 +60,7 @@ export default function InformacionContacto() {
                         <Instagram className="w-6 h-6" />
                     </a>
                     <a
-                        href="https://www.facebook.com/podoclinic"
+                        href="https://www.facebook.com/podoclinic.cm"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#60BEC3] p-3 rounded-full text-white shadow-md hover:bg-[#79A373] transition"
