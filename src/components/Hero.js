@@ -12,11 +12,14 @@ export default function Hero() {
             {/* Botón de CTA */}
             <a
                 href="https://wa.me/593995832788?text=Hola,%20quiero%20reservar%20una%20cita%20con%20PodoClinicec."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 bg-white text-[#60BEC3] px-8 py-3 rounded-full text-lg font-semibold shadow-lg 
-                     hover:shadow-xl hover:bg-gray-100 transition-transform transform hover:scale-105"
+         hover:shadow-xl hover:bg-gray-100 transition-transform transform hover:scale-105"
             >
                 Reserva tu cita
             </a>
+
 
             {/* Testimonio (claim) para reforzar la credibilidad */}
             <div className="mt-8 max-w-md w-full bg-white/90 text-gray-700 p-4 md:p-6 rounded-md shadow-md">

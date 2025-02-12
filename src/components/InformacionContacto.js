@@ -13,15 +13,17 @@ export default function InformacionContacto() {
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
                     <div className="flex items-center space-x-4">
                         <MapPin className="text-[#60BEC3] w-6 h-6" />
-                        <p>Av. Principal #123, Ciudad</p>
+                        <p>Manuel Jordan y Av La Florida,</p>
                     </div>
                     <div className="flex items-center space-x-4">
                         <Phone className="text-[#60BEC3] w-6 h-6" />
-                        <p>+593 999 999 999</p>
+                        <a href="tel:+593995832788" className="text-black hover:text-[#60BEC3] transition-colors">
+                            +593 995 832 788
+                        </a>
                     </div>
                     <div className="flex items-center space-x-4">
                         <Mail className="text-[#60BEC3] w-6 h-6" />
-                        <p>contacto@podoclinic.com</p>
+                        <p>podoclinic.cm@gmail.com</p>
                     </div>
                 </div>
 
