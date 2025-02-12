@@ -44,14 +44,6 @@ export default function InformacionContacto() {
                 {/* Redes Sociales */}
                 <div className="mt-8 flex justify-center space-x-4">
                     <a
-                        href="https://wa.me/593999999999"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-[#60BEC3] p-3 rounded-full text-white shadow-md hover:bg-[#79A373] transition"
-                    >
-                        <MessageCircle className="w-6 h-6" />
-                    </a>
-                    <a
                         href="https://www.instagram.com/podoclinic"
                         target="_blank"
                         rel="noopener noreferrer"
