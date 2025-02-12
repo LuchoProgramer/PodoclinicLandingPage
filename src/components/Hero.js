@@ -3,7 +3,7 @@ export default function Hero() {
         <section className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-r from-[#60BEC3] to-[#79A373] px-6">
             {/* Contenido principal del Hero */}
             <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
-                Cuidamos la salud de tus pies
+                Impulsamos cada uno de tus pasos
             </h1>
             <p className="mt-4 text-lg md:text-2xl max-w-2xl text-white drop-shadow-md">
                 Profesionales en podología con un servicio personalizado y atención de calidad.
@@ -11,7 +11,7 @@ export default function Hero() {
 
             {/* Botón de CTA */}
             <a
-                href="/reserva"
+                href="https://wa.me/593995832788?text=Hola,%20quiero%20reservar%20una%20cita%20con%20PodoClinicec."
                 className="mt-8 bg-white text-[#60BEC3] px-8 py-3 rounded-full text-lg font-semibold shadow-lg 
                      hover:shadow-xl hover:bg-gray-100 transition-transform transform hover:scale-105"
             >
