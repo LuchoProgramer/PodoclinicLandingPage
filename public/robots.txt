@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /cart
+
+# Host
+Host: https://podoclinicec.com
+
+# Sitemaps
+Sitemap: https://podoclinicec.com/sitemap.xml
+Sitemap: https://podoclinicec.com/server-sitemap.xml
