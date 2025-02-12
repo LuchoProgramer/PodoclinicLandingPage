@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { tests } from "../data/tests"; // Importamos los cuestionarios
 
 export default function Cuestionarios() {
     const [showModal, setShowModal] = useState(false);
@@ -8,36 +9,6 @@ export default function Cuestionarios() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
-
-    const tests = [
-        {
-            id: 1,
-            title: "Evaluación general de tus pies",
-            description: "Descubre el estado de salud de tus pies.",
-            questions: [
-                { text: "¿Sientes dolor al caminar?", weight: 1 },
-                { text: "¿Tienes durezas en los pies?", weight: 1 },
-            ],
-        },
-        {
-            id: 2,
-            title: "Test para deportistas",
-            description: "Evalúa si tus pies están listos para la actividad física.",
-            questions: [
-                { text: "¿Sientes molestias después de correr?", weight: 1 },
-                { text: "¿Usas el calzado adecuado para deporte?", weight: 1 },
-            ],
-        },
-        {
-            id: 3,
-            title: "Test para personas mayores",
-            description: "Conoce si tus pies requieren atención especial.",
-            questions: [
-                { text: "¿Tienes dificultad para caminar largas distancias?", weight: 1 },
-                { text: "¿Padeces diabetes u otros problemas?", weight: 2 },
-            ],
-        },
-    ];
 
     const handleTestClick = (testId) => {
         setCurrentTest(testId);
@@ -59,10 +30,34 @@ export default function Cuestionarios() {
         }
     };
 
+    const getRiskLevel = () => {
+        if (score >= 5) {
+            return {
+                level: "🔴 Riesgo Alto",
+                message: "Es importante que consultes con un especialista lo antes posible. Tu pisada o estructura del pie puede estar afectando tu salud.",
+                action: "Agendar consulta gratuita",
+            };
+        }
+        if (score >= 3) {
+            return {
+                level: "🟠 Riesgo Moderado",
+                message: "Tienes algunos signos que podrían mejorar con una ortesis personalizada. Revisa tus hábitos y consulta con un experto.",
+                action: "Solicitar una evaluación",
+            };
+        }
+        return {
+            level: "🟢 Riesgo Bajo",
+            message: "Tus pies parecen estar en buena condición. Sigue cuidando tus uñas y pisada correctamente para evitar problemas en el futuro.",
+            action: null,
+        };
+    };
+
     const closeModal = () => {
         setShowModal(false);
         setCurrentTest(null);
     };
+
+    const result = getRiskLevel();
 
     return (
         <div className="container mx-auto py-12">
@@ -78,8 +73,7 @@ export default function Cuestionarios() {
                         <p className="mt-4 text-gray-600">{test.description}</p>
                         <button
                             onClick={() => handleTestClick(test.id)}
-                            className="mt-6 bg-primary text-white px-4 py-2 rounded-lg shadow-md 
-                         hover:bg-secondary transition-colors"
+                            className="mt-6 bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
                         >
                             Hacer Test
                         </button>
@@ -87,22 +81,23 @@ export default function Cuestionarios() {
                 ))}
             </div>
 
-            {/* Popup Modal */}
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-background p-6 rounded-lg shadow-lg max-w-md w-full relative">
                         {showResult ? (
                             <>
-                                <h2 className="text-xl font-bold">Resultado</h2>
-                                <p className="mt-4">
-                                    {score < 2
-                                        ? "¡Todo bien! Sigue cuidando tus pies."
-                                        : "Es un buen momento para agendar una cita en PodoClinic."}
-                                </p>
+                                <h2 className="text-xl font-bold">{result.level}</h2>
+                                <p className="mt-4">{result.message}</p>
+                                {result.action && (
+                                    <button
+                                        className="mt-6 bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
+                                    >
+                                        {result.action}
+                                    </button>
+                                )}
                                 <button
                                     onClick={closeModal}
-                                    className="mt-6 bg-primary text-white px-4 py-2 rounded-lg shadow-md 
-                             hover:bg-secondary transition-colors"
+                                    className="mt-4 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md hover:bg-gray-300 transition-colors"
                                 >
                                     Cerrar
                                 </button>
@@ -118,15 +113,13 @@ export default function Cuestionarios() {
                                 <div className="flex justify-center space-x-4 mt-6">
                                     <button
                                         onClick={() => handleAnswer(true)}
-                                        className="bg-primary text-white px-4 py-2 rounded-lg shadow-md 
-                               hover:bg-secondary transition-colors"
+                                        className="bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
                                     >
                                         Sí
                                     </button>
                                     <button
                                         onClick={() => handleAnswer(false)}
-                                        className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md 
-                               hover:bg-gray-300 transition-colors"
+                                        className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md hover:bg-gray-300 transition-colors"
                                     >
                                         No
                                     </button>
