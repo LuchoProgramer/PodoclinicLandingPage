@@ -1,9 +1,8 @@
-import Head from "next/head";
-import Hero from "../components/Hero";
-import Cuestionarios from "../components/Cuestionarios";
-import Servicios from "../components/Servicios";
-import Contacto from "../components/Contacto";
-import InformacionContacto from "../components/InformacionContacto";
+import Hero from "@/components/Hero";
+import Cuestionarios from "@/components/Cuestionarios";
+import Servicios from "@/components/Servicios";
+import Contacto from "@/components/Contacto";
+import InformacionContacto from "@/components/InformacionContacto";
 
 export default function HomePage() {
   const businessSchema = {
@@ -43,46 +42,8 @@ export default function HomePage() {
 
   return (
     <>
-      <Head>
-        <title>Podología en Quito | Tratamiento para Pie Diabético y Uñeros</title>
-        <meta
-          name="description"
-          content="Atención podológica especializada en Quito. Tratamiento de uñeros, pie diabético, onicomicrosis y verrugas. Servicio automatizado con enfoque personalizado. Reserva tu cita hoy."
-        />
-        <meta
-          name="keywords"
-          content="Podología Quito, Podología La Florida, Podología Cumbayá, Podología Tumbaco, tratamiento pie diabético, uñeros, onicomicrosis, verrugas plantares"
-        />
-
-        <meta name="geo.placename" content="Quito, Ecuador" />
-        <meta name="geo.region" content="EC-P" />
-        <meta name="telephone" content="+593XXXXXXXXX" />
-        <meta httpEquiv="Content-Language" content="es" />
-        <meta name="robots" content="index, follow" />
-
-        {/* Open Graph (Facebook y WhatsApp) */}
-        <meta property="og:title" content="Podología en Quito | Tratamiento para Pie Diabético y Uñeros" />
-        <meta
-          property="og:description"
-          content="Atención podológica especializada en Quito. Tratamiento de uñeros, pie diabético, onicomicrosis y verrugas. Reserva tu cita hoy."
-        />
-        <meta property="og:image" content="https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png" />
-        <meta property="og:url" content="https://podoclinicec.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="es_EC" />
-
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Podología en Quito | Tratamiento para Pie Diabético y Uñeros" />
-        <meta
-          name="twitter:description"
-          content="Atención podológica especializada en Quito. Trato personalizado para adultos mayores y pacientes con pie diabético."
-        />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png" />
-
-        {/* Datos estructurados para SEO avanzado */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
-      </Head>
+      {/* Datos estructurados para SEO avanzado */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
 
       {/* Contenido de la página */}
       <Hero />
