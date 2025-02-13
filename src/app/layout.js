@@ -1,7 +1,4 @@
 import "../styles/globals.css";
-import Navbar from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata = {
   title: "Podología en Quito | Tratamiento para Pie Diabético y Uñeros",
@@ -35,10 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className="flex flex-col min-h-screen">
-        <Navbar />
         <main className="flex-grow">{children}</main>
-        <Footer />
-        <WhatsAppButton />
       </body>
     </html>
   );
