@@ -1,10 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: "https://podoclinicec.com", // 🔹 Reemplaza con tu dominio real
-    generateRobotsTxt: true, // 🔹 Genera automáticamente un robots.txt
-    sitemapSize: 5000, // 🔹 Máximo de URLs por sitemap
-    generateIndexSitemap: true, // 🔹 Divide en varios sitemaps si hay muchas páginas
-    exclude: ["/admin", "/login", "/cart"], // 🔹 Bloquea rutas privadas o sensibles
+    siteUrl: "https://podoclinicec.com",
+    generateRobotsTxt: true,
+    sitemapSize: 5000,
+    generateIndexSitemap: true,
+    exclude: ["/admin", "/login", "/cart"],
     robotsTxtOptions: {
         policies: [
             {
@@ -14,7 +14,8 @@ module.exports = {
             },
         ],
         additionalSitemaps: [
-            "https://podoclinicec.com/server-sitemap.xml", // 🔹 Puedes agregar más sitemaps si tienes contenido dinámico
+            "https://podoclinicec.com/sitemap-0.xml",
+            "https://podoclinicec.com/server-sitemap.xml",
         ],
     },
 };
