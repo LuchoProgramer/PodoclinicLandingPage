@@ -1,5 +1,5 @@
-// app/layout.js
 import "../styles/globals.css";
+import Script from "next/script";
 
 export const metadata = {
   title: "Podología en Quito | Tratamiento para Pie Diabético y Uñeros",
@@ -41,6 +41,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
+      <head>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-FHN5JGKH34`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FHN5JGKH34');
+          `}
+        </Script>
+      </head>
       <body className="flex flex-col min-h-screen">
         <main className="flex-grow">{children}</main>
       </body>
