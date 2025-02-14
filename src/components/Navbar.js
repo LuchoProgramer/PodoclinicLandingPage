@@ -10,11 +10,10 @@ export default function Navbar() {
                     <img
                         src="https://res.cloudinary.com/dbbukhtz5/image/upload/v1738695404/podoclinic_navbar_landing_page_bcwytb.png"
                         alt="PodoClinic"
-                        className="h-10 object-contain"
+                        className="h-12 w-auto object-contain"  // Cambié h-10 por h-16
                     />
                 </Link>
             </div>
         </nav>
     );
 }
-
