@@ -36,11 +36,7 @@ export default function InformacionContacto() {
                         allowFullScreen
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
-
                 </div>
-
-
-
                 {/* Redes Sociales */}
                 <div className="mt-8 flex justify-center space-x-4">
                     <a
