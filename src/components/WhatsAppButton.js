@@ -3,7 +3,7 @@
 import { FaWhatsapp } from "react-icons/fa"; // ✅ Importamos el icono de WhatsApp
 
 export default function WhatsAppButton() {
-    const whatsappNumber = "593999999999"; // 📞 Reemplaza con tu número sin "+"
+    const whatsappNumber = "593995832788"; // 📞 Reemplaza con tu número sin "+"
     const message = encodeURIComponent("¡Hola! Quiero más información sobre sus servicios.");
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
 
