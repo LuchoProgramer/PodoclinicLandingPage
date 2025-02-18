@@ -40,7 +40,7 @@ export default function InformacionContacto() {
                 {/* Redes Sociales */}
                 <div className="mt-8 flex justify-center space-x-4">
                     <a
-                        href="https://www.instagram.com/podoclinic"
+                        href="https://www.instagram.com/podoclinic.ec"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#60BEC3] p-3 rounded-full text-white shadow-md hover:bg-[#79A373] transition"
