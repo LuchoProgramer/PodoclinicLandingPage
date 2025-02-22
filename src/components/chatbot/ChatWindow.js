@@ -3,7 +3,7 @@ import ChatInput from "./ChatInput";
 import Message from "./Message";
 import "./chatbot.css";
 
-const API_URL = process.env.NEXT_PUBLIC_CHATBOT_API_URL;
+const API_URL = "https://chatbot-api-493217655982.us-central1.run.app/api";
 
 const ChatWindow = () => {
     const [messages, setMessages] = useState([
@@ -16,19 +16,17 @@ const ChatWindow = () => {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
 
         try {
-            const response = await fetch(`${API_URL}/chatbot/responder/`, {
+            const response = await fetch(`${API_URL}/chat`, {  // Endpoint corregido
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    empresa_id: "PodoClinicEC",
-                    chatbot_id: "landing_bot",
-                    mensaje: text
+                    session_id: "PodoClinicEC",  // Asegúrate de enviar un session_id válido
+                    message: text
                 })
             });
 
             const data = await response.json();
 
-            // Si hay un botón de WhatsApp, lo mostramos
             if (data.boton_whatsapp) {
                 setMessages((prevMessages) => [
                     ...prevMessages,
@@ -36,8 +34,8 @@ const ChatWindow = () => {
                 ]);
                 setWhatsappLink(data.boton_whatsapp);
             } else {
-                setMessages((prevMessages) => [...prevMessages, { text: data.respuesta, sender: "bot" }]);
-                setWhatsappLink(null); // Limpiar el botón si no es necesario
+                setMessages((prevMessages) => [...prevMessages, { text: data.reply, sender: "bot" }]);
+                setWhatsappLink(null);
             }
         } catch (error) {
             console.error("Error al conectar con el chatbot:", error);

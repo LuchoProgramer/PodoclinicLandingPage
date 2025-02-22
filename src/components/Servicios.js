@@ -1,58 +1,39 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
-// Array de servicios con nombre y descripción
+// Array de servicios con nombre, descripción e imagen
 const servicios = [
     {
         nombre: "Profilaxis Podal",
         descripcion:
             "Incluye limpieza profunda, corte anatómico de uñas, limpieza de canales ungueales, eliminación de callosidades, hidratación y masoterapia.",
-    },
-    {
-        nombre: "Corte Anatómico de Uñas",
-        descripcion:
-            "Técnica especializada que sigue el contorno natural de la uña para promover un crecimiento saludable y prevenir uñas encarnadas.",
+        imagen: "https://www.clinicaplanas.com/blog/wp-content/cuidado-pies-1024x618.png.webp",
     },
     {
         nombre: "Tratamientos para los Hongos",
         descripcion:
             "Profilaxis podal para uñas con hongos, limpieza profunda, desinfección y uso de productos antifúngicos especializados.",
+        imagen: "/images/hongos.jpg",
     },
     {
         nombre: "Tratamientos para los Uñeros",
         descripcion:
             "Eliminación de la presión de la uña, tratamiento de infecciones y corrección del crecimiento para prevenir molestias.",
+        imagen: "/images/uñeros.jpg",
     },
     {
         nombre: "Cauterización de Verrugas Plantares",
         descripcion:
             "Uso de ácidos específicos para eliminar verrugas plantares, promoviendo una recuperación rápida y evitando infecciones futuras.",
+        imagen: "/images/verrugas.jpg",
     },
     {
-        nombre: "Reflexología",
+        nombre: "Spa Podal",
         descripcion:
-            "Terapia que aplica presión en puntos específicos de los pies para aliviar molestias, mejorar la circulación y promover el bienestar general.",
-    },
-    {
-        nombre: "Hidratación con Parafina",
-        descripcion:
-            "Tratamiento con cera caliente para suavizar la piel de los pies, nutriendo en profundidad y mejorando la circulación.",
-    },
-    {
-        nombre: "Eliminación de Callosidades",
-        descripcion:
-            "Suavización y eliminación del exceso de piel dura en los pies para mejorar la comodidad y prevenir molestias.",
-    },
-    {
-        nombre: "Elaboración de Ortesis",
-        descripcion:
-            "Dispositivos personalizados para corregir deformidades, aliviar el dolor y mejorar la funcionalidad de los pies.",
-    },
-    {
-        nombre: "Masoterapia",
-        descripcion:
-            "Masajes terapéuticos para aliviar tensiones musculares, mejorar la circulación y reducir el estrés en los pies.",
+            "Relaja y revitaliza tus pies con masajes, reflexología y parafina hidratante. Disfruta un cuidado podal integral que transforma tu bienestar.",
+        imagen: "/images/spa.jpg",
     },
 ];
 
@@ -70,29 +51,19 @@ export default function Servicios() {
                          transition duration-300 transform hover:shadow-2xl 
                          cursor-pointer group relative"
                         >
-                            {/* Aquí podrías colocar un ícono representativo de cada servicio, por ejemplo: */}
-                            {/*
-              <div className="mb-3 flex justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8 text-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M..." />
-                </svg>
-              </div>
-              */}
+                            {/* Imagen del servicio */}
+                            <Image
+                                src={servicio.imagen}
+                                alt={servicio.nombre}
+                                width={400}      // Ajusta el ancho según tus necesidades
+                                height={250}     // Ajusta la altura según tus necesidades
+                                className="object-cover w-full h-auto mb-4 rounded-md"
+                            />
 
                             <h3 className="text-xl font-semibold text-gray-800 mb-2">
                                 {servicio.nombre}
                             </h3>
 
-                            {/* 
-                Efecto "desplegable": en reposo, altura 0. 
-                Con hover, automáticamente crece y muestra la descripción.
-              */}
                             <div
                                 className="
                   overflow-hidden 
