@@ -6,15 +6,17 @@ import "./chatbot.css";
 // URL del backend (puedes moverla a .env como antes)
 const API_URL = process.env.REACT_APP_API_URL || "https://chatbot-api-493217655982.us-central1.run.app/api";
 
-const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {  // Añadimos empresaId como prop con valor por defecto
+const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
     const [messages, setMessages] = useState([
-        { text: "¡Hola! ¿En qué puedo ayudarte?", sender: "bot" }
+        { text: "¡Hola! Soy BrIAn ¿En qué puedo ayudarte?", sender: "bot" }
     ]);
     const [whatsappLink, setWhatsappLink] = useState(null);
+    const [isTyping, setIsTyping] = useState(false);  // Estado inicial en false
 
     const sendMessage = async (text) => {
         const newMessage = { text, sender: "user" };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
+        setIsTyping(true);  // Activar "escribiendo" al enviar el mensaje
 
         try {
             const response = await fetch(`${API_URL}/chat`, {
@@ -32,6 +34,7 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {  // Añadimos empre
             }
 
             const data = await response.json();
+            setIsTyping(false);  // Desactivar "escribiendo" cuando llega la respuesta
 
             if (data.boton_whatsapp) {
                 setMessages((prevMessages) => [
@@ -48,6 +51,7 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {  // Añadimos empre
             }
         } catch (error) {
             console.error("Error al conectar con el chatbot:", error);
+            setIsTyping(false);  // Desactivar "escribiendo" si hay error
             setMessages((prevMessages) => [
                 ...prevMessages,
                 { text: "Lo siento, hubo un problema al conectar. Intenta de nuevo.", sender: "bot" }
@@ -62,6 +66,11 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {  // Añadimos empre
                 {messages.map((msg, index) => (
                     <Message key={index} text={msg.text} sender={msg.sender} />
                 ))}
+                {isTyping && (
+                    <div className="typing-indicator">
+                        <span>Escribiendo...</span>
+                    </div>
+                )}
             </div>
 
             {whatsappLink && (
