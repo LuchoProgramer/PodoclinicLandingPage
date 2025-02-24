@@ -3,7 +3,7 @@ import ChatInput from "./ChatInput";
 import Message from "./Message";
 import "./chatbot.css";
 
-const API_URL = process.env.REACT_APP_API_URL || "https://chatbot-api-493217655982.us-central1.run.app/api";
+const API_URL = process.env.REACT_APP_API_URL || "https://chatbot-api-493217655982.us-central1.run.app/api/chat";
 
 const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
     const [messages, setMessages] = useState([
@@ -38,7 +38,16 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
 
             while (true) {
                 const { done, value } = await reader.read();
-                if (done) break;
+                if (done) {
+                    // Finalizar el mensaje del bot cuando el stream termina
+                    if (accumulatedResponse) {
+                        setMessages((prevMessages) => [
+                            ...prevMessages,
+                            { text: accumulatedResponse.trim(), sender: "bot" }
+                        ]);
+                    }
+                    break;
+                }
 
                 const chunk = decoder.decode(value);
                 const lines = chunk.split("\n\n");  // Separar por eventos
@@ -48,25 +57,27 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
                         const data = line.slice(6).trim();  // Extraer contenido después de "data: "
                         if (data) {
                             if (data.includes("https://wa.me")) {
-                                const parts = data.split(/(https:\/\/wa\.me\/\S+)/);  // Separar texto y enlace
+                                const parts = data.split(/(https:\/\/wa\.me\/\S+)/);
                                 accumulatedResponse = parts[0].trim();  // Texto antes del enlace
                                 const whatsappUrl = parts[1];  // El enlace
                                 setWhatsappLink(whatsappUrl);
-                                setMessages((prevMessages) => [
-                                    ...prevMessages,
-                                    { text: accumulatedResponse || "¡Puedes agendar tu cita aquí! 👇", sender: "bot" }
-                                ]);
+                                if (accumulatedResponse) {
+                                    setMessages((prevMessages) => [
+                                        ...prevMessages,
+                                        { text: accumulatedResponse, sender: "bot" }
+                                    ]);
+                                }
                             } else {
-                                accumulatedResponse += data;
+                                accumulatedResponse += data + " ";  // Añadir espacio para evitar palabras pegadas
                                 setMessages((prevMessages) => {
                                     const lastMessage = prevMessages[prevMessages.length - 1];
-                                    if (lastMessage.sender === "bot") {
+                                    if (lastMessage.sender === "bot" && !whatsappLink) {
                                         return [
                                             ...prevMessages.slice(0, -1),
-                                            { text: accumulatedResponse, sender: "bot" }
+                                            { text: accumulatedResponse.trim(), sender: "bot" }
                                         ];
                                     } else {
-                                        return [...prevMessages, { text: accumulatedResponse, sender: "bot" }];
+                                        return [...prevMessages, { text: accumulatedResponse.trim(), sender: "bot" }];
                                     }
                                 });
                             }
