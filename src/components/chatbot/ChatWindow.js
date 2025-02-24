@@ -35,7 +35,6 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
             let accumulatedResponse = "";
-            let hasWhatsapp = false;
 
             while (true) {
                 const { done, value } = await reader.read();
@@ -49,18 +48,28 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
                         const data = line.slice(6).trim();  // Extraer contenido después de "data: "
                         if (data) {
                             if (data.includes("https://wa.me")) {
-                                hasWhatsapp = true;
-                                const linkStart = data.indexOf("https://wa.me");
-                                const whatsappUrl = data.substring(linkStart);
+                                const parts = data.split(/(https:\/\/wa\.me\/\S+)/);  // Separar texto y enlace
+                                accumulatedResponse = parts[0].trim();  // Texto antes del enlace
+                                const whatsappUrl = parts[1];  // El enlace
                                 setWhatsappLink(whatsappUrl);
-                                accumulatedResponse = data.substring(0, linkStart).trim() || "¡Puedes agendar tu cita aquí! 👇";
+                                setMessages((prevMessages) => [
+                                    ...prevMessages,
+                                    { text: accumulatedResponse || "¡Puedes agendar tu cita aquí! 👇", sender: "bot" }
+                                ]);
                             } else {
                                 accumulatedResponse += data;
+                                setMessages((prevMessages) => {
+                                    const lastMessage = prevMessages[prevMessages.length - 1];
+                                    if (lastMessage.sender === "bot") {
+                                        return [
+                                            ...prevMessages.slice(0, -1),
+                                            { text: accumulatedResponse, sender: "bot" }
+                                        ];
+                                    } else {
+                                        return [...prevMessages, { text: accumulatedResponse, sender: "bot" }];
+                                    }
+                                });
                             }
-                            setMessages((prevMessages) => [
-                                ...prevMessages.slice(0, -1),  // Reemplazar el último mensaje "isTyping"
-                                { text: accumulatedResponse, sender: "bot" }
-                            ]);
                         }
                     }
                 }
