@@ -3,7 +3,6 @@ import ChatInput from "./ChatInput";
 import Message from "./Message";
 import "./chatbot.css";
 
-// URL del backend (puedes moverla a .env como antes)
 const API_URL = process.env.REACT_APP_API_URL || "https://chatbot-api-493217655982.us-central1.run.app/api";
 
 const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
@@ -11,20 +10,20 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
         { text: "¡Hola! Soy BrIAn ¿En qué puedo ayudarte?", sender: "bot" }
     ]);
     const [whatsappLink, setWhatsappLink] = useState(null);
-    const [isTyping, setIsTyping] = useState(false);  // Estado inicial en false
+    const [isTyping, setIsTyping] = useState(false);
 
     const sendMessage = async (text) => {
         const newMessage = { text, sender: "user" };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
-        setIsTyping(true);  // Activar "escribiendo" al enviar el mensaje
+        setIsTyping(true);
 
         try {
             const response = await fetch(`${API_URL}/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    session_id: `${empresaId}-${Date.now()}`,  // Session_id único por empresa y timestamp
-                    empresa_id: empresaId,  // Añadimos empresa_id al payload
+                    session_id: `${empresaId}-${Date.now()}`,
+                    empresa_id: empresaId,
                     message: text
                 })
             });
@@ -33,25 +32,44 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
                 throw new Error("Error en la respuesta del servidor");
             }
 
-            const data = await response.json();
-            setIsTyping(false);  // Desactivar "escribiendo" cuando llega la respuesta
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let accumulatedResponse = "";
+            let hasWhatsapp = false;
 
-            if (data.boton_whatsapp) {
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    { text: data.reply || "¡Puedes agendar tu cita aquí! 👇", sender: "bot" }
-                ]);
-                setWhatsappLink(data.boton_whatsapp);
-            } else {
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    { text: data.reply, sender: "bot" }
-                ]);
-                setWhatsappLink(null);
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value);
+                const lines = chunk.split("\n\n");  // Separar por eventos
+
+                for (const line of lines) {
+                    if (line.startsWith("data: ")) {
+                        const data = line.slice(6).trim();  // Extraer contenido después de "data: "
+                        if (data) {
+                            if (data.includes("https://wa.me")) {
+                                hasWhatsapp = true;
+                                const linkStart = data.indexOf("https://wa.me");
+                                const whatsappUrl = data.substring(linkStart);
+                                setWhatsappLink(whatsappUrl);
+                                accumulatedResponse = data.substring(0, linkStart).trim() || "¡Puedes agendar tu cita aquí! 👇";
+                            } else {
+                                accumulatedResponse += data;
+                            }
+                            setMessages((prevMessages) => [
+                                ...prevMessages.slice(0, -1),  // Reemplazar el último mensaje "isTyping"
+                                { text: accumulatedResponse, sender: "bot" }
+                            ]);
+                        }
+                    }
+                }
             }
+
+            setIsTyping(false);
         } catch (error) {
             console.error("Error al conectar con el chatbot:", error);
-            setIsTyping(false);  // Desactivar "escribiendo" si hay error
+            setIsTyping(false);
             setMessages((prevMessages) => [
                 ...prevMessages,
                 { text: "Lo siento, hubo un problema al conectar. Intenta de nuevo.", sender: "bot" }
