@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
 import "./chatbot.css";
 
-const API_URL = process.env.REACT_APP_API_URL || "https://chatbot-api-493217655982.us-central1.run.app/api/chat";
+// Define la URL base sin la parte final "/chat"
+const API_URL =
+    process.env.NEXT_PUBLIC_CHATBOT_API_URL ||
+    "https://chatbot-api-493217655982.us-central1.run.app/api";
 
 const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
+    // Verifica la URL en consola al montar el componente
+    useEffect(() => {
+        console.log("API_URL:", API_URL);
+    }, []);
+
     const [messages, setMessages] = useState([
         { text: "¡Hola! Soy BrIAn ¿En qué puedo ayudarte?", sender: "bot" }
     ]);
@@ -13,6 +21,7 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
     const [isTyping, setIsTyping] = useState(false);
 
     const sendMessage = async (text) => {
+        // Agrega el mensaje del usuario y activa el indicador de "Escribiendo..."
         const newMessage = { text, sender: "user" };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         setIsTyping(true);
@@ -32,69 +41,35 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
                 throw new Error("Error en la respuesta del servidor");
             }
 
-            const reader = response.body.getReader();
-            const decoder = new TextDecoder();
-            let accumulatedResponse = "";
+            // Espera la respuesta completa del servidor
+            const replyText = await response.text();
+            console.log("Respuesta completa:", replyText);
 
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) {
-                    // Finalizar el mensaje del bot cuando el stream termina
-                    if (accumulatedResponse) {
-                        setMessages((prevMessages) => [
-                            ...prevMessages,
-                            { text: accumulatedResponse.trim(), sender: "bot" }
-                        ]);
-                    }
-                    break;
-                }
-
-                const chunk = decoder.decode(value);
-                const lines = chunk.split("\n\n");  // Separar por eventos
-
-                for (const line of lines) {
-                    if (line.startsWith("data: ")) {
-                        const data = line.slice(6).trim();  // Extraer contenido después de "data: "
-                        if (data) {
-                            if (data.includes("https://wa.me")) {
-                                const parts = data.split(/(https:\/\/wa\.me\/\S+)/);
-                                accumulatedResponse = parts[0].trim();  // Texto antes del enlace
-                                const whatsappUrl = parts[1];  // El enlace
-                                setWhatsappLink(whatsappUrl);
-                                if (accumulatedResponse) {
-                                    setMessages((prevMessages) => [
-                                        ...prevMessages,
-                                        { text: accumulatedResponse, sender: "bot" }
-                                    ]);
-                                }
-                            } else {
-                                accumulatedResponse += data + " ";  // Añadir espacio para evitar palabras pegadas
-                                setMessages((prevMessages) => {
-                                    const lastMessage = prevMessages[prevMessages.length - 1];
-                                    if (lastMessage.sender === "bot" && !whatsappLink) {
-                                        return [
-                                            ...prevMessages.slice(0, -1),
-                                            { text: accumulatedResponse.trim(), sender: "bot" }
-                                        ];
-                                    } else {
-                                        return [...prevMessages, { text: accumulatedResponse.trim(), sender: "bot" }];
-                                    }
-                                });
-                            }
-                        }
-                    }
-                }
+            // Si la respuesta incluye un enlace de WhatsApp, separamos la parte del mensaje
+            if (replyText.includes("https://wa.me")) {
+                const parts = replyText.split(/(https:\/\/wa\.me\/\S+)/);
+                const finalReply = parts[0].trim();
+                const whatsappUrl = parts[1];
+                setWhatsappLink(whatsappUrl);
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    { text: finalReply, sender: "bot" }
+                ]);
+            } else {
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    { text: replyText, sender: "bot" }
+                ]);
             }
-
-            setIsTyping(false);
         } catch (error) {
             console.error("Error al conectar con el chatbot:", error);
-            setIsTyping(false);
             setMessages((prevMessages) => [
                 ...prevMessages,
                 { text: "Lo siento, hubo un problema al conectar. Intenta de nuevo.", sender: "bot" }
             ]);
             setWhatsappLink(null);
+        } finally {
+            setIsTyping(false);
         }
     };
 
@@ -113,7 +88,12 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
 
             {whatsappLink && (
                 <div className="whatsapp-container">
-                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="whatsapp-button">
+                    <a
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="whatsapp-button"
+                    >
                         📲 Agendar Cita por WhatsApp
                     </a>
                 </div>
