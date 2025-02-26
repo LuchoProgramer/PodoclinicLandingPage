@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ChatWindow from "./ChatWindow";
+import BrIANLogo from "../BrIANLogo"; // Asegúrate de que la ruta sea correcta
 import styles from "./Chatbot.module.css";
 
 const Chatbot = () => {
@@ -11,14 +12,11 @@ const Chatbot = () => {
     return (
         <div className={styles.chatbotContainer}>
             {isOpen && <ChatWindow messages={messages} setMessages={setMessages} />}
-            <button className={styles.chatbotToggle} onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? "✖" : (
-                    <img
-                        src="https://res.cloudinary.com/dbbukhtz5/image/upload/v1739994374/Icon_BrIAN_zqc4jh.png"
-                        alt="Chatbot Icon"
-                        className={styles.chatbotIcon}
-                    />
-                )}
+            <button
+                className={styles.chatbotToggle}
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                {isOpen ? "✖" : <BrIANLogo />}
             </button>
         </div>
     );

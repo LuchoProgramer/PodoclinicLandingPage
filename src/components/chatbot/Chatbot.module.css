@@ -1,26 +1,42 @@
 .chatbotContainer {
     position: fixed;
-    bottom: 90px;
+    bottom: 100px;
     right: 30px;
     z-index: 1000;
 }
 
 .chatbotToggle {
-    width: 70px;
-    height: 70px;
-    background-color: #79A373;
+    width: 65px;
+    height: 65px;
+    background-color: transparent;
+    /* Verde inicial */
     border: none;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #60bec3;
+    /* Color inicial del SVG */
     font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Suaviza cambios */
 }
 
 .chatbotToggle:hover {
     background-color: #ffffff;
+    /* Blanco al hacer hover */
+}
+
+.chatbotToggle:hover .chatbotIcon {
+    color: #7bd6d6;
+    /* Cambia el color del SVG a verde al hacer hover */
+}
+
+.chatbotIcon {
+    width: 90px;
+    /* Ajusta según el tamaño deseado */
+    height: 50px;
 }
 
 .chatWindow {
