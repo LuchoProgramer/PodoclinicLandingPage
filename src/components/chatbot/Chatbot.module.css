@@ -1,0 +1,89 @@
+.chatbotContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbotToggle {
+    width: 50px;
+    height: 50px;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.chatbotToggle:hover {
+    background-color: #3267d6;
+}
+
+.chatWindow {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.chatMessages {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.whatsappContainer {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.whatsappButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.whatsappButton:hover {
+    background-color: #1ebe52;
+}
+
+.mapContainer {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mapButton {
+    padding: 8px 16px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.mapButton:hover {
+    background-color: #3267d6;
+}
+
+.mapContainer iframe {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.typingIndicator {
+    padding: 5px;
+    color: #888;
+    text-align: center;
+}

@@ -11,29 +11,30 @@ const servicios = [
             "Incluye limpieza profunda, corte anatómico de uñas, limpieza de canales ungueales, eliminación de callosidades, hidratación y masoterapia.",
         imagen: "https://www.clinicaplanas.com/blog/wp-content/cuidado-pies-1024x618.png.webp",
     },
-    {
-        nombre: "Tratamientos para los Hongos",
-        descripcion:
-            "Profilaxis podal para uñas con hongos, limpieza profunda, desinfección y uso de productos antifúngicos especializados.",
-        imagen: "/images/hongos.jpg",
-    },
+
     {
         nombre: "Tratamientos para los Uñeros",
         descripcion:
             "Eliminación de la presión de la uña, tratamiento de infecciones y corrección del crecimiento para prevenir molestias.",
-        imagen: "/images/uñeros.jpg",
+        imagen: "https://res.cloudinary.com/dltfsttr7/image/upload/v1740591933/WhatsApp_Image_2025-02-26_at_12.42.42_1_csiehy.jpg",
     },
     {
         nombre: "Cauterización de Verrugas Plantares",
         descripcion:
             "Uso de ácidos específicos para eliminar verrugas plantares, promoviendo una recuperación rápida y evitando infecciones futuras.",
-        imagen: "/images/verrugas.jpg",
+        imagen: "https://res.cloudinary.com/dltfsttr7/image/upload/v1740592014/WhatsApp_Image_2025-02-26_at_12.42.42_2_pnshe2.jpg",
+    },
+    {
+        nombre: "Tratamientos para los Hongos",
+        descripcion:
+            "Profilaxis podal para uñas con hongos, limpieza profunda, desinfección y uso de productos antifúngicos especializados.",
+        imagen: "https://res.cloudinary.com/dltfsttr7/image/upload/v1740591792/WhatsApp_Image_2025-02-26_at_12.42.42_ycsa7s.jpg",
     },
     {
         nombre: "Spa Podal",
         descripcion:
             "Relaja y revitaliza tus pies con masajes, reflexología y parafina hidratante. Disfruta un cuidado podal integral que transforma tu bienestar.",
-        imagen: "/images/spa.jpg",
+        imagen: "https://res.cloudinary.com/dltfsttr7/image/upload/v1740592117/WhatsApp_Image_2025-02-26_at_12.42.42_3_j3yl2s.jpg",
     },
 ];
 

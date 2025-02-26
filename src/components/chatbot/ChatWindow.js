@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from "react";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
-import "./chatbot.css";
+import styles from "./Chatbot.module.css";
 
-// Define la URL base sin la parte final "/chat"
 const API_URL =
     process.env.NEXT_PUBLIC_CHATBOT_API_URL ||
     "https://chatbot-api-493217655982.us-central1.run.app/api";
 
-const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
-    // Verifica la URL en consola al montar el componente
+const ChatWindow = ({ empresaId = "podoclinicec.com", messages = [], setMessages }) => {
     useEffect(() => {
         console.log("API_URL:", API_URL);
-    }, []);
+        console.log("Messages recibidos:", messages);
+    }, [messages]);
 
-    const [messages, setMessages] = useState([
-        { text: "¡Hola! Soy BrIAn ¿En qué puedo ayudarte?", sender: "bot" }
-    ]);
     const [whatsappLink, setWhatsappLink] = useState(null);
+    const [mapLink, setMapLink] = useState(null);
+    const [showMap, setShowMap] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
 
     const sendMessage = async (text) => {
-        // Agrega el mensaje del usuario y activa el indicador de "Escribiendo..."
         const newMessage = { text, sender: "user" };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         setIsTyping(true);
@@ -41,26 +38,35 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
                 throw new Error("Error en la respuesta del servidor");
             }
 
-            // Espera la respuesta completa del servidor
-            const replyText = await response.text();
-            console.log("Respuesta completa:", replyText);
+            const reply = await response.json();
+            let replyText = reply.message;
+            console.log("Respuesta parseada:", replyText);
 
-            // Si la respuesta incluye un enlace de WhatsApp, separamos la parte del mensaje
-            if (replyText.includes("https://wa.me")) {
-                const parts = replyText.split(/(https:\/\/wa\.me\/\S+)/);
-                const finalReply = parts[0].trim();
-                const whatsappUrl = parts[1];
-                setWhatsappLink(whatsappUrl);
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    { text: finalReply, sender: "bot" }
-                ]);
-            } else {
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    { text: replyText, sender: "bot" }
-                ]);
+            let finalReply = replyText;
+            let whatsappUrl = null;
+            let mapUrl = null;
+
+            // Extraer enlace de WhatsApp
+            const whatsappMatch = replyText.match(/https:\/\/wa\.me\/[^\s]+/);
+            if (whatsappMatch) {
+                whatsappUrl = whatsappMatch[0];
+                finalReply = replyText.replace(whatsappUrl, "").trim();
             }
+
+            // Extraer enlace de Google Maps (corrección aquí)
+            const mapMatch = replyText.match(/https:\/\/maps\.app\.goo\.gl\/[^\s]+/);
+            if (mapMatch) {
+                mapUrl = mapMatch[0];
+                finalReply = finalReply.replace(mapUrl, "").trim();
+            }
+
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { text: finalReply, sender: "bot" }
+            ]);
+            setWhatsappLink(whatsappUrl);
+            setMapLink(mapUrl);
+            setShowMap(false);
         } catch (error) {
             console.error("Error al conectar con el chatbot:", error);
             setMessages((prevMessages) => [
@@ -68,34 +74,65 @@ const ChatWindow = ({ empresaId = "podoclinicec.com" }) => {
                 { text: "Lo siento, hubo un problema al conectar. Intenta de nuevo.", sender: "bot" }
             ]);
             setWhatsappLink(null);
+            setMapLink(null);
+            setShowMap(false);
         } finally {
             setIsTyping(false);
         }
     };
 
+    const toggleMap = () => {
+        setShowMap(!showMap);
+    };
+
     return (
-        <div className="chat-window">
-            <div className="chat-messages">
-                {messages.map((msg, index) => (
-                    <Message key={index} text={msg.text} sender={msg.sender} />
+        <div className={styles.chatWindow}>
+            <div className={styles.chatMessages}>
+                {(messages || []).map((msg, index) => (
+                    <Message
+                        key={index}
+                        text={msg.text}
+                        sender={msg.sender}
+                        className={msg.sender === "user" ? styles.messageUser : styles.messageBot}
+                    />
                 ))}
                 {isTyping && (
-                    <div className="typing-indicator">
+                    <div className={styles.typingIndicator}>
                         <span>Escribiendo...</span>
                     </div>
                 )}
             </div>
 
             {whatsappLink && (
-                <div className="whatsapp-container">
+                <div className={styles.whatsappContainer}>
                     <a
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="whatsapp-button"
+                        className={styles.whatsappButton}
                     >
                         📲 Agendar Cita por WhatsApp
                     </a>
+                </div>
+            )}
+
+            {mapLink && (
+                <div className={styles.mapContainer}>
+                    <button onClick={toggleMap} className={styles.mapButton}>
+                        {showMap ? "✖️ Cerrar" : "🗺️ Ver mapa"}
+                    </button>
+                    {showMap && (
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8058746057854!2d-78.4956488!3d-0.1431105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d585189a3dc76f%3A0xd97cdfef3d8caf0f!2sPodoClinic%20EC!5e0!3m2!1sen!2sec!4v1740508114271!5m2!1sen!2sec"
+                            width="100%"
+                            height="300"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Ubicación de PodoClinic EC"
+                        ></iframe>
+                    )}
                 </div>
             )}
 

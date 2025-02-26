@@ -1,11 +1,13 @@
-.chatbot-container {
+/* src/components/chatbot/Chatbot.module.css */
+.chatbotContainer {
     position: fixed;
     bottom: 90px;
-    /* 🔼 Lo subimos para no chocar con el botón de WhatsApp */
+    /* Subido para no chocar con el botón de WhatsApp */
     right: 20px;
+    z-index: 1000;
 }
 
-.chatbot-toggle {
+.chatbotToggle {
     background-color: #60BEC3;
     color: white;
     border: none;
@@ -20,12 +22,17 @@
     justify-content: center;
 }
 
-.chatbot-toggle svg {
+.chatbotToggle:hover {
+    background-color: #4a9ea2;
+    /* Un tono más oscuro de #60BEC3 */
+}
+
+.chatbotToggle svg {
     width: 24px;
     height: 24px;
 }
 
-.chat-window {
+.chatWindow {
     width: 300px;
     height: 400px;
     background: white;
@@ -36,9 +43,10 @@
     position: fixed;
     bottom: 80px;
     right: 20px;
+    overflow-y: auto;
 }
 
-.chat-messages {
+.chatMessages {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
@@ -53,24 +61,24 @@
     max-width: 80%;
 }
 
-.message.user {
+.messageUser {
     background-color: #60BEC3;
     color: white;
     align-self: flex-end;
 }
 
-.message.bot {
+.messageBot {
     background-color: #f1f1f1;
     align-self: flex-start;
 }
 
-.chat-input {
+.chatInput {
     display: flex;
     padding: 10px;
     border-top: 1px solid #ddd;
 }
 
-.chat-input input {
+.chatInput input {
     flex: 1;
     padding: 8px;
     border: 1px solid #ddd;
@@ -78,7 +86,7 @@
     outline: none;
 }
 
-.chat-input button {
+.chatInput button {
     background-color: #60BEC3;
     color: white;
     border: none;
@@ -88,13 +96,13 @@
     cursor: pointer;
 }
 
-.whatsapp-container {
+.whatsappContainer {
     display: flex;
     justify-content: center;
     padding: 10px;
 }
 
-.whatsapp-button {
+.whatsappButton {
     background-color: #25D366;
     color: white;
     text-decoration: none;
@@ -106,19 +114,18 @@
     transition: background 0.3s;
 }
 
-.whatsapp-button:hover {
+.whatsappButton:hover {
     background-color: #1ebe57;
 }
 
-
-.typing-indicator {
+.typingIndicator {
     padding: 10px;
     text-align: left;
     color: #888;
     font-style: italic;
 }
 
-.typing-indicator span::after {
+.typingIndicator span::after {
     content: ".";
     animation: dots 1.5s infinite;
 }
@@ -135,4 +142,29 @@
     66% {
         content: "...";
     }
+}
+
+.mapContainer {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mapButton {
+    padding: 8px 16px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.mapButton:hover {
+    background-color: #3267d6;
+}
+
+.mapContainer iframe {
+    max-width: 100%;
+    margin-top: 10px;
 }
