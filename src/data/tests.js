@@ -39,4 +39,18 @@ export const tests = [
             { text: "¿Tus uñas tienen una curvatura excesiva en los bordes?", weight: 1 },
         ],
     },
+    {
+        id: 5,
+        title: "Test: ¿Estás cuidando bien tus pies este verano?",
+        description: "Descubre si tus hábitos de verano están afectando tus pies.",
+        questions: [
+            { text: "¿Caminas descalzo en la arena caliente con frecuencia?", weight: 1 },
+            { text: "¿Sientes tus pies resecos después de un día en la playa?", weight: 1 },
+            { text: "¿Te has quemado los pies por no usar protector solar?", weight: 2 },
+            { text: "¿Dejas tus pies húmedos después de nadar sin secarlos bien?", weight: 2 },
+            { text: "¿Tus uñas se han encarnado después de cortarlas mal este verano?", weight: 1 },
+            { text: "¿Usas sandalias sin soporte que te causan molestias?", weight: 1 },
+        ],
+    }
+
 ];

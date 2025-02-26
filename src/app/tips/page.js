@@ -1,157 +1,58 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { tests } from "../../data/tests"; // Ajusta la ruta según tu estructura
+import Image from "next/image"; // Importamos el componente Image de Next.js
 
 export default function TipsPage() {
-    const [showModal, setShowModal] = useState(false);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [score, setScore] = useState(0);
-    const [showResult, setShowResult] = useState(false);
-
-    const uneroTest = tests.find((t) => t.id === 4); // Cuestionario de "Prevención de Uñeros"
-
-    const handleStartQuiz = () => {
-        setShowModal(true);
-        setCurrentQuestion(0);
-        setScore(0);
-        setShowResult(false);
-    };
-
-    const handleAnswer = (yes) => {
-        if (yes) {
-            setScore(score + uneroTest.questions[currentQuestion].weight);
-        }
-        if (currentQuestion + 1 < uneroTest.questions.length) {
-            setCurrentQuestion(currentQuestion + 1);
-        } else {
-            setShowResult(true);
-        }
-    };
-
-    const getRiskLevel = () => {
-        if (score >= 8) {
-            return {
-                level: "🔴 Riesgo Alto",
-                message: "Tus hábitos o condiciones podrían estar causando uñeros. Consulta a un especialista pronto.",
-                action: "Agendar consulta gratuita",
-            };
-        }
-        if (score >= 4) {
-            return {
-                level: "🟠 Riesgo Moderado",
-                message: "Estás en riesgo de desarrollar uñeros. Revisa tus hábitos y considera una evaluación.",
-                action: "Solicitar una evaluación",
-            };
-        }
-        return {
-            level: "🟢 Riesgo Bajo",
-            message: "Tus pies están en buena forma. ¡Sigue estos tips para mantenerlos así!",
-            action: null,
-        };
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
-    };
-
-    const result = getRiskLevel();
+    const tipsCategories = [
+        {
+            id: "uneros",
+            title: "Evita los Uñeros",
+            description: "Consejos para prevenir uñas encarnadas y mantener tus pies sanos.",
+            link: "/tips/uneros",
+            imageUrl: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1740611942/Tarjeta_01_Tips_anti_un%CC%83eros_jbzybc_ntlynr.png",
+        },
+        {
+            id: "verano",
+            title: "Cuidado en Verano",
+            description: "Tips para proteger tus pies en la playa este verano.",
+            link: "/tips/verano",
+            imageUrl: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1740611604/Tarjeta_02_Tips_para_el_verano_ofrfq9.png",
+        },
+    ];
 
     return (
         <div className="container mx-auto py-12 px-4">
-            <h1 className="text-3xl font-bold text-center mb-8">Tips y Cuestionarios para tus Pies</h1>
-
-            {/* Sección de Tips */}
-            <section className="mb-12">
-                <h2 className="text-2xl font-semibold mb-4">🦶💡 5 Tips para evitar los uñeros (uñas encarnadas)</h2>
-                <ul className="space-y-4 text-gray-700">
-                    <li>
-                        <span className="font-bold">1️⃣ Corta tus uñas de forma recta:</span> ✂️ Evita redondearlas para prevenir que crezcan hacia la piel.
-                    </li>
-                    <li>
-                        <span className="font-bold">2️⃣ Usa calzado cómodo y amplio:</span> 👟 Evita zapatos apretados que presionen tus dedos.
-                    </li>
-                    <li>
-                        <span className="font-bold">3️⃣ Mantén tus pies secos y limpios:</span> 🚿 La humedad favorece infecciones y uñeros.
-                    </li>
-                    <li>
-                        <span className="font-bold">4️⃣ No cortes la piel alrededor de las uñas:</span> 🚫 Esto puede provocar que la uña se entierre.
-                    </li>
-                    <li>
-                        <span className="font-bold">5️⃣ Evita arrancar los bordes de las uñas:</span> ❌ Usa cortaúñas y lima para un recorte seguro.
-                    </li>
-                </ul>
-                <p className="mt-4 text-gray-600">
-                    👣 <span className="font-semibold">¿Sientes molestias?</span> Consúltanos.
-                    Habla con nuestro <Link href="/" className="text-primary hover:underline">chatbot asistido por IA 🤖</Link>
-                    en nuestra landing page para resolver tus dudas y agendar tu cita fácilmente. ¡Tu bienestar está a un clic de distancia! 👣✨
-                </p>
-            </section>
-
-            {/* Sección de Cuestionario */}
-            <section>
-                <h2 className="text-2xl font-semibold mb-4">¿Estás en riesgo de uñeros?</h2>
-                <p className="text-gray-600 mb-4">
-                    Responde este breve cuestionario y descubre cómo cuidar mejor tus pies.
-                </p>
-                <button
-                    onClick={handleStartQuiz}
-                    className="bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
-                >
-                    Hacer el Cuestionario
-                </button>
-            </section>
-
-            {/* Modal del Cuestionario */}
-            {showModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-background p-6 rounded-lg shadow-lg max-w-md w-full relative">
-                        {showResult ? (
-                            <>
-                                <h2 className="text-xl font-bold">{result.level}</h2>
-                                <p className="mt-4">{result.message}</p>
-                                {result.action && (
-                                    <button className="mt-6 bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors">
-                                        {result.action}
-                                    </button>
-                                )}
-                                <button
-                                    onClick={closeModal}
-                                    className="mt-4 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md hover:bg-gray-300 transition-colors"
-                                >
-                                    Cerrar
-                                </button>
-                            </>
-                        ) : (
-                            <>
-                                <h2 className="text-xl font-bold">{uneroTest.title}</h2>
-                                <p className="text-lg mt-4">{uneroTest.questions[currentQuestion].text}</p>
-                                <div className="flex justify-center space-x-4 mt-6">
-                                    <button
-                                        onClick={() => handleAnswer(true)}
-                                        className="bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
-                                    >
-                                        Sí
-                                    </button>
-                                    <button
-                                        onClick={() => handleAnswer(false)}
-                                        className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md hover:bg-gray-300 transition-colors"
-                                    >
-                                        No
-                                    </button>
-                                </div>
-                            </>
-                        )}
-                        <button
-                            onClick={closeModal}
-                            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            <h1 className="text-3xl font-bold text-center mb-8">Consejos para tus Pies</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {tipsCategories.map((category) => (
+                    <div
+                        key={category.id}
+                        className="bg-background shadow-md rounded-lg p-6 text-center"
+                    >
+                        {/* Imagen con contenedor ajustado */}
+                        <div className="relative w-full h-0 pb-[66.67%] max-w-lg mx-auto mb-4">
+                            <Image
+                                src={category.imageUrl}
+                                alt={category.title}
+                                fill // Ocupa el contenedor
+                                style={{ objectFit: "cover" }} // Ajusta cómo se muestra la imagen
+                                className="rounded-t-lg"
+                                placeholder="blur" // Efecto de carga suave
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAAAAAAD/4QAuRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAAAKgAAAAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMgIyMjKC0fHB4pKSkqKy8xNTU1GiQ7QDs0Py40NTE5OTv/2wBDAQsLCw0NDxkQEBkQHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAIAAoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD5PooooA/9k=" // Placeholder genérico
+                            />
+                        </div>
+                        <h2 className="text-xl font-bold">{category.title}</h2>
+                        <p className="mt-4 text-gray-600">{category.description}</p>
+                        <Link
+                            href={category.link}
+                            className="mt-6 inline-block bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
                         >
-                            ✖
-                        </button>
+                            Ver Consejos
+                        </Link>
                     </div>
-                </div>
-            )}
+                ))}
+            </div>
         </div>
     );
 }
