@@ -3,15 +3,9 @@ import ChatInput from "./ChatInput";
 import Message from "./Message";
 import styles from "./Chatbot.module.css";
 
-const API_URL =
-    process.env.NEXT_PUBLIC_CHATBOT_API_URL ||
-    "https://chatbot-api-493217655982.us-central1.run.app/api";
+const API_URL = "https://chatbot-api-493217655982.us-central1.run.app/api";
 
-const ChatWindow = ({
-    empresaId = "podoclinicec.com",
-    messages = [],
-    setMessages
-}) => {
+const ChatWindow = ({ empresaId = "podoclinicec.com", messages = [], setMessages }) => {
     useEffect(() => {
         console.log("API_URL:", API_URL);
         console.log("Messages recibidos:", messages);
@@ -39,7 +33,8 @@ const ChatWindow = ({
             });
 
             if (!response.ok) {
-                throw new Error("Error en la respuesta del servidor");
+                const errorText = await response.text();
+                throw new Error(`Error ${response.status}: ${errorText}`);
             }
 
             const reply = await response.json();
