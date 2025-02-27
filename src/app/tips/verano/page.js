@@ -22,6 +22,8 @@ export default function VeranoTipsPage() {
         ],
     };
 
+    const whatsappNumber = "593995832788"; // Reemplaza con tu número real
+
     const handleStartQuiz = () => {
         setShowModal(true);
         setCurrentQuestion(0);
@@ -110,9 +112,14 @@ export default function VeranoTipsPage() {
                                 <h2 className="text-xl font-bold">{result.level}</h2>
                                 <p className="mt-4">{result.message}</p>
                                 {result.action && (
-                                    <button className="mt-6 bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors">
+                                    <a
+                                        href={`https://wa.me/${whatsappNumber}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-6 bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors inline-block"
+                                    >
                                         {result.action}
-                                    </button>
+                                    </a>
                                 )}
                                 <button
                                     onClick={closeModal}
