@@ -4,6 +4,7 @@ import Cuestionarios from "@/components/Cuestionarios";
 import Servicios from "@/components/Servicios";
 import Contacto from "@/components/Contacto";
 import InformacionContacto from "@/components/InformacionContacto";
+import FAQAccordion from "@/components/FAQAccordion";
 
 export default function HomePage() {
   const businessSchema = {
@@ -14,7 +15,6 @@ export default function HomePage() {
     "url": "https://podoclinicec.com",
     "logo": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
     "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
-    "email": "info@podoclinicec.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Manuel Jordan y Av La Florida, Quito",
@@ -35,16 +35,16 @@ export default function HomePage() {
       "latitude": "-0.143093",
       "longitude": "-78.495641"
     },
-    "hasMap": "https://maps.app.goo.gl/1v6Qw1Qw1Qw1Qw1Q8",
+    "hasMap": "https://maps.app.goo.gl/zrLzEJUUkHqDXS5K6",
     "areaServed": ["Quito", "Pichincha", "Ecuador"],
     "founder": {
       "@type": "Person",
-      "name": "Dr. Juan Pérez"
+      "name": "Dra. Cristina Muñoz"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "120"
+      "reviewCount": "10"
     },
     "medicalSpecialty": "Podiatry",
     "acceptsNewPatients": true,
@@ -55,10 +55,50 @@ export default function HomePage() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Atienden pie diabético?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, somos especialistas en el tratamiento de pie diabético en Quito."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito cita previa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, es recomendable agendar una cita para una mejor atención."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Atienden a niños y adultos mayores?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, brindamos atención a pacientes de todas las edades."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Dónde están ubicados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estamos en Manuel Jordan y Av La Florida, Quito."
+        }
+      }
+    ]
+  };
+
   return (
     <LayoutClient>
       {/* Datos estructurados para SEO avanzado */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Contenido de la página */}
       <Hero />
@@ -68,6 +108,7 @@ export default function HomePage() {
       <Servicios />
       <Contacto />
       <InformacionContacto />
+      <FAQAccordion />
     </LayoutClient>
   );
 }
