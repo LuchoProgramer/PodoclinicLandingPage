@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function FAQPage() {
   // Puedes agregar más preguntas en el componente FAQAccordion.js
@@ -51,6 +52,7 @@ export default function FAQPage() {
         <FAQAccordion />
       </div>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }
