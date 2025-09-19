@@ -1,3 +1,5 @@
+import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export default function FAQPage() {
@@ -42,9 +44,13 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <FAQAccordion />
-    </div>
+    <>
+      <Navbar />
+      <div className="container mx-auto py-20 px-4 min-h-screen">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <FAQAccordion />
+      </div>
+      <Footer />
+    </>
   );
 }
