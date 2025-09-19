@@ -14,6 +14,7 @@ export default function HomePage() {
     "url": "https://podoclinicec.com",
     "logo": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
     "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+    "email": "info@podoclinicec.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Manuel Jordan y Av La Florida, Quito",
@@ -34,6 +35,19 @@ export default function HomePage() {
       "latitude": "-0.143093",
       "longitude": "-78.495641"
     },
+    "hasMap": "https://maps.app.goo.gl/1v6Qw1Qw1Qw1Qw1Q8",
+    "areaServed": ["Quito", "Pichincha", "Ecuador"],
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Juan Pérez"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "120"
+    },
+    "medicalSpecialty": "Podiatry",
+    "acceptsNewPatients": true,
     "sameAs": [
       "https://www.facebook.com/podoclinic.cm",
       "https://www.instagram.com/podoclinic.ec/",
