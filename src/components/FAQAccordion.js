@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const faqs = [
@@ -22,6 +23,7 @@ const faqs = [
 
 export default function FAQAccordion() {
 	const [openIndex, setOpenIndex] = useState(null);
+	const pathname = usePathname();
 
 	const toggle = (idx) => {
 		setOpenIndex(openIndex === idx ? null : idx);
@@ -53,14 +55,16 @@ export default function FAQAccordion() {
 					</div>
 				))}
 			</div>
-			<div className="mt-6 text-center">
-				<a
-					href="/faq"
-					className="inline-block bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
-				>
-					Ver más preguntas frecuentes
-				</a>
-			</div>
+			{!pathname.startsWith("/faq") && (
+				<div className="mt-6 text-center">
+					<a
+						href="/faq"
+						className="inline-block bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-colors"
+					>
+						Ver más preguntas frecuentes
+					</a>
+				</div>
+			)}
 		</div>
 	);
 }
