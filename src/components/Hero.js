@@ -1,4 +1,13 @@
 export default function Hero() {
+    // Handler para evento GA4
+    const handleReservaClick = () => {
+        if (typeof window !== "undefined" && window.gtag) {
+            window.gtag("event", "click_reserva_cita", {
+                event_category: "engagement",
+                event_label: "Botón Hero Reserva tu cita"
+            });
+        }
+    };
     return (
         <section className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-r from-[#60BEC3] to-[#79A373] px-6">
             {/* Contenido principal del Hero */}
@@ -16,6 +25,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="mt-8 bg-white text-[#60BEC3] px-8 py-3 rounded-full text-lg font-semibold shadow-lg 
          hover:shadow-xl hover:bg-gray-100 transition-transform transform hover:scale-105"
+                onClick={handleReservaClick}
             >
                 Reserva tu cita
             </a>
