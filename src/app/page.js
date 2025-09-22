@@ -5,6 +5,7 @@ import Servicios from "@/components/Servicios";
 import Contacto from "@/components/Contacto";
 import InformacionContacto from "@/components/InformacionContacto";
 import FAQAccordion from "@/components/FAQAccordion";
+import faqs from "@/data/faqs";
 
 export default function HomePage() {
   const businessSchema = {
@@ -108,7 +109,7 @@ export default function HomePage() {
       <Servicios />
       <Contacto />
       <InformacionContacto />
-      <FAQAccordion />
+  <FAQAccordion faqs={faqs.slice(0, 4)} />
     </LayoutClient>
   );
 }

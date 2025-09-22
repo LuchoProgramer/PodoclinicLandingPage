@@ -1,3 +1,5 @@
+"use client"
+
 export default function Hero() {
     // Handler para evento GA4
     const handleReservaClick = () => {

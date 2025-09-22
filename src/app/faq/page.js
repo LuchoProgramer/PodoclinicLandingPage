@@ -1,6 +1,8 @@
+
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
+import faqs from "@/data/faqs";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function FAQPage() {
@@ -49,7 +51,7 @@ export default function FAQPage() {
       <Navbar />
       <div className="container mx-auto py-20 px-4 min-h-screen">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-        <FAQAccordion />
+  <FAQAccordion faqs={faqs} />
       </div>
       <Footer />
       <WhatsAppButton />

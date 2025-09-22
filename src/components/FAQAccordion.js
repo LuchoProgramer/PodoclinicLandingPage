@@ -2,26 +2,10 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const faqs = [
-	{
-		question: "¿Atienden pie diabético?",
-		answer: "Sí, somos especialistas en el tratamiento de pie diabético en Quito.",
-	},
-	{
-		question: "¿Necesito cita previa?",
-		answer: "Sí, es recomendable agendar una cita para una mejor atención.",
-	},
-	{
-		question: "¿Atienden a niños y adultos mayores?",
-		answer: "Sí, brindamos atención a pacientes de todas las edades.",
-	},
-	{
-		question: "¿Dónde están ubicados?",
-		answer: "Estamos en Manuel Jordan y Av La Florida, Quito.",
-	},
-];
 
-export default function FAQAccordion() {
+
+
+export default function FAQAccordion({ faqs }) {
 	const [openIndex, setOpenIndex] = useState(null);
 	const pathname = usePathname();
 
