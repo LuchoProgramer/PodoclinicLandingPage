@@ -42,6 +42,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <head>
+        {/* Facebook Domain Verification */}
+        <meta name="facebook-domain-verification" content="ms0gw8rk4q2dih57znfb3d392zj3j0" />
+        
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
