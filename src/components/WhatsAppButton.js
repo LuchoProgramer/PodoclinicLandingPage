@@ -9,12 +9,30 @@ export default function WhatsAppButton() {
 
     // Handler para el evento de clic
     const handleClick = () => {
+        // Google Analytics
         if (typeof window !== "undefined" && window.gtag) {
             window.gtag("event", "click_whatsapp", {
                 event_category: "engagement",
                 event_label: "Botón WhatsApp"
             });
         }
+        
+        // TikTok Pixel
+        if (typeof window !== "undefined" && window.ttq) {
+            window.ttq.track('Contact', {
+                content_type: 'whatsapp_contact',
+                content_name: 'WhatsApp Button',
+                description: 'Usuario hizo clic en botón flotante de WhatsApp'
+            });
+        }
+        
+        // Facebook Pixel
+        if (typeof window !== "undefined" && window.fbq) {
+            window.fbq('track', 'Contact', {
+                content_name: 'WhatsApp Button'
+            });
+        }
+        
         // El enlace se abrirá igual, esto solo envía el evento antes
     };
 

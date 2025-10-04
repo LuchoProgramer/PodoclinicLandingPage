@@ -1,12 +1,29 @@
 "use client"
 
 export default function Hero() {
-    // Handler para evento GA4
+    // Handler para evento GA4 y TikTok
     const handleReservaClick = () => {
+        // Google Analytics
         if (typeof window !== "undefined" && window.gtag) {
             window.gtag("event", "click_reserva_cita", {
                 event_category: "engagement",
                 event_label: "Botón Hero Reserva tu cita"
+            });
+        }
+        
+        // TikTok Pixel
+        if (typeof window !== "undefined" && window.ttq) {
+            window.ttq.track('Contact', {
+                content_type: 'cita_reserva',
+                content_name: 'Reservar Cita Hero',
+                description: 'Usuario hizo clic en reservar cita desde Hero'
+            });
+        }
+        
+        // Facebook Pixel
+        if (typeof window !== "undefined" && window.fbq) {
+            window.fbq('track', 'Contact', {
+                content_name: 'Reservar Cita Hero'
             });
         }
     };
