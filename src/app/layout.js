@@ -101,51 +101,15 @@ export default function RootLayout({ children }) {
         </noscript>
         
         {/* TikTok Pixel */}
-        <Script 
-          src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=D3FD2NBC77U7D8VS5C00&lib=ttq"
-          strategy="afterInteractive"
-        />
-        <Script id="tiktok-pixel-init" strategy="afterInteractive">
+        <Script id="tiktok-pixel" strategy="afterInteractive">
           {`
-            window.TiktokAnalyticsObject = 'ttq';
-            window.ttq = window.ttq || [];
-            window.ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-            window.ttq.setAndDefer = function(t,e){
-              t[e] = function(){
-                t.push([e].concat(Array.prototype.slice.call(arguments,0)));
-              };
-            };
-            for(var i=0;i<window.ttq.methods.length;i++){
-              window.ttq.setAndDefer(window.ttq, window.ttq.methods[i]);
-            }
-            window.ttq.instance = function(t){
-              for(var e=window.ttq._i[t]||[],n=0;n<window.ttq.methods.length;n++){
-                window.ttq.setAndDefer(e,window.ttq.methods[n]);
-              }
-              return e;
-            };
-            window.ttq._i = window.ttq._i || {};
-            window.ttq._i['D3FD2NBC77U7D8VS5C00'] = [];
-            window.ttq._t = window.ttq._t || {};
-            window.ttq._t['D3FD2NBC77U7D8VS5C00'] = +new Date;
-            window.ttq._o = window.ttq._o || {};
-            window.ttq._o['D3FD2NBC77U7D8VS5C00'] = {};
-            
-            // Inicializar cuando el script esté listo
-            function initTikTokPixel() {
-              if (typeof window.ttq !== 'undefined' && window.ttq.load) {
-                window.ttq.load('D3FD2NBC77U7D8VS5C00');
-                window.ttq.page();
-              } else {
-                setTimeout(initTikTokPixel, 100);
-              }
-            }
-            
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', initTikTokPixel);
-            } else {
-              initTikTokPixel();
-            }
+            !function (w, d, t) {
+              w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+              var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+              ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+              ttq.load('D3FD2NBC77U7D8VS5C00');
+              ttq.page();
+            }(window, document, 'ttq');
           `}
         </Script>
       </head>
