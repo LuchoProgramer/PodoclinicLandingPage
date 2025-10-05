@@ -51,7 +51,7 @@ export default function Hero() {
 
     return (
         <>
-            <section className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-blue-50 to-green-50 px-6 pt-24">
+            <section id="inicio" className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-blue-50 to-green-50 px-6 pt-24">
                 {/* Badges de urgencia */}
                 <div className="absolute top-28 sm:top-32 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 justify-center z-40">
                     <span className="bg-[#60BEC3] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg flex items-center">

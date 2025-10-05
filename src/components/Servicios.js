@@ -54,7 +54,7 @@ const servicios = [
 
 export default function Servicios() {
     return (
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-green-50">
+        <section id="servicios" className="py-16 bg-gradient-to-br from-blue-50 to-green-50">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="text-center mb-12">

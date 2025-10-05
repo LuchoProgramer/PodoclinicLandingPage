@@ -26,7 +26,7 @@ export default function AboutDoctor() {
     ];
 
     return (
-        <section className="py-16 bg-white">
+        <section id="doctora" className="py-16 bg-white">
             <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="text-center mb-12">
