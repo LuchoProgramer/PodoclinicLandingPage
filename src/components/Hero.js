@@ -65,42 +65,17 @@ export default function Hero() {
                 </div>
 
                 {/* Contenido principal del Hero */}
-                <div className="max-w-4xl mx-auto space-y-6">
+                <div className="max-w-4xl mx-auto space-y-8">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
                         Cuidado Especializado para tus <span className="text-yellow-300">Pies</span>
                     </h1>
-                    <p className="mt-4 text-lg md:text-2xl max-w-2xl text-white drop-shadow-md mx-auto">
+                    <p className="text-xl md:text-2xl max-w-3xl text-white drop-shadow-md mx-auto leading-relaxed">
                         <strong>Tratamiento profesional para uñeros, pie diabético y más.</strong> 
                         Atención personalizada con la experiencia que necesitas.
                     </p>
 
-                    {/* Beneficios clave */}
-                    <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mt-8">
-                        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-                            <div className="flex justify-center mb-2">
-                                <Stethoscope className="w-8 h-8 text-yellow-300" />
-                            </div>
-                            <p className="font-semibold">Primera consulta</p>
-                            <p className="text-sm">50% descuento</p>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-                            <div className="flex justify-center mb-2">
-                                <Home className="w-8 h-8 text-yellow-300" />
-                            </div>
-                            <p className="font-semibold">Atención a domicilio</p>
-                            <p className="text-sm">Disponible</p>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-                            <div className="flex justify-center mb-2">
-                                <Clock className="w-8 h-8 text-yellow-300" />
-                            </div>
-                            <p className="font-semibold">Respuesta rápida</p>
-                            <p className="text-sm">Máximo 30 min</p>
-                        </div>
-                    </div>
-
-                    {/* CTAs mejorados */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    {/* CTAs principales */}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
                         <button
                             onClick={handleReservaClick}
                             className="bg-white text-[#60BEC3] px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl hover:bg-gray-100 transition-transform transform hover:scale-105 flex items-center justify-center"
@@ -121,31 +96,15 @@ export default function Hero() {
                     </div>
 
                     {/* Promoción con urgencia */}
-                    <div className="bg-yellow-400 text-yellow-900 px-6 py-3 rounded-lg shadow-lg max-w-lg mx-auto mt-6 flex items-center justify-center">
-                        <BadgePercent className="w-5 h-5 mr-2" />
-                        <div>
-                            <p className="font-bold text-sm">
-                                PROMOCIÓN LIMITADA: Primera consulta solo $15 (precio normal $30)
+                    <div className="bg-yellow-400 text-yellow-900 px-6 py-4 rounded-lg shadow-lg max-w-lg mx-auto mt-8 flex items-center justify-center">
+                        <BadgePercent className="w-5 h-5 mr-3 flex-shrink-0" />
+                        <div className="text-center">
+                            <p className="font-bold text-sm md:text-base">
+                                PROMOCIÓN LIMITADA: Primera consulta solo $15
                             </p>
-                            <p className="text-xs">Válido hasta el 31 de octubre</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Testimonio mejorado */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 max-w-md w-full bg-white/95 text-gray-700 p-4 md:p-6 rounded-lg shadow-xl">
-                    <p className="italic text-sm md:text-base">
-                        "Excelente servicio, mis pies nunca habían estado tan sanos. El tratamiento para uñeros fue perfecto."
-                    </p>
-                    <div className="flex items-center justify-between mt-3">
-                        <div>
-                            <p className="text-sm font-semibold text-gray-800">– Ana Martínez</p>
-                            <p className="text-xs text-gray-500">Paciente verificado</p>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                            {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="w-4 h-4 text-yellow-500 fill-current" />
-                            ))}
+                            <p className="text-xs md:text-sm opacity-90">
+                                Precio normal $30 • Válido hasta el 31 de octubre
+                            </p>
                         </div>
                     </div>
                 </div>
