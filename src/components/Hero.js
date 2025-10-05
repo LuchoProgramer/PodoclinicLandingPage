@@ -53,7 +53,7 @@ export default function Hero() {
         <>
             <section className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-blue-50 to-green-50 px-6 pt-24">
                 {/* Badges de urgencia */}
-                <div className="absolute top-20 sm:top-32 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 justify-center z-10">
+                <div className="absolute top-28 sm:top-32 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 justify-center z-40">
                     <span className="bg-[#60BEC3] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg flex items-center">
                         <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                         Disponible HOY
@@ -65,7 +65,7 @@ export default function Hero() {
                 </div>
 
                 {/* Contenido principal del Hero */}
-                <div className="max-w-4xl mx-auto space-y-8 mt-12 sm:mt-0">
+                <div className="max-w-4xl mx-auto space-y-8 mt-16 sm:mt-8">
                     <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight">
                         Cuidado Especializado para tus <span className="text-[#60BEC3]">Pies</span>
                     </h1>
