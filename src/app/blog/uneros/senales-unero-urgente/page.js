@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, User, Tag, Share2, CheckCircle } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, ArrowRight, User, Tag, Share2, CheckCircle } from "lucide-react";
 import { getPostBySlug, getRecentPosts } from "@/data/blog/posts";
+import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "5 Señales URGENTES de Uñero | Cuándo Acudir al Podólogo",
@@ -205,23 +206,13 @@ export default function SeñalesUneroUrgentePage() {
               <p className="text-lg mb-6 opacity-90">
                 No esperes a que empeore. La atención temprana es clave para un tratamiento exitoso.
               </p>
-              <a
+              <WhatsAppButton
                 href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20síntomas%20urgentes%20de%20uñero%20y%20necesito%20consulta%20inmediata"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center bg-white text-red-600 px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-                onClick={() => {
-                  // Google Analytics
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "click_blog_urgent_cta", {
-                      event_category: "blog_engagement",
-                      event_label: "Señales Uñero Urgente CTA"
-                    });
-                  }
-                }}
+                trackingLabel="Señales Uñero Urgente CTA"
               >
                 Consulta URGENTE tu Uñero
-              </a>
+              </WhatsAppButton>
             </div>
           </div>
         </div>

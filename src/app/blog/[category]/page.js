@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { category } = params;
+  const { category } = await params;
   
   const categoryTitles = {
     'uneros': 'Uñeros - Tratamiento y Prevención',
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function CategoryPage({ params }) {
-  const { category } = params;
+export default async function CategoryPage({ params }) {
+  const { category } = await params;
   const posts = getPostsByCategory(category);
   
   const categoryTitles = {

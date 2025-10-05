@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { 
     GraduationCap, 
     Award, 
@@ -41,10 +42,16 @@ export default function AboutDoctor() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Imagen y presentación */}
                     <div className="space-y-6">
-                        {/* Placeholder para imagen de la doctora */}
+                        {/* Imagen de la doctora */}
                         <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 text-center">
-                            <div className="w-48 h-48 bg-[#60BEC3] rounded-full mx-auto mb-6 flex items-center justify-center">
-                                <GraduationCap className="w-24 h-24 text-white" />
+                            <div className="w-48 h-48 mx-auto mb-6 relative">
+                                <Image
+                                    src="/images/doctora-cristina-munoz.jpg"
+                                    alt="Dra. Cristina Muñoz - Especialista en Podología"
+                                    fill
+                                    className="rounded-full object-cover border-4 border-white shadow-lg"
+                                    priority
+                                />
                             </div>
                             <h3 className="text-2xl font-bold text-gray-800 mb-2">
                                 Dra. Cristina Muñoz

@@ -179,21 +179,227 @@ fbq('track', 'Contact', {
 
 ---
 
-## 🚀 Getting Started
+# 🦶 PodoClinic Landing Page
 
-First, run the development server:
+> Landing page profesional para servicios de podología de **Dra. Cristina Muñoz** en Quito, Ecuador.
 
+## 🚀 Características Principales
+
+- ✅ **Sistema de Blog SEO-optimizado** - Artículos especializados en podología
+- ✅ **WhatsApp Business Integration** - Contacto directo optimizado
+- ✅ **Tracking Analytics Completo** - GA4, Facebook Pixel, TikTok Pixel
+- ✅ **Diseño Responsive** - Optimizado para móviles y desktop
+- ✅ **Next.js 15 App Router** - Tecnología moderna y rápida
+- ✅ **Exportación Estática** - Deploy en cualquier CDN
+
+## 🏗️ Tecnologías
+
+- **Framework:** Next.js 15.5.3
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide React
+- **Analytics:** Google Analytics 4, Facebook Pixel, TikTok Pixel
+- **SEO:** Next-sitemap
+- **Deploy:** Exportación estática
+
+## 📋 Instalación y Desarrollo
+
+### Prerrequisitos
+- Node.js 18+ 
+- npm o yarn
+
+### Instalación
 ```bash
+# Clonar repositorio
+git clone [url-del-repo]
+
+# Instalar dependencias
+npm install
+
+# Desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build para producción
+npm run build
+
+# Exportar sitio estático
+npm run export
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts Disponibles
+```bash
+npm run dev          # Servidor de desarrollo (puerto 3000)
+npm run build        # Build de producción
+npm run start        # Servidor de producción
+npm run lint         # Linter de código
+npm run export       # Exportación estática
+```
+
+## 📝 Sistema de Blog
+
+### Agregar Nuevo Artículo
+
+1. **Editar base de datos de posts:**
+   ```javascript
+   // src/data/blog/posts.js
+   export const blogPosts = [
+     {
+       id: "nuevo-articulo",
+       title: "Título del Artículo", 
+       slug: "titulo-del-articulo",
+       category: "uneros", // uneros, pie-diabetico, hongos
+       excerpt: "Descripción breve del artículo...",
+       content: "Contenido completo en markdown...",
+       image: "/images/articulo.jpg",
+       date: "15 de enero de 2025",
+       author: "Dra. Cristina Muñoz",
+       featured: false,
+       tags: ["uñeros", "tratamiento", "prevención"]
+     }
+   ];
+   ```
+
+2. **Build y deploy:**
+   ```bash
+   npm run build
+   ```
+
+### Categorías Disponibles
+- **uneros** - Tratamiento y prevención de uñas encarnadas
+- **pie-diabetico** - Cuidados especializados para diabéticos  
+- **hongos** - Tratamiento de infecciones fúngicas
+
+## 🎨 Personalización
+
+### Colores Principales
+```css
+--primary-blue: #60BEC3;    /* Color principal del brand */
+--emergency-red: #DC2626;   /* Botones de emergencia */
+--success-green: #059669;   /* WhatsApp y éxito */
+```
+
+### Información de Contacto
+```javascript
+// Ubicaciones de contacto a actualizar:
+// src/components/Navbar.js - Teléfono header
+// src/components/WhatsAppButton.js - Botón flotante
+// src/components/Contacto.js - Información completa
+// src/components/BlogButtons.js - CTAs del blog
+
+const contactInfo = {
+  phone: "099 583 2788",
+  whatsapp: "593995832788", 
+  schedule: "Lun-Vie 8:00-18:00 | Sáb 8:00-14:00",
+  doctor: "Dra. Cristina Muñoz"
+};
+```
+
+## 📊 Analytics y Tracking
+
+### Configuración Actual
+- **Google Analytics:** G-FHN5JGKH34
+- **Facebook Pixel:** 827077656519595  
+- **TikTok Pixel:** D3FD2NBC77U7D8VS5C00
+- **Google Tag Manager:** GTM-WXW86JFH
+
+### Eventos Trackeados
+- `click_blog_cta` - Clicks en CTAs del blog
+- `click_whatsapp` - Interacciones WhatsApp
+- `emergency_contact` - Clicks en botón de emergencia
+- `page_view` - Vistas de página
+
+## 🔧 Componentes Importantes
+
+### BlogButtons.js
+Componentes cliente para botones con tracking:
+```jsx
+import { WhatsAppButton, CTAButton } from '@/components/BlogButtons';
+
+// Botón WhatsApp con tracking
+<WhatsAppButton 
+  href="https://wa.me/593995832788?text=Mensaje"
+  trackingLabel="blog_whatsapp_cta"
+>
+  Contactar por WhatsApp
+</WhatsAppButton>
+
+// Botón CTA genérico
+<CTAButton 
+  href="/contacto"
+  trackingLabel="blog_contact_cta"
+  isExternal={false}
+>
+  Agendar Cita
+</CTAButton>
+```
+
+## 🚀 Deploy
+
+### Netlify (Recomendado)
+```bash
+# Build command
+npm run build
+
+# Publish directory  
+out
+
+# Redirects file
+public/_redirects
+```
+
+### Vercel
+```bash
+# Comando automático al hacer push a main
+git push origin main
+```
+
+## 📱 Funcionalidades Destacadas
+
+### WhatsApp Business
+- Mensajes pre-escritos por contexto
+- Tracking de interacciones
+- Preparado para IA futura
+
+### SEO Optimizado
+- Sitemap automático
+- Meta tags dinámicos  
+- Open Graph para redes sociales
+- URLs amigables
+
+### Blog Profesional
+- 4 artículos especializados
+- Sistema de categorías
+- Posts relacionados
+- CTAs de conversión
+
+## 🔍 Estructura de URLs
+
+```
+/                                    # Landing principal
+/blog/                              # Blog principal
+/blog/uneros/                       # Categoría uñeros
+/blog/pie-diabetico/               # Categoría diabetes
+/blog/hongos/                      # Categoría hongos
+/blog/uneros/senales-unero-urgente/ # Artículo individual
+/faq/                              # Preguntas frecuentes
+/tips/                             # Consejos generales
+/tips/uneros/                      # Consejos específicos uñeros
+/tips/verano/                      # Consejos de verano
+```
+
+## 📄 Licencia
+
+Este proyecto es propiedad de PodoClinic y Dra. Cristina Muñoz.
+
+## 📞 Soporte
+
+Para soporte técnico o modificaciones:
+- **Teléfono:** 099 583 2788
+- **WhatsApp:** [Contactar](https://wa.me/593995832788)
+
+---
+
+**Última actualización:** 5 de octubre de 2025  
+**Versión:** 2.0.0 - Sistema de Blog Implementado
 
 ---
 

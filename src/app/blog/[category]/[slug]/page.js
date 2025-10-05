@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { category, slug } = params;
+  const { category, slug } = await params;
   const post = getPostBySlug(slug);
   
   return {
@@ -27,8 +27,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BlogPostPage({ params }) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   const relatedPosts = getRecentPosts(3).filter(p => p.id !== post?.id);
 
   if (!post) {
