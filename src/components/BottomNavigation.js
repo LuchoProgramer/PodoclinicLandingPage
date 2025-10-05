@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { 
     Home, 
     Stethoscope, 
@@ -13,6 +14,10 @@ import {
 
 export default function BottomNavigation() {
     const [activeSection, setActiveSection] = useState("inicio");
+    const pathname = usePathname();
+    
+    // Detectar si estamos en una página del blog
+    const isOnBlogPage = pathname.startsWith('/blog');
 
     // Detectar sección activa basado en scroll
     useEffect(() => {
@@ -64,7 +69,9 @@ export default function BottomNavigation() {
             id: "inicio",
             label: "Inicio",
             icon: Home,
-            action: () => {
+            isLink: isOnBlogPage,
+            href: isOnBlogPage ? "/#inicio" : undefined,
+            action: isOnBlogPage ? undefined : () => {
                 scrollToSection("inicio");
                 trackNavClick("inicio");
             }
@@ -73,7 +80,9 @@ export default function BottomNavigation() {
             id: "servicios", 
             label: "Servicios",
             icon: Stethoscope,
-            action: () => {
+            isLink: isOnBlogPage,
+            href: isOnBlogPage ? "/#servicios" : undefined,
+            action: isOnBlogPage ? undefined : () => {
                 scrollToSection("servicios");
                 trackNavClick("servicios");
             }
@@ -89,7 +98,9 @@ export default function BottomNavigation() {
             id: "doctora",
             label: "Doctora",
             icon: User,
-            action: () => {
+            isLink: isOnBlogPage,
+            href: isOnBlogPage ? "/#doctora" : undefined,
+            action: isOnBlogPage ? undefined : () => {
                 scrollToSection("doctora");
                 trackNavClick("doctora");
             }
@@ -98,7 +109,9 @@ export default function BottomNavigation() {
             id: "contacto",
             label: "Contacto",
             icon: MessageCircle,
-            action: () => {
+            isLink: isOnBlogPage,
+            href: isOnBlogPage ? "/#contacto" : undefined,
+            action: isOnBlogPage ? undefined : () => {
                 scrollToSection("contacto");
                 trackNavClick("contacto");
             }

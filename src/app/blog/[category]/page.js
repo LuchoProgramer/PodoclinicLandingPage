@@ -14,16 +14,65 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { category } = await params;
   
-  const categoryTitles = {
-    'uneros': 'Uñeros - Tratamiento y Prevención',
-    'diabetes': 'Cuidado Podológico para Diabéticos',
-    'hongos': 'Tratamiento de Hongos en Pies',
-    'cuidados': 'Cuidados Generales de los Pies'
+  const categoryData = {
+    'uneros': {
+      title: 'Tratamiento de Uñeros en Quito | Podoclinic',
+      description: 'Especialistas en tratamiento de uñeros en Quito. Técnicas avanzadas, atención personalizada y resultados garantizados. Dra. Cristina Muñoz.',
+      keywords: 'uñeros Quito, tratamiento uñeros, onicocriptosis, podología Quito, uña encarnada'
+    },
+    'pie-diabetico': {
+      title: 'Cuidado del Pie Diabético | Especialistas en Quito',
+      description: 'Atención especializada para pie diabético en Quito. Prevención, tratamiento y cuidados profesionales. Dra. Cristina Muñoz, especialista certificada.',
+      keywords: 'pie diabético Quito, cuidado pie diabético, diabetes podología, úlceras diabéticas'
+    },
+    'hongos': {
+      title: 'Tratamiento de Hongos en Pies | Podoclinic Quito',
+      description: 'Eliminación efectiva de hongos en pies y uñas. Tratamientos modernos y seguros en Quito. Consulta con la Dra. Cristina Muñoz.',
+      keywords: 'hongos pies Quito, onicomicosis, hongos uñas, tratamiento hongos podología'
+    }
   };
+
+  const data = categoryData[category] || {
+    title: 'Artículos de Podología - Podoclinic',
+    description: 'Artículos especializados en podología por la Dra. Cristina Muñoz en Quito.',
+    keywords: 'podología, artículos podología, cuidado pies'
+  };
+
+  const baseUrl = 'https://podoclinicec.com';
+  const canonicalUrl = `${baseUrl}/blog/${category}`;
   
   return {
-    title: `${categoryTitles[category] || 'Artículos'} - Podoclinic`,
-    description: `Artículos especializados sobre ${categoryTitles[category]?.toLowerCase() || 'podología'} por Dra. Cristina Muñoz`,
+    title: data.title,
+    description: data.description,
+    keywords: data.keywords,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      url: canonicalUrl,
+      siteName: 'PodoClinicec',
+      type: 'website',
+      images: [
+        {
+          url: `${baseUrl}/blog/${category}-category.jpg`,
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: data.title,
+      description: data.description,
+      images: [`${baseUrl}/blog/${category}-category.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 
@@ -33,23 +82,106 @@ export default async function CategoryPage({ params }) {
   
   const categoryTitles = {
     'uneros': 'Uñeros',
-    'diabetes': 'Diabetes y Pies',
+    'pie-diabetico': 'Pie Diabético',
     'hongos': 'Hongos',
     'cuidados': 'Cuidados Generales'
   };
 
+  const baseUrl = 'https://podoclinicec.com';
+  
+  // Schema.org para la página de categoría
+  const categorySchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `Artículos sobre ${categoryTitles[category]}`,
+    "description": `Artículos especializados sobre ${categoryTitles[category]} por la Dra. Cristina Muñoz`,
+    "url": `${baseUrl}/blog/${category}`,
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": posts.length,
+      "itemListElement": posts.map((post, index) => ({
+        "@type": "Article",
+        "position": index + 1,
+        "url": `${baseUrl}/blog/${category}/${post.slug}`,
+        "headline": post.title,
+        "description": post.excerpt,
+        "author": {
+          "@type": "Person",
+          "name": post.author
+        },
+        "datePublished": post.publishDate
+      }))
+    }
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${baseUrl}/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": categoryTitles[category]
+      }
+    ]
+  };
+
   return (
     <LayoutClient>
+      {/* Datos estructurados para SEO */}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(categorySchema) }} 
+      />
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} 
+      />
+      
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Breadcrumbs */}
-        <nav className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm">
-            <li><Link href="/" className="text-blue-600 hover:text-blue-800">Inicio</Link></li>
-            <li className="text-gray-500">/</li>
-            <li><Link href="/blog" className="text-blue-600 hover:text-blue-800">Blog</Link></li>
-            <li className="text-gray-500">/</li>
-            <li className="text-gray-900">{categoryTitles[category]}</li>
+        {/* Breadcrumbs mejorado */}
+        <nav className="mb-8" aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2 text-sm bg-white rounded-lg shadow-sm px-4 py-3">
+            <li>
+              <Link 
+                href="/" 
+                className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium transition-colors"
+                itemProp="item"
+              >
+                <span itemProp="name">🏠 Inicio</span>
+              </Link>
+            </li>
+            <li className="text-gray-400">›</li>
+            <li>
+              <Link 
+                href="/blog" 
+                className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium transition-colors"
+                itemProp="item"
+              >
+                <span itemProp="name">📝 Blog</span>
+              </Link>
+            </li>
+            <li className="text-gray-400">›</li>
+            <li className="text-gray-800 font-semibold" itemProp="name">
+              {category === 'uneros' && '🦶 Uñeros'}
+              {category === 'pie-diabetico' && '🩺 Pie Diabético'}
+              {category === 'hongos' && '🍄 Hongos'}
+              {!['uneros', 'pie-diabetico', 'hongos'].includes(category) && '📄 Artículos'}
+            </li>
           </ol>
         </nav>
 

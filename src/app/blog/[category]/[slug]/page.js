@@ -17,45 +17,230 @@ export async function generateMetadata({ params }) {
   const { category, slug } = await params;
   const post = getPostBySlug(slug);
   
+  if (!post) {
+    return {
+      title: 'Artículo no encontrado - Podoclinic',
+      description: 'El artículo que buscas no existe.',
+    };
+  }
+
+  const baseUrl = 'https://podoclinicec.com';
+  const canonicalUrl = `${baseUrl}/blog/${category}/${slug}`;
+  
   return {
-    title: post?.title || 'Artículo - Podoclinic',
-    description: post?.excerpt || 'Artículo de podología por Dra. Cristina Muñoz',
+    title: post.metaTitle || `${post.title} | PodoClinicec`,
+    description: post.metaDescription || post.excerpt,
+    keywords: post.tags?.join(', '),
+    authors: [{ name: post.author }],
+    creator: post.author,
+    publisher: 'PodoClinicec',
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: post?.title || 'Artículo - Podoclinic',
-      description: post?.excerpt || 'Artículo de podología por Dra. Cristina Muñoz',
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.excerpt,
+      url: canonicalUrl,
+      siteName: 'PodoClinicec',
       type: 'article',
+      publishedTime: post.publishDate,
+      modifiedTime: post.lastModified || post.publishDate,
+      authors: [post.author],
+      section: post.category,
+      tags: post.tags,
+      images: [
+        {
+          url: post.image || `${baseUrl}/blog/default-article.jpg`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.excerpt,
+      images: [post.image || `${baseUrl}/blog/default-article.jpg`],
+      creator: '@podoclinicec',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }
 
 export default async function BlogPostPage({ params }) {
-  const { slug } = await params;
+  const { slug, category } = await params;
   const post = getPostBySlug(slug);
-  const relatedPosts = getRecentPosts(3).filter(p => p.id !== post?.id);
+  const recentPosts = getRecentPosts(3);
 
   if (!post) {
     notFound();
   }
 
+  const baseUrl = 'https://podoclinicec.com';
+  const canonicalUrl = `${baseUrl}/blog/${category}/${slug}`;
+
+  // Schema.org para el artículo
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.image || `${baseUrl}/blog/default-article.jpg`,
+    "author": {
+      "@type": "Person",
+      "name": post.author,
+      "jobTitle": "Especialista en Podología",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "PodoClinicec",
+        "url": baseUrl
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PodoClinicec",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logo-podoclinic.png`
+      },
+      "url": baseUrl
+    },
+    "url": canonicalUrl,
+    "datePublished": post.publishDate,
+    "dateModified": post.lastModified || post.publishDate,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "articleSection": post.category,
+    "keywords": post.tags?.join(', '),
+    "wordCount": post.content?.length || 1500,
+    "timeRequired": post.readTime,
+    "inLanguage": "es-EC",
+    "isAccessibleForFree": true
+  };
+
+  // Schema.org para breadcrumbs
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem", 
+        "position": 2,
+        "name": "Blog",
+        "item": `${baseUrl}/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.category === 'uneros' ? 'Uñeros' : 
+               post.category === 'pie-diabetico' ? 'Pie Diabético' :
+               post.category === 'hongos' ? 'Hongos' : 'Artículos',
+        "item": `${baseUrl}/blog/${category}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": post.title
+      }
+    ]
+  };
+
+  // Schema.org para la organización médica
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "PodoClinicec",
+    "url": baseUrl,
+    "logo": `${baseUrl}/logo-podoclinic.png`,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Manuel Jordan y Av La Florida",
+      "addressLocality": "Quito",
+      "addressRegion": "Pichincha",
+      "postalCode": "170511",
+      "addressCountry": "EC"
+    },
+    "telephone": "+593995832788",
+    "medicalSpecialty": "Podiatry"
+  };
+
   return (
     <LayoutClient>
+      {/* Datos estructurados para SEO */}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} 
+      />
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} 
+      />
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} 
+      />
+      
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-      {/* Breadcrumb */}
-      <div className="bg-white border-b">
+      {/* Breadcrumb mejorado con Schema.org */}
+      <div className="bg-white border-b shadow-sm">
         <div className="max-w-4xl mx-auto px-6 py-4">
-          <nav className="flex items-center text-sm text-gray-600">
-            <Link href="/" className="hover:text-[#60BEC3]">Inicio</Link>
-            <span className="mx-2">/</span>
-            <Link href="/blog" className="hover:text-[#60BEC3]">Blog</Link>
-            <span className="mx-2">/</span>
-            <Link href={`/blog/${post.category}`} className="hover:text-[#60BEC3] capitalize">
-              {post.category.replace('-', ' ')}
+          <nav className="flex items-center text-sm text-gray-600" aria-label="Breadcrumb">
+            <Link 
+              href="/" 
+              className="hover:text-[#60BEC3] transition-colors font-medium"
+              itemProp="item"
+            >
+              <span itemProp="name">🏠 Inicio</span>
             </Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-800">{post.title}</span>
+            <span className="mx-2 text-gray-400">›</span>
+            <Link 
+              href="/blog" 
+              className="hover:text-[#60BEC3] transition-colors font-medium"
+              itemProp="item"
+            >
+              <span itemProp="name">📝 Blog</span>
+            </Link>
+            <span className="mx-2 text-gray-400">›</span>
+            <Link 
+              href={`/blog/${category}`} 
+              className="hover:text-[#60BEC3] transition-colors font-medium"
+              itemProp="item"
+            >
+              <span itemProp="name">
+                {category === 'uneros' && '🦶 Uñeros'}
+                {category === 'pie-diabetico' && '🩺 Pie Diabético'}
+                {category === 'hongos' && '🍄 Hongos'}
+                {!['uneros', 'pie-diabetico', 'hongos'].includes(category) && '📄 Artículos'}
+              </span>
+            </Link>
+            <span className="mx-2 text-gray-400">›</span>
+            <span className="text-gray-800 font-semibold truncate" itemProp="name">
+              {post.title}
+            </span>
           </nav>
         </div>
       </div>
+
+      {/* Artículo principal */}
 
       {/* Header del Post */}
       <article className="max-w-4xl mx-auto px-6 py-12">
@@ -277,7 +462,7 @@ export default async function BlogPostPage({ params }) {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {relatedPosts.map((relatedPost) => (
+            {recentPosts.map((relatedPost) => (
               <article key={relatedPost.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="h-32 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
                   <span className="text-gray-500 text-sm">{relatedPost.category}</span>

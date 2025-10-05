@@ -2,10 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Clock, BookOpen, Home, Stethoscope, User, MessageCircle } from "lucide-react";
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("inicio");
+    const pathname = usePathname();
+    
+    // Detectar si estamos en una página del blog
+    const isOnBlogPage = pathname.startsWith('/blog');
 
     // Detectar sección activa
     useEffect(() => {
@@ -78,51 +83,71 @@ export default function Navbar() {
             {/* Navbar principal */}
             <div className="bg-white p-4">
                 <div className="container mx-auto flex justify-between items-center">
-                    <button
-                        onClick={() => {
-                            scrollToSection("inicio");
-                            trackNavClick("logo");
-                        }}
+                    <Link
+                        href="/"
                         className="hover:opacity-80 transition-opacity"
+                        onClick={() => trackNavClick("logo")}
                     >
                         <img
                             src="https://res.cloudinary.com/dbbukhtz5/image/upload/v1738695404/podoclinic_navbar_landing_page_bcwytb.png"
                             alt="PodoClinic"
                             className="h-12 w-auto object-contain"
                         />
-                    </button>
+                    </Link>
                     
                     {/* Navegación central - Solo Desktop */}
                     <div className="hidden md:flex items-center space-x-8">
-                        <button
-                            onClick={() => {
-                                scrollToSection("inicio");
-                                trackNavClick("inicio");
-                            }}
-                            className={`flex items-center space-x-2 font-medium transition-colors ${
-                                activeSection === "inicio" 
-                                    ? "text-[#60BEC3]" 
-                                    : "text-gray-700 hover:text-[#60BEC3]"
-                            }`}
-                        >
-                            <Home className="w-4 h-4" />
-                            <span>Inicio</span>
-                        </button>
+                        {isOnBlogPage ? (
+                            <Link
+                                href="/#inicio"
+                                onClick={() => trackNavClick("inicio")}
+                                className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
+                            >
+                                <Home className="w-4 h-4" />
+                                <span>Inicio</span>
+                            </Link>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    scrollToSection("inicio");
+                                    trackNavClick("inicio");
+                                }}
+                                className={`flex items-center space-x-2 font-medium transition-colors ${
+                                    activeSection === "inicio" 
+                                        ? "text-[#60BEC3]" 
+                                        : "text-gray-700 hover:text-[#60BEC3]"
+                                }`}
+                            >
+                                <Home className="w-4 h-4" />
+                                <span>Inicio</span>
+                            </button>
+                        )}
 
-                        <button
-                            onClick={() => {
-                                scrollToSection("servicios");
-                                trackNavClick("servicios");
-                            }}
-                            className={`flex items-center space-x-2 font-medium transition-colors ${
-                                activeSection === "servicios" 
-                                    ? "text-[#60BEC3]" 
-                                    : "text-gray-700 hover:text-[#60BEC3]"
-                            }`}
-                        >
-                            <Stethoscope className="w-4 h-4" />
-                            <span>Servicios</span>
-                        </button>
+                        {isOnBlogPage ? (
+                            <Link
+                                href="/#servicios"
+                                onClick={() => trackNavClick("servicios")}
+                                className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
+                            >
+                                <Stethoscope className="w-4 h-4" />
+                                <span>Servicios</span>
+                            </Link>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    scrollToSection("servicios");
+                                    trackNavClick("servicios");
+                                }}
+                                className={`flex items-center space-x-2 font-medium transition-colors ${
+                                    activeSection === "servicios" 
+                                        ? "text-[#60BEC3]" 
+                                        : "text-gray-700 hover:text-[#60BEC3]"
+                                }`}
+                            >
+                                <Stethoscope className="w-4 h-4" />
+                                <span>Servicios</span>
+                            </button>
+                        )}
                         
                         <Link 
                             href="/blog"
@@ -133,35 +158,57 @@ export default function Navbar() {
                             <span>Blog</span>
                         </Link>
 
-                        <button
-                            onClick={() => {
-                                scrollToSection("doctora");
-                                trackNavClick("doctora");
-                            }}
-                            className={`flex items-center space-x-2 font-medium transition-colors ${
-                                activeSection === "doctora" 
-                                    ? "text-[#60BEC3]" 
-                                    : "text-gray-700 hover:text-[#60BEC3]"
-                            }`}
-                        >
-                            <User className="w-4 h-4" />
-                            <span>Doctora</span>
-                        </button>
+                        {isOnBlogPage ? (
+                            <Link
+                                href="/#doctora"
+                                onClick={() => trackNavClick("doctora")}
+                                className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
+                            >
+                                <User className="w-4 h-4" />
+                                <span>Doctora</span>
+                            </Link>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    scrollToSection("doctora");
+                                    trackNavClick("doctora");
+                                }}
+                                className={`flex items-center space-x-2 font-medium transition-colors ${
+                                    activeSection === "doctora" 
+                                        ? "text-[#60BEC3]" 
+                                        : "text-gray-700 hover:text-[#60BEC3]"
+                                }`}
+                            >
+                                <User className="w-4 h-4" />
+                                <span>Doctora</span>
+                            </button>
+                        )}
 
-                        <button
-                            onClick={() => {
-                                scrollToSection("contacto");
-                                trackNavClick("contacto");
-                            }}
-                            className={`flex items-center space-x-2 font-medium transition-colors ${
-                                activeSection === "contacto" 
-                                    ? "text-[#60BEC3]" 
-                                    : "text-gray-700 hover:text-[#60BEC3]"
-                            }`}
-                        >
-                            <MessageCircle className="w-4 h-4" />
-                            <span>Contacto</span>
-                        </button>
+                        {isOnBlogPage ? (
+                            <Link
+                                href="/#contacto"
+                                onClick={() => trackNavClick("contacto")}
+                                className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
+                            >
+                                <MessageCircle className="w-4 h-4" />
+                                <span>Contacto</span>
+                            </Link>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    scrollToSection("contacto");
+                                    trackNavClick("contacto");
+                                }}
+                                className={`flex items-center space-x-2 font-medium transition-colors ${
+                                    activeSection === "contacto" 
+                                        ? "text-[#60BEC3]" 
+                                        : "text-gray-700 hover:text-[#60BEC3]"
+                                }`}
+                            >
+                                <MessageCircle className="w-4 h-4" />
+                                <span>Contacto</span>
+                            </button>
+                        )}
                     </div>
                     
                     {/* Botón de emergencia */}

@@ -6,11 +6,45 @@ import LayoutClient from "@/components/LayoutClient";
 export const metadata = {
   title: "Blog Podológico | Consejos y Tratamientos | Dra. Cristina Muñoz",
   description: "Aprende sobre cuidado de pies, tratamiento de uñeros, pie diabético y más. Consejos profesionales de la Dra. Cristina Muñoz en Quito.",
-  keywords: "blog podología, uñeros, pie diabético, hongos uñas, cuidado pies Quito",
+  keywords: "blog podología, uñeros, pie diabético, hongos uñas, cuidado pies Quito, podólogo Quito",
+  authors: [{ name: "Dra. Cristina Muñoz" }],
+  creator: "Dra. Cristina Muñoz",
+  publisher: "PodoClinicec",
+  alternates: {
+    canonical: "https://podoclinicec.com/blog",
+  },
   openGraph: {
+    title: "Blog Podológico | Dra. Cristina Muñoz | PodoClinicec",
+    description: "Consejos profesionales y tratamientos especializados en podología. Artículos sobre uñeros, pie diabético, hongos y cuidado integral de pies.",
+    url: "https://podoclinicec.com/blog",
+    siteName: "PodoClinicec",
+    type: "website",
+    images: [
+      { 
+        url: "https://podoclinicec.com/blog/blog-og-image.jpg", 
+        width: 1200, 
+        height: 630,
+        alt: "Blog Podológico PodoClinicec"
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Blog Podológico | Dra. Cristina Muñoz",
     description: "Consejos profesionales y tratamientos especializados en podología",
-    images: [{ url: "/blog/blog-og-image.jpg" }],
+    images: ["https://podoclinicec.com/blog/blog-og-image.jpg"],
+    creator: "@podoclinicec",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -18,11 +52,74 @@ export default function BlogPage() {
   const featuredPosts = getFeaturedPosts();
   const recentPosts = getRecentPosts(6);
 
+  // Schema.org para la página principal del blog
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Podológico PodoClinicec",
+    "description": "Artículos especializados en podología por la Dra. Cristina Muñoz",
+    "url": "https://podoclinicec.com/blog",
+    "author": {
+      "@type": "Person",
+      "name": "Dra. Cristina Muñoz",
+      "jobTitle": "Especialista en Podología",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "PodoClinicec",
+        "url": "https://podoclinicec.com"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PodoClinicec",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://podoclinicec.com/logo-podoclinic.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": featuredPosts.length + recentPosts.length,
+      "itemListElement": [
+        ...featuredPosts.map((post, index) => ({
+          "@type": "Article",
+          "position": index + 1,
+          "url": `https://podoclinicec.com/blog/${post.category}/${post.slug}`,
+          "headline": post.title,
+          "description": post.excerpt,
+          "author": {
+            "@type": "Person",
+            "name": post.author
+          },
+          "datePublished": post.publishDate
+        })),
+        ...recentPosts.map((post, index) => ({
+          "@type": "Article",
+          "position": featuredPosts.length + index + 1,
+          "url": `https://podoclinicec.com/blog/${post.category}/${post.slug}`,
+          "headline": post.title,
+          "description": post.excerpt,
+          "author": {
+            "@type": "Person",
+            "name": post.author
+          },
+          "datePublished": post.publishDate
+        }))
+      ]
+    }
+  };
+
   return (
     <LayoutClient>
+      {/* Datos estructurados para SEO */}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} 
+      />
+      
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* Header del Blog */}
-      <section className="py-16 bg-white">
+      <section className="pt-24 pb-16 md:pt-20 md:pb-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
