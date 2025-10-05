@@ -73,7 +73,7 @@ export default function WhatsAppButton() {
     };
 
     return (
-        <div className={`fixed bottom-6 right-6 z-40 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`fixed bottom-6 right-6 z-30 transition-all duration-500 hidden md:block ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {/* Animación de pulso más sutil */}
             <div className="absolute inset-0 bg-[#1EBE5D] rounded-full animate-ping opacity-30"></div>
             
