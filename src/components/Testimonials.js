@@ -190,10 +190,34 @@ export default function Testimonials() {
                         ¿Listo para ser nuestro próximo caso de éxito?
                     </p>
                     <a
-                        href="https://wa.me/593995832788?text=¡Hola!%20Quiero%20agendar%20mi%20primera%20consulta"
+                        href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20He%20visto%20los%20testimonios%20y%20quiero%20agendar%20mi%20primera%20consulta"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center bg-gradient-to-r from-[#60BEC3] to-[#1EBE5D] text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300"
+                        className="inline-flex items-center bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300"
+                        onClick={() => {
+                            // Google Analytics
+                            if (typeof window !== "undefined" && window.gtag) {
+                                window.gtag("event", "click_testimonials_cta", {
+                                    event_category: "engagement",
+                                    event_label: "Agenda consulta desde testimonials"
+                                });
+                            }
+                            
+                            // TikTok Pixel
+                            if (typeof window !== "undefined" && window.ttq) {
+                                window.ttq.track('Contact', {
+                                    content_type: 'testimonials_cta',
+                                    content_name: 'Agenda consulta testimonials'
+                                });
+                            }
+                            
+                            // Facebook Pixel
+                            if (typeof window !== "undefined" && window.fbq) {
+                                window.fbq('track', 'Contact', {
+                                    content_name: 'Testimonials CTA'
+                                });
+                            }
+                        }}
                     >
                         <Shield className="w-5 h-5 mr-2" />
                         Agenda tu consulta ahora
