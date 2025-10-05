@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { FaTimes, FaWhatsapp, FaPhone, FaUser, FaStethoscope } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { 
+    X, 
+    Phone, 
+    User, 
+    Stethoscope,
+    MessageSquare,
+    Calendar,
+    Clock
+} from "lucide-react";
 
 export default function ContactModal({ isOpen, onClose }) {
     const [formData, setFormData] = useState({
@@ -75,15 +84,18 @@ Enviado desde el formulario web 📝`;
                 {/* Header */}
                 <div className="bg-gradient-to-r from-[#60BEC3] to-[#1EBE5D] text-white p-6 rounded-t-lg">
                     <div className="flex justify-between items-center">
-                        <div>
-                            <h2 className="text-xl font-bold">¡Agenda tu cita! 📅</h2>
-                            <p className="text-sm opacity-90">Te contactaremos por WhatsApp</p>
+                        <div className="flex items-center">
+                            <Calendar className="w-6 h-6 mr-3" />
+                            <div>
+                                <h2 className="text-xl font-bold">¡Agenda tu cita!</h2>
+                                <p className="text-sm opacity-90">Te contactaremos por WhatsApp</p>
+                            </div>
                         </div>
                         <button 
                             onClick={onClose}
                             className="text-white hover:text-gray-200 transition"
                         >
-                            <FaTimes className="w-5 h-5" />
+                            <X className="w-5 h-5" />
                         </button>
                     </div>
                 </div>
@@ -92,8 +104,8 @@ Enviado desde el formulario web 📝`;
                 <form onSubmit={handleSubmit} className="p-6 space-y-4">
                     {/* Nombre */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                            <FaUser className="inline w-4 h-4 mr-2 text-[#60BEC3]" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            <User className="w-4 h-4 mr-2 text-[#60BEC3]" />
                             Nombre completo *
                         </label>
                         <input
@@ -109,8 +121,8 @@ Enviado desde el formulario web 📝`;
 
                     {/* Teléfono */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                            <FaPhone className="inline w-4 h-4 mr-2 text-[#60BEC3]" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            <Phone className="w-4 h-4 mr-2 text-[#60BEC3]" />
                             Teléfono / WhatsApp *
                         </label>
                         <input
@@ -126,8 +138,8 @@ Enviado desde el formulario web 📝`;
 
                     {/* Servicio */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                            <FaStethoscope className="inline w-4 h-4 mr-2 text-[#60BEC3]" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            <Stethoscope className="w-4 h-4 mr-2 text-[#60BEC3]" />
                             ¿Qué necesitas? *
                         </label>
                         <select
@@ -138,19 +150,20 @@ Enviado desde el formulario web 📝`;
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent"
                         >
                             <option value="">Selecciona un servicio</option>
-                            <option value="Tratamiento de uñeros">🦶 Tratamiento de uñeros</option>
-                            <option value="Cuidado pie diabético">🩺 Cuidado pie diabético</option>
-                            <option value="Eliminación verrugas">🧴 Eliminación de verrugas</option>
-                            <option value="Tratamiento hongos">🧪 Tratamiento de hongos</option>
-                            <option value="Lesiones deportivas">⚽ Lesiones deportivas</option>
-                            <option value="Consulta general">👨‍⚕️ Consulta general</option>
-                            <option value="Atención domicilio">🏠 Atención a domicilio</option>
+                            <option value="Tratamiento de uñeros">Tratamiento de uñeros</option>
+                            <option value="Cuidado pie diabético">Cuidado pie diabético</option>
+                            <option value="Eliminación verrugas">Eliminación de verrugas</option>
+                            <option value="Tratamiento hongos">Tratamiento de hongos</option>
+                            <option value="Lesiones deportivas">Lesiones deportivas</option>
+                            <option value="Consulta general">Consulta general</option>
+                            <option value="Atención domicilio">Atención a domicilio</option>
                         </select>
                     </div>
 
                     {/* Mensaje */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            <MessageSquare className="w-4 h-4 mr-2 text-[#60BEC3]" />
                             Cuéntanos más (opcional)
                         </label>
                         <textarea
@@ -172,8 +185,9 @@ Enviado desde el formulario web 📝`;
                             <FaWhatsapp className="w-5 h-5 mr-2" />
                             Enviar por WhatsApp
                         </button>
-                        <p className="text-xs text-gray-500 text-center mt-2">
-                            Te contactaremos en máximo 30 minutos ⏰
+                        <p className="text-xs text-gray-500 text-center mt-2 flex items-center justify-center">
+                            <Clock className="w-3 h-3 mr-1" />
+                            Te contactaremos en máximo 30 minutos
                         </p>
                     </div>
                 </form>

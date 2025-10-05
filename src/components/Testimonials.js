@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { FaStar, FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { 
+    Star, 
+    Quote, 
+    ChevronLeft, 
+    ChevronRight,
+    Users,
+    Award,
+    Clock,
+    Shield
+} from "lucide-react";
 
 export default function Testimonials() {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -67,18 +76,30 @@ export default function Testimonials() {
                 {/* Estadísticas */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
                     <div className="text-center">
+                        <div className="flex justify-center mb-2">
+                            <Users className="w-8 h-8 text-[#60BEC3]" />
+                        </div>
                         <div className="text-2xl md:text-3xl font-bold text-[#60BEC3]">500+</div>
                         <div className="text-sm text-gray-600">Pacientes atendidos</div>
                     </div>
                     <div className="text-center">
+                        <div className="flex justify-center mb-2">
+                            <Award className="w-8 h-8 text-[#60BEC3]" />
+                        </div>
                         <div className="text-2xl md:text-3xl font-bold text-[#60BEC3]">98%</div>
                         <div className="text-sm text-gray-600">Satisfacción</div>
                     </div>
                     <div className="text-center">
+                        <div className="flex justify-center mb-2">
+                            <Shield className="w-8 h-8 text-[#60BEC3]" />
+                        </div>
                         <div className="text-2xl md:text-3xl font-bold text-[#60BEC3]">5+</div>
                         <div className="text-sm text-gray-600">Años experiencia</div>
                     </div>
                     <div className="text-center">
+                        <div className="flex justify-center mb-2">
+                            <Clock className="w-8 h-8 text-[#60BEC3]" />
+                        </div>
                         <div className="text-2xl md:text-3xl font-bold text-[#60BEC3]">24h</div>
                         <div className="text-sm text-gray-600">Tiempo respuesta</div>
                     </div>
@@ -89,7 +110,7 @@ export default function Testimonials() {
                     <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
                         {/* Icono de comillas */}
                         <div className="absolute top-6 left-6 text-[#60BEC3] opacity-20">
-                            <FaQuoteLeft className="w-8 h-8" />
+                            <Quote className="w-8 h-8" />
                         </div>
 
                         {/* Contenido del testimonio */}
@@ -107,7 +128,7 @@ export default function Testimonials() {
                             {/* Rating */}
                             <div className="flex items-center justify-center mb-4">
                                 {[...Array(current.rating)].map((_, i) => (
-                                    <FaStar key={i} className="w-5 h-5 text-yellow-400 mr-1" />
+                                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current mr-1" />
                                 ))}
                             </div>
 
@@ -116,12 +137,14 @@ export default function Testimonials() {
                                 <div className="font-semibold text-gray-800 text-lg">
                                     {current.name}
                                 </div>
-                                <div className="text-gray-500 text-sm">
-                                    {current.age} • 
+                                <div className="text-gray-500 text-sm flex items-center justify-center">
+                                    {current.age}
                                     {current.verified && (
-                                        <span className="text-green-600 ml-1">
-                                            ✅ Paciente verificado
-                                        </span>
+                                        <>
+                                            <span className="mx-2">•</span>
+                                            <Shield className="w-4 h-4 text-green-600 mr-1" />
+                                            <span className="text-green-600">Paciente verificado</span>
+                                        </>
                                     )}
                                 </div>
                             </div>
@@ -134,7 +157,7 @@ export default function Testimonials() {
                             onClick={prevTestimonial}
                             className="bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition duration-300"
                         >
-                            <FaChevronLeft className="w-4 h-4 text-gray-600" />
+                            <ChevronLeft className="w-4 h-4 text-gray-600" />
                         </button>
 
                         {/* Indicadores */}
@@ -156,7 +179,7 @@ export default function Testimonials() {
                             onClick={nextTestimonial}
                             className="bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition duration-300"
                         >
-                            <FaChevronRight className="w-4 h-4 text-gray-600" />
+                            <ChevronRight className="w-4 h-4 text-gray-600" />
                         </button>
                     </div>
                 </div>
@@ -170,9 +193,10 @@ export default function Testimonials() {
                         href="https://wa.me/593995832788?text=¡Hola!%20Quiero%20agendar%20mi%20primera%20consulta"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-gradient-to-r from-[#60BEC3] to-[#1EBE5D] text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300"
+                        className="inline-flex items-center bg-gradient-to-r from-[#60BEC3] to-[#1EBE5D] text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300"
                     >
-                        🩺 Agenda tu consulta ahora
+                        <Shield className="w-5 h-5 mr-2" />
+                        Agenda tu consulta ahora
                     </a>
                 </div>
             </div>

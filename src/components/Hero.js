@@ -4,6 +4,17 @@
 
 import { useState } from "react";
 import ContactModal from "./ContactModal";
+import { 
+    CalendarDays, 
+    Phone, 
+    CheckCircle, 
+    Clock, 
+    Home, 
+    Stethoscope,
+    Star,
+    BadgePercent,
+    MessageCircle
+} from "lucide-react";
 
 export default function Hero() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,11 +54,13 @@ export default function Hero() {
             <section className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-r from-[#60BEC3] to-[#79A373] px-6">
                 {/* Badges de urgencia */}
                 <div className="absolute top-8 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 justify-center">
-                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium shadow-lg">
-                        ✅ Disponible HOY
+                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium shadow-lg flex items-center">
+                        <CheckCircle className="w-4 h-4 mr-1" />
+                        Disponible HOY
                     </span>
-                    <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium shadow-lg">
-                        ⏰ Solo 3 cupos restantes
+                    <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium shadow-lg flex items-center">
+                        <Clock className="w-4 h-4 mr-1" />
+                        Solo 3 cupos restantes
                     </span>
                 </div>
 
@@ -64,17 +77,23 @@ export default function Hero() {
                     {/* Beneficios clave */}
                     <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mt-8">
                         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-                            <div className="text-2xl mb-2">🩺</div>
+                            <div className="flex justify-center mb-2">
+                                <Stethoscope className="w-8 h-8 text-yellow-300" />
+                            </div>
                             <p className="font-semibold">Primera consulta</p>
                             <p className="text-sm">50% descuento</p>
                         </div>
                         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-                            <div className="text-2xl mb-2">🏠</div>
+                            <div className="flex justify-center mb-2">
+                                <Home className="w-8 h-8 text-yellow-300" />
+                            </div>
                             <p className="font-semibold">Atención a domicilio</p>
                             <p className="text-sm">Disponible</p>
                         </div>
                         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-                            <div className="text-2xl mb-2">⏰</div>
+                            <div className="flex justify-center mb-2">
+                                <Clock className="w-8 h-8 text-yellow-300" />
+                            </div>
                             <p className="font-semibold">Respuesta rápida</p>
                             <p className="text-sm">Máximo 30 min</p>
                         </div>
@@ -84,27 +103,32 @@ export default function Hero() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                         <button
                             onClick={handleReservaClick}
-                            className="bg-white text-[#60BEC3] px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl hover:bg-gray-100 transition-transform transform hover:scale-105"
+                            className="bg-white text-[#60BEC3] px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl hover:bg-gray-100 transition-transform transform hover:scale-105 flex items-center justify-center"
                         >
-                            🗓️ Reserva tu Cita GRATIS
+                            <CalendarDays className="w-5 h-5 mr-2" />
+                            Reserva tu Cita GRATIS
                         </button>
                         
                         <a
                             href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20una%20consulta%20urgente"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-[#60BEC3] transition duration-300"
+                            className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-[#60BEC3] transition duration-300 flex items-center justify-center"
                         >
-                            💬 Consulta por WhatsApp
+                            <MessageCircle className="w-5 h-5 mr-2" />
+                            Consulta por WhatsApp
                         </a>
                     </div>
 
                     {/* Promoción con urgencia */}
-                    <div className="bg-yellow-400 text-yellow-900 px-6 py-3 rounded-lg shadow-lg max-w-lg mx-auto mt-6">
-                        <p className="font-bold text-sm">
-                            ⚡ PROMOCIÓN LIMITADA: Primera consulta solo $15 (precio normal $30)
-                        </p>
-                        <p className="text-xs">Válido hasta el 31 de octubre</p>
+                    <div className="bg-yellow-400 text-yellow-900 px-6 py-3 rounded-lg shadow-lg max-w-lg mx-auto mt-6 flex items-center justify-center">
+                        <BadgePercent className="w-5 h-5 mr-2" />
+                        <div>
+                            <p className="font-bold text-sm">
+                                PROMOCIÓN LIMITADA: Primera consulta solo $15 (precio normal $30)
+                            </p>
+                            <p className="text-xs">Válido hasta el 31 de octubre</p>
+                        </div>
                     </div>
                 </div>
 
@@ -119,7 +143,9 @@ export default function Hero() {
                             <p className="text-xs text-gray-500">Paciente verificado</p>
                         </div>
                         <div className="flex items-center space-x-1">
-                            <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} className="w-4 h-4 text-yellow-500 fill-current" />
+                            ))}
                         </div>
                     </div>
                 </div>
