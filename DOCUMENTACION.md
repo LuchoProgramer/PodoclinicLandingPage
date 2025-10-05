@@ -118,7 +118,139 @@ src/
 - Facebook Pixel (fbq)
 - TikTok Pixel (ttq)
 
-## 🚀 SEO y Optimización
+## � Mapas de Calor (Microsoft Clarity)
+
+### Configuración Actual
+- **ID de Clarity:** o4qcj2k9pm
+- **Herramienta:** Microsoft Clarity (Gratuita)
+- **Estado:** Activo y recopilando datos
+
+### Características Implementadas
+
+#### 🖱️ Click Heatmaps
+- **Función:** Muestra dónde hacen clic los usuarios
+- **Beneficio:** Optimizar ubicación de CTAs y botones
+- **Aplicación en PodoClinic:**
+  - Optimizar botón de WhatsApp
+  - Mejorar CTAs de emergencia
+  - Analizar clicks en servicios
+
+#### 📜 Scroll Heatmaps
+- **Función:** Muestra hasta dónde bajan los usuarios
+- **Beneficio:** Identificar contenido más leído
+- **Aplicación en PodoClinic:**
+  - Optimizar longitud de artículos del blog
+  - Reposicionar información importante
+  - Mejorar estructura de la landing
+
+#### 🎯 Move Heatmaps
+- **Función:** Rastrea movimiento del mouse
+- **Beneficio:** Entender patrones de atención
+- **Aplicación en PodoClinic:**
+  - Optimizar diseño de testimonios
+  - Mejorar sección "Conoce a la Doctora"
+  - Analizar interacción con servicios
+
+#### 📹 Session Recordings
+- **Función:** Grabaciones reales de navegación
+- **Beneficio:** Ver experiencia completa del usuario
+- **Aplicación en PodoClinic:**
+  - Identificar puntos de confusión
+  - Optimizar proceso de contacto
+  - Mejorar navegación móvil
+
+### Acceso a los Datos
+
+#### Dashboard de Clarity
+1. **URL:** https://clarity.microsoft.com/
+2. **Login:** Cuenta asociada al proyecto
+3. **Proyecto:** PodoClinic (ID: o4qcj2k9pm)
+
+#### Métricas Disponibles
+- **Dead clicks** - Clicks en elementos no interactivos
+- **Rage clicks** - Clicks repetidos por frustración
+- **Scroll reach** - Porcentaje de página vista
+- **Session duration** - Tiempo en página
+- **Page views** - Páginas más visitadas
+
+### Insights Esperados para PodoClinic
+
+#### 📊 Optimización de Conversión
+- ¿Los usuarios encuentran fácilmente el botón de emergencia?
+- ¿Qué servicios generan más interés?
+- ¿El formulario de contacto tiene fricción?
+
+#### 📱 Experiencia Móvil
+- ¿La navegación móvil es intuitiva?
+- ¿El botón de WhatsApp está bien posicionado?
+- ¿Los textos son legibles en móvil?
+
+#### 📝 Contenido del Blog
+- ¿Los usuarios leen artículos completos?
+- ¿Qué artículos generan más engagement?
+- ¿Los CTAs del blog son efectivos?
+
+#### 👩‍⚕️ Información de la Doctora
+- ¿Los usuarios leen la información profesional?
+- ¿La foto genera confianza?
+- ¿Las certificaciones son importantes?
+
+### Implementación Técnica
+
+#### Script de Clarity
+```javascript
+// Microsoft Clarity - Layout.js
+<Script id="microsoft-clarity" strategy="afterInteractive">
+  {`
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "o4qcj2k9pm");
+  `}
+</Script>
+```
+
+#### Content Security Policy
+```javascript
+// CSP actualizado para incluir Clarity
+script-src 'self' 'unsafe-inline' 'unsafe-eval' ... https://www.clarity.ms
+connect-src 'self' ... https://www.clarity.ms
+img-src 'self' data: https: ... https://www.clarity.ms
+```
+
+### Próximos Pasos con los Datos
+
+#### Semana 1-2: Recopilación Inicial
+- Permitir acumulación de datos base
+- Identificar patrones generales
+- Detectar problemas evidentes
+
+#### Semana 3-4: Análisis y Optimización
+- Análizar heatmaps por sección
+- Optimizar elementos con baja interacción
+- Mejorar CTAs basado en datos
+
+#### Mes 2+: Iteración Continua
+- A/B testing basado en insights
+- Optimización constante de conversión
+- Mejoras en UX basadas en comportamiento real
+
+### Privacidad y Compliance
+
+#### GDPR/LOPD Compliance
+- Clarity no recopila información personal
+- Solo patrones de comportamiento anónimos
+- Compatible con políticas de privacidad médica
+
+#### Datos Seguros
+- Microsoft Clarity es GDPR compliant
+- Datos encriptados en tránsito y reposo
+- No almacena información sensible
+
+---
+
+## �🚀 SEO y Optimización
 
 ### Configuración SEO
 - **Sitemap automático** - Generado con next-sitemap
@@ -132,6 +264,7 @@ src/
 - **Facebook Pixel** - Conversiones y remarketing
 - **TikTok Pixel** - Tracking de audiencia
 - **Google Tag Manager** - Gestión centralizada
+- **Microsoft Clarity** - Mapas de calor y grabaciones de sesiones
 
 ## 🎯 Personalizaciones
 

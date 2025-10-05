@@ -2,6 +2,34 @@
 
 Todas las modificaciones importantes del proyecto están documentadas en este archivo.
 
+## [2.1.0] - 2025-10-05
+
+### ✨ Nuevas Características
+- **Microsoft Clarity Integrado**
+  - Mapas de calor (heatmaps) implementados
+  - Click tracking para optimización de CTAs
+  - Scroll heatmaps para análisis de contenido
+  - Session recordings para UX insights
+  - Dashboard gratuito e ilimitado
+
+### 🔧 Optimizaciones
+- **Content Security Policy Actualizado**
+  - Dominio de Clarity agregado a CSP
+  - Permisos de script y conexión configurados
+  - Compatibilidad total con tracking existente
+
+### 📊 Analytics Mejorado
+- **Análisis de Comportamiento Visual**
+  - Heatmaps de clicks en tiempo real
+  - Análisis de scroll y engagement
+  - Identificación de elementos problemáticos
+  - Optimización de conversión basada en datos
+
+### 📚 Documentación Actualizada
+- **DOCUMENTACION.md** - Sección completa de mapas de calor
+- **README.md** - Información de Clarity agregada
+- **CHANGELOG.md** - Nueva funcionalidad documentada
+
 ## [2.0.1] - 2025-10-05
 
 ### 🐛 Correcciones de Bugs

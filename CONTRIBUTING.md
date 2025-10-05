@@ -198,6 +198,65 @@ const trackearEvento = () => {
       content_category: "categoria"
     });
   }
+
+  // Microsoft Clarity - Eventos personalizados
+  if (typeof window !== "undefined" && window.clarity) {
+    window.clarity("event", "nombre_evento");
+  }
+};
+```
+
+### 🔥 Análisis con Mapas de Calor
+
+#### Acceso a Microsoft Clarity
+1. **URL:** https://clarity.microsoft.com/
+2. **Proyecto:** PodoClinic (ID: o4qcj2k9pm)
+3. **Login:** Cuenta del proyecto
+
+#### Usando los Datos para Optimización
+```javascript
+// Elementos a analizar basado en heatmaps
+const elementosOptimizar = {
+  // CTAs principales
+  whatsappButton: "Verificar posición y clicks",
+  emergencyButton: "Analizar uso en navbar", 
+  blogCTAs: "Optimizar conversión de artículos",
+  
+  // Contenido
+  doctorSection: "Engagement con información",
+  testimonials: "Scroll y tiempo de lectura",
+  services: "Interés por tipo de servicio",
+  
+  // Navegación
+  navbar: "Uso de enlaces principales",
+  footer: "Interacción con información de contacto",
+  breadcrumbs: "Navegación en blog"
+};
+```
+
+#### Interpretación de Heatmaps
+- **🔴 Rojo/Naranja:** Alta actividad - mantener o potenciar
+- **🟡 Amarillo:** Actividad moderada - considerar optimización  
+- **🔵 Azul:** Poca actividad - reposicionar o rediseñar
+- **⚫ Sin color:** Sin interacción - evaluar necesidad
+
+#### Métricas Clave para PodoClinic
+```javascript
+const metricasClave = {
+  // Conversión
+  "whatsapp_clicks": "Objetivo: >15% de visitantes",
+  "emergency_usage": "Análizar contexto de uso",
+  "form_completion": "Optimizar fricción",
+  
+  // Engagement
+  "blog_scroll_depth": "Objetivo: >60% por artículo",
+  "doctor_section_time": "Tiempo en sección ≥30s",
+  "services_interaction": "Clicks en servicios",
+  
+  // UX
+  "dead_clicks": "Minimizar clicks inútiles",
+  "rage_clicks": "Identificar frustración",
+  "mobile_navigation": "Optimización móvil"
 };
 ```
 

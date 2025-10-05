@@ -4,7 +4,17 @@
 
 Landing page de alta conversión para clínica podológica especializada, diseñada con enfoque en user experience, segmentación inteligente de leads y múltiples puntos de conversión optimizados.
 
-### 🚀 Resultados Obtenidos
+### 🚀 Re### **Confi### **Eventos Trackeados**
+- `click_blog_cta` - Clicks en CTAs del blog
+- `click_whatsapp` - Interacciones WhatsApp
+- `emergency_contact` - Clicks en botón de emergencia
+- `page_view` - Vistas de página
+- **Mapas de Calor** - Comportamiento visual de usuarios (Clarity)ión Actual**
+- **Google Analytics:** G-FHN5JGKH34
+- **Facebook Pixel:** 827077656519595  
+- **TikTok Pixel:** D3FD2NBC77U7D8VS5C00
+- **Google Tag Manager:** GTM-WXW86JFH
+- **Microsoft Clarity:** o4qcj2k9pm (Mapas de Calor)dos Obtenidos
 - **Diseño cohesivo premium** con gradientes elegantes
 - **Flujo de conversión optimizado** en 7 secciones estratégicas  
 - **Segmentación inteligente** de leads mediante quiz interactivo
