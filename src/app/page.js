@@ -6,7 +6,6 @@ import SmartQuiz from "@/components/SmartQuiz";
 import Testimonials from "@/components/Testimonials";
 import LocationHub from "@/components/LocationHub";
 import FAQAccordion from "@/components/FAQAccordion";
-import LiveChat from "@/components/LiveChat";
 import faqs from "@/data/faqs";
 
 export default function HomePage() {
@@ -111,7 +110,6 @@ export default function HomePage() {
       <Testimonials />
       <FAQAccordion faqs={faqs.slice(0, 8)} />
       <LocationHub />
-      <LiveChat />
     </LayoutClient>
   );
 }
