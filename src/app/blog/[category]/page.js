@@ -1,6 +1,7 @@
 import { getAllPosts, getPostsByCategory, getAllCategories } from '@/data/blog/posts';
 import Link from 'next/link';
 import Image from 'next/image';
+import LayoutClient from "@/components/LayoutClient";
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -38,7 +39,8 @@ export default async function CategoryPage({ params }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <LayoutClient>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumbs */}
         <nav className="mb-8">
@@ -154,6 +156,7 @@ export default async function CategoryPage({ params }) {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </LayoutClient>
   );
 }

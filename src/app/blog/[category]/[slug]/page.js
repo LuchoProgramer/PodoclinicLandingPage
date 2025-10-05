@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, ArrowRight, User, Tag, Share2, CheckCircle } from "lucide-react";
 import { getAllPosts, getPostBySlug, getRecentPosts } from "@/data/blog/posts";
 import { notFound } from "next/navigation";
+import LayoutClient from "@/components/LayoutClient";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -37,7 +38,8 @@ export default async function BlogPostPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <LayoutClient>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-6 py-4">
@@ -303,6 +305,7 @@ export default async function BlogPostPage({ params }) {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </LayoutClient>
   );
 }

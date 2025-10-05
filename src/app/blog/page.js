@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight, Star, User } from "lucide-react";
 import blogPosts, { getFeaturedPosts, getRecentPosts, blogCategories } from "@/data/blog/posts";
+import LayoutClient from "@/components/LayoutClient";
 
 export const metadata = {
   title: "Blog Podológico | Consejos y Tratamientos | Dra. Cristina Muñoz",
@@ -18,7 +19,8 @@ export default function BlogPage() {
   const recentPosts = getRecentPosts(6);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <LayoutClient>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* Header del Blog */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -242,6 +244,7 @@ export default function BlogPage() {
           </a>
         </div>
       </section>
-    </div>
+      </div>
+    </LayoutClient>
   );
 }
