@@ -80,7 +80,7 @@ export default function UnerosTipsPage() {
                         </ul>
                         <p className="mt-4 text-gray-600">
                             👣 <span className="font-semibold">¿Sientes molestias?</span> Consúltanos.
-                            Habla con nuestro <Link href="/" className="text-primary hover:underline">chatbot asistido por IA 🤖</Link>
+                            <a href="https://wa.me/593995832788?text=Hola, tengo molestias con uñeros y necesito consulta" className="text-primary hover:underline">Consúltanos por WhatsApp 💬</a>
                             para resolver dudas y agendar tu cita. ¡Tu bienestar está a un clic! 👣✨
                         </p>
                     </div>

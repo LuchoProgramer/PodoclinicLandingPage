@@ -79,10 +79,10 @@ Enviado desde el formulario web 📝`;
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-green-50 bg-opacity-95 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border border-gray-100">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-[#60BEC3] to-[#1EBE5D] text-white p-6 rounded-t-lg">
+                <div className="bg-[#60BEC3] text-white p-6 rounded-t-2xl">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center">
                             <Calendar className="w-6 h-6 mr-3" />
@@ -93,7 +93,7 @@ Enviado desde el formulario web 📝`;
                         </div>
                         <button 
                             onClick={onClose}
-                            className="text-white hover:text-gray-200 transition"
+                            className="text-white hover:text-gray-200 transition-colors duration-200 hover:bg-white hover:bg-opacity-20 rounded-full p-1"
                         >
                             <X className="w-5 h-5" />
                         </button>
@@ -101,7 +101,7 @@ Enviado desde el formulario web 📝`;
                 </div>
 
                 {/* Formulario */}
-                <form onSubmit={handleSubmit} className="p-6 space-y-4">
+                <form onSubmit={handleSubmit} className="p-8 space-y-6">
                     {/* Nombre */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
@@ -114,7 +114,7 @@ Enviado desde el formulario web 📝`;
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent transition-all duration-200 shadow-sm"
                             placeholder="Tu nombre completo"
                         />
                     </div>
@@ -131,7 +131,7 @@ Enviado desde el formulario web 📝`;
                             value={formData.phone}
                             onChange={handleChange}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent transition-all duration-200 shadow-sm"
                             placeholder="099 123 4567"
                         />
                     </div>
@@ -147,7 +147,7 @@ Enviado desde el formulario web 📝`;
                             value={formData.service}
                             onChange={handleChange}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent transition-all duration-200 shadow-sm"
                         >
                             <option value="">Selecciona un servicio</option>
                             <option value="Tratamiento de uñeros">Tratamiento de uñeros</option>
@@ -171,7 +171,7 @@ Enviado desde el formulario web 📝`;
                             value={formData.message}
                             onChange={handleChange}
                             rows="3"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#60BEC3] focus:border-transparent transition-all duration-200 shadow-sm resize-none"
                             placeholder="Describe tu situación o pregunta..."
                         />
                     </div>
@@ -180,12 +180,12 @@ Enviado desde el formulario web 📝`;
                     <div className="pt-4">
                         <button
                             type="submit"
-                            className="w-full bg-gradient-to-r from-[#60BEC3] to-[#1EBE5D] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transition duration-300 flex items-center justify-center"
+                            className="w-full bg-[#60BEC3] hover:bg-[#4A9DB8] text-white py-4 px-6 rounded-xl font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center"
                         >
                             <FaWhatsapp className="w-5 h-5 mr-2" />
                             Enviar por WhatsApp
                         </button>
-                        <p className="text-xs text-gray-500 text-center mt-2 flex items-center justify-center">
+                        <p className="text-xs text-gray-500 text-center mt-3 flex items-center justify-center">
                             <Clock className="w-3 h-3 mr-1" />
                             Te contactaremos en máximo 30 minutos
                         </p>

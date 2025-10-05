@@ -1,11 +1,12 @@
 import LayoutClient from "@/components/LayoutClient";
 import Hero from "@/components/Hero";
-import Cuestionarios from "@/components/Cuestionarios";
 import Servicios from "@/components/Servicios";
+import AboutDoctor from "@/components/AboutDoctor";
+import SmartQuiz from "@/components/SmartQuiz";
 import Testimonials from "@/components/Testimonials";
-import Contacto from "@/components/Contacto";
-import InformacionContacto from "@/components/InformacionContacto";
+import LocationHub from "@/components/LocationHub";
 import FAQAccordion from "@/components/FAQAccordion";
+import LiveChat from "@/components/LiveChat";
 import faqs from "@/data/faqs";
 
 export default function HomePage() {
@@ -104,14 +105,13 @@ export default function HomePage() {
 
       {/* Contenido de la página */}
       <Hero />
-      <section className="py-12 bg-gray-100">
-        <Cuestionarios />
-      </section>
+      <AboutDoctor />
+      <SmartQuiz />
       <Servicios />
       <Testimonials />
-      <Contacto />
-      <InformacionContacto />
-      <FAQAccordion faqs={faqs.slice(0, 4)} />
+      <FAQAccordion faqs={faqs.slice(0, 8)} />
+      <LocationHub />
+      <LiveChat />
     </LayoutClient>
   );
 }

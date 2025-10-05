@@ -87,7 +87,7 @@ export default function VeranoTipsPage() {
                 <p className="mt-4 text-gray-600">
                     👣 <span className="font-semibold">¿Quieres más consejos?</span>
                     Agenda tu cita con nosotros para preparar tus pies para el verano.
-                    Habla con nuestro <Link href="/" className="text-primary hover:underline">chatbot asistido por IA 🤖</Link>. 😎✨
+                    <a href="https://wa.me/593995832788?text=Hola, me interesan los consejos para el cuidado de pies en verano" className="text-primary hover:underline">Consúltanos por WhatsApp 💬</a>. 😎✨
                 </p>
             </section>
 
