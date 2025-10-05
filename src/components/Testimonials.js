@@ -28,7 +28,7 @@ export default function Testimonials() {
             name: "Carlos Mendoza",
             age: "62 años",
             problem: "Pie diabético",
-            text: "Como diabético, el cuidado de mis pies es crucial. La doctora es muy profesional y me ha enseñado técnicas de cuidado preventivo. Muy recomendado.",
+            text: "Como diabético, el cuidado de mis pies es crucial. La Dra. Cristina es muy profesional y me ha enseñado técnicas de cuidado preventivo. Muy recomendado.",
             rating: 5,
             verified: true
         },

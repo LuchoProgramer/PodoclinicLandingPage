@@ -30,7 +30,7 @@ export default function AboutDoctor() {
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Conoce a la <span className="text-[#60BEC3]">Dra. PodoClinic</span>
+                        Conoce a la <span className="text-[#60BEC3]">Dra. Cristina Muñoz</span>
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         Especialista en podología con amplia experiencia en el tratamiento 
@@ -47,7 +47,7 @@ export default function AboutDoctor() {
                                 <GraduationCap className="w-24 h-24 text-white" />
                             </div>
                             <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                                Dra. [Nombre de la Doctora]
+                                Dra. Cristina Muñoz
                             </h3>
                             <p className="text-[#60BEC3] font-medium mb-4">
                                 Especialista en Podología
@@ -140,7 +140,7 @@ export default function AboutDoctor() {
                                 Estoy aquí para ayudarte con cualquier problema en tus pies
                             </p>
                             <a
-                                href="https://wa.me/593995832788?text=¡Hola%20Doctora!%20Tengo%20una%20consulta%20sobre%20mis%20pies"
+                                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20una%20consulta%20sobre%20mis%20pies"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-6 py-3 rounded-lg font-medium transition-colors"

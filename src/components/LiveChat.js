@@ -32,8 +32,8 @@ export default function LiveChat() {
 
     const quickResponses = {
         "Tengo dolor en el pie": {
-            message: "Entiendo tu preocupación. Para brindarte la mejor atención, me gustaría conectarte directamente con nuestra doctora especialista.",
-            redirect: "¡Hola%20Doctora!%20Tengo%20dolor%20en%20el%20pie%20y%20necesito%20su%20ayuda%20profesional"
+            message: "Entiendo tu preocupación. Para brindarte la mejor atención, me gustaría conectarte directamente con la Dra. Cristina Muñoz, nuestra especialista.",
+            redirect: "¡Hola%20Dra.%20Cristina!%20Tengo%20dolor%20en%20el%20pie%20y%20necesito%20su%20ayuda%20profesional"
         },
         "Quiero agendar una cita": {
             message: "¡Perfecto! Te conectaré directamente con nuestro sistema de citas para que puedas agendar de inmediato.",
