@@ -2,6 +2,7 @@ import LayoutClient from "@/components/LayoutClient";
 import Hero from "@/components/Hero";
 import Cuestionarios from "@/components/Cuestionarios";
 import Servicios from "@/components/Servicios";
+import Testimonials from "@/components/Testimonials";
 import Contacto from "@/components/Contacto";
 import InformacionContacto from "@/components/InformacionContacto";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -107,9 +108,10 @@ export default function HomePage() {
         <Cuestionarios />
       </section>
       <Servicios />
+      <Testimonials />
       <Contacto />
       <InformacionContacto />
-  <FAQAccordion faqs={faqs.slice(0, 4)} />
+      <FAQAccordion faqs={faqs.slice(0, 4)} />
     </LayoutClient>
   );
 }
