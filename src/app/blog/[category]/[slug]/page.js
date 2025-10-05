@@ -201,7 +201,7 @@ export default async function BlogPostPage({ params }) {
       
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* Breadcrumb mejorado con Schema.org */}
-      <div className="bg-white border-b shadow-sm">
+      <div className="bg-white border-b shadow-sm pt-20 md:pt-16">
         <div className="max-w-4xl mx-auto px-6 py-4">
           <nav className="flex items-center text-sm text-gray-600" aria-label="Breadcrumb">
             <Link 
