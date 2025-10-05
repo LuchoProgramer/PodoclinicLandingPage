@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Clock } from "lucide-react";
+import { Phone, Clock, BookOpen } from "lucide-react";
 
 export default function Navbar() {
     return (
@@ -37,6 +37,29 @@ export default function Navbar() {
                             className="h-12 w-auto object-contain"
                         />
                     </Link>
+                    
+                    {/* Navegación central */}
+                    <div className="hidden md:flex items-center space-x-6">
+                        <Link 
+                            href="/blog"
+                            className="text-gray-700 hover:text-[#60BEC3] font-medium transition-colors flex items-center"
+                        >
+                            <BookOpen className="w-4 h-4 mr-2" />
+                            Blog
+                        </Link>
+                        <Link 
+                            href="/#servicios"
+                            className="text-gray-700 hover:text-[#60BEC3] font-medium transition-colors"
+                        >
+                            Servicios
+                        </Link>
+                        <Link 
+                            href="/#contacto"
+                            className="text-gray-700 hover:text-[#60BEC3] font-medium transition-colors"
+                        >
+                            Contacto
+                        </Link>
+                    </div>
                     
                     {/* Botón de emergencia */}
                     <a
