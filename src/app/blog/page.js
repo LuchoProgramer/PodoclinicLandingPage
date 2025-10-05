@@ -119,7 +119,7 @@ export default function BlogPage() {
       
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* Header del Blog */}
-      <section className="pt-32 pb-16 md:pt-24 md:pb-16 bg-white">
+      <section className="pt-32 pb-16 md:pt-32 md:pb-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
