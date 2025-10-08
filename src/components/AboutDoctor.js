@@ -12,8 +12,8 @@ import {
 
 export default function AboutDoctor() {
     const certifications = [
-        "Licenciada en Podología - Universidad Central del Ecuador",
-        "Especialización en Pie Diabético - Hospital Metropolitano",
+        "Licenciada en Podología - Universidad del Gran Rosario - Argentina",
+        "Especialización en Pie Diabético - Universidad de Especialidades espiritu Santo",
         "Curso Avanzado en Cirugía Podológica Mínimamente Invasiva",
         "Certificación en Biomecánica del Pie - Instituto Español de Podología"
     ];
