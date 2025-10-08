@@ -13,7 +13,7 @@ import {
 export default function AboutDoctor() {
     const certifications = [
         "Licenciada en Podología - Universidad del Gran Rosario - Argentina",
-        "Especialización en Pie Diabético - Universidad de Especialidades espiritu Santo",
+        "Especialización en Pie Diabético - Universidad de Especialidades Espíritu Santo",
         "Curso Avanzado en Cirugía Podológica Mínimamente Invasiva",
         "Certificación en Biomecánica del Pie - Instituto Español de Podología"
     ];
