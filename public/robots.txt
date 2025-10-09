@@ -11,4 +11,3 @@ Host: https://podoclinicec.com
 # Sitemaps
 Sitemap: https://podoclinicec.com/sitemap.xml
 Sitemap: https://podoclinicec.com/sitemap-0.xml
-Sitemap: https://podoclinicec.com/server-sitemap.xml

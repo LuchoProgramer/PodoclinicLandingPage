@@ -55,8 +55,7 @@ module.exports = {
             },
         ],
         additionalSitemaps: [
-            "https://podoclinicec.com/sitemap-0.xml",
-            "https://podoclinicec.com/server-sitemap.xml",
+            "https://podoclinicec.com/sitemap-0.xml"
         ],
     },
 };
