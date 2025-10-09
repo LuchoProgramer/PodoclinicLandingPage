@@ -20,7 +20,7 @@ const servicios = [
         imagen: "https://www.clinicaplanas.com/blog/wp-content/cuidado-pies-1024x618.png.webp",
         icon: Sparkles,
         benefits: ["Limpieza profunda", "Corte anatómico", "Hidratación"],
-        link: null,
+        link: "/servicios/profilaxis",
         urgent: false
     },
     {
@@ -38,7 +38,7 @@ const servicios = [
         imagen: "https://res.cloudinary.com/dltfsttr7/image/upload/v1740592014/WhatsApp_Image_2025-02-26_at_12.42.42_2_pnshe2.jpg",
         icon: Shield,
         benefits: ["Eliminación efectiva", "Recuperación rápida", "Sin cicatrices"],
-        link: null,
+        link: "/servicios/verrugas",
         urgent: false
     },
     {
@@ -47,7 +47,7 @@ const servicios = [
         imagen: "https://res.cloudinary.com/dltfsttr7/image/upload/v1740591792/WhatsApp_Image_2025-02-26_at_12.42.42_ycsa7s.jpg",
         icon: Stethoscope,
         benefits: ["Tratamiento especializado", "Desinfección profunda", "Productos profesionales"],
-        link: null,
+        link: "/servicios/hongos",
         urgent: false
     }
 ];
