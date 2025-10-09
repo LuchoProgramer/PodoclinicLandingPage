@@ -104,7 +104,8 @@ export default async function CategoryPage({ params }) {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": categoryTitles[category]
+        "name": categoryTitles[category],
+        "item": `${baseUrl}/blog/${category}`
       }
     ]
   };
