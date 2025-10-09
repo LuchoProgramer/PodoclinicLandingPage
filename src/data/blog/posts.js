@@ -1,6 +1,26 @@
 // Base de datos de posts del blog
 const blogPosts = [
   {
+    id: "unas-encarnadas-domicilio-quito",
+    title: "Cómo Tratar Uñas Encarnadas a Domicilio en Quito: ¡Tu Alivio Empieza Aquí!",
+    slug: "unas-encarnadas-domicilio-quito",
+    excerpt: "¿Uñero en Quito norte? Descubre cómo la Dra. Cristina Muñoz te alivia en casa por solo $15. Consejos, prevención y atención profesional a domicilio.",
+    content: ``,
+    category: "uneros",
+    author: "Dra. Cristina Muñoz",
+    publishDate: "2025-10-08",
+    readTime: "7 min",
+    image: "/blog/unas-encarnadas-domicilio.jpg",
+    tags: ["uñeros", "a domicilio", "quito", "tratamiento"],
+    metaTitle: "Uñas Encarnadas a Domicilio en Quito | Dra. Cristina Muñoz",
+    metaDescription: "Tratamiento profesional de uñas encarnadas a domicilio en Quito norte. Alivio rápido, seguro y económico con la Dra. Cristina Muñoz.",
+    featured: true,
+    cta: {
+      text: "Agendar Tratamiento a Domicilio",
+      link: "https://wa.me/593995832788?text=¡Hola!%20Quiero%20agendar%20tratamiento%20de%20uña%20encarnada%20a%20domicilio"
+    }
+  },
+  {
     id: "senales-unero-urgente",
     title: "5 Señales de que tu Uñero Necesita Atención URGENTE",
     slug: "senales-unero-urgente",
