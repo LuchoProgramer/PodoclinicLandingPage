@@ -308,6 +308,7 @@ export default function BlogPage() {
             ))}
           </div>
 
+          {/*
           <div className="text-center mt-12">
             <Link 
               href="/blog/todos"
@@ -317,6 +318,7 @@ export default function BlogPage() {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </div>
+          */}
         </div>
       </section>
 

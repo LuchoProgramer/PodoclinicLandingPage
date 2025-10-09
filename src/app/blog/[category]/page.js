@@ -13,61 +13,31 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { category } = await params;
-  
-  const categoryData = {
-    'uneros': {
-      title: 'Tratamiento de Uñeros en Quito | Podoclinic',
-      description: 'Especialistas en tratamiento de uñeros en Quito. Técnicas avanzadas, atención personalizada y resultados garantizados. Dra. Cristina Muñoz.',
-      keywords: 'uñeros Quito, tratamiento uñeros, onicocriptosis, podología Quito, uña encarnada'
-    },
-    'pie-diabetico': {
-      title: 'Cuidado del Pie Diabético | Especialistas en Quito',
-      description: 'Atención especializada para pie diabético en Quito. Prevención, tratamiento y cuidados profesionales. Dra. Cristina Muñoz, especialista certificada.',
-      keywords: 'pie diabético Quito, cuidado pie diabético, diabetes podología, úlceras diabéticas'
-    },
-    'hongos': {
-      title: 'Tratamiento de Hongos en Pies | Podoclinic Quito',
-      description: 'Eliminación efectiva de hongos en pies y uñas. Tratamientos modernos y seguros en Quito. Consulta con la Dra. Cristina Muñoz.',
-      keywords: 'hongos pies Quito, onicomicosis, hongos uñas, tratamiento hongos podología'
-    }
-  };
-
-  const data = categoryData[category] || {
-    title: 'Artículos de Podología - Podoclinic',
-    description: 'Artículos especializados en podología por la Dra. Cristina Muñoz en Quito.',
-    keywords: 'podología, artículos podología, cuidado pies'
-  };
-
+  // Buscar el primer post de la categoría para usar sus metadatos si existen
+  const posts = getPostsByCategory(category);
+  const firstPost = posts && posts.length > 0 ? posts[0] : null;
   const baseUrl = 'https://podoclinicec.com';
   const canonicalUrl = `${baseUrl}/blog/${category}`;
-  
   return {
-    title: data.title,
-    description: data.description,
-    keywords: data.keywords,
+    title: firstPost?.metaTitle || `Artículos de ${category} - Podoclinic`,
+    description: firstPost?.metaDescription || `Artículos especializados en ${category} por la Dra. Cristina Muñoz en Quito.`,
+    keywords: firstPost?.tags?.join(', ') || 'podología, artículos podología, cuidado pies',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: data.title,
-      description: data.description,
+      title: firstPost?.metaTitle || `Artículos de ${category} - Podoclinic`,
+      description: firstPost?.metaDescription || `Artículos especializados en ${category} por la Dra. Cristina Muñoz en Quito.`,
       url: canonicalUrl,
       siteName: 'PodoClinicec',
       type: 'website',
       images: [
         {
-          url: `${baseUrl}/blog/${category}-category.jpg`,
+          url: firstPost?.image || `${baseUrl}/blog/${category}-category.jpg`,
           width: 1200,
           height: 630,
-          alt: data.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: data.title,
-      description: data.description,
-      images: [`${baseUrl}/blog/${category}-category.jpg`],
+        }
+      ]
     },
     robots: {
       index: true,
