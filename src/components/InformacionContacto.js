@@ -31,7 +31,9 @@ export default function InformacionContacto() {
                     </div>
                     <div className="flex items-center space-x-4">
                         <Mail className="text-[#60BEC3] w-6 h-6" />
-                        <p>podoclinic.cm@gmail.com</p>
+                        <a href="mailto:podoclinic.cm@gmail.com" className="text-black hover:text-[#60BEC3] transition-colors">
+                            podoclinic.cm@gmail.com
+                        </a>
                     </div>
                 </div>
 
