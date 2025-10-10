@@ -33,12 +33,6 @@ module.exports = {
                 lastmod: new Date().toISOString(),
             },
             {
-                loc: '/blog/cuidado-preventivo',
-                changefreq: 'weekly',
-                priority: 0.7,
-                lastmod: new Date().toISOString(),
-            },
-            {
                 loc: '/blog/uneros/senales-unero-urgente',
                 changefreq: 'monthly',
                 priority: 0.9,
