@@ -1,7 +1,9 @@
+
 import { getAllPosts, getPostsByCategory, getAllCategories } from '@/data/blog/posts';
 import Link from 'next/link';
 import Image from 'next/image';
 import LayoutClient from "@/components/LayoutClient";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -52,9 +54,14 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function CategoryPage({ params }) {
-  const { category } = await params;
+  const { category } = params || {};
+  if (!category) {
+    notFound();
+    return null;
+  }
+
   const posts = getPostsByCategory(category);
-  
+
   const categoryTitles = {
     'uneros': 'Uñeros',
     'pie-diabetico': 'Pie Diabético',
@@ -63,7 +70,7 @@ export default async function CategoryPage({ params }) {
   };
 
   const baseUrl = 'https://podoclinicec.com';
-  
+
   // Schema.org para la página de categoría
   const categorySchema = {
     "@context": "https://schema.org",
