@@ -4,8 +4,8 @@ import { getPostBySlug } from "@/data/blog/posts";
 import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
-  title: "Diabético: Guía Completa de Cuidado de Pies",
-  description: "Todo lo que necesitas saber sobre el cuidado de los pies si eres diabético. Prevención, inspección diaria y cuándo acudir al especialista.",
+  title: "Cuidado Diario de Pies para Personas con Diabetes en Quito | Guía Práctica",
+  description: "Aprende cómo cuidar tus pies si eres diabético en Quito. Consejos diarios, señales de alerta y cuándo consultar a un especialista. Información útil para prevenir complicaciones y mantener tus pies sanos.",
   keywords: "pie diabético, cuidado pies diabéticos, prevención, podólogo Quito, diabetes",
 };
 
