@@ -15,7 +15,6 @@ import {
 export default function BottomNavigation() {
     const [activeSection, setActiveSection] = useState("inicio");
     const pathname = usePathname();
-    
     // Detectar si estamos en una página del blog
     const isOnBlogPage = pathname.startsWith('/blog');
 
@@ -123,9 +122,8 @@ export default function BottomNavigation() {
             <div className="flex items-center justify-around py-2">
                 {navItems.map((item) => {
                     const Icon = item.icon;
-                    const isActive = activeSection === item.id || 
-                        (item.id === "blog" && typeof window !== "undefined" && window.location.pathname.includes("/blog"));
-                    
+                    const isActive = activeSection === item.id ||
+                        (item.id === "blog" && pathname.startsWith("/blog"));
                     if (item.isLink) {
                         return (
                             <Link
