@@ -48,8 +48,7 @@ export default function HomePage() {
       "ratingValue": "4.9",
       "reviewCount": "10"
     },
-    "medicalSpecialty": "Podiatry",
-    "acceptsNewPatients": true,
+  "medicalSpecialty": "Podiatry",
     "sameAs": [
       "https://www.facebook.com/podoclinic.cm",
       "https://www.instagram.com/podoclinic.ec/",

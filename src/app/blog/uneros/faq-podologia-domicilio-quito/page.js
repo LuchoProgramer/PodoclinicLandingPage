@@ -4,7 +4,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Preguntas Frecuentes sobre Podología a Domicilio en Quito: ¡Todo lo que Necesitas Saber!",
-  description: "Resuelve todas tus dudas sobre podología a domicilio en Quito norte con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+  description: "Preguntas frecuentes sobre podología a domicilio en Quito norte: protocolos, tratamientos, seguridad y recomendaciones para el cuidado de tus pies en casa.",
   keywords: "podología a domicilio Quito, preguntas frecuentes podólogo, podología Quito norte, podólogo a domicilio, FAQ podología Quito",
 };
 

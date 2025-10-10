@@ -8,7 +8,7 @@ import { Shield, CheckCircle, Calendar, Users } from "lucide-react";
 
 export const metadata = {
   title: "Cauterización de Verrugas Plantares en Quito - PodoClinic",
-  description: "Eliminación profesional de verrugas plantares con ácidos específicos. Recuperación rápida y sin cicatrices. Agenda tu cita en Quito.",
+  description: "Eliminación definitiva de verrugas plantares en Quito. Técnicas avanzadas, mínima molestia y resultados garantizados. Consulta a especialistas en podología.",
   keywords: "verrugas plantares Quito, cauterización verrugas, podólogo Quito, eliminación verrugas pies",
   openGraph: {
     title: "Cauterización de Verrugas en Quito - PodoClinic",

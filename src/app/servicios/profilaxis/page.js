@@ -8,7 +8,7 @@ import { Sparkles, CheckCircle, Calendar, Users } from "lucide-react";
 
 export const metadata = {
   title: "Profilaxis Podal en Quito - PodoClinic | Limpieza y Salud de tus Pies",
-  description: "Profilaxis podal profesional en Quito. Limpieza profunda, corte anatómico de uñas, eliminación de callosidades y masoterapia. Agenda tu cita hoy mismo.",
+  description: "Profilaxis podal en Quito: limpieza profunda, prevención de infecciones y bienestar para tus pies. Atención personalizada y tecnología de punta.",
   keywords: "profilaxis podal Quito, limpieza pies, corte de uñas, podólogo Quito, salud podal",
   openGraph: {
     title: "Profilaxis Podal en Quito - PodoClinic",

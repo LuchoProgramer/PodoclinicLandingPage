@@ -4,7 +4,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Por Qué Elegir un Podólogo en La Florida, Quito Norte: ¡Tu Bienestar Empieza Aquí!",
-  description: "Podología a domicilio en La Florida, Quito norte, con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+  description: "Podólogo en La Florida, Quito norte: atención integral para runners, diabéticos y familias. Consulta en consultorio o a domicilio con tecnología avanzada y trato humano.",
   keywords: "podólogo La Florida Quito, podología a domicilio Quito norte, podólogo cerca de mí, podología runners Quito, pie diabético Quito",
 };
 

@@ -5,7 +5,7 @@ import LayoutClient from "@/components/LayoutClient";
 
 export const metadata = {
   title: "Blog Podológico | Consejos y Tratamientos | Dra. Cristina Muñoz",
-  description: "Aprende sobre cuidado de pies, tratamiento de uñeros, pie diabético y más. Consejos profesionales de la Dra. Cristina Muñoz en Quito.",
+  description: "Blog de podología en Quito: artículos exclusivos sobre prevención, tratamientos modernos y experiencias reales de pacientes. Descubre cómo cuidar tus pies con expertos.",
   keywords: "blog podología, uñeros, pie diabético, hongos uñas, cuidado pies Quito, podólogo Quito",
   authors: [{ name: "Dra. Cristina Muñoz" }],
   creator: "Dra. Cristina Muñoz",
@@ -15,7 +15,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Blog Podológico | Dra. Cristina Muñoz | PodoClinicec",
-    description: "Consejos profesionales y tratamientos especializados en podología. Artículos sobre uñeros, pie diabético, hongos y cuidado integral de pies.",
+  description: "Guía completa de salud podal: tips, novedades y soluciones para problemas frecuentes de pies. Información confiable de la Dra. Cristina Muñoz en Quito.",
     url: "https://podoclinicec.com/blog",
     siteName: "PodoClinicec",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blog Podológico | Dra. Cristina Muñoz",
-    description: "Consejos profesionales y tratamientos especializados en podología",
+  description: "Recursos y consejos prácticos para el cuidado de tus pies. Todo sobre podología moderna en Quito.",
     images: ["https://podoclinicec.com/blog/blog-og-image.jpg"],
     creator: "@podoclinicec",
   },

@@ -4,7 +4,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Podología a Domicilio en Quito Norte: ¡Cuidar tus Pies Nunca Fue Tan Fácil!",
-  description: "Podología a domicilio en Quito norte con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+  description: "Servicio de podología a domicilio en Quito norte. Tratamientos personalizados para adultos mayores, deportistas y personas con movilidad reducida. Atención profesional y máxima bioseguridad en tu hogar.",
   keywords: "podología a domicilio Quito, podólogo Quito norte, podología en casa, pie diabético Quito, uñas encarnadas domicilio",
 };
 

@@ -17,7 +17,7 @@ import {
 // Metadata para SEO
 export const metadata = {
     title: "Servicio de Podología a Domicilio en Quito - PodoClinic | Pacientes con Movilidad Reducida",
-    description: "Atención podológica profesional a domicilio en Quito para personas con movilidad reducida. Tratamientos seguros, cómodos y personalizados en tu hogar. Agenda tu visita!",
+    description: "Podología a domicilio en Quito para personas con movilidad reducida. Atención segura, cómoda y adaptada a tus necesidades. Llevamos el consultorio a tu hogar.",
     keywords: "podología a domicilio Quito, atención podológica domicilio, movilidad reducida, podólogo a domicilio, servicio a domicilio pies",
     openGraph: {
         title: "Podología a Domicilio - Atención Especializada en Quito | PodoClinic",

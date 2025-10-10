@@ -13,21 +13,26 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { category } = await params;
-  // Buscar el primer post de la categoría para usar sus metadatos si existen
   const posts = getPostsByCategory(category);
   const firstPost = posts && posts.length > 0 ? posts[0] : null;
   const baseUrl = 'https://podoclinicec.com';
   const canonicalUrl = `${baseUrl}/blog/${category}`;
+  let title = firstPost?.metaTitle || `Artículos de ${category} - Podoclinic`;
+  let description = firstPost?.metaDescription || `Artículos especializados en ${category} por la Dra. Cristina Muñoz en Quito.`;
+  if (category === 'cuidado-preventivo') {
+    title = 'Cuidado Preventivo de los Pies en Quito | Consejos y Guías de Podología';
+    description = 'Descubre consejos y guías de podología para el cuidado preventivo de los pies en Quito. Información profesional para prevenir problemas y mantener tus pies sanos.';
+  }
   return {
-    title: firstPost?.metaTitle || `Artículos de ${category} - Podoclinic`,
-    description: firstPost?.metaDescription || `Artículos especializados en ${category} por la Dra. Cristina Muñoz en Quito.`,
+    title,
+    description,
     keywords: firstPost?.tags?.join(', ') || 'podología, artículos podología, cuidado pies',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: firstPost?.metaTitle || `Artículos de ${category} - Podoclinic`,
-      description: firstPost?.metaDescription || `Artículos especializados en ${category} por la Dra. Cristina Muñoz en Quito.`,
+      title,
+      description,
       url: canonicalUrl,
       siteName: 'PodoClinicec',
       type: 'website',

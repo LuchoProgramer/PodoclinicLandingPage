@@ -8,7 +8,7 @@ import { Stethoscope, CheckCircle, Calendar, Users } from "lucide-react";
 
 export const metadata = {
   title: "Tratamiento de Hongos en Uñas y Pies en Quito - PodoClinic",
-  description: "Eliminación profesional de hongos en uñas y pies. Limpieza profunda, desinfección y productos antifúngicos especializados. Agenda tu cita en Quito.",
+  description: "Elimina hongos en uñas y pies con tratamientos modernos y seguros en Quito. Resultados visibles desde la primera sesión. Consulta con podólogos certificados.",
   keywords: "hongos uñas Quito, tratamiento hongos pies, podólogo Quito, onicomicosis",
   openGraph: {
     title: "Tratamiento de Hongos en Quito - PodoClinic",

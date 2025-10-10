@@ -3,7 +3,7 @@ import Script from "next/script";
 
 export const metadata = {
   title: "Podología en Quito | Tratamiento para Pie Diabético y Uñeros",
-  description: "Atención podológica especializada en Quito. Tratamiento de uñeros, pie diabético, onicomicrosis y verrugas. Reserva tu cita hoy.",
+  description: "Clínica podológica en Quito especializada en uñeros, pie diabético, hongos y verrugas plantares. Más de 500 pacientes satisfechos. Consulta gratuita y atención personalizada.",
   robots: "index, follow",
   keywords: [
     "podología",
