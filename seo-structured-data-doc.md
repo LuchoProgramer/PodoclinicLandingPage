@@ -64,4 +64,34 @@ Asegurar que todas las páginas clave del sitio web cumplan con las directrices 
 
 ---
 
+## Configuración de Redirecciones SEO en Netlify (`_redirects`)
+
+Para asegurar que Google y otras herramientas rastreen e indexen solo la versión canónica de tu sitio, se recomienda agregar reglas de redirección en el archivo `public/_redirects`:
+
+```plaintext
+# Redirigir www a sin www
+https://www.podoclinicec.com/*  https://podoclinicec.com/:splat  301!
+
+# Redirigir HTTP a HTTPS
+http://podoclinicec.com/*  https://podoclinicec.com/:splat  301!
+
+# Redirigir /blog y /faq sin slash a la versión con slash
+/blog     /blog/   301!
+/faq      /faq/    301!
+
+# Fallback para SPA
+/*  /index.html  200
+```
+
+**¿Por qué?**
+- Evita contenido duplicado y problemas de rastreabilidad.
+- Asegura que solo la versión preferida (canónica) esté indexada.
+- Mejora la experiencia de usuario y la autoridad SEO.
+
+**Recomendación:**
+- Verifica en Google Search Console que la versión final esté indexada y no existan advertencias de redirección.
+- Si cambias de dominio o estructura, actualiza estas reglas.
+
+---
+
 **Última actualización:** 10 de octubre de 2025
