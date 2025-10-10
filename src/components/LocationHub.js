@@ -242,6 +242,14 @@ export default function LocationHub() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-white text-[#60BEC3] px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
+                                    onClick={() => {
+                                        if (typeof window !== "undefined" && window.gtag) {
+                                            window.gtag("event", "click_whatsapp", {
+                                                event_category: "contact",
+                                                event_label: "LocationHub Agendar Cita"
+                                            });
+                                        }
+                                    }}
                                 >
                                     <Calendar className="w-5 h-5 mr-2" />
                                     Agendar Cita

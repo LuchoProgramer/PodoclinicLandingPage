@@ -146,15 +146,23 @@ export default function AboutDoctor() {
                             <p className="text-gray-600 text-sm mb-4">
                                 Estoy aquí para ayudarte con cualquier problema en tus pies
                             </p>
-                            <a
-                                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20una%20consulta%20sobre%20mis%20pies"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                            >
-                                <Users className="w-4 h-4 mr-2" />
-                                Consultarme directamente
-                            </a>
+                                                        <a
+                                                                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20una%20consulta%20sobre%20mis%20pies"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="inline-flex items-center bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                                                                onClick={() => {
+                                                                    if (typeof window !== "undefined" && window.gtag) {
+                                                                        window.gtag("event", "click_whatsapp", {
+                                                                            event_category: "contact",
+                                                                            event_label: "AboutDoctor WhatsApp"
+                                                                        });
+                                                                    }
+                                                                }}
+                                                        >
+                                                                <Users className="w-4 h-4 mr-2" />
+                                                                Consultarme directamente
+                                                        </a>
                         </div>
                     </div>
                 </div>

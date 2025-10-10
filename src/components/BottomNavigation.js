@@ -169,11 +169,22 @@ export default function BottomNavigation() {
 
             {/* Botón flotante de WhatsApp para móviles */}
             <a
-                href="https://wa.me/593995832788?text=¡Hola!%20👋%20Vi%20su%20página%20y%20me%20interesa%20agendar%20una%20consulta%20podológica."
+                                href="https://wa.me/593995832788?text=¡Hola!%20👋%20Vi%20su%20página%20y%20me%20interesa%20agendar%20una%20consulta%20podológica."
+                                onClick={() => {
+                                    if (typeof window !== "undefined" && window.gtag) {
+                                        window.gtag("event", "click_whatsapp", {
+                                            event_category: "contact",
+                                            event_label: "BottomNavigation WhatsApp"
+                                        });
+                                    }
+                                    if (typeof trackNavClick === "function") {
+                                        trackNavClick("whatsapp_mobile");
+                                    }
+                                }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute -top-12 right-4 bg-gradient-to-r from-[#1EBE5D] to-[#128C7E] hover:from-[#16A049] hover:to-[#0F7A6B] text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
-                onClick={() => trackNavClick("whatsapp_mobile")}
+                // onClick eliminado porque ya está combinado arriba
                 aria-label="Contactar por WhatsApp"
             >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

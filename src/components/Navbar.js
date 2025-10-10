@@ -72,6 +72,14 @@ export default function Navbar() {
                         <a 
                             href="tel:+593995832788"
                             className="flex items-center hover:text-blue-100 transition-colors"
+                            onClick={() => {
+                                if (typeof window !== "undefined" && window.gtag) {
+                                    window.gtag("event", "click_phone", {
+                                        event_category: "contact",
+                                        event_label: "Navbar Barra Superior Teléfono"
+                                    });
+                                }
+                            }}
                         >
                             <Phone className="w-4 h-4 mr-1" />
                             <span className="font-medium">099 583 2788</span>
@@ -217,7 +225,17 @@ export default function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center shadow-md"
-                        onClick={() => trackNavClick("emergencia_desktop")}
+                        onClick={() => {
+                            if (typeof window !== "undefined" && window.gtag) {
+                                window.gtag("event", "click_whatsapp", {
+                                    event_category: "contact",
+                                    event_label: "Navbar Emergencia Desktop"
+                                });
+                            }
+                            if (typeof trackNavClick === 'function') {
+                                trackNavClick("emergencia_desktop");
+                            }
+                        }}
                     >
                         <Phone className="w-4 h-4 mr-1" />
                         <span className="hidden sm:inline">Emergencia</span>

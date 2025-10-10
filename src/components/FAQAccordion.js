@@ -218,6 +218,14 @@ export default function FAQAccordion({ faqs }) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                                onClick={() => {
+                                    if (typeof window !== "undefined" && window.gtag) {
+                                        window.gtag("event", "click_whatsapp", {
+                                            event_category: "contact",
+                                            event_label: "FAQAccordion Consulta Personalizada"
+                                        });
+                                    }
+                                }}
                             >
                                 <MessageCircle className="w-5 h-5 mr-2" />
                                 Hacer Consulta Personalizada
@@ -239,7 +247,17 @@ export default function FAQAccordion({ faqs }) {
                             href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20una%20consulta%20específica%20sobre%20podología"
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={() => handleCTAClick('custom_consultation')}
+                            onClick={() => {
+                                if (typeof window !== "undefined" && window.gtag) {
+                                    window.gtag("event", "click_whatsapp", {
+                                        event_category: "contact",
+                                        event_label: "FAQAccordion Consulta Específica"
+                                    });
+                                }
+                                if (typeof handleCTAClick === 'function') {
+                                    handleCTAClick('custom_consultation');
+                                }
+                            }}
                             className="bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] flex items-center justify-center"
                         >
                             <MessageCircle className="w-5 h-5 mr-2" />
@@ -247,7 +265,17 @@ export default function FAQAccordion({ faqs }) {
                         </a>
                         <a
                             href="tel:+593995832788"
-                            onClick={() => handleCTAClick('phone_call')}
+                            onClick={() => {
+                                if (typeof window !== "undefined" && window.gtag) {
+                                    window.gtag("event", "click_phone", {
+                                        event_category: "contact",
+                                        event_label: "FAQAccordion Llamar Directamente"
+                                    });
+                                }
+                                if (typeof handleCTAClick === 'function') {
+                                    handleCTAClick('phone_call');
+                                }
+                            }}
                             className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-4 rounded-xl font-medium transition-colors flex items-center justify-center"
                         >
                             <Phone className="w-5 h-5 mr-2" />

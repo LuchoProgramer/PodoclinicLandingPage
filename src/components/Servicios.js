@@ -183,6 +183,14 @@ export default function Servicios() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] flex items-center justify-center"
+                                onClick={() => {
+                                    if (typeof window !== "undefined" && window.gtag) {
+                                        window.gtag("event", "click_whatsapp", {
+                                            event_category: "contact",
+                                            event_label: "Servicios Consulta Gratuita"
+                                        });
+                                    }
+                                }}
                             >
                                 <Stethoscope className="w-5 h-5 mr-2" />
                                 Consulta Gratuita

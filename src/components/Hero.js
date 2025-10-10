@@ -84,15 +84,23 @@ export default function Hero() {
                             Reserva tu Cita GRATIS
                         </button>
                         
-                        <a
-                            href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20una%20consulta%20urgente"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-[#79A373] text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-[#6B8F65] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
-                        >
-                            <MessageCircle className="w-5 h-5 mr-2" />
-                            Consulta por WhatsApp
-                        </a>
+                                                <a
+                                                        href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20una%20consulta%20urgente"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="bg-[#79A373] text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-[#6B8F65] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+                                                        onClick={() => {
+                                                            if (typeof window !== "undefined" && window.gtag) {
+                                                                window.gtag("event", "click_whatsapp", {
+                                                                    event_category: "contact",
+                                                                    event_label: "Hero WhatsApp"
+                                                                });
+                                                            }
+                                                        }}
+                                                >
+                                                        <MessageCircle className="w-5 h-5 mr-2" />
+                                                        Consulta por WhatsApp
+                                                </a>
                     </div>
 
                     {/* Promoción con urgencia */}

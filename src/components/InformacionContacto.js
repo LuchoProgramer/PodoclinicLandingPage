@@ -17,7 +17,15 @@ export default function InformacionContacto() {
                     </div>
                     <div className="flex items-center space-x-4">
                         <Phone className="text-[#60BEC3] w-6 h-6" />
-                        <a href="tel:+593995832788" className="text-black hover:text-[#60BEC3] transition-colors">
+                                                <a href="tel:+593995832788" className="text-black hover:text-[#60BEC3] transition-colors"
+                                                     onClick={() => {
+                                                         if (typeof window !== "undefined" && window.gtag) {
+                                                             window.gtag("event", "click_phone", {
+                                                                 event_category: "contact",
+                                                                 event_label: "InformacionContacto Teléfono"
+                                                             });
+                                                         }
+                                                     }}>
                             +593 995 832 788
                         </a>
                     </div>
