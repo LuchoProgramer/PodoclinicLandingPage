@@ -1,3 +1,88 @@
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Podoclinicec",
+  "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+  "@id": "https://podoclinicec.com/blog/podologia-deportiva/podologia-runners-quito",
+  "url": "https://podoclinicec.com/blog/podologia-deportiva/podologia-runners-quito",
+  "telephone": "+593995832788",
+  "priceRange": "$15 primera consulta",
+  "description": "Podología deportiva a domicilio en Quito norte con Dra. Cristina Muñoz, especialista en runners, uñas encarnadas y pie diabético.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Manuel Jordan y Av. La Florida",
+    "addressLocality": "Quito",
+    "addressRegion": "Pichincha",
+    "postalCode": "170511",
+    "addressCountry": "EC"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-0.143093",
+    "longitude": "-78.495641"
+  },
+  "openingHours": [
+    "Mo-Fr 09:00-12:00",
+    "Mo-Fr 14:00-18:00",
+    "Sa 09:00-14:00"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/podoclinic.cm",
+    "https://www.instagram.com/podoclinic.ec/",
+    "https://wa.me/593995832788"
+  ]
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PodoClinicec",
+  "url": "https://podoclinicec.com",
+  "logo": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+593995832788",
+    "contactType": "customer service",
+    "areaServed": "EC",
+    "availableLanguage": ["Spanish", "English"]
+  }],
+  "sameAs": [
+    "https://www.facebook.com/podoclinic.cm",
+    "https://www.instagram.com/podoclinic.ec/",
+    "https://wa.me/593995832788"
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://podoclinicec.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://podoclinicec.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Podología Deportiva",
+      "item": "https://podoclinicec.com/blog/podologia-deportiva"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Podología para Runners Quito",
+      "item": "https://podoclinicec.com/blog/podologia-deportiva/podologia-runners-quito"
+    }
+  ]
+};
 import Link from "next/link";
 import { Calendar, ArrowLeft, User, Tag } from "lucide-react";
 import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
@@ -74,10 +159,13 @@ export default function PodologiaRunnersQuitoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* SEO Schema Markup */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsActivitySchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* Breadcrumb */}
+      {/* Breadcrumb visual */}
       <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-6 py-4">
           <nav className="flex items-center text-sm text-gray-600">

@@ -9,6 +9,26 @@ import FAQAccordion from "@/components/FAQAccordion";
 import faqs from "@/data/faqs";
 
 export default function HomePage() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PodoClinicec",
+    "url": "https://podoclinicec.com",
+    "logo": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+593995832788",
+      "contactType": "customer service",
+      "areaServed": "EC",
+      "availableLanguage": ["Spanish", "English"]
+    }],
+    "sameAs": [
+      "https://www.facebook.com/podoclinic.cm",
+      "https://www.instagram.com/podoclinic.ec/",
+      "https://wa.me/593995832788"
+    ]
+  };
+
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
@@ -99,6 +119,7 @@ export default function HomePage() {
     <LayoutClient>
       {/* Datos estructurados para SEO avanzado */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Contenido de la página */}
