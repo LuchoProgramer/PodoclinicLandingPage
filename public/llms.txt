@@ -1,9 +1,11 @@
 # PodoClinic Ecuador
-# Nota: Las URLs enlazadas son páginas HTML. Si se generan versiones markdown, se actualizarán aquí.
 
 > Clínica podológica en Quito especializada en el tratamiento de uñeros, pie diabético, hongos y verrugas plantares. Más de 500 pacientes satisfechos. Consulta gratuita y atención personalizada por la Dra. Cristina Muñoz.
 
 PodoClinic ofrece servicios de podología avanzada para adultos mayores, deportistas y personas con movilidad reducida. Atención en consultorio y a domicilio, con protocolos de bioseguridad y tecnología de punta.
+
+## Nota
+Las URLs enlazadas son páginas HTML. Si se generan versiones markdown, se actualizarán aquí.
 
 **WhatsApp:** [099 583 2788](https://wa.me/593995832788)
 **Dirección:** [Manuel Jordan y Av La Florida, Quito, Ecuador](https://maps.app.goo.gl/zrLzEJUUkHqDXS5K6)
