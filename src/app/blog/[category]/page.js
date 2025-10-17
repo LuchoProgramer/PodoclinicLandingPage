@@ -2,6 +2,7 @@
 import { getAllPosts, getPostsByCategory, getAllCategories } from '@/data/blog/posts';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Home, FileText, ChevronRight } from 'lucide-react';
 import LayoutClient from "@/components/LayoutClient";
 import { notFound } from "next/navigation";
 
@@ -116,8 +117,11 @@ export default async function CategoryPage({ params }) {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": categoryTitles[category],
-        "item": `${baseUrl}/blog/${category}`
+        "name": categoryTitles[category] || 'Artículos',
+        "item": {
+          "@type": "Thing",
+          "@id": `${baseUrl}/blog/${category}`
+        }
       }
     ]
   };
