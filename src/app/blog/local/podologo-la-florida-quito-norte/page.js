@@ -165,46 +165,7 @@ export default function PodologoLaFloridaQuitoNortePage() {
         </div>
       </div>
 
-      {/* Header del Post */}
       <article className="max-w-4xl mx-auto px-6 py-12">
-        <header className="text-center mb-12">
-          {/* Botón volver */}
-          <Link 
-            href="/blog"
-            className="inline-flex items-center text-[#60BEC3] hover:text-[#4A9DB8] mb-8 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Volver al Blog
-          </Link>
-
-          {/* Categoría */}
-          <div className="inline-block bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-            PODOLOGÍA LOCAL
-          </div>
-
-          {/* Título */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-            Por Qué Elegir un Podólogo en La Florida, Quito Norte: <span className="text-[#60BEC3]">¡Tu Bienestar Empieza Aquí!</span>
-          </h1>
-
-          {/* Excerpt */}
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            ¿Buscas un podólogo que realmente entienda tus pies y esté cerca de casa? ¡Te cuento una experiencia que te va a encantar! En Podoclinicec, estamos en el corazón de La Florida, Quito norte, llevando el cuidado de tus pies a tu puerta por solo $15. La Dra. Cristina Muñoz te ayuda a decir adiós a uñeros, pie diabético o molestias de running, ¡sin que pelees con el tráfico! ¿Quieres saber por qué somos la mejor opción en Quito norte? Sigue leyendo, ¡esto es para ti! 😎
-          </p>
-
-          {/* Meta información */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4" /> Dra. Cristina Muñoz
-            </div>
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" /> 08/10/2025
-            </div>
-            <div className="flex items-center gap-2">
-              <Tag className="w-4 h-4" /> Podología Local
-            </div>
-          </div>
-        </header>
         {/* Contenido principal */}
         <div className="prose prose-lg mx-auto text-gray-800">
           <h2>¿Por Qué un Podólogo Local en La Florida?</h2>
