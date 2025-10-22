@@ -203,7 +203,7 @@ export default async function BlogPostPage({ params }) {
       {/* Breadcrumb mejorado con Schema.org */}
       <div className="bg-white border-b shadow-sm pt-20 md:pt-20">
         <div className="max-w-4xl mx-auto px-6 py-4">
-          <nav className="flex items-center text-sm text-gray-600" aria-label="Breadcrumb">
+          <nav className="flex items-center text-sm text-gray-600 mt-8" aria-label="Breadcrumb">
             <Link 
               href="/" 
               className="hover:text-[#60BEC3] transition-colors font-medium"

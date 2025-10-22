@@ -141,7 +141,7 @@ export default async function CategoryPage({ params }) {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pt-32 md:pb-12">
         {/* Breadcrumbs mejorado */}
-        <nav className="mb-8" aria-label="Breadcrumb">
+  <nav className="mb-8 mt-8" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2 text-sm bg-white rounded-lg shadow-sm px-4 py-3">
             <li>
               <Link 
