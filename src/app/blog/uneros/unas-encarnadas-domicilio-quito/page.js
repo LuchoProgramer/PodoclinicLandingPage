@@ -84,7 +84,7 @@ export default function UnasEncarnadasDomicilioQuitoPage() {
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-6 py-4">
-         <nav className="flex items-center text-sm text-gray-600 mt-8">
+          <nav className="flex items-center text-sm text-gray-600">
             <Link href="/" className="hover:text-[#60BEC3]">Inicio</Link>
             <span className="mx-2">/</span>
             <Link href="/blog" className="hover:text-[#60BEC3]">Blog</Link>
