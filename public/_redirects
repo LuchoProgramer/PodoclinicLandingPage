@@ -1,3 +1,5 @@
+# Redirigir homepage a healppypets
+/    https://healppypets.netlify.app/    301!
 # Redirigir www a sin www
 https://www.podoclinicec.com/*  https://podoclinicec.com/:splat  301!
 
