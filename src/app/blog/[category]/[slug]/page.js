@@ -242,57 +242,7 @@ export default async function BlogPostPage({ params }) {
 
       {/* Artículo principal */}
 
-      {/* Header del Post */}
       <article className="max-w-4xl mx-auto px-6 py-12">
-        <header className="text-center mb-12">
-          {/* Botón volver */}
-          <Link 
-            href="/blog"
-            className="inline-flex items-center text-[#60BEC3] hover:text-[#4A9DB8] mb-8 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Volver al Blog
-          </Link>
-
-          {/* Categoría */}
-          <div className="inline-block bg-[#60BEC3] text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-            {post.category.replace('-', ' ').toUpperCase()}
-          </div>
-
-          {/* Título */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-            {post.title}
-          </h1>
-
-          {/* Excerpt */}
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {post.excerpt}
-          </p>
-
-          {/* Meta información */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
-            <div className="flex items-center">
-              <User className="w-4 h-4 mr-2" />
-              <span className="font-medium">{post.author}</span>
-            </div>
-            <div className="flex items-center">
-              <Calendar className="w-4 h-4 mr-2" />
-              <span>{new Date(post.publishDate).toLocaleDateString('es-ES')}</span>
-            </div>
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-2" />
-              <span>{post.readTime} de lectura</span>
-            </div>
-          </div>
-
-          {/* Imagen destacada placeholder */}
-          <div className="w-full h-64 md:h-80 bg-gradient-to-br from-[#60BEC3] to-[#79A373] rounded-2xl flex items-center justify-center mb-12">
-            <div className="text-white text-center">
-              <h3 className="text-xl font-semibold mb-2">Imagen Principal del Post</h3>
-              <p className="text-sm opacity-80">{post.title}</p>
-            </div>
-          </div>
-        </header>
 
         {/* Contenido del Post - Aquí irá el contenido específico */}
         <div className="prose prose-lg max-w-none">

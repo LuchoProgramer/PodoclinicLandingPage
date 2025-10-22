@@ -20,14 +20,6 @@ export default function HongosIndexPage() {
         </div>
       </div>
       <article className="max-w-4xl mx-auto px-6 py-12">
-        <header className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-            Hongos en Uñas: <span className="text-[#60BEC3]">Prevención y Tratamiento en Quito</span>
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Aprende a identificar, prevenir y tratar los hongos en las uñas con la Dra. Cristina Muñoz. Soluciones podológicas efectivas y atención profesional en Quito.
-          </p>
-        </header>
         <div className="prose prose-lg mx-auto text-gray-800">
           <h2>¿Qué son los hongos en las uñas?</h2>
           <p>Los hongos en las uñas (onicomicosis) son infecciones frecuentes que afectan la apariencia y salud de los pies. Es importante tratarlos a tiempo para evitar complicaciones.</p>

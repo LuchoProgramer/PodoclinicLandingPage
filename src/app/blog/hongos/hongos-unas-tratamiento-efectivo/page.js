@@ -29,46 +29,7 @@ export default function HongosUnasTratamientoEfectivoPage() {
         </div>
       </div>
 
-      {/* Header del Post */}
       <article className="max-w-4xl mx-auto px-6 py-12">
-        <header className="text-center mb-12">
-          {/* Botón volver */}
-          <Link 
-            href="/blog"
-            className="inline-flex items-center text-[#60BEC3] hover:text-[#4A9DB8] mb-8 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Volver al Blog
-          </Link>
-
-          {/* Categoría */}
-          <div className="inline-block bg-yellow-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-            HONGOS
-          </div>
-
-          {/* Título */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-            Hongos en las Uñas: Tratamiento Efectivo y Prevención
-          </h1>
-
-          {/* Excerpt */}
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Aprende sobre los tratamientos más efectivos para hongos en las uñas y cómo prevenir su aparición con consejos profesionales.
-          </p>
-
-          {/* Meta información */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4" /> Dra. Cristina Muñoz
-            </div>
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" /> 15/09/2025
-            </div>
-            <div className="flex items-center gap-2">
-              <Tag className="w-4 h-4" /> Hongos
-            </div>
-          </div>
-        </header>
         {/* Aquí iría el contenido del post */}
         <div className="prose prose-lg mx-auto text-gray-800">
           <p>Contenido profesional sobre tratamiento y prevención de hongos en las uñas. (Completa este contenido según tus necesidades).</p>
