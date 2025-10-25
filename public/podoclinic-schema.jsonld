@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PodoClinic",
+  "image": "https://podoclinicec.com/public/vercel.svg",
+  "@id": "https://podoclinicec.com",
+  "url": "https://podoclinicec.com",
+  "telephone": "+593995832788",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Manuel Jordan y Av La Florida",
+    "addressLocality": "Quito",
+    "addressCountry": "EC"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+593995832788",
+    "contactType": "customer service"
+  }
+}
