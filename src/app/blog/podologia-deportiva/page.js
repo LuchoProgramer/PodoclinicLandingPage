@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Podología Deportiva en Quito | Prevención y Tratamiento para Atletas",
-  description: "Todo sobre podología deportiva en Quito: prevención de lesiones, tratamientos para runners y deportistas, y consejos de la Dra. Cristina Muñoz. Atención profesional y personalizada para mantener tus pies sanos y en forma.",
+  description: "Podología deportiva en Quito: prevención de lesiones y tratamientos para runners y deportistas. Atención profesional.",
 };
 
 import Link from "next/link";

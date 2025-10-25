@@ -17,7 +17,7 @@ import {
 // Metadata para SEO
 export const metadata = {
     title: "Tratamiento de Uñeros en Quito - PodoClinic | Alivio Inmediato Sin Dolor",
-    description: "Tratamiento avanzado de uñeros en Quito: técnica sin dolor, recuperación rápida y atención de urgencia. Más de 500 pacientes aliviados. Agenda tu cita con expertos.",
+    description: "Tratamiento avanzado de uñeros en Quito: técnica sin dolor, recuperación rápida y atención urgente. Agenda tu cita con expertos.",
     keywords: "uñeros Quito, tratamiento uñeros, onicocriptosis, podólogo Quito, dolor dedo pie, uña encarnada",
     openGraph: {
         title: "Tratamiento de Uñeros - Alivio Inmediato | PodoClinic Quito",

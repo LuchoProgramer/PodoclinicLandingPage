@@ -89,7 +89,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Podología Deportiva para Runners en Quito | Prevención y Recuperación",
-  description: "Especialistas en podología deportiva para runners en Quito. Prevención de lesiones, tratamiento de uñas encarnadas y fascitis plantar. Consulta a domicilio con la Dra. Cristina Muñoz y recupera tu rendimiento con atención profesional y personalizada.",
+  description: "Podología deportiva para runners en Quito: prevención de lesiones y tratamiento profesional con la Dra. Cristina Muñoz.",
   keywords: "podología runners Quito, podología deportiva Quito, uñas encarnadas runners, fascitis plantar Quito, podólogo deportivo domicilio",
 };
 

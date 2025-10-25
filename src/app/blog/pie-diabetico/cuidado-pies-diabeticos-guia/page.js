@@ -5,7 +5,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Cuidado Diario de Pies para Personas con Diabetes en Quito | Guía Práctica",
-  description: "Aprende cómo cuidar tus pies si eres diabético en Quito. Consejos diarios, señales de alerta y cuándo consultar a un especialista. Información útil para prevenir complicaciones y mantener tus pies sanos.",
+  description: "Guía para cuidar pies diabéticos en Quito: consejos diarios, señales de alerta y prevención por la Dra. Cristina Muñoz.",
   keywords: "pie diabético, cuidado pies diabéticos, prevención, podólogo Quito, diabetes",
 };
 

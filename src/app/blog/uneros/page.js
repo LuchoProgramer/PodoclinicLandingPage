@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Uñeros en Quito | Tratamientos y Consejos de la Dra. Cristina Muñoz",
-  description: "Descubre todo sobre el tratamiento de uñeros en Quito. Consejos, prevención y atención profesional de la Dra. Cristina Muñoz. Consulta a domicilio, soluciones para uñas encarnadas y más.",
+  description: "Tratamiento de uñeros en Quito: consejos, prevención y atención profesional de la Dra. Cristina Muñoz.",
 };
 
 import Link from "next/link";

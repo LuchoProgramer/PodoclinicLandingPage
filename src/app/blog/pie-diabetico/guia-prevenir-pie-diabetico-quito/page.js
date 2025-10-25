@@ -4,7 +4,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Guía Paso a Paso para Prevenir el Pie Diabético en Quito | Consejos de la Dra. Cristina Muñoz",
-  description: "Descubre estrategias detalladas para prevenir el pie diabético en Quito. La Dra. Cristina Muñoz comparte recomendaciones prácticas, señales de alerta y cuidados especiales para pacientes con diabetes. Atención podológica a domicilio y tips exclusivos para mantener tus pies sanos.",
+  description: "Prevención de pie diabético en Quito: consejos, señales de alerta y atención podológica a domicilio por la Dra. Cristina Muñoz.",
   keywords: "pie diabético Quito, prevención pie diabético, podología a domicilio Quito, cuidado de pies diabéticos, podólogo Quito norte",
 };
 

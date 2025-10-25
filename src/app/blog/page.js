@@ -5,7 +5,7 @@ import LayoutClient from "@/components/LayoutClient";
 
 export const metadata = {
   title: "Blog Podológico | Consejos y Tratamientos | Dra. Cristina Muñoz",
-  description: "Blog de podología en Quito: artículos exclusivos sobre prevención, tratamientos modernos y experiencias reales de pacientes. Descubre cómo cuidar tus pies con expertos.",
+  description: "Blog de podología en Quito: prevención, tratamientos modernos y experiencias de pacientes. Cuida tus pies con expertos.",
   keywords: "blog podología, uñeros, pie diabético, hongos uñas, cuidado pies Quito, podólogo Quito",
   authors: [{ name: "Dra. Cristina Muñoz" }],
   creator: "Dra. Cristina Muñoz",

@@ -4,7 +4,7 @@ import Script from "next/script";
 export const metadata = {
   metadataBase: new URL('https://podoclinicec.com'),
   title: "Podología en Quito | Tratamiento para Pie Diabético y Uñeros",
-  description: "Clínica podológica en Quito especializada en uñeros, pie diabético, hongos y verrugas plantares. Más de 500 pacientes satisfechos. Consulta gratuita y atención personalizada.",
+  description: "Podología en Quito: especialistas en pie diabético, uñeros y hongos. Consulta gratuita y atención personalizada.",
   robots: "index, follow",
   keywords: [
     "podología",

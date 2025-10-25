@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Cuidado Preventivo de los Pies en Quito | Consejos y Guías de Podología",
-  description: "Descubre consejos y guías de podología para el cuidado preventivo de los pies en Quito. Información profesional para prevenir problemas y mantener tus pies sanos, por la Dra. Cristina Muñoz.",
+  description: "Consejos de podología para el cuidado preventivo de los pies en Quito. Información profesional por la Dra. Cristina Muñoz.",
 };
 
 import Link from "next/link";

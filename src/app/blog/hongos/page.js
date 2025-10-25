@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Tratamiento de Hongos en Uñas en Quito | Soluciones Podológicas Efectivas",
-  description: "Todo sobre el tratamiento de hongos en las uñas en Quito. Descubre causas, síntomas, prevención y opciones de tratamiento profesional con la Dra. Cristina Muñoz. Atención podológica especializada para recuperar la salud de tus pies.",
+  description: "Tratamiento de hongos en uñas en Quito: causas, síntomas y opciones profesionales con la Dra. Cristina Muñoz.",
 };
 
 import Link from "next/link";

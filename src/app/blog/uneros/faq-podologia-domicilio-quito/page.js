@@ -4,7 +4,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "FAQ Podología a Domicilio en Quito | Resuelve tus Dudas y Cuida tus Pies",
-  description: "Resuelve todas tus dudas sobre podología a domicilio en Quito norte. Protocolos de seguridad, tipos de tratamientos, recomendaciones y consejos para el cuidado de tus pies en casa. Atención profesional de la Dra. Cristina Muñoz.",
+  description: "FAQ podología a domicilio en Quito norte: protocolos, tratamientos y consejos de la Dra. Cristina Muñoz.",
   keywords: "podología a domicilio Quito, preguntas frecuentes podólogo, podología Quito norte, podólogo a domicilio, FAQ podología Quito",
 };
 

@@ -4,7 +4,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Tratamiento de Uñas Encarnadas a Domicilio en Quito Norte | Alivio Rápido y Seguro",
-  description: "Recibe atención profesional para uñas encarnadas en Quito norte sin salir de casa. La Dra. Cristina Muñoz utiliza técnicas avanzadas y ofrece seguimiento personalizado para tu recuperación. Agenda tu consulta a domicilio y olvídate del dolor de uñeros.",
+  description: "Uñas encarnadas a domicilio en Quito norte: atención profesional, técnicas avanzadas y recuperación rápida.",
   keywords: "uñas encarnadas Quito, uñero a domicilio, podólogo Quito norte, tratamiento uñas encarnadas",
 };
 

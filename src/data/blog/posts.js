@@ -33,7 +33,7 @@ const blogPosts = [
     image: "/blog/pie-diabetico-cuidado.jpg",
     tags: ["pie diabético", "prevención", "podología", "quito"],
     metaTitle: "Guía para Prevenir Pie Diabético en Quito | Podoclinicec",
-    metaDescription: "Aprende a prevenir el pie diabético en Quito con la Dra. Cristina Muñoz. Consejos prácticos, atención a domicilio y todo lo que necesitas saber para cuidar tus pies por solo $15.",
+  metaDescription: "Prevención de pie diabético en Quito: consejos prácticos y atención a domicilio por la Dra. Cristina Muñoz.",
     featured: true,
     cta: {
       text: "Agendar Consulta Pie Diabético",
@@ -93,7 +93,7 @@ const blogPosts = [
     image: "/blog/faq-podologia-domicilio.jpg",
     tags: ["podología a domicilio", "FAQ", "Quito norte", "uñeros", "pie diabético"],
     metaTitle: "Preguntas Frecuentes Podología a Domicilio Quito | Podoclinicec",
-    metaDescription: "Resuelve todas tus dudas sobre podología a domicilio en Quito norte con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+  metaDescription: "Podología a domicilio en Quito norte: atención profesional, segura y económica en tu casa por la Dra. Cristina Muñoz.",
     featured: true,
     cta: {
       text: "Agendar Podología a Domicilio",

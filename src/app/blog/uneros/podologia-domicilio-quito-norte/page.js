@@ -4,7 +4,7 @@ import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
 
 export const metadata = {
   title: "Podología a Domicilio Quito Norte | Tratamientos Personalizados en Casa",
-  description: "Podología a domicilio en Quito norte con atención exclusiva para adultos mayores, deportistas y personas con movilidad reducida. La Dra. Cristina Muñoz ofrece tratamientos avanzados, máxima bioseguridad y seguimiento personalizado en la comodidad de tu hogar.",
+  description: "Podología a domicilio en Quito norte: atención profesional para adultos mayores, deportistas y personas con movilidad reducida.",
   keywords: "podología a domicilio Quito, podólogo Quito norte, podología en casa, pie diabético Quito, uñas encarnadas domicilio",
 };
 
