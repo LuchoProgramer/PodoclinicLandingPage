@@ -124,6 +124,30 @@ export default function RootLayout({ children }) {
             })(window, document, "clarity", "script", "o4qcj2k9pm");
           `}
         </Script>
+        <Script id="podoclinic-schema" type="application/ld+json" strategy="afterInteractive">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "PodoClinic",
+              "image": "https://podoclinicec.com/public/vercel.svg",
+              "@id": "https://podoclinicec.com",
+              "url": "https://podoclinicec.com",
+              "telephone": "+593995832788",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Manuel Jordan y Av La Florida",
+                "addressLocality": "Quito",
+                "addressCountry": "EC"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+593995832788",
+                "contactType": "customer service"
+              }
+            }
+          `}
+        </Script>
       </head>
       <body className="flex flex-col min-h-screen">
         {/* Google Tag Manager (noscript) */}
