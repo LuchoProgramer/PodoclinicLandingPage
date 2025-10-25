@@ -1,4 +1,3 @@
-
 import blogPosts, { blogCategories } from '@/data/blog/posts';
 
 const SITE_URL = 'https://podoclinicec.com';
