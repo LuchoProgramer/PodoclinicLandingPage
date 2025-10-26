@@ -11,7 +11,8 @@ import {
     Stethoscope,
     Star,
     BadgePercent,
-    MessageCircle
+    MessageCircle,
+    Activity
 } from "lucide-react";
 
 // Declaraciones globales para Analytics
@@ -71,26 +72,31 @@ export default function Hero() {
     return (
         <>
             <section id="inicio" className="relative w-full min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-blue-50 to-green-50 px-4 sm:px-6 pt-24 sm:pt-28 pb-12">
-                {/* Badges de urgencia - Movidos más abajo para evitar conflicto con navbar */}
-                <div className="absolute top-32 sm:top-36 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-center z-40 px-2 w-full max-w-md">
-                    <span className="bg-[#60BEC3] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg flex items-center whitespace-nowrap">
+                {/* Badges de credibilidad y disponibilidad - Movidos más abajo para evitar conflicto con navbar */}
+                <div className="absolute top-32 sm:top-36 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-center z-40 px-2 w-full max-w-lg">
+                    <span className="bg-[#60BEC3] text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold shadow-xl flex items-center whitespace-nowrap">
                         <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
-                        Disponible HOY
+                        ✅ 5 años de experiencia
                     </span>
-                    <span className="bg-[#79A373] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg flex items-center whitespace-nowrap">
+                    <span className="bg-green-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold shadow-xl flex items-center whitespace-nowrap">
                         <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
-                        Solo 3 cupos restantes
+                        📅 Citas disponibles
                     </span>
                 </div>
 
                 {/* Contenido principal del Hero */}
                 <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 mt-24 sm:mt-20">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight leading-tight mt-4 sm:mt-0">
-                        Cuidado <span className="text-[#60BEC3]">Personalizado</span> para tus Pies
+                        <span className="text-red-600 block">¿DOLOR de PIES?</span>
+                        <span className="text-gray-900">Especialista te </span>
+                        <span className="text-[#60BEC3]">ELIMINA el problema</span>
+                        <span className="text-gray-900 block text-lg sm:text-xl mt-2">en UNA sola sesión ⚡</span>
                     </h1>
                     <p className="text-lg sm:text-xl md:text-2xl max-w-4xl text-gray-700 mx-auto leading-relaxed px-2 mt-4">
-                        <strong>Tratamiento especializado en uñeros con seguimiento personalizado.</strong> 
-                        Te acompañamos desde la primera consulta hasta tu recuperación completa.
+                        <strong className="text-red-600">¿Uñeros, hongos, dolor al caminar?</strong> 
+                        La <strong>Dra. Cristina Muñoz</strong> (5 años de experiencia) especialista en podología 
+                        <strong className="text-green-600"> te brinda tratamiento efectivo</strong>. 
+                        <strong className="bg-yellow-200 px-2 py-1 rounded">Citas disponibles - Atención personalizada.</strong>
                     </p>
 
                     {/* Diferenciadores clave - Mejorado el espaciado */}
@@ -101,8 +107,8 @@ export default function Hero() {
                                 <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Reseñas 5⭐ en Google</div>
                             </div>
                             <div className="text-center py-2 border-t sm:border-t-0 sm:border-l sm:border-r border-gray-200">
-                                <div className="text-[#60BEC3] font-bold text-2xl sm:text-xl md:text-2xl mb-1">24h</div>
-                                <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Seguimiento post-tratamiento</div>
+                                <div className="text-[#60BEC3] font-bold text-2xl sm:text-xl md:text-2xl mb-1">5</div>
+                                <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Años de experiencia</div>
                             </div>
                             <div className="text-center py-2 border-t sm:border-t-0 border-gray-200">
                                     <div className="text-[#60BEC3] font-bold text-2xl sm:text-xl md:text-2xl mb-1">La Floresta</div>
@@ -111,25 +117,33 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* CTAs principales - Mejorado para móvil */}
+                    {/* CTAs principales - Honestos y efectivos */}
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 px-2">
+                        {/* CTA Primario - Enfoque en evaluación profesional */}
                         <button
                             onClick={handleReservaClick}
-                            className="w-full sm:w-auto bg-[#60BEC3] text-white px-6 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-semibold shadow-lg hover:bg-[#4A9DB8] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+                            className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white px-8 py-5 rounded-lg text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center transform hover:scale-105 border-2 border-red-700"
                         >
-                            <CalendarDays className="w-5 h-5 mr-2" />
-                            Consulta Personalizada GRATIS
+                            <CalendarDays className="w-6 h-6 mr-3" />
+                            <span className="flex flex-col items-start">
+                                <span className="text-lg">AGENDAR CONSULTA</span>
+                                <span className="text-sm font-normal">Evaluación profesional especializada</span>
+                            </span>
                         </button>
                         
+                        {/* CTA Secundario - WhatsApp directo */}
                         <a
-                            href="https://wa.me/593995832788?text=¡Hola!%20Me%20interesa%20el%20tratamiento%20personalizado%20de%20uñeros"
+                            href="https://wa.me/593995832788?text=🏥%20Hola%20Dra.%20Cristina,%20tengo%20molestias%20en%20los%20pies%20y%20me%20gustaría%20información%20sobre%20consulta%20y%20tratamiento."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full sm:w-auto bg-[#79A373] text-white px-6 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-semibold shadow-lg hover:bg-[#6B8F65] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+                            className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-lg text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center transform hover:scale-105"
                             onClick={handleWhatsAppClick}
                         >
-                            <MessageCircle className="w-5 h-5 mr-2" />
-                            WhatsApp Directo
+                            <MessageCircle className="w-6 h-6 mr-3" />
+                            <span className="flex flex-col items-start">
+                                <span className="text-lg">CONSULTAR AHORA</span>
+                                <span className="text-sm font-normal">Información inmediata por WhatsApp</span>
+                            </span>
                         </a>
                     </div>
 
@@ -178,21 +192,23 @@ export default function Hero() {
                         </a>
 
                         <a
-                            href="/podologo-la-carolina"
+                            href="/podologia-runners"
                             className="group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg p-3 sm:p-4 hover:border-[#60BEC3] hover:shadow-lg transition-all duration-300 min-h-[80px] sm:min-h-[100px] flex flex-col justify-center"
                             onClick={() => {
                                 if (typeof window !== "undefined" && window.gtag) {
                                     window.gtag("event", "click_internal_link", {
                                         event_category: "seo",
-                                        event_label: "Hero La Carolina"
+                                        event_label: "Hero Runners"
                                     });
                                 }
                             }}
                         >
                             <div className="text-center">
-                                <div className="text-xl sm:text-2xl mb-1 sm:mb-2">🏃‍♀️</div>
+                                <div className="flex justify-center mb-1 sm:mb-2">
+                                    <Activity className="w-6 h-6 sm:w-8 sm:h-8 text-[#60BEC3]" />
+                                </div>
                                 <div className="text-xs sm:text-sm font-medium text-gray-900 group-hover:text-[#60BEC3] transition-colors leading-tight">
-                                    La Carolina
+                                    Runners
                                 </div>
                                 <div className="text-xs text-gray-600 mt-1">Deportistas</div>
                             </div>

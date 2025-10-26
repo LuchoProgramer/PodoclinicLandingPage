@@ -5,14 +5,14 @@ import { Metadata } from "next";
 // Metadata optimizada para "podólogo en quito"
 export const metadata: Metadata = {
   title: "Podólogo en Quito Norte | Dra. Cristina Muñoz - Especialista Certificada",
-  description: "🏥 Podólogo en Quito Norte con +8 años experiencia. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Atención a domicilio.",
+  description: "🏥 Podólogo en Quito Norte con 5 años experiencia. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Atención a domicilio.",
   keywords: "podólogo quito norte, podólogos quito, doctor de pies quito norte, especialista pies, podología quito norte, dra cristina muñoz",
   alternates: {
     canonical: "https://podoclinicec.com/podologo-en-quito",
   },
   openGraph: {
     title: "Podólogo en Quito Norte | Dra. Cristina Muñoz - Especialista Certificada",
-    description: "Podólogo certificado en Quito Norte: tratamiento de uñeros, pie diabético, hongos. +8 años de experiencia, 13 reseñas Google 5 estrellas.",
+    description: "Podólogo certificado en Quito Norte: tratamiento de uñeros, pie diabético, hongos. 5 años de experiencia, 13 reseñas Google 5 estrellas.",
     url: "https://podoclinicec.com/podologo-en-quito",
     siteName: "Podoclinicec",
     type: "website",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Podólogo en Quito Norte | Dra. Cristina Muñoz",
-    description: "Especialista en podología con +8 años experiencia en Quito Norte. 13 reseñas Google 5 estrellas. Tratamiento de uñeros, pie diabético y más.",
+    description: "Especialista en podología con 5 años experiencia en Quito Norte. 13 reseñas Google 5 estrellas. Tratamiento de uñeros, pie diabético y más.",
     images: ["https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"],
   },
 };
@@ -98,7 +98,7 @@ const faqSchema = {
       "name": "¿Quién es la mejor podóloga en Quito Norte?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La Dra. Cristina Muñoz es una podóloga certificada con más de 8 años de experiencia en Quito Norte, especializada en tratamiento de uñeros, pie diabético y cuidado integral de los pies. Cuenta con 13 reseñas Google de 5 estrellas."
+        "text": "La Dra. Cristina Muñoz es una podóloga certificada con 5 años de experiencia en Quito Norte, especializada en tratamiento de uñeros, pie diabético y cuidado integral de los pies. Cuenta con 13 reseñas Google de 5 estrellas."
       }
     },
     {
@@ -106,7 +106,7 @@ const faqSchema = {
       "name": "¿Cuánto cuesta una consulta con podólogo en Quito Norte?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Las consultas podológicas tienen precios accesibles desde $35. Ofrecemos consulta inicial gratuita por WhatsApp para evaluar tu caso específico."
+        "text": "Las consultas podológicas tienen precios accesibles desde $35. Ofrecemos información inmediata por WhatsApp para evaluar tu caso específico y coordinar la cita."
       }
     },
     {
@@ -155,7 +155,7 @@ export default function PodologoEnQuitoPage() {
                 </h1>
                 
                 <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                  <strong>⭐ 13 reseñas Google 5 estrellas</strong> - Especialista certificada con +8 años de experiencia. 
+                  <strong>⭐ 13 reseñas Google 5 estrellas</strong> - Especialista certificada con 5 años de experiencia. 
                   Tratamiento personalizado de <strong>uñeros, pie diabético, hongos</strong> a domicilio en Quito Norte.
                 </p>
 
@@ -163,7 +163,7 @@ export default function PodologoEnQuitoPage() {
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
                   {[
                     "✓ 13 reseñas Google 5 estrellas",
-                    "✓ +8 años de experiencia", 
+                    "✓ 5 años de experiencia", 
                     "✓ Cobertura 8km Quito Norte",
                     "✓ Seguimiento personalizado"
                   ].map((benefit, idx) => (
@@ -250,7 +250,7 @@ export default function PodologoEnQuitoPage() {
                 {
                   icon: Award,
                   title: "Certificada y Experimentada",
-                  description: "Más de 8 años tratando problemas podológicos en Quito Norte. 13 reseñas Google con 5 estrellas de pacientes satisfechos.",
+                  description: "5 años tratando problemas podológicos en Quito Norte. 13 reseñas Google con 5 estrellas de pacientes satisfechos.",
                   color: "bg-blue-50 text-blue-600"
                 },
                 {
@@ -304,7 +304,7 @@ export default function PodologoEnQuitoPage() {
                 {
                   title: "Cuidado Pie Diabético", 
                   description: "Atención especializada para prevenir complicaciones en pacientes diabéticos.",
-                  price: "Consulta WhatsApp GRATIS",
+                  price: "Información WhatsApp",
                   urgent: false
                 },
                 {
@@ -365,18 +365,18 @@ export default function PodologoEnQuitoPage() {
               ¿Listo para cuidar tus pies con la mejor podóloga de Quito Norte?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Agenda tu consulta WhatsApp GRATUITA y descubre por qué tenemos 13 reseñas Google de 5 estrellas
+              Solicita información por WhatsApp y descubre por qué tenemos 13 reseñas Google de 5 estrellas
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Quiero%20agendar%20mi%20consulta%20gratuita%20de%20podología%20en%20Quito%20Norte"
+                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Me%20interesa%20información%20sobre%20consulta%20podológica%20en%20Quito%20Norte"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-[#60BEC3] hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 flex items-center justify-center"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                Consulta WhatsApp GRATUITA
+                Información WhatsApp
               </a>
               
               <a

@@ -65,9 +65,9 @@ const allLinks: InternalLink[] = [
     category: "zona"
   },
   {
-    href: "/podologo-la-carolina",
-    title: "Podólogo La Carolina",
-    description: "Zona deportiva, atletas y runners",
+    href: "/podologia-runners",
+    title: "Podología para Runners",
+    description: "Especialización deportiva, atletas y runners",
     icon: "🏃‍♀️",
     category: "zona"
   },

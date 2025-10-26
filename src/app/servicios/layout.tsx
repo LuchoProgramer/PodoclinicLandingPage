@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Servicios de Podología en Quito Norte | PodoClinic',
-    description: 'Servicios especializados: uñeros, pie diabético, hongos, profilaxis. Dra. Cristina Muñoz, +8 años experiencia.',
+    description: 'Servicios especializados: uñeros, pie diabético, hongos, profilaxis. Dra. Cristina Muñoz, 5 años experiencia.',
     type: 'website',
     locale: 'es_EC',
     siteName: 'PodoClinic',

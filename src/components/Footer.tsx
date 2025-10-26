@@ -28,7 +28,7 @@ export function Footer() {
                             PodoClinic
                         </h3>
                         <p className="text-gray-300 mb-4 text-sm">
-                            Especialistas en podología. Dra. Cristina Muñoz, +8 años de experiencia en Quito Norte.
+                            Especialistas en podología. Dra. Cristina Muñoz, 5 años de experiencia especializada en Quito Norte.
                         </p>
                         
                         <div className="space-y-3 text-sm">
@@ -137,11 +137,11 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link 
-                                    href="/podologo-la-carolina" 
+                                    href="/podologia-runners" 
                                     className="text-gray-300 hover:text-[#60BEC3] transition-colors"
-                                    onClick={() => handleFooterLinkClick("La Carolina")}
+                                    onClick={() => handleFooterLinkClick("Runners")}
                                 >
-                                    Podólogo La Carolina
+                                    Podología para Runners
                                 </Link>
                             </li>
                             <li>
