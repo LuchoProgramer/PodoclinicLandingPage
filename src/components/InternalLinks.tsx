@@ -1,13 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, ArrowRight, Clock, Star } from "lucide-react";
+import { 
+  MapPin, 
+  ArrowRight, 
+  Clock, 
+  Star, 
+  Bandage, 
+  Droplet, 
+  Microscope, 
+  Sparkles, 
+  Home, 
+  Flower, 
+  Activity, 
+  Globe, 
+  Award, 
+  BookOpen, 
+  Book, 
+  Search, 
+  Lightbulb, 
+  Sun, 
+  HelpCircle 
+} from "lucide-react";
 
 interface InternalLink {
   href: string;
   title: string;
   description: string;
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
   category: 'servicio' | 'zona' | 'blog' | 'tip';
 }
 
@@ -24,35 +44,35 @@ const allLinks: InternalLink[] = [
     href: "/servicios/uneros",
     title: "Tratamiento de Uñeros",
     description: "Especialista en uñas encarnadas sin dolor",
-    icon: "🩹",
+    icon: Bandage,
     category: "servicio"
   },
   {
     href: "/servicios/pie-diabetico", 
     title: "Pie Diabético",
     description: "Cuidado especializado para diabéticos",
-    icon: "💉",
+    icon: Droplet,
     category: "servicio"
   },
   {
     href: "/servicios/hongos",
     title: "Tratamiento de Hongos",
     description: "Eliminación efectiva de hongos en uñas",
-    icon: "🦠",
+    icon: Microscope,
     category: "servicio"
   },
   {
     href: "/servicios/profilaxis",
     title: "Profilaxis Podal",
     description: "Limpieza profunda y preventiva",
-    icon: "🧼",
+    icon: Sparkles,
     category: "servicio"
   },
   {
     href: "/servicios/domicilio",
     title: "Atención a Domicilio",
     description: "Servicio en tu hogar, Quito Norte",
-    icon: "🏠",
+    icon: Home,
     category: "servicio"
   },
   
@@ -61,28 +81,28 @@ const allLinks: InternalLink[] = [
     href: "/blog/local/podologo-la-florida-quito-norte",
     title: "Podólogo La Florida",
     description: "Atención especializada en La Florida",
-    icon: "🌺",
+    icon: Flower,
     category: "zona"
   },
   {
     href: "/podologia-runners",
     title: "Podología para Runners",
     description: "Especialización deportiva, atletas y runners",
-    icon: "🏃‍♀️",
+    icon: Activity,
     category: "zona"
   },
   {
     href: "/podologia-quito-norte",
     title: "Podología Quito Norte",
-    description: "Cobertura completa 8km radio",
-    icon: "🌎",
+    description: "Cobertura completa La Floresta",
+    icon: Globe,
     category: "zona"
   },
   {
     href: "/podologo-en-quito",
     title: "Podólogo en Quito",
     description: "Mejor podólogo certificado",
-    icon: "⭐",
+    icon: Award,
     category: "zona"
   },
   
@@ -91,21 +111,21 @@ const allLinks: InternalLink[] = [
     href: "/blog/uneros",
     title: "Todo sobre Uñeros",
     description: "Guía completa de uñas encarnadas",
-    icon: "📚",
+    icon: BookOpen,
     category: "blog"
   },
   {
     href: "/blog/pie-diabetico",
     title: "Cuidado Pie Diabético",
     description: "Prevención y tratamiento especializado",
-    icon: "📖",
+    icon: Book,
     category: "blog"
   },
   {
     href: "/blog/hongos",
     title: "Hongos en Uñas",
     description: "Causas, síntomas y tratamientos",
-    icon: "🔬",
+    icon: Search,
     category: "blog"
   },
   
@@ -114,21 +134,21 @@ const allLinks: InternalLink[] = [
     href: "/tips/uneros",
     title: "Prevenir Uñeros",
     description: "Consejos para evitar uñas encarnadas",
-    icon: "💡",
+    icon: Lightbulb,
     category: "tip"
   },
   {
     href: "/tips/verano",
     title: "Cuidados de Verano",
     description: "Protege tus pies en temporada calurosa",
-    icon: "☀️",
+    icon: Sun,
     category: "tip"
   },
   {
     href: "/faq",
     title: "Preguntas Frecuentes",
     description: "Respuestas a dudas comunes",
-    icon: "❓",
+    icon: HelpCircle,
     category: "tip"
   }
 ];
@@ -175,7 +195,7 @@ export default function InternalLinks({
             className="group flex-shrink-0 bg-white border border-gray-200 rounded-lg p-4 hover:border-[#60BEC3] hover:shadow-lg transition-all duration-300 min-w-[200px]"
           >
             <div className="flex items-center">
-              <span className="text-2xl mr-3">{link.icon}</span>
+              <link.icon className="w-6 h-6 text-[#60BEC3] mr-3" />
               <div>
                 <div className="font-medium text-gray-900 group-hover:text-[#60BEC3] transition-colors text-sm">
                   {link.title}
@@ -204,7 +224,7 @@ export default function InternalLinks({
             onClick={() => handleLinkClick(link.title)}
             className="group flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:border-[#60BEC3] hover:shadow-md transition-all duration-300"
           >
-            <span className="text-xl mr-3">{link.icon}</span>
+            <link.icon className="w-5 h-5 text-[#60BEC3] mr-3" />
             <div className="flex-grow">
               <div className="font-medium text-gray-900 group-hover:text-[#60BEC3] transition-colors">
                 {link.title}
@@ -233,7 +253,9 @@ export default function InternalLinks({
           className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[#60BEC3] hover:shadow-lg transition-all duration-300"
         >
           <div className="text-center">
-            <div className="text-3xl mb-2">{link.icon}</div>
+            <div className="flex justify-center mb-2">
+              <link.icon className="w-8 h-8 text-[#60BEC3]" />
+            </div>
             <div className="font-medium text-gray-900 group-hover:text-[#60BEC3] transition-colors text-sm">
               {link.title}
             </div>
@@ -305,7 +327,7 @@ export function RelatedLinks({ currentPath }: { currentPath: string }) {
             }}
             className="group flex items-center p-3 bg-white border border-gray-200 rounded-lg hover:border-[#60BEC3] hover:shadow-md transition-all duration-300"
           >
-            <span className="text-lg mr-3">{link.icon}</span>
+            <link.icon className="w-5 h-5 text-[#60BEC3] mr-3" />
             <div className="flex-grow">
               <div className="font-medium text-gray-900 group-hover:text-[#60BEC3] transition-colors text-sm">
                 {link.title}

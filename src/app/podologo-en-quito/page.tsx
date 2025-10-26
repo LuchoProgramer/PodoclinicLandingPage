@@ -5,7 +5,7 @@ import { Metadata } from "next";
 // Metadata optimizada para "podólogo en quito"
 export const metadata: Metadata = {
   title: "Podólogo en Quito Norte | Dra. Cristina Muñoz - Especialista Certificada",
-  description: "🏥 Podólogo en Quito Norte con 5 años experiencia. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Atención a domicilio.",
+  description: "Podólogo en Quito Norte con 5 años experiencia. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Atención a domicilio.",
   keywords: "podólogo quito norte, podólogos quito, doctor de pies quito norte, especialista pies, podología quito norte, dra cristina muñoz",
   alternates: {
     canonical: "https://podoclinicec.com/podologo-en-quito",
@@ -155,7 +155,7 @@ export default function PodologoEnQuitoPage() {
                 </h1>
                 
                 <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                  <strong>⭐ 13 reseñas Google 5 estrellas</strong> - Especialista certificada con 5 años de experiencia. 
+                  <strong>13 reseñas Google 5 estrellas</strong> - Especialista certificada con 5 años de experiencia. 
                   Tratamiento personalizado de <strong>uñeros, pie diabético, hongos</strong> a domicilio en Quito Norte.
                 </p>
 

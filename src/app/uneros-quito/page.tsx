@@ -1,11 +1,11 @@
 import LayoutClient from "@/components/LayoutClient";
-import { AlertTriangle, Clock, Shield, Phone, Calendar, CheckCircle, Stethoscope, MapPin, Users } from "lucide-react";
+import { AlertTriangle, Clock, Shield, Phone, Calendar, CheckCircle, Stethoscope, MapPin, Users, Scissors, Footprints, Sparkles, ShieldCheck, Eye, Building2 } from "lucide-react";
 import { Metadata } from "next";
 
 // Metadata optimizada para "uñeros"
 export const metadata: Metadata = {
   title: "Uñeros en Quito Norte | Tratamiento Sin Dolor - Dra. Cristina Muñoz",
-  description: "🏥 Tratamiento de uñeros en Quito Norte sin dolor. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz especialista en uñas encarnadas. Desde $35. Atención domicilio con cita previa.",
+  description: "Tratamiento de uñeros en Quito Norte sin dolor. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz especialista en uñas encarnadas. Desde $35. Atención domicilio con cita previa.",
   keywords: "uñeros quito norte, uñas encarnadas quito, tratamiento uñeros, quitar uñeros, dolor uñeros, podólogo uñeros, uñas infectadas",
   alternates: {
     canonical: "https://podoclinicec.com/uneros-quito",
@@ -361,12 +361,12 @@ export default function UnerosQuitoPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">¿Por qué elegir nuestro tratamiento?</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
-                  "✅ Sin dolor durante el procedimiento",
-                  "✅ Recuperación en 24-48 horas",
-                  "✅ Técnica conservadora, no quirúrgica",
-                  "✅ Prevención de recidivas", 
-                  "✅ Atención domicilio con cita previa",
-                  "✅ +10 años de experiencia"
+                  "Sin dolor durante el procedimiento",
+                  "Recuperación en 24-48 horas",
+                  "Técnica conservadora, no quirúrgica",
+                  "Prevención de recidivas", 
+                  "Atención domicilio con cita previa",
+                  "+5 años de experiencia"
                 ].map((benefit, idx) => (
                   <div key={idx} className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
@@ -395,40 +395,47 @@ export default function UnerosQuitoPage() {
                 {
                   title: "Corte Correcto",
                   description: "Corta las uñas de forma recta, no redondeada. Evita cortar demasiado profundo en las esquinas.",
-                  icon: "✂️"
+                  icon: Scissors
                 },
                 {
                   title: "Calzado Adecuado",
                   description: "Usa zapatos que no compriman los dedos. Evita tacones altos y puntiagudos por tiempo prolongado.",
-                  icon: "👟"
+                  icon: Footprints
                 },
                 {
                   title: "Higiene Diaria",
                   description: "Mantén los pies limpios y secos. Cambia calcetines diariamente y usa materiales transpirables.",
-                  icon: "🧼"
+                  icon: Sparkles
                 },
                 {
                   title: "Evita Traumatismos",
                   description: "Protege los pies de golpes y traumatismos que pueden dañar la uña y favorecer el encarnamiento.",
-                  icon: "🛡️"
+                  icon: ShieldCheck
                 },
                 {
                   title: "Control Regular",
                   description: "Revisa tus pies regularmente y consulta al podólogo ante los primeros síntomas.",
-                  icon: "👀"
+                  icon: Eye
                 },
                 {
                   title: "Técnica Profesional",
                   description: "Si tienes tendencia a uñeros, acude al podólogo para corte profesional cada 6-8 semanas.",
-                  icon: "🏥"
+                  icon: Building2
                 }
-              ].map((tip, idx) => (
-                <div key={idx} className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="text-4xl mb-4 text-center">{tip.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{tip.title}</h3>
-                  <p className="text-gray-600 text-center">{tip.description}</p>
-                </div>
-              ))}
+              ].map((tip, idx) => {
+                const IconComponent = tip.icon;
+                return (
+                  <div key={idx} className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-16 h-16 bg-[#60BEC3] rounded-full flex items-center justify-center">
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{tip.title}</h3>
+                    <p className="text-gray-600 text-center">{tip.description}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

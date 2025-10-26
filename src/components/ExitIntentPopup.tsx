@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Clock, Gift, Phone, MessageCircle } from "lucide-react";
+import { X, Clock, Gift, Phone, MessageCircle, Lightbulb } from "lucide-react";
 
 export default function ExitIntentPopup() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,7 +83,8 @@ export default function ExitIntentPopup() {
           {/* Header with value proposition */}
           <div className="bg-[#60BEC3] text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block">
             <Clock className="w-4 h-4 inline mr-2" />
-            💡 Antes de irte...
+            <Lightbulb className="w-4 h-4 inline mr-2" />
+            Antes de irte...
           </div>
 
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -112,7 +113,7 @@ export default function ExitIntentPopup() {
           {/* CTAs */}
           <div className="space-y-3">
             <a
-              href="https://wa.me/593995832788?text=🏥%20Hola%20Dra.%20Cristina,%20vi%20su%20sitio%20web%20y%20me%20interesa%20una%20consulta%20especializada.%20¿Podría%20darme%20información%20sobre%20disponibilidad%20y%20precios?"
+              href="https://wa.me/593995832788?text=Hola%20Dra.%20Cristina,%20vi%20su%20sitio%20web%20y%20me%20interesa%20una%20consulta%20especializada.%20¿Podría%20darme%20información%20sobre%20disponibilidad%20y%20precios?"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTAClick("WhatsApp Consult")}

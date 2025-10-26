@@ -76,11 +76,11 @@ export default function Hero() {
                 <div className="absolute top-32 sm:top-36 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-center z-40 px-2 w-full max-w-lg">
                     <span className="bg-[#60BEC3] text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold shadow-xl flex items-center whitespace-nowrap">
                         <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
-                        ✅ 5 años de experiencia
+                        5 años de experiencia
                     </span>
                     <span className="bg-green-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold shadow-xl flex items-center whitespace-nowrap">
                         <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
-                        📅 Citas disponibles
+                        Citas disponibles
                     </span>
                 </div>
 
@@ -104,7 +104,7 @@ export default function Hero() {
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 text-sm">
                             <div className="text-center py-2">
                                 <div className="text-[#60BEC3] font-bold text-2xl sm:text-xl md:text-2xl mb-1">13</div>
-                                <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Reseñas 5⭐ en Google</div>
+                                <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Reseñas 5 estrellas en Google</div>
                             </div>
                             <div className="text-center py-2 border-t sm:border-t-0 sm:border-l sm:border-r border-gray-200">
                                 <div className="text-[#60BEC3] font-bold text-2xl sm:text-xl md:text-2xl mb-1">5</div>
@@ -133,7 +133,7 @@ export default function Hero() {
                         
                         {/* CTA Secundario - WhatsApp directo */}
                         <a
-                            href="https://wa.me/593995832788?text=🏥%20Hola%20Dra.%20Cristina,%20tengo%20molestias%20en%20los%20pies%20y%20me%20gustaría%20información%20sobre%20consulta%20y%20tratamiento."
+                            href="https://wa.me/593995832788?text=Hola%20Dra.%20Cristina,%20tengo%20molestias%20en%20los%20pies%20y%20me%20gustaría%20información%20sobre%20consulta%20y%20tratamiento."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-lg text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center transform hover:scale-105"

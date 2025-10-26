@@ -71,7 +71,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 • Servicio: ${formData.service}
 • Mensaje: ${formData.message}
 
-Enviado desde el formulario web 📝`;
+Enviado desde el formulario web`;
 
         const whatsappLink = `https://wa.me/593995832788?text=${encodeURIComponent(whatsappMessage)}`;
         window.open(whatsappLink, '_blank');

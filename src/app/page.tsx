@@ -9,10 +9,11 @@ import FAQAccordion from "@/components/FAQAccordion";
 import InternalLinks from "@/components/InternalLinks";
 import faqs from "@/data/faqs";
 import { Metadata } from "next";
+import { Stethoscope, Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-  description: "🏥 Podólogo especialista a domicilio en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Desde $35. Agenda tu consulta.",
+  description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Desde $35. Agenda tu consulta.",
   keywords: "podólogo domicilio quito norte, uñeros quito, pie diabético, hongos uñas, podología a domicilio, dra cristina muñoz",
   openGraph: {
     title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz",
@@ -296,7 +297,8 @@ export default function HomePage() {
           <div className="mt-16 space-y-12">
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-                🏥 <span className="ml-2">Servicios Principales</span>
+                <Stethoscope className="w-6 h-6 text-[#60BEC3] mr-2" />
+                <span>Servicios Principales</span>
               </h3>
               <InternalLinks 
                 variant="horizontal" 
@@ -320,7 +322,8 @@ export default function HomePage() {
             
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-                💡 <span className="ml-2">Tips y Consejos</span>
+                <Lightbulb className="w-6 h-6 text-[#60BEC3] mr-2" />
+                <span>Tips y Consejos</span>
               </h3>
               <InternalLinks 
                 variant="horizontal" 
