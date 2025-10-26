@@ -16,53 +16,63 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
-  // Puedes agregar más preguntas en el componente FAQAccordion.js
+  // Schema FAQ completo con todas las preguntas reales
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Atienden pie diabético?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, somos especialistas en el tratamiento de pie diabético en Quito."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Necesito cita previa?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, es recomendable agendar una cita para una mejor atención."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Atienden a niños y adultos mayores?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, brindamos atención a pacientes de todas las edades."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Dónde están ubicados?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Estamos en Manuel Jordan y Av La Florida, Quito."
-        }
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
       }
-    ]
+    }))
   };
 
   return (
     <>
       <Navbar />
+      
+      {/* Schema FAQ completo */}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} 
+      />
+      
       <div className="container mx-auto py-20 px-4 min-h-screen">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-  <FAQAccordion faqs={faqs} />
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              Preguntas <span className="text-[#60BEC3]">Frecuentes</span>
+            </h1>
+            <p className="text-xl text-gray-600">
+              Resuelve todas tus dudas sobre nuestros servicios de podología
+            </p>
+          </div>
+          
+          <FAQAccordion faqs={faqs} />
+          
+          {/* CTA después de FAQs */}
+          <div className="mt-16 text-center bg-gradient-to-r from-[#60BEC3] to-[#79A373] rounded-2xl p-8 text-white">
+            <h2 className="text-2xl font-bold mb-4">
+              ¿No encontraste tu respuesta?
+            </h2>
+            <p className="text-lg mb-6 opacity-90">
+              Contáctanos directamente y te ayudaremos con cualquier duda
+            </p>
+            <a
+              href="https://wa.me/593995832788?text=Hola,%20tengo%20una%20pregunta%20sobre%20sus%20servicios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-white text-[#60BEC3] px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Escribir por WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
+      
       <Footer />
       <WhatsAppButton />
     </>

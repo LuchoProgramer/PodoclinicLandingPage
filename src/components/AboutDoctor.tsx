@@ -47,7 +47,7 @@ export default function AboutDoctor() {
                             <div className="w-48 h-48 mx-auto mb-6 relative">
                                 <Image
                                     src="https://res.cloudinary.com/dltfsttr7/image/upload/c_fill,w_384,h_384,q_auto:eco,f_auto,dpr_auto,fl_progressive:steep,e_sharpen:60/v1759895245/IMG_6853_f0skfi.jpg"
-                                    alt="Dra. Cristina Muñoz - Especialista en Podología"
+                                    alt="Dra. Cristina Muñoz - Podóloga Especialista Quito Norte, 8 años experiencia uñeros pie diabético"
                                     fill
                                     className="rounded-full object-cover border-4 border-white shadow-lg"
                                     priority

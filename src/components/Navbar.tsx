@@ -122,7 +122,7 @@ export default function Navbar({ activeSection: propActiveSection }: NavbarProps
                     >
                         <img
                             src="https://res.cloudinary.com/dbbukhtz5/image/upload/v1738695404/podoclinic_navbar_landing_page_bcwytb.png"
-                            alt="PodoClinic"
+                            alt="PodoClinic Quito Norte - Podólogo especialista uñeros pie diabético La Florida"
                             className="h-12 w-auto object-contain"
                         />
                     </Link>

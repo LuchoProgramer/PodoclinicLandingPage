@@ -115,10 +115,10 @@ export default function Servicios() {
                         
                         const CardContent = (
                             <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:scale-[1.02] h-full">
-                                {/* Badge de urgencia */}
+                                {/* Badge de especialidad */}
                                 {servicio.urgent && (
-                                    <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-10">
-                                        Urgente
+                                    <div className="absolute top-4 right-4 bg-[#60BEC3] text-white px-3 py-1 rounded-full text-xs font-bold z-10">
+                                        Especializado
                                     </div>
                                 )}
                                 

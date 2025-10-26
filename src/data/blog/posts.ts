@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "senales-unero-urgente",
-    title: "5 Señales de que tu Uñero Necesita Atención URGENTE",
+    title: "5 Señales de que tu Uñero Necesita Atención INMEDIATA",
     slug: "senales-unero-urgente",
     excerpt: "Descubre cuándo un uñero deja de ser un problema menor y se convierte en una emergencia médica que requiere atención profesional inmediata.",
     content: ``,
@@ -120,12 +120,12 @@ export const blogPosts: BlogPost[] = [
     author: "Dra. Cristina Muñoz",
     publishDate: "2025-10-05",
     tags: ["uñeros", "emergencia", "síntomas", "dolor"],
-    metaTitle: "5 Señales URGENTES de Uñero | Cuándo Acudir al Podólogo",
-    metaDescription: "¿Tu uñero es una emergencia? Aprende las 5 señales que indican que necesitas atención médica URGENTE. Dra. Cristina Muñoz, especialista en Quito.",
+    metaTitle: "5 Señales de Uñero que Requieren Atención | Cuándo Acudir al Podólogo",
+    metaDescription: "¿Tu uñero es un problema serio? Aprende las 5 señales que indican que necesitas atención médica especializada. Dra. Cristina Muñoz, especialista en Quito.",
     featured: true,
     cta: {
-      text: "Consulta URGENTE tu Uñero",
-      link: "https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20síntomas%20urgentes%20de%20uñero%20y%20necesito%20consulta%20inmediata"
+      text: "Consulta Especializada tu Uñero",
+      link: "https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20síntomas%20de%20uñero%20y%20necesito%20consulta%20especializada"
     }
   },
   {

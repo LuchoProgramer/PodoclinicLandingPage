@@ -5,7 +5,7 @@ import { Metadata } from "next";
 // Metadata optimizada para "uñeros"
 export const metadata: Metadata = {
   title: "Uñeros en Quito Norte | Tratamiento Sin Dolor - Dra. Cristina Muñoz",
-  description: "🏥 Tratamiento de uñeros en Quito Norte sin dolor. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz especialista en uñas encarnadas. Desde $35. Atención urgente.",
+  description: "🏥 Tratamiento de uñeros en Quito Norte sin dolor. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz especialista en uñas encarnadas. Desde $35. Atención domicilio con cita previa.",
   keywords: "uñeros quito norte, uñas encarnadas quito, tratamiento uñeros, quitar uñeros, dolor uñeros, podólogo uñeros, uñas infectadas",
   alternates: {
     canonical: "https://podoclinicec.com/uneros-quito",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Uñeros en Quito | Tratamiento Sin Dolor",
-    description: "Especialista en uñeros. Técnica sin dolor, recuperación en 24h. Atención urgente en Quito.",
+    description: "Especialista en uñeros. Técnica sin dolor, recuperación en 24h. Atención domicilio con cita previa en Quito.",
     images: ["https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"],
   },
 };
@@ -68,20 +68,25 @@ const medicalProcedureSchema = {
   }
 };
 
-const urgentCareSchema = {
+// Schema markup para servicio a domicilio
+const homeCareServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "EmergencyService",
-  "name": "Atención Urgente Uñeros Quito",
-  "description": "Servicio de emergencia 24/7 para tratamiento urgente de uñeros infectados o con dolor severo",
-  "telephone": "+593995832788",
-  "availableLanguage": "Spanish",
-  "serviceArea": {
-    "@type": "City",
-    "name": "Quito"
-  },
+  "@type": "MedicalService",
+  "name": "Tratamiento de Uñeros a Domicilio",
+  "description": "Servicio de podología a domicilio con cita previa, especialmente para personas con movilidad reducida",
   "provider": {
     "@type": "Person",
     "name": "Dra. Cristina Muñoz"
+  },
+  "serviceType": "Podiatric Care",
+  "areaServed": {
+    "@type": "City", 
+    "name": "Quito"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceType": "Home Visit",
+    "availableLanguage": "Spanish"
   }
 };
 
@@ -90,7 +95,7 @@ export default function UnerosQuitoPage() {
     <LayoutClient>
       {/* Schema markup */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalProcedureSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(urgentCareSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeCareServiceSchema) }} />
       
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50">
         
@@ -111,9 +116,9 @@ export default function UnerosQuitoPage() {
               
               {/* Contenido Principal */}
               <div>
-                <div className="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse">
-                  <AlertTriangle className="w-4 h-4 mr-2" />
-                  ATENCIÓN URGENTE 24/7
+                <div className="inline-flex items-center bg-[#60BEC3] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <CheckCircle className="w-4 h-4 mr-2" />
+                  ESPECIALISTA CERTIFICADA
                 </div>
                 
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -123,23 +128,23 @@ export default function UnerosQuitoPage() {
                 
                 <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                   <strong>¿Dolor intenso por uñero?</strong> Especialista certificada elimina uñas encarnadas <strong>sin dolor</strong>. 
-                  Recuperación en <strong>24-48 horas</strong>. Atención urgente domicilio.
+                  Recuperación en <strong>24-48 horas</strong>. Atención a domicilio con cita previa.
                 </p>
 
                 {/* Urgencia Indicators */}
-                <div className="bg-white rounded-xl p-6 shadow-lg mb-8 border-l-4 border-red-500">
+                <div className="bg-white rounded-xl p-6 shadow-lg mb-8 border-l-4 border-[#60BEC3]">
                   <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-2" />
-                    ¿Tienes estos síntomas? ¡Actúa YA!
+                    <CheckCircle className="w-5 h-5 text-[#60BEC3] mr-2" />
+                    ¿Tienes estos síntomas? Agenda tu consulta
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {[
-                      "🔴 Dolor intenso al caminar",
-                      "🔴 Hinchazón en el dedo", 
-                      "🔴 Pus o secreción",
-                      "🔴 Enrojecimiento severo",
-                      "🔴 Fiebre por infección",
-                      "🔴 Imposibilidad de usar zapatos"
+                      "✓ Dolor intenso al caminar",
+                      "✓ Hinchazón en el dedo", 
+                      "✓ Pus o secreción",
+                      "✓ Enrojecimiento severo",
+                      "✓ Molestias constantes",
+                      "✓ Dificultad para usar zapatos"
                     ].map((symptom, idx) => (
                       <div key={idx} className="flex items-center text-gray-700">
                         <span className="text-sm">{symptom}</span>
@@ -148,63 +153,74 @@ export default function UnerosQuitoPage() {
                   </div>
                 </div>
 
-                {/* CTAs Urgentes */}
+                {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="https://wa.me/593995832788?text=¡URGENTE!%20Tengo%20un%20uñero%20con%20mucho%20dolor%20y%20necesito%20atención%20inmediata"
+                    href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20un%20uñero%20doloroso%20y%20me%20gustaría%20agendar%20una%20cita"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center animate-pulse"
+                    className="bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
                   >
-                    <AlertTriangle className="w-5 h-5 mr-2" />
-                    URGENTE - WhatsApp
+                    <Calendar className="w-5 h-5 mr-2" />
+                    Agendar Cita - WhatsApp
                   </a>
                   
                   <a
                     href="tel:+593995832788"
-                    className="bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg transition-all duration-300 flex items-center justify-center"
+                    className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg transition-all duration-300 flex items-center justify-center"
                   >
                     <Phone className="w-5 h-5 mr-2" />
-                    Llamar Ahora
+                    Consulta Telefónica
                   </a>
                 </div>
 
                 <div className="mt-4 text-center text-gray-600">
                   <Clock className="w-4 h-4 inline mr-2" />
-                  <strong>Atención en menos de 2 horas</strong>
+                  <strong>Citas disponibles • Atención domicilio con cita previa</strong>
                 </div>
               </div>
 
-              {/* Panel de Emergencia */}
+              {/* Panel de Servicio a Domicilio */}
               <div className="relative">
-                <div className="bg-white rounded-2xl shadow-2xl p-8 border-t-4 border-red-500">
+                <div className="bg-white rounded-2xl shadow-2xl p-8 border-t-4 border-[#60BEC3]">
                   <div className="text-center mb-6">
-                    <div className="w-24 h-24 bg-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <AlertTriangle className="w-12 h-12 text-white" />
+                    <div className="w-24 h-24 bg-[#60BEC3] rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <MapPin className="w-12 h-12 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Atención Urgente</h3>
-                    <p className="text-gray-600">Especialista disponible 24/7</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Servicio a Domicilio</h3>
+                    <p className="text-gray-600">Con cita previa • Movilidad reducida</p>
                   </div>
                   
-                  {/* Proceso Rápido */}
+                  {/* Proceso */}
                   <div className="space-y-4">
-                    <div className="flex items-center p-3 bg-red-50 rounded-lg">
-                      <div className="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div>
-                      <span className="font-medium text-gray-900">Llamas por WhatsApp</span>
-                    </div>
-                    <div className="flex items-center p-3 bg-orange-50 rounded-lg">
-                      <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</div>
-                      <span className="font-medium text-gray-900">Llegamos en 1-2 horas</span>
+                    <div className="flex items-center p-3 bg-blue-50 rounded-lg">
+                      <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div>
+                      <span className="font-medium text-gray-900">Agendas tu cita</span>
                     </div>
                     <div className="flex items-center p-3 bg-green-50 rounded-lg">
-                      <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</div>
-                      <span className="font-medium text-gray-900">Eliminas el dolor YA</span>
+                      <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</div>
+                      <span className="font-medium text-gray-900">Confirmamos horario</span>
+                    </div>
+                    <div className="flex items-center p-3 bg-purple-50 rounded-lg">
+                      <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</div>
+                      <span className="font-medium text-gray-900">Llegamos a tu hogar</span>
                     </div>
                   </div>
 
                   <div className="mt-6 text-center">
-                    <div className="text-3xl font-bold text-[#60BEC3] mb-1">$15</div>
-                    <div className="text-sm text-gray-600">Tratamiento completo</div>
+                    <div className="text-3xl font-bold text-[#60BEC3] mb-1">$35</div>
+                    <div className="text-sm text-gray-600">Tratamiento a domicilio</div>
+                  </div>
+                  
+                  {/* Ideal para */}
+                  <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-bold text-gray-900 mb-2 text-center">Ideal para:</h4>
+                    <div className="text-sm text-gray-600 space-y-1">
+                      <div>• Adultos mayores</div>
+                      <div>• Personas con movilidad reducida</div>
+                      <div>• Pacientes con dificultades de transporte</div>
+                      <div>• Comodidad de tu hogar</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -349,7 +365,7 @@ export default function UnerosQuitoPage() {
                   "✅ Recuperación en 24-48 horas",
                   "✅ Técnica conservadora, no quirúrgica",
                   "✅ Prevención de recidivas", 
-                  "✅ Atención domicilio disponible",
+                  "✅ Atención domicilio con cita previa",
                   "✅ +10 años de experiencia"
                 ].map((benefit, idx) => (
                   <div key={idx} className="flex items-center">
@@ -417,43 +433,43 @@ export default function UnerosQuitoPage() {
           </div>
         </section>
 
-        {/* CTA Urgente Final */}
-        <section className="py-16 bg-red-500">
+        {/* CTA Final */}
+        <section className="py-16 bg-[#60BEC3]">
           <div className="max-w-4xl mx-auto text-center px-6">
             <div className="mb-6">
-              <AlertTriangle className="w-16 h-16 text-white mx-auto mb-4" />
+              <Calendar className="w-16 h-16 text-white mx-auto mb-4" />
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                ¿Dolor de Uñero? ¡NO ESPERES MÁS!
+                ¿Dolor de Uñero? ¡Agenda tu Cita!
               </h2>
-              <p className="text-xl text-red-100 mb-8">
-                Cada hora que pases con dolor es sufrimiento innecesario<br />
-                <strong>Eliminamos tu uñero en 30 minutos - Sin dolor - Recuperación inmediata</strong>
+              <p className="text-xl text-blue-100 mb-8">
+                Tratamiento profesional sin dolor en consultorio o a domicilio<br />
+                <strong>Eliminamos tu uñero en 30 minutos - Sin dolor - Recuperación rápida</strong>
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/593995832788?text=¡URGENTE!%20Tengo%20un%20uñero%20muy%20doloroso%20y%20necesito%20atención%20inmediata%20en%20Quito"
+                href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20un%20uñero%20doloroso%20y%20me%20gustaría%20agendar%20una%20cita%20en%20Quito"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-red-500 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 flex items-center justify-center animate-pulse"
+                className="bg-white text-[#60BEC3] hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 flex items-center justify-center"
               >
-                <AlertTriangle className="w-5 h-5 mr-2" />
-                ATENCIÓN URGENTE - WhatsApp
+                <Calendar className="w-5 h-5 mr-2" />
+                Agendar Cita - WhatsApp
               </a>
               
               <a
                 href="tel:+593995832788"
-                className="border-2 border-white text-white hover:bg-white hover:text-red-500 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#60BEC3] px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 LLAMAR: 099 583 2788
               </a>
             </div>
 
-            <div className="mt-6 text-red-100">
-              <Clock className="w-4 h-4 inline mr-2" />
-              <strong>Disponible 24 horas - Atención domicilio en toda la ciudad</strong>
+            <div className="mt-6 text-blue-100">
+              <MapPin className="w-4 h-4 inline mr-2" />
+              <strong>Consultorio en La Floresta • Atención domicilio con cita previa</strong>
             </div>
           </div>
         </section>

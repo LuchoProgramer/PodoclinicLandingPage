@@ -1,26 +1,30 @@
-# PodoClinic Ecuador
+# PodoClinic - Podología Especializada en Quito Norte
+# Nota: Las URLs enlazadas son páginas HTML. Si se generan versiones markdown, se actualizarán aquí.
 
-> Clínica podológica en Quito especializada en el tratamiento de uñeros, pie diabético, hongos y verrugas plantares. Más de 500 pacientes satisfechos. Consulta gratuita y atención personalizada por la Dra. Cristina Muñoz.
+> Clínica podológica especializada en tratamiento de uñeros, pie diabético, hongos y verrugas plantares en Quito Norte. +8 años de experiencia, 13 reseñas de 5 estrellas. Atención profesional de la Dra. Cristina Muñoz con consulta desde $35 y servicio a domicilio disponible.
 
-PodoClinic ofrece servicios de podología avanzada para adultos mayores, deportistas y personas con movilidad reducida. Atención en consultorio y a domicilio, con protocolos de bioseguridad y tecnología de punta.
+PodoClinic ofrece servicios especializados de podología para adultos mayores, deportistas y personas con diabetes. Atención en consultorio y a domicilio en todo Quito Norte (8km radio) con protocolos de bioseguridad, instrumental esterilizado y tratamientos sin dolor. Primera consulta desde $35, evaluación gratuita por WhatsApp.
 
-## Nota
-Las URLs enlazadas son páginas HTML. Si se generan versiones markdown, se actualizarán aquí.
-
-**WhatsApp:** [099 583 2788](https://wa.me/593995832788)
-**Dirección:** [Manuel Jordan y Av La Florida, Quito, Ecuador](https://maps.app.goo.gl/zrLzEJUUkHqDXS5K6)
+**WhatsApp:** [+593 99 583 2788](https://wa.me/593995832788)
+**Dirección:** [Manuel Jordan y Av La Florida, Quito Norte](https://maps.app.goo.gl/zrLzEJUUkHqDXS5K6)
+**Email:** contacto@podoclinicec.com
 
 ## Servicios
-- [Tratamiento de Uñeros](https://podoclinicec.com/servicios/uneros): Alivio inmediato, técnica sin dolor y recuperación rápida.
-- [Tratamiento de Hongos](https://podoclinicec.com/servicios/hongos): Eliminación profesional de hongos en uñas y pies.
-- [Profilaxis Podal](https://podoclinicec.com/servicios/profilaxis): Limpieza profunda y prevención de infecciones.
-- [Cauterización de Verrugas](https://podoclinicec.com/servicios/verrugas): Eliminación definitiva de verrugas plantares.
-- [Podología a Domicilio](https://podoclinicec.com/servicios/domicilio): Atención especializada en casa para personas con movilidad reducida.
+- [Tratamiento de Uñeros](https://podoclinicec.com/servicios/uneros): Remoción profesional sin dolor, anestesia local, desde $35.
+- [Tratamiento de Hongos](https://podoclinicec.com/servicios/hongos): Eliminación profesional de hongos en uñas y pies, 95% efectividad.
+- [Pie Diabético](https://podoclinicec.com/servicios/pie-diabetico): Evaluación especializada y protocolo específico para diabetes.
+- [Profilaxis Podal](https://podoclinicec.com/servicios/profilaxis): Limpieza profunda profesional, $25-35 por sesión.
+- [Verrugas Plantares](https://podoclinicec.com/servicios/verrugas): Cauterización y eliminación definitiva.
+- [Atención Domiciliaria](https://podoclinicec.com/servicios/domicilio): Servicio a domicilio en Quito Norte, +$10 traslado.
 
-## Blog
+## Blog y Recursos
 - [Blog de Podología](https://podoclinicec.com/blog): Artículos sobre prevención, tratamientos y consejos de salud podal.
+- [Tips de Cuidado](https://podoclinicec.com/tips): Consejos prácticos para mantener pies sanos.
+- [Tips de Verano](https://podoclinicec.com/tips/verano): Cuidados especiales para época de calor.
+- [Cuidado de Uñeros](https://podoclinicec.com/tips/uneros): Prevención y primeros auxilios.
+
+## Contacto
+- WhatsApp: +593 99 583 2788
 
 ## Opcional
-- [Preguntas Frecuentes](https://podoclinicec.com/faq): Respuestas a dudas comunes sobre podología y nuestros servicios.
-- [Tips de Cuidado](https://podoclinicec.com/tips): Consejos prácticos para mantener tus pies sanos.
-- [Contacto](https://podoclinicec.com/#contacto): Información para agendar citas o consultas.
+- [Preguntas Frecuentes](https://podoclinicec.com/faq): Respuestas a dudas comunes sobre podología.

@@ -90,7 +90,7 @@ export default function UnerosTipsPage() {
                     <div className="relative w-full h-64 md:h-auto">
                         <Image
                             src={uneroImageUrl}
-                            alt="Consejos para evitar uñeros"
+                            alt="Consejos prevenir uñeros Quito Norte - Podólogo especialista cuidado pies"
                             fill
                             style={{ objectFit: "cover" }}
                             className="rounded-lg"

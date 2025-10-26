@@ -6,6 +6,7 @@ import SmartQuiz from "@/components/SmartQuiz";
 import Testimonials from "@/components/Testimonials";
 import LocationHub from "@/components/LocationHub";
 import FAQAccordion from "@/components/FAQAccordion";
+import InternalLinks from "@/components/InternalLinks";
 import faqs from "@/data/faqs";
 import { Metadata } from "next";
 
@@ -270,6 +271,68 @@ export default function HomePage() {
       {/* Contenido de la página */}
       <Hero />
       <AboutDoctor />
+      
+      {/* Enlaces internos estratégicos después del Hero */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Servicios Especializados en Quito Norte
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Descubre todos nuestros tratamientos podológicos especializados y las zonas que cubrimos
+            </p>
+          </div>
+          
+          {/* Grid principal de enlaces internos */}
+          <InternalLinks 
+            variant="grid" 
+            category="mixed" 
+            limit={8} 
+            showDescription={true} 
+          />
+          
+          {/* Enlaces horizontales por categoría */}
+          <div className="mt-16 space-y-12">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                🏥 <span className="ml-2">Servicios Principales</span>
+              </h3>
+              <InternalLinks 
+                variant="horizontal" 
+                category="servicios" 
+                limit={5} 
+                showDescription={false} 
+              />
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                📍 <span className="ml-2">Zonas de Atención</span>
+              </h3>
+              <InternalLinks 
+                variant="horizontal" 
+                category="zonas" 
+                limit={4} 
+                showDescription={false} 
+              />
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                💡 <span className="ml-2">Tips y Consejos</span>
+              </h3>
+              <InternalLinks 
+                variant="horizontal" 
+                category="tips" 
+                limit={4} 
+                showDescription={false} 
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <SmartQuiz />
       <Servicios />
       <Testimonials />

@@ -90,18 +90,18 @@ export default function SmartQuiz() {
         
         if (score >= 18) {
             return {
-                level: "🔴 Atención Urgente",
+                level: "🔴 Atención Especializada",
                 color: "from-red-500 to-red-600",
                 bgColor: "from-red-50 to-red-100",
                 title: "Tus pies necesitan atención profesional inmediata",
                 description: "Los síntomas que presentas indican problemas que podrían empeorar sin tratamiento. Es importante actuar ahora para evitar complicaciones.",
                 recommendations: [
-                    "Consulta urgente con especialista",
+                    "Consulta especializada inmediata",
                     "Evaluación completa de salud podológica",
                     "Posible tratamiento inmediato"
                 ],
-                cta: "Agendar Consulta Urgente",
-                whatsappMessage: "¡Hola!%20El%20quiz%20indica%20que%20necesito%20atención%20podológica%20urgente.%20¿Pueden%20agendar%20una%20cita%20prioritaria?"
+                cta: "Agendar Consulta Especializada",
+                whatsappMessage: "¡Hola!%20El%20quiz%20indica%20que%20necesito%20atención%20podológica%20especializada.%20¿Pueden%20agendar%20una%20cita?"
             };
         }
         

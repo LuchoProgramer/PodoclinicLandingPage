@@ -2,33 +2,89 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, ArrowRight, User, Tag, Share2, CheckCircle } from "lucide-react";
 import { getPostBySlug, getRecentPosts } from "@/data/blog/posts";
 import { WhatsAppButton, CTAButton } from "@/components/BlogButtons";
+import { Breadcrumbs, RelatedLinks } from "@/components/InternalLinks";
 
 export const metadata = {
-  title: "5 Señales URGENTES de Uñero | Cuándo Acudir al Podólogo",
-  description: "¿Tu uñero es una emergencia? Aprende las 5 señales que indican que necesitas atención médica URGENTE. Dra. Cristina Muñoz, especialista en Quito.",
-  keywords: "uñero urgente, uña encarnada emergencia, podólogo Quito, infección uñero",
+  title: "5 Señales de Uñero que Requieren Atención | Cuándo Acudir al Podólogo",
+  description: "¿Tu uñero es un problema serio? Aprende las 5 señales que indican que necesitas atención médica especializada. Dra. Cristina Muñoz, especialista en Quito.",
+  keywords: "uñero problema, uña encarnada síntomas, podólogo Quito, infección uñero",
 };
 
 export default function SeñalesUneroUrgentePage() {
   const post = getPostBySlug("senales-unero-urgente");
   const relatedPosts = getRecentPosts(3).filter(p => p.id !== post?.id);
 
+  // Article Schema para SEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 Señales de que tu Uñero Necesita Atención Especializada",
+    "description": "Descubre cuándo un uñero deja de ser un problema menor y se convierte en una emergencia médica que requiere atención profesional inmediata.",
+    "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+    "author": {
+      "@type": "Person",
+      "name": "Dra. Cristina Muñoz",
+      "jobTitle": "Podóloga Especialista",
+      "worksFor": {
+        "@type": "MedicalOrganization",
+        "name": "PodoClinic",
+        "url": "https://podoclinicec.com"
+      },
+      "sameAs": [
+        "https://www.facebook.com/podoclinicec",
+        "https://www.instagram.com/podoclinicec"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PodoClinic",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+        "width": 600,
+        "height": 315
+      }
+    },
+    "datePublished": "2025-10-05T10:00:00-05:00",
+    "dateModified": "2025-10-25T15:30:00-05:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://podoclinicec.com/blog/uneros/senales-unero-urgente"
+    },
+    "articleSection": "Salud Podológica",
+    "keywords": ["uñero problema", "uña encarnada síntomas", "podólogo Quito", "infección uñero", "síntomas importantes"],
+    "about": [
+      {
+        "@type": "MedicalCondition",
+        "name": "Onicocriptosis",
+        "alternateName": "Uñero",
+        "description": "Condición donde el borde de la uña se incrusta en la piel circundante"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "MedicalOrganization",
+        "name": "PodoClinic",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Quito Norte",
+          "addressRegion": "Pichincha",
+          "addressCountry": "EC"
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-      {/* Breadcrumb */}
-      <div className="bg-white border-b">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-             <nav className="flex items-center text-sm text-gray-600 mt-8">
-            <Link href="/" className="hover:text-[#60BEC3]">Inicio</Link>
-            <span className="mx-2">/</span>
-            <Link href="/blog" className="hover:text-[#60BEC3]">Blog</Link>
-            <span className="mx-2">/</span>
-            <Link href="/blog/uneros" className="hover:text-[#60BEC3]">Uñeros</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-800">5 Señales de que tu Uñero Necesita Atención URGENTE</span>
-          </nav>
-        </div>
-      </div>
+      {/* Article Schema */}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} 
+      />
+      
+      {/* Breadcrumbs */}
+      <Breadcrumbs path="/blog/uneros/senales-unero-urgente" />
 
       {/* Header del Post */}
       <article className="max-w-4xl mx-auto px-6 py-12">
@@ -44,12 +100,12 @@ export default function SeñalesUneroUrgentePage() {
 
           {/* Categoría */}
           <div className="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-            URGENTE • UÑEROS
+            IMPORTANTE • UÑEROS
           </div>
 
           {/* Título */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-            5 Señales de que tu Uñero Necesita Atención <span className="text-red-600">URGENTE</span>
+            5 Señales de que tu Uñero Necesita Atención <span className="text-[#60BEC3]">ESPECIALIZADA</span>
           </h1>
 
           {/* Excerpt */}
@@ -181,10 +237,10 @@ export default function SeñalesUneroUrgentePage() {
               </ul>
             </div>
 
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Nuestro Protocolo de Atención Urgente</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Nuestro Protocolo de Atención Especializada</h3>
             
             <p className="text-gray-700 mb-6">
-              En PodoClinic, tenemos un protocolo específico para casos urgentes de uñeros que incluye:
+              En PodoClinic, tenemos un protocolo específico para casos complejos de uñeros que incluye:
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -200,6 +256,41 @@ export default function SeñalesUneroUrgentePage() {
               </div>
             </div>
 
+            {/* Enlaces internos contextuales */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+              <h4 className="font-semibold text-blue-800 mb-4">📚 Aprende más sobre nuestros servicios:</h4>
+              <div className="grid md:grid-cols-2 gap-3">
+                <Link 
+                  href="/servicios/uneros" 
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                >
+                  🩹 Tratamiento Especializado de Uñeros
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+                <Link 
+                  href="/servicios/pie-diabetico" 
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                >
+                  💉 Cuidado de Pie Diabético
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+                <Link 
+                  href="/servicios/domicilio" 
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                >
+                  🏠 Atención a Domicilio
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+                <Link 
+                  href="/tips/uneros" 
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                >
+                  💡 Tips para Prevenir Uñeros
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+              </div>
+            </div>
+
             {/* CTA específico del post */}
             <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-8 text-center text-white mt-12">
               <h3 className="text-2xl font-bold mb-4">🚨 ¿Reconoces alguna de estas señales?</h3>
@@ -207,14 +298,19 @@ export default function SeñalesUneroUrgentePage() {
                 No esperes a que empeore. La atención temprana es clave para un tratamiento exitoso.
               </p>
               <WhatsAppButton
-                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20síntomas%20urgentes%20de%20uñero%20y%20necesito%20consulta%20inmediata"
+                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20síntomas%20de%20uñero%20y%20necesito%20consulta%20especializada"
                 className="inline-flex items-center bg-white text-red-600 px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
                 trackingLabel="Señales Uñero Urgente CTA"
               >
-                Consulta URGENTE tu Uñero
+                Consulta ESPECIALIZADA tu Uñero
               </WhatsAppButton>
             </div>
           </div>
+        </div>
+
+        {/* Enlaces relacionados estratégicos */}
+        <div className="max-w-4xl mx-auto px-6 mb-8">
+          <RelatedLinks currentPath="/blog/uneros/senales-unero-urgente" />
         </div>
 
         {/* Tags */}

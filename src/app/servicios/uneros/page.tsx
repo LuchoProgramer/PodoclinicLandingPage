@@ -5,6 +5,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Footer } from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Breadcrumbs, RelatedLinks } from "@/components/InternalLinks";
 import { 
     Shield, 
     Clock, 
@@ -12,16 +13,17 @@ import {
     CheckCircle,
     AlertTriangle,
     Users,
-    Calendar
+    Calendar,
+    Phone
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Servicio de Uñeros Quito Norte | Especialista Certificada - Podoclinicec",
-  description: "🏥 Servicio especializado de uñeros en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz. Tratamiento sin dolor desde $35. Atención urgente.",
+  description: "🏥 Servicio especializado de uñeros en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz. Tratamiento sin dolor desde $35. Atención profesional.",
   keywords: "servicio uñeros quito norte, tratamiento uñas encarnadas, podólogo uñeros, especialista uñeros",
   openGraph: {
     title: "Servicio de Uñeros Quito Norte | Dra. Cristina Muñoz",
-    description: "Servicio especializado de uñeros en Quito Norte. 13 reseñas Google 5 estrellas. Tratamiento sin dolor, atención urgente.",
+    description: "Servicio especializado de uñeros en Quito Norte. 13 reseñas Google 5 estrellas. Tratamiento sin dolor, atención profesional.",
     type: "website",
     locale: "es_EC"
   },
@@ -78,9 +80,9 @@ function UnerosHero() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Contenido principal */}
                     <div className="text-center lg:text-left">
-                        <div className="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                            <AlertTriangle className="w-4 h-4 inline mr-1" />
-                            Tratamiento Urgente Disponible
+                        <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                            <CheckCircle className="w-4 h-4 inline mr-1" />
+                            Tratamiento Especializado Disponible
                         </div>
                         
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
@@ -113,21 +115,21 @@ function UnerosHero() {
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <a
-                                href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20un%20uñero%20y%20necesito%20tratamiento%20urgente"
+                                href="https://wa.me/593995832788?text=¡Hola!%20Tengo%20un%20uñero%20y%20necesito%20tratamiento%20profesional"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-[#60BEC3] text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-[#4A9DB8] hover:shadow-xl transition-all duration-300 flex items-center justify-center"
                             >
                                 <Calendar className="w-5 h-5 mr-2" />
-                                Agendar Tratamiento Urgente
+                                Agendar Tratamiento
                             </a>
                             
                             <a
                                 href="tel:+593995832788"
-                                className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-red-700 hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+                                className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-green-700 hover:shadow-xl transition-all duration-300 flex items-center justify-center"
                             >
-                                <AlertTriangle className="w-5 h-5 mr-2" />
-                                Llamar Ahora
+                                <Phone className="w-5 h-5 mr-2" />
+                                Consulta por Teléfono
                             </a>
                         </div>
                     </div>
@@ -198,12 +200,117 @@ function UnerosHero() {
 }
 
 export default function UnerosPage() {
+    // Service Schema para tratamiento de uñeros
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "MedicalService",
+        "name": "Tratamiento Especializado de Uñeros",
+        "alternateName": ["Tratamiento Onicocriptosis", "Uñas Encarnadas", "Cirugía Uñero"],
+        "description": "Tratamiento profesional para uñeros (onicocriptosis) sin dolor, con anestesia local y recuperación rápida en 1-2 semanas.",
+        "provider": {
+            "@type": "MedicalClinic",
+            "name": "PodoClinic",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Manuel Jordan y Av La Florida",
+                "addressLocality": "Quito Norte",
+                "addressRegion": "Pichincha",
+                "addressCountry": "EC"
+            },
+            "telephone": "+593995832788"
+        },
+        "serviceType": "Podiatric Surgery",
+        "medicalSpecialty": "Podiatry",
+        "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceLocation": {
+                "@type": "Place",
+                "name": "PodoClinic",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Quito Norte",
+                    "addressRegion": "Pichincha",
+                    "addressCountry": "EC"
+                }
+            },
+            "servicePhone": "+593995832788",
+            "serviceUrl": "https://podoclinicec.com/servicios/uneros"
+        },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Consulta de Evaluación",
+                "description": "Evaluación profesional del uñero y plan de tratamiento",
+                "price": "35",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+            },
+            {
+                "@type": "Offer", 
+                "name": "Tratamiento Completo Uñero",
+                "description": "Tratamiento completo con anestesia local y seguimiento",
+                "priceRange": "45-65",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+            }
+        ],
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "-0.1807",
+                "longitude": "-78.4678"
+            },
+            "geoRadius": "8000"
+        },
+        "hoursAvailable": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification", 
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "14:00"
+            }
+        ],
+        "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://wa.me/593995832788?text=Hola,%20necesito%20tratamiento%20para%20uñero",
+                "inLanguage": "es"
+            }
+        }
+    };
+
     return (
         <>
             <Navbar />
+            
+            {/* Service Schema */}
+            <script 
+                type="application/ld+json" 
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} 
+            />
+            
+            {/* Breadcrumbs para navegación */}
+            <Breadcrumbs path="/servicios/uneros" />
+            
             <main>
                 <UnerosHero />
                 <AboutDoctor />
+                
+                {/* Enlaces relacionados estratégicos */}
+                <div className="py-16 bg-white">
+                    <div className="max-w-4xl mx-auto px-6">
+                        <RelatedLinks currentPath="/servicios/uneros" />
+                    </div>
+                </div>
+                
                 <div className="py-16 bg-gray-50">
                     <div className="max-w-4xl mx-auto px-6">
                         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
