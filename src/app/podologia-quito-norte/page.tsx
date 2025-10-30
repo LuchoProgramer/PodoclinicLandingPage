@@ -121,6 +121,8 @@ export default function PodologiaQuitoNortePage() {
             <nav className="flex items-center text-sm text-gray-600 mb-8">
               <a href="/" className="hover:text-[#60BEC3]">Inicio</a>
               <span className="mx-2">/</span>
+              <a href="/servicios" className="hover:text-[#60BEC3]">Servicios</a>
+              <span className="mx-2">/</span>
               <span className="text-gray-900 font-medium">Podología Quito Norte</span>
             </nav>
 
