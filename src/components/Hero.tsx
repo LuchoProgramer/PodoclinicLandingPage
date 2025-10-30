@@ -111,8 +111,8 @@ export default function Hero() {
                                 <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Años de experiencia</div>
                             </div>
                             <div className="text-center py-2 border-t sm:border-t-0 border-gray-200">
-                                    <div className="text-[#60BEC3] font-bold text-2xl sm:text-xl md:text-2xl mb-1">La Floresta</div>
-                                    <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Ubicación central en Quito Norte</div>
+                                    <div className="text-[#60BEC3] font-bold text-2xl sm:text-xl md:text-2xl mb-1">La Florida</div>
+                                    <div className="text-gray-600 text-sm sm:text-xs md:text-sm">Ubicación central al Norte de Quito</div>
                             </div>
                         </div>
                     </div>
@@ -185,9 +185,9 @@ export default function Hero() {
                             <div className="text-center">
                                 <div className="text-xl sm:text-2xl mb-1 sm:mb-2">🌳</div>
                                 <div className="text-xs sm:text-sm font-medium text-gray-900 group-hover:text-[#60BEC3] transition-colors leading-tight">
-                                    La Floresta
+                                    La Florida
                                 </div>
-                                <div className="text-xs text-gray-600 mt-1">Ubicación central</div>
+                                <div className="text-xs text-gray-600 mt-1">Ubicación al Norte de Quito</div>
                             </div>
                         </a>
 
