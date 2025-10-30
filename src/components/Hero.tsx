@@ -177,7 +177,7 @@ export default function Hero() {
                                 if (typeof window !== "undefined" && window.gtag) {
                                     window.gtag("event", "click_internal_link", {
                                         event_category: "seo",
-                                        event_label: "Hero La Floresta"
+                                        event_label: "Hero La Florida"
                                     });
                                 }
                             }}

@@ -90,7 +90,7 @@ export default function HomePage() {
       },
       {
         "@type": "City", 
-        "name": "La Floresta, Quito"
+        "name": "La Florida, Quito"
       },
       {
         "@type": "City",

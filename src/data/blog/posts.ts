@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
     id: "podologo-la-florida-quito-norte",
     title: "Por Qué Elegir un Podólogo en La Florida, Quito Norte: ¡Tu Bienestar Empieza Aquí!",
     slug: "podologo-la-florida-quito-norte",
-    excerpt: "¿Buscas un podólogo cerca de casa? Descubre por qué Podoclinicec en La Floresta, Quito norte, es la mejor opción para runners, diabéticos y familias. Atención a domicilio por solo $35.",
+    excerpt: "¿Buscas un podólogo cerca de casa? Descubre por qué Podoclinicec en La Floreida, Quito norte, es la mejor opción para runners, diabéticos y familias. Atención a domicilio por solo $35.",
     content: ``,
     category: "local",
     author: "Dra. Cristina Muñoz",

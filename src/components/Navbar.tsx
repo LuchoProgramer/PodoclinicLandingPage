@@ -129,57 +129,23 @@ export default function Navbar({ activeSection: propActiveSection }: NavbarProps
                     
                     {/* Navegación central - Solo Desktop */}
                     <div className="hidden md:flex items-center space-x-8">
-                        {isOnBlogPage ? (
-                            <Link
-                                href="/#inicio"
-                                onClick={() => trackNavClick("inicio")}
-                                className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
-                            >
-                                <Home className="w-4 h-4" />
-                                <span>Inicio</span>
-                            </Link>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    scrollToSection("inicio");
-                                    trackNavClick("inicio");
-                                }}
-                                className={`flex items-center space-x-2 font-medium transition-colors ${
-                                    currentActiveSection === "inicio" 
-                                        ? "text-[#60BEC3]" 
-                                        : "text-gray-700 hover:text-[#60BEC3]"
-                                }`}
-                            >
-                                <Home className="w-4 h-4" />
-                                <span>Inicio</span>
-                            </button>
-                        )}
+                        <Link
+                            href="/"
+                            onClick={() => trackNavClick("inicio")}
+                            className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
+                        >
+                            <Home className="w-4 h-4" />
+                            <span>Inicio</span>
+                        </Link>
 
-                        {isOnBlogPage ? (
-                            <Link
-                                href="/#servicios"
-                                onClick={() => trackNavClick("servicios")}
-                                className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
-                            >
-                                <Stethoscope className="w-4 h-4" />
-                                <span>Servicios</span>
-                            </Link>
-                        ) : (
-                            <button
-                                onClick={() => {
-                                    scrollToSection("servicios");
-                                    trackNavClick("servicios");
-                                }}
-                                className={`flex items-center space-x-2 font-medium transition-colors ${
-                                    currentActiveSection === "servicios" 
-                                        ? "text-[#60BEC3]" 
-                                        : "text-gray-700 hover:text-[#60BEC3]"
-                                }`}
-                            >
-                                <Stethoscope className="w-4 h-4" />
-                                <span>Servicios</span>
-                            </button>
-                        )}
+                        <Link
+                            href="/#servicios"
+                            onClick={() => trackNavClick("servicios")}
+                            className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
+                        >
+                            <Stethoscope className="w-4 h-4" />
+                            <span>Servicios</span>
+                        </Link>
                         
                         <Link 
                             href="/blog"

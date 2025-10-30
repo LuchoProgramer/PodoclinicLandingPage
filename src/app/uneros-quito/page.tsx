@@ -476,7 +476,7 @@ export default function UnerosQuitoPage() {
 
             <div className="mt-6 text-blue-100">
               <MapPin className="w-4 h-4 inline mr-2" />
-              <strong>Consultorio en La Floresta • Atención domicilio con cita previa</strong>
+              <strong>Consultorio en La Florida Quito • Atención domicilio con cita previa</strong>
             </div>
           </div>
         </section>

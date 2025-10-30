@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz, 5 años experiencia. Cobertura La Floresta.",
+    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz, 5 años experiencia. Cobertura La Florida.",
     url: "https://podoclinicec.com/",
     siteName: "Podoclinicec",
     images: [

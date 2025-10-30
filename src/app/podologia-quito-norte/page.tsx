@@ -4,14 +4,14 @@ import { Target, MapPin, Clock, Users, CheckCircle, Phone, Calendar, Stethoscope
 // Metadata optimizada para "podología quito norte"
 export const metadata = {
   title: "Podología Quito Norte | Dra. Cristina Muñoz - Especialista Zona Norte",
-  description: "Podología en Quito Norte: La Floresta, Iñaquito, Rumipamba. Dra. Cristina Muñoz especialista en uñeros, pie diabético. Consulta a domicilio.",
-  keywords: "podología quito norte, podólogo quito norte, podólogos zona norte quito, la floresta, iñaquito, rumipamba, gonzález suárez",
+  description: "Podología en Quito Norte: La Florida, Iñaquito, Rumipamba. Dra. Cristina Muñoz especialista en uñeros, pie diabético. Consulta a domicilio.",
+  keywords: "podología quito norte, podólogo quito norte, podólogos zona norte quito, la florida, iñaquito, rumipamba, gonzález suárez",
   alternates: {
     canonical: "https://podoclinicec.com/podologia-quito-norte",
   },
   openGraph: {
     title: "Podología Quito Norte | Dra. Cristina Muñoz - Especialista Zona Norte",
-    description: "Podología especializada en Quito Norte: La Floresta, Iñaquito, Rumipamba. Atención domicilio y consultorio. +10 años experiencia.",
+    description: "Podología especializada en Quito Norte: La Florida, Iñaquito, Rumipamba. Atención domicilio y consultorio. +10 años experiencia.",
     url: "https://podoclinicec.com/podologia-quito-norte",
     siteName: "PodoClinicec",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Podología Quito Norte | Dra. Cristina Muñoz",
-    description: "Especialista en podología para Quito Norte: La Floresta, Iñaquito, Rumipamba. Atención domicilio.",
+    description: "Especialista en podología para Quito Norte: La Florida, Iñaquito, Rumipamba. Atención domicilio.",
     images: ["https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"],
   },
 };
@@ -38,7 +38,7 @@ const localBusinessSchema = {
   "@type": "PodiatryOffice",
   "name": "PodoClinic Quito Norte",
   "alternateName": "Podología Quito Norte - Dra. Cristina Muñoz",
-  "description": "Clínica de podología especializada en Quito Norte. Atención en La Floresta, Iñaquito, Rumipamba y sectores aledaños.",
+  "description": "Clínica de podología especializada en Quito Norte. Atención en La Florida, Iñaquito, Rumipamba y sectores aledaños.",
   "url": "https://podoclinicec.com/podologia-quito-norte",
   "telephone": "+593995832788",
   "email": "info@podoclinicec.com",
@@ -58,7 +58,7 @@ const localBusinessSchema = {
   "areaServed": [
     {
       "@type": "City",
-      "name": "La Floresta, Quito"
+      "name": "La Florida, Quito"
     },
     {
       "@type": "City", 
@@ -141,7 +141,7 @@ export default function PodologiaQuitoNortePage() {
                 </h1>
                 
                 <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                  <strong>Especialista certificada</strong> atendiendo <strong>La Floresta, Iñaquito, Rumipamba, González Suárez</strong> y toda la zona norte de Quito.
+                  <strong>Especialista certificada</strong> atendiendo <strong>La Florida, Iñaquito, Rumipamba, González Suárez</strong> y toda la zona norte de Quito.
                 </p>
 
                 {/* Sectores específicos */}
@@ -152,7 +152,7 @@ export default function PodologiaQuitoNortePage() {
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {[
-                      "✓ La Floresta",
+                      "✓ La Florida",
                       "✓ Iñaquito", 
                       "✓ Rumipamba",
                       "✓ González Suárez",
@@ -203,7 +203,7 @@ export default function PodologiaQuitoNortePage() {
                   {/* Tiempos de llegada */}
                   <div className="space-y-4">
                     <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                      <span className="font-medium text-gray-900">La Floresta</span>
+                      <span className="font-medium text-gray-900">La Florida</span>
                       <span className="text-[#60BEC3] font-bold">15 min</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
@@ -248,7 +248,7 @@ export default function PodologiaQuitoNortePage() {
                 {
                   icon: MapPin,
                   title: "Conocemos tu Zona",
-                  description: "10+ años atendiendo familias en La Floresta, Iñaquito, Rumipamba. Conocemos cada rincón de Quito Norte.",
+                  description: "10+ años atendiendo familias en La Florida, Iñaquito, Rumipamba. Conocemos cada rincón de Quito Norte.",
                   color: "bg-green-50 text-green-600"
                 },
                 {
@@ -296,7 +296,7 @@ export default function PodologiaQuitoNortePage() {
                 },
                 {
                   title: "Profilaxis Podal", 
-                  description: "Servicio premium muy solicitado en La Floresta e Iñaquito.",
+                  description: "Servicio premium muy solicitado en La Florida.",
                   price: "Desde $20",
                   popular: false,
                   stats: "25% de consultas"
@@ -370,8 +370,8 @@ export default function PodologiaQuitoNortePage() {
               {[
                 {
                   name: "María González",
-                  location: "La Floresta",
-                  text: "La Dra. Cristina llegó a mi casa en La Floresta en 15 minutos. Solucionó mi uñero sin dolor y con mucha profesionalidad.",
+                  location: "La Florida",
+                  text: "La Dra. Cristina llegó a mi casa en La Florida en 15 minutos. Solucionó mi uñero sin dolor y con mucha profesionalidad.",
                   rating: 5
                 },
                 {
@@ -411,7 +411,7 @@ export default function PodologiaQuitoNortePage() {
               ¿Vives en Quito Norte? ¡Agenda tu consulta HOY!
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              La Floresta • Iñaquito • Rumipamba • González Suárez<br />
+              La Florida • Iñaquito • Rumipamba • González Suárez<br />
               <strong>Atención domicilio sin costo adicional</strong>
             </p>
             

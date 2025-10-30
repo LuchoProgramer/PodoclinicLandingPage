@@ -481,7 +481,7 @@ export default function PodologiaRunnersPage() {
 
             <div className="mt-6 text-blue-100">
               <MapPin className="w-4 h-4 inline mr-2" />
-              <strong>Consultorio en La Floresta • Atención a domicilio para deportistas</strong>
+              <strong>Consultorio en La Florida Quito• Atención a domicilio para deportistas</strong>
             </div>
           </div>
         </section>

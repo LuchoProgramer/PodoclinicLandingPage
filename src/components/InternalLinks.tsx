@@ -94,7 +94,7 @@ const allLinks: InternalLink[] = [
   {
     href: "/podologia-quito-norte",
     title: "Podología Quito Norte",
-    description: "Cobertura completa La Floresta",
+    description: "Cobertura completa La Floreida y alrededores",
     icon: Globe,
     category: "zona"
   },
