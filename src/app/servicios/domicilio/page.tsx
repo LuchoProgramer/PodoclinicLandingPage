@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Breadcrumbs } from "@/components/InternalLinks";
 import Navbar from "@/components/Navbar";
 import AboutDoctor from "@/components/AboutDoctor";
 import Testimonials from "@/components/Testimonials";
@@ -154,6 +155,8 @@ export default function DomicilioPage() {
     return (
         <>
             <Navbar />
+            {/* Breadcrumbs para navegación */}
+            <Breadcrumbs path="/servicios/domicilio" />
             <DomicilioHero />
             <AboutDoctor />
             <Testimonials />

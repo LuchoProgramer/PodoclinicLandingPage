@@ -1,4 +1,5 @@
 import profilaxisServiceSchema from "./profilaxis-schema";
+import { Breadcrumbs } from "@/components/InternalLinks";
 import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import AboutDoctor from "@/components/AboutDoctor";
@@ -153,6 +154,8 @@ export default function ProfilaxisPage() {
   return (
     <>
       <Navbar />
+      {/* Breadcrumbs para navegación */}
+      <Breadcrumbs path="/servicios/profilaxis" />
       <main>
         <ProfilaxisHero />
         <AboutDoctor />
