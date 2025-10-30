@@ -1,3 +1,4 @@
+import profilaxisServiceSchema from "./profilaxis-schema";
 import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import AboutDoctor from "@/components/AboutDoctor";
@@ -166,6 +167,11 @@ export default function ProfilaxisPage() {
         <Testimonials />
         <Footer />
         <WhatsAppButton />
+        {/* Datos estructurados para SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilaxisServiceSchema) }}
+        />
       </main>
     </>
   );
