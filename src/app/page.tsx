@@ -49,15 +49,29 @@ export default function HomePage() {
     ]
   };
 
-  const businessSchema = {
+const businessSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
     "name": "PodoClinic - Podólogo en Quito Norte | Dra. Cristina Muñoz",
     "alternateName": [
-      "Podología Quito Norte",
-      "Podólogo Quito",
-      "Especialista en Uñeros Quito",
-      "Pie Diabético Quito"
+        // Keywords principales (alta prioridad)
+        "Doctor de Pies Quito Norte",
+        "Doctora de Pies Quito",
+        "Podólogo Quito Norte",
+        "Podología Quito Norte",
+        
+        // Servicios principales
+        "Especialista en Uñeros Quito",
+        "Tratamiento Pie Diabético Quito",
+        "Especialista Hongos Uñas Quito",
+        
+        // Diferenciadores
+        "Podólogo a Domicilio Quito Norte",
+        "Clínica Podológica Certificada Quito",
+        
+        // Zonas específicas (si aplica)
+        "Podólogo La Florida Quito",
+        "Doctor de Pies Iñaquito"
     ],
     "description": "Clínica podológica #1 en Quito Norte especializada en uñeros, pie diabético, profilaxis podal y verrugas plantares. Dra. Cristina Muñoz con +10 años experiencia. Atención domicilio y consultorio.",
     "url": "https://podoclinicec.com",
