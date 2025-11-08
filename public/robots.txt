@@ -1,12 +1,28 @@
-# *
+# Robots.txt para Podoclinicec - Servicios de Podología en Quito Norte
+# Actualizado: 7 noviembre 2025
+
+# Permitir acceso a todos los robots de búsqueda
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /login
-Disallow: /cart
 
-# Host
-Host: https://podoclinicec.com
+# Bloquear acceso a archivos y directorios técnicos
+Disallow: /api/
+Disallow: /_next/
+Disallow: /scripts/
 
-# Sitemaps
+# Permitir explícitamente contenido importante para SEO
+Allow: /blog/
+Allow: /servicios/
+Allow: /faq
+Allow: /tips/
+
+# Crawler específico de Google
+User-agent: Googlebot
+Allow: /
+
+# Crawler específico de Bing
+User-agent: Bingbot
+Allow: /
+
+# Sitemap principal
 Sitemap: https://podoclinicec.com/sitemap.xml

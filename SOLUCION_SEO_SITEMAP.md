@@ -181,6 +181,59 @@ node scripts/check-sitemap.js --missing
 
 **Resultado actual**: 100% de cobertura (32/32 páginas)
 
+### **Script de Validación de Robots.txt**
+
+**Archivo**: `/scripts/validate-robots.js`
+
+**Funcionalidades**:
+```bash
+# Validar robots.txt completo
+node scripts/validate-robots.js
+
+# Probar URL específica
+node scripts/validate-robots.js "/blog/uneros"
+node scripts/validate-robots.js "/api/chat"
+```
+
+**Qué valida**:
+- ✅ Sintaxis correcta de directivas
+- ✅ URLs y patrones válidos  
+- ✅ Optimización SEO del archivo
+- ✅ Testing de URLs específicas
+- ✅ Sugerencias de mejora
+
+**Resultado actual**: 0 errores, archivo optimizado para SEO
+
+### **Robots.txt Optimizado**
+
+**Archivo**: `/public/robots.txt`
+
+**Correcciones aplicadas**:
+- ❌ **Antes**: Directiva `Host:` deprecada, rutas inexistentes bloqueadas
+- ✅ **Después**: Sintaxis moderna, bloqueos específicos para APIs, permite contenido SEO
+
+**Configuración final**:
+```plaintext
+# Permitir acceso a todos los robots
+User-agent: *
+Allow: /
+
+# Bloquear APIs y archivos técnicos  
+Disallow: /api/
+Disallow: /_next/
+Disallow: /scripts/
+
+# Crawlers específicos optimizados
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot  
+Allow: /
+
+# Sitemap actualizado
+Sitemap: https://podoclinicec.com/sitemap.xml
+```
+
 ---
 
 ## 📊 **Resultados Obtenidos**
