@@ -299,6 +299,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
         <main className="flex-grow">{children}</main>
+        {/* SEO Debugger - solo en desarrollo */}
+        {process.env.NODE_ENV === 'development' && (
+          <div>
+            {/* Importación dinámica para evitar problemas en producción */}
+          </div>
+        )}
       </body>
     </html>
   );

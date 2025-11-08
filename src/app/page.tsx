@@ -11,20 +11,23 @@ import faqs from "@/data/faqs";
 import { Metadata } from "next";
 import { Stethoscope, Lightbulb } from "lucide-react";
 import SEOContent from "@/components/SEOContent";
+import { getPageMetadata } from "@/data/seo-metadata";
+
+const pageMetadata = getPageMetadata('home');
 
 export const metadata: Metadata = {
-  title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-  description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Desde $35. Agenda tu consulta.",
-  keywords: "podólogo domicilio quito norte, uñeros quito, pie diabético, hongos uñas, podología a domicilio, dra cristina muñoz",
+  title: pageMetadata.title,
+  description: pageMetadata.description,
+  keywords: pageMetadata.keywords,
   openGraph: {
-    title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz",
-    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Tratamiento de uñeros, pie diabético, hongos. Desde $35.",
-    url: "https://podoclinicec.com",
+    title: pageMetadata.ogTitle || pageMetadata.title,
+    description: pageMetadata.ogDescription || pageMetadata.description,
+    url: pageMetadata.canonical,
     siteName: "Podoclinicec",
     type: "website",
   },
   alternates: {
-    canonical: "https://podoclinicec.com"
+    canonical: pageMetadata.canonical
   }
 };
 

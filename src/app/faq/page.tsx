@@ -5,13 +5,23 @@ import { Footer } from "@/components/Footer";
 import FAQAccordion from "@/components/FAQAccordion";
 import faqs from "@/data/faqs";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { getPageMetadata } from "@/data/seo-metadata";
+
+const pageMetadata = getPageMetadata('faq');
 
 export const metadata: Metadata = {
-  title: "Preguntas Frecuentes | Podólogo Quito Norte - Podoclinicec",
-  description: "🏥 Respuestas a preguntas frecuentes sobre podología en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Consulta precios, servicios y horarios.",
-  keywords: "preguntas frecuentes podólogo, FAQ podología quito norte, precios podólogo, horarios atención",
+  title: pageMetadata.title,
+  description: pageMetadata.description,
+  keywords: pageMetadata.keywords,
   alternates: {
-    canonical: "https://podoclinicec.com/faq"
+    canonical: pageMetadata.canonical
+  },
+  openGraph: {
+    title: pageMetadata.ogTitle || pageMetadata.title,
+    description: pageMetadata.ogDescription || pageMetadata.description,
+    url: pageMetadata.canonical,
+    siteName: "Podoclinicec",
+    type: "website",
   }
 };
 

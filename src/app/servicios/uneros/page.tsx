@@ -6,6 +6,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import { Footer } from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Breadcrumbs, RelatedLinks } from "@/components/InternalLinks";
+import { getPageMetadata } from "@/data/seo-metadata";
 import { 
     Shield, 
     Clock, 
@@ -17,18 +18,22 @@ import {
     Phone
 } from "lucide-react";
 
+const pageMetadata = getPageMetadata('servicios-uneros');
+
 export const metadata: Metadata = {
-  title: "Servicio de Uñeros Quito Norte | Especialista Certificada - Podoclinicec",
-  description: "🏥 Servicio especializado de uñeros en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz. Tratamiento sin dolor desde $35. Atención profesional.",
-  keywords: "servicio uñeros quito norte, tratamiento uñas encarnadas, podólogo uñeros, especialista uñeros",
+  title: pageMetadata.title,
+  description: pageMetadata.description,
+  keywords: pageMetadata.keywords,
   openGraph: {
-    title: "Servicio de Uñeros Quito Norte | Dra. Cristina Muñoz",
-    description: "Servicio especializado de uñeros en Quito Norte. 13 reseñas Google 5 estrellas. Tratamiento sin dolor, atención profesional.",
+    title: pageMetadata.ogTitle || pageMetadata.title,
+    description: pageMetadata.ogDescription || pageMetadata.description,
+    url: pageMetadata.canonical,
+    siteName: "Podoclinicec",
     type: "website",
     locale: "es_EC"
   },
   alternates: {
-    canonical: "https://podoclinicec.com/servicios/uneros"
+    canonical: pageMetadata.canonical
   }
 };
 

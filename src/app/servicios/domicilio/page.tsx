@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQAccordion from "@/components/FAQAccordion";
 import { Footer } from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { getPageMetadata } from "@/data/seo-metadata";
 import { 
     Shield, 
     Clock, 
@@ -16,18 +17,22 @@ import {
     Calendar
 } from "lucide-react";
 
+const pageMetadata = getPageMetadata('servicios-domicilio');
+
 export const metadata: Metadata = {
-  title: "Podología a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-  description: "🏠 Podología a domicilio en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Cobertura 8km. Dra. Cristina Muñoz. Uñeros, hongos, pie diabético. Desde $35.",
-  keywords: "podología domicilio quito norte, podólogo casa, atención domiciliaria, cuidado pies casa",
+  title: pageMetadata.title,
+  description: pageMetadata.description,
+  keywords: pageMetadata.keywords,
   openGraph: {
-    title: "Podología a Domicilio Quito Norte | Dra. Cristina Muñoz",
-    description: "Podología a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Atención especializada en tu hogar.",
+    title: pageMetadata.ogTitle || pageMetadata.title,
+    description: pageMetadata.ogDescription || pageMetadata.description,
+    url: pageMetadata.canonical,
+    siteName: "Podoclinicec",
     type: "website",
     locale: "es_EC"
   },
   alternates: {
-    canonical: "https://podoclinicec.com/servicios/domicilio"
+    canonical: pageMetadata.canonical
   }
 };
 

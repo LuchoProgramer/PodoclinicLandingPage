@@ -1,37 +1,10 @@
 import LayoutClient from "@/components/LayoutClient";
 import { AlertTriangle, Clock, Shield, Phone, Calendar, CheckCircle, Stethoscope, MapPin, Users, Scissors, Footprints, Sparkles, ShieldCheck, Eye, Building2 } from "lucide-react";
 import { Metadata } from "next";
+import { generateMetadata } from "@/lib/metadata-utils";
 
-// Metadata optimizada para "uñeros"
-export const metadata: Metadata = {
-  title: "Uñeros en Quito Norte | Tratamiento Sin Dolor - Dra. Cristina Muñoz",
-  description: "Tratamiento de uñeros en Quito Norte sin dolor. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz especialista en uñas encarnadas. Desde $35. Atención domicilio con cita previa.",
-  keywords: "uñeros quito norte, uñas encarnadas quito, tratamiento uñeros, quitar uñeros, dolor uñeros, podólogo uñeros, uñas infectadas",
-  alternates: {
-    canonical: "https://podoclinicec.com/uneros-quito",
-  },
-  openGraph: {
-    title: "Uñeros en Quito Norte | Tratamiento Sin Dolor - Dra. Cristina Muñoz",
-    description: "Especialista en tratamiento de uñeros sin dolor en Quito Norte. 13 reseñas Google 5 estrellas. Técnica avanzada, recuperación rápida.",
-    url: "https://podoclinicec.com/uneros-quito",
-    siteName: "Podoclinicec",
-    type: "website",
-    images: [
-      {
-        url: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
-        width: 1200,
-        height: 630,
-        alt: "Tratamiento de Uñeros en Quito - Dra. Cristina Muñoz",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Uñeros en Quito | Tratamiento Sin Dolor",
-    description: "Especialista en uñeros. Técnica sin dolor, recuperación en 24h. Atención domicilio con cita previa en Quito.",
-    images: ["https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"],
-  },
-};
+// Metadata única para esta página
+export const metadata: Metadata = generateMetadata('uneros-quito');
 
 // Schema markup específico para tratamiento médico
 const medicalProcedureSchema = {

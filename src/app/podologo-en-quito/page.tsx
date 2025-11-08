@@ -1,37 +1,10 @@
 import LayoutClient from "@/components/LayoutClient";
 import { Stethoscope, MapPin, Clock, Star, CheckCircle, Phone, Calendar, Users, Award } from "lucide-react";
 import { Metadata } from "next";
+import { generateMetadata } from "@/lib/metadata-utils";
 
-// Metadata optimizada para "podólogo en quito"
-export const metadata: Metadata = {
-  title: "Podólogo en Quito Norte | Dra. Cristina Muñoz - Especialista Certificada",
-  description: "Podólogo en Quito Norte con 5 años experiencia. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Atención a domicilio.",
-  keywords: "podólogo quito norte, podólogos quito, doctor de pies quito norte, especialista pies, podología quito norte, dra cristina muñoz",
-  alternates: {
-    canonical: "https://podoclinicec.com/podologo-en-quito",
-  },
-  openGraph: {
-    title: "Podólogo en Quito Norte | Dra. Cristina Muñoz - Especialista Certificada",
-    description: "Podólogo certificado en Quito Norte: tratamiento de uñeros, pie diabético, hongos. 5 años de experiencia, 13 reseñas Google 5 estrellas.",
-    url: "https://podoclinicec.com/podologo-en-quito",
-    siteName: "Podoclinicec",
-    type: "website",
-    images: [
-      {
-        url: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
-        width: 1200,
-        height: 630,
-        alt: "Podólogo en Quito Norte - Dra. Cristina Muñoz",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Podólogo en Quito Norte | Dra. Cristina Muñoz",
-    description: "Especialista en podología con 5 años experiencia en Quito Norte. 13 reseñas Google 5 estrellas. Tratamiento de uñeros, pie diabético y más.",
-    images: ["https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"],
-  },
-};
+// Metadata única para esta página
+export const metadata: Metadata = generateMetadata('podologo-en-quito');
 
 // Schema markup específico para esta página
 const physicianSchema = {
