@@ -1,0 +1,55 @@
+# SaaS/App Web - robots.txt Template  
+# Optimizado para aplicaciones web y servicios SaaS
+
+User-agent: *
+Allow: /
+
+# Bloquear aplicación y áreas privadas
+Disallow: /app/
+Disallow: /dashboard/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /_next/
+Disallow: /user/
+
+# Permitir contenido de marketing y soporte
+Allow: /
+Allow: /features/
+Allow: /pricing/
+Allow: /docs/
+Allow: /help/
+Allow: /blog/
+Allow: /about
+Allow: /contact
+Allow: /security
+Allow: /privacy
+
+# Evitar parámetros de tracking
+Disallow: *?utm_*
+Disallow: *?ref=
+Disallow: *?source=
+
+# Crawlers específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear bots de scraping para SaaS
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Crawl delay para bots agresivos
+User-agent: *
+Crawl-delay: 1
+
+# Sitemaps públicos
+Sitemap: https://tu-saas.com/sitemap.xml

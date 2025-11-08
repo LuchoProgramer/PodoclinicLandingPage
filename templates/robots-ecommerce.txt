@@ -1,0 +1,40 @@
+# E-commerce - robots.txt Template
+# Optimizado para tiendas online y catálogos de productos
+
+User-agent: *
+Allow: /
+
+# Bloquear áreas privadas de e-commerce
+Disallow: /admin
+Disallow: /checkout
+Disallow: /cart
+Disallow: /account
+Disallow: /api/
+Disallow: /_next/
+
+# Permitir contenido público importante
+Allow: /products/
+Allow: /categories/
+Allow: /blog/
+Allow: /about
+Allow: /contact
+Allow: /help
+
+# Crawlers específicos para e-commerce
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear crawlers problemáticos para e-commerce
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap para e-commerce
+Sitemap: https://tu-tienda.com/sitemap.xml
+Sitemap: https://tu-tienda.com/sitemap-products.xml
+Sitemap: https://tu-tienda.com/sitemap-categories.xml

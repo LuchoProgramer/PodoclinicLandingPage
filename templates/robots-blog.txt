@@ -1,0 +1,50 @@
+# Blog/Contenido - robots.txt Template
+# Optimizado para blogs, revistas digitales y sitios de contenido
+
+User-agent: *
+Allow: /
+
+# Bloquear áreas técnicas y privadas
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Permitir contenido público importante
+Allow: /blog/
+Allow: /categoria/
+Allow: /tag/
+Allow: /autor/
+Allow: /archivo/
+Allow: /about
+Allow: /contact
+
+# Evitar contenido duplicado común en blogs
+Disallow: *?replytocom=
+Disallow: *?s=
+Disallow: */feed/
+Disallow: */rss/
+Disallow: */embed/
+
+# Crawlers específicos
+User-agent: Googlebot
+Allow: /
+Allow: /wp-content/uploads/
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear crawlers innecesarios para blogs
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+# Sitemaps para contenido
+Sitemap: https://tu-blog.com/sitemap.xml
+Sitemap: https://tu-blog.com/sitemap-posts.xml
+Sitemap: https://tu-blog.com/sitemap-categories.xml

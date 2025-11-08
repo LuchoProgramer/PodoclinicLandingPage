@@ -1,0 +1,54 @@
+# Servicios Locales - robots.txt Template
+# Optimizado para negocios locales (médicos, abogados, servicios, etc.)
+
+User-agent: *
+Allow: /
+
+# Bloquear áreas privadas y técnicas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /scripts/
+Disallow: /citas-privadas/
+Disallow: /expedientes/
+
+# Permitir contenido importante para SEO local
+Allow: /
+Allow: /servicios/
+Allow: /especialidades/
+Allow: /blog/
+Allow: /testimonios/
+Allow: /contacto
+Allow: /ubicacion
+Allow: /horarios
+Allow: /emergencias
+Allow: /faq
+
+# Evitar parámetros de sesión
+Disallow: *?sid=
+Disallow: *?session=
+Disallow: *?token=
+
+# Crawlers específicos optimizados para negocio local
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot  
+Allow: /
+
+# Permitir crawlers de mapas y directorios locales
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /blog/
+
+# Bloquear bots innecesarios para servicios locales
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap optimizado para SEO local
+Sitemap: https://tu-servicio-local.com/sitemap.xml
