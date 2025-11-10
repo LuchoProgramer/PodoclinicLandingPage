@@ -14,6 +14,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["podología", "a domicilio", "quito", "pie diabético"],
     metaTitle: "Podología a Domicilio en Quito Norte | Dra. Cristina Muñoz",
     metaDescription: "Podología a domicilio en Quito norte con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+    image: "https://res.cloudinary.com/dltfsttr7/image/upload/f_auto,q_auto,w_900/v1762797439/IMG_6879_lqniq0.jpg",
     featured: true,
     cta: {
       text: "Agendar Podología a Domicilio",

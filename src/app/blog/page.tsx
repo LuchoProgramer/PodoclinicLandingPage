@@ -167,12 +167,20 @@ export default function BlogPage() {
             {featuredPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
                 <div className="relative">
-                  <div className="h-48 bg-gradient-to-br from-[#60BEC3] to-[#79A373] flex items-center justify-center">
-                    <div className="text-white text-center">
-                      <h3 className="text-lg font-semibold mb-2">Imagen del Post</h3>
-                      <p className="text-sm opacity-80">{post.category}</p>
+                  {post.image ? (
+                    <img 
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  ) : (
+                    <div className="h-48 bg-gradient-to-br from-[#60BEC3] to-[#79A373] flex items-center justify-center">
+                      <div className="text-white text-center">
+                        <h3 className="text-lg font-semibold mb-2">Imagen del Post</h3>
+                        <p className="text-sm opacity-80">{post.category}</p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="absolute top-4 right-4 bg-white text-[#60BEC3] px-3 py-1 rounded-full text-sm font-medium">
                     Destacado
                   </div>
@@ -276,9 +284,17 @@ export default function BlogPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {recentPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                <div className="h-32 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">{post.category}</span>
-                </div>
+                {post.image ? (
+                  <img 
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-32 object-cover"
+                  />
+                ) : (
+                  <div className="h-32 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
+                    <span className="text-gray-500 text-sm">{post.category}</span>
+                  </div>
+                )}
 
                 <div className="p-6">
                   <div className="flex items-center text-xs text-gray-500 mb-3">
