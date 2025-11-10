@@ -35,7 +35,7 @@ const EXPECTED_ROUTES = [
   '/blog/cuidado-preventivo',
   
   // Blog - posts específicos
-  '/blog/uneros/podologia-domicilio-quito-norte',
+  '/blog/local/podologia-domicilio-quito-norte',
   '/blog/pie-diabetico/guia-prevenir-pie-diabetico-quito',
   '/blog/podologia-deportiva/podologia-runners-quito',
   '/blog/local/podologo-la-florida-quito-norte',

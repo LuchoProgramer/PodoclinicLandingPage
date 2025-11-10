@@ -14,8 +14,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": "Podoclinicec",
   "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
-  "@id": "https://podoclinicec.com/blog/uneros/podologia-domicilio-quito-norte",
-  "url": "https://podoclinicec.com/blog/uneros/podologia-domicilio-quito-norte",
+  "@id": "https://podoclinicec.com/blog/local/podologia-domicilio-quito-norte",
+  "url": "https://podoclinicec.com/blog/local/podologia-domicilio-quito-norte",
   "telephone": "+593995832788",
   "priceRange": "$15 primera consulta",
   "description": "Podología a domicilio en Quito norte con Dra. Cristina Muñoz, especialista en uñas encarnadas, pie diabético y podología deportiva.",
@@ -83,14 +83,14 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Uñeros",
-      "item": "https://podoclinicec.com/blog/uneros"
+      "name": "Local",
+      "item": "https://podoclinicec.com/blog/local"
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "Podología a Domicilio en Quito Norte",
-      "item": "https://podoclinicec.com/blog/uneros/podologia-domicilio-quito-norte"
+      "item": "https://podoclinicec.com/blog/local/podologia-domicilio-quito-norte"
     }
   ]
 };
@@ -159,7 +159,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
             <span className="mx-2">/</span>
             <Link href="/blog" className="hover:text-[#60BEC3]">Blog</Link>
             <span className="mx-2">/</span>
-            <Link href="/blog/uneros" className="hover:text-[#60BEC3]">Uñeros</Link>
+            <Link href="/blog/local" className="hover:text-[#60BEC3]">Local</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-800">Podología a Domicilio en Quito Norte</span>
           </nav>

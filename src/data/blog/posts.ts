@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     slug: "podologia-domicilio-quito-norte",
     excerpt: "¿Quieres podología profesional en tu casa? Descubre cómo la Dra. Cristina Muñoz cuida tus pies en Quito norte por solo $15. Comodidad, seguridad y experiencia a domicilio.",
     content: ``,
-    category: "uneros",
+    category: "local",
     author: "Dra. Cristina Muñoz",
     publishDate: "2025-10-08",
     tags: ["podología", "a domicilio", "quito", "pie diabético"],
