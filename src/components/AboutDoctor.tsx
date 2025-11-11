@@ -13,7 +13,7 @@ import {
 export default function AboutDoctor() {
     const certifications = [
         "Licenciada en Podología - Universidad del Gran Rosario - Argentina",
-        "Especialización en Pie Diabético - Universidad de Especialidades Espíritu Santo",
+        "Especialización en tratamientos especializados para prevención de pie diabético - Universidad de Especialidades Espíritu Santo",
         "Curso Avanzado en Cirugía Podológica Mínimamente Invasiva",
         "Certificación en Biomecánica del Pie - Instituto Español de Podología"
     ];
@@ -124,7 +124,7 @@ export default function AboutDoctor() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                 {[
                                     "Tratamiento de uñeros",
-                                    "Cuidado pie diabético", 
+                                    "Tratamientos especializados para prevención de pie diabético", 
                                     "Eliminación de verrugas",
                                     "Tratamiento de hongos",
                                     "Lesiones deportivas",

@@ -115,12 +115,12 @@ class StaticDataSource implements DataSource {
         },
         certifications: [
           "Especialista en Podología",
-          "Certificada en Pie Diabético",
+          "Tratamientos especializados para prevención de pie diabético",
           "Especialista en Podología Deportiva"
         ],
         specialties: [
           "Tratamiento de uñeros",
-          "Cuidado de pie diabético",
+          "Tratamientos especializados para prevención de pie diabético",
           "Podología deportiva",
           "Cirugía podológica menor"
         ]

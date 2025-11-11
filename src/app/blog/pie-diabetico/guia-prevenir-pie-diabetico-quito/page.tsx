@@ -178,7 +178,7 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
           <h2>¿Por Qué Elegir Podoclinicec?</h2>
           <ul>
             <li><strong>A domicilio:</strong> Cuidamos tus pies en tu casa, ideal para diabéticos con movilidad limitada.</li>
-            <li><strong>Expertise:</strong> La Dra. Muñoz es especialista en pie diabético, uñas encarnadas y podología deportiva.</li>
+            <li><strong>Expertise:</strong> La Dra. Muñoz ofrece tratamientos especializados para prevención de pie diabético, uñas encarnadas y podología deportiva.</li>
             <li><strong>Precio accesible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
             <li><strong>Confianza:</strong> Equipos esterilizados y protocolos de bioseguridad al 100%.</li>
           </ul>

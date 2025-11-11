@@ -85,9 +85,9 @@ export function Footer() {
                                 <Link 
                                     href="/servicios/pie-diabetico" 
                                     className="text-gray-300 hover:text-[#60BEC3] transition-colors"
-                                    onClick={() => handleFooterLinkClick("Pie Diabético")}
+                                    onClick={() => handleFooterLinkClick("Tratamientos prevención pie diabético")}
                                 >
-                                    Pie Diabético
+                                    Tratamientos prevención pie diabético
                                 </Link>
                             </li>
                             <li>
@@ -235,7 +235,7 @@ export function Footer() {
                         <div className="text-center md:text-left mb-4 md:mb-0">
                             <p>&copy; {currentYear} PodoClinic - Dra. Cristina Muñoz. Todos los derechos reservados.</p>
                             <p className="mt-1">
-                                Podólogo certificado en Quito Norte | Especialista en uñeros y pie diabético
+                                Podólogo certificado en Quito Norte | Tratamientos especializados para prevención de pie diabético
                             </p>
                         </div>
                         

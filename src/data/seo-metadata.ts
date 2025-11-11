@@ -11,7 +11,7 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
   // Página principal
   home: {
     title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Desde $35. Agenda tu consulta.",
+    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, tratamientos especializados para prevención de pie diabético, hongos. Desde $35. Agenda tu consulta.",
     keywords: "podólogo domicilio quito norte, uñeros quito, pie diabético, hongos uñas, podología a domicilio, dra cristina muñoz",
     canonical: "https://podoclinicec.com"
   },
@@ -26,8 +26,8 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
 
   // Servicios específicos
   'servicios-pie-diabetico': {
-    title: "Cuidado del Pie Diabético | Especialista en Quito - Podoclinicec",
-    description: "Atención especializada para pie diabético en Quito Norte. Dra. Cristina Muñoz, experta en cuidados preventivos y tratamiento. Consulta a domicilio disponible.",
+    title: "Tratamientos especializados para prevención de pie diabético | Quito - Podoclinicec",
+    description: "Tratamientos especializados para prevención de pie diabético en Quito Norte. Dra. Cristina Muñoz, experta en cuidados preventivos y tratamiento. Consulta a domicilio disponible.",
     keywords: "pie diabético quito, cuidado pie diabético, podólogo diabéticos, prevención pie diabético quito norte",
     canonical: "https://podoclinicec.com/servicios/pie-diabetico"
   },
@@ -43,7 +43,7 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
   // Servicios generales
   'servicios': {
     title: "Servicios de Podología | Tratamientos Especializados - Podoclinicec",
-    description: "Servicios podológicos especializados en Quito Norte: uñeros, pie diabético, hongos, verrugas plantares, profilaxis podal. Atención domicilio y consultorio.",
+    description: "Servicios podológicos especializados en Quito Norte: uñeros, tratamientos especializados para prevención de pie diabético, hongos, verrugas plantares, profilaxis podal. Atención domicilio y consultorio.",
     keywords: "servicios podología quito, tratamientos podológicos, uñeros, pie diabético, hongos uñas, verrugas plantares",
     canonical: "https://podoclinicec.com/servicios"
   },

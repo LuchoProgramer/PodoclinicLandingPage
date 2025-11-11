@@ -10,7 +10,7 @@ import {
 export default function SEOContent() {
   const expertise = [
     "Tratamiento de uñeros sin dolor",
-    "Cuidado especializado de pie diabético",
+    "Tratamientos especializados para prevención de pie diabético",
     "Eliminación de hongos y callosidades",
     "Verrugas plantares",
     "Biomecánica y pisada",
@@ -42,13 +42,13 @@ export default function SEOContent() {
               Como <strong>doctora de pies especializada en Quito Norte</strong>, la Dra. Cristina Muñoz ofrece 
               atención podológica integral para resolver problemas que afectan tu movilidad y calidad de vida. 
               Con más de 5 años de experiencia como podóloga certificada, brinda tratamientos efectivos 
-              para uñeros, pie diabético, hongos, callosidades y otras afecciones podológicas.
+              para uñeros, tratamientos especializados para prevención de pie diabético, hongos, callosidades y otras afecciones podológicas.
             </p>
 
             <p className="leading-relaxed">
               Un <strong>doctor de pies profesional</strong> no solo trata síntomas visibles, sino que identifica 
               las causas raíz de cada problema. Ya sea que sufras de dolor al caminar, uñas encarnadas 
-              recurrentes, o necesites cuidado preventivo para pie diabético, contar con una especialista 
+              recurrentes, o necesites tratamientos especializados para prevención de pie diabético, contar con una especialista 
               certificada marca la diferencia entre un alivio temporal y una solución duradera.
             </p>
           </div>

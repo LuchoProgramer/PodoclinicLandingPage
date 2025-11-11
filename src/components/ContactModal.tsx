@@ -163,7 +163,7 @@ Enviado desde el formulario web`;
                         >
                             <option value="">Selecciona un servicio</option>
                             <option value="Tratamiento de uñeros">Tratamiento de uñeros</option>
-                            <option value="Cuidado pie diabético">Cuidado pie diabético</option>
+                            <option value="Tratamientos especializados para prevención de pie diabético">Tratamientos especializados para prevención de pie diabético</option>
                             <option value="Eliminación verrugas">Eliminación de verrugas</option>
                             <option value="Tratamiento hongos">Tratamiento de hongos</option>
                             <option value="Lesiones deportivas">Lesiones deportivas</option>
