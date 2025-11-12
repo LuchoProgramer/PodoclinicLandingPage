@@ -28,7 +28,7 @@ export default function Testimonials() {
             name: "Carlos Mendoza",
             age: "62 años",
             problem: "Pie diabético",
-            text: "Como diabético, el cuidado de mis pies es crucial. La Dra. Cristina es muy profesional y me ha enseñado técnicas de cuidado preventivo. Muy recomendado.",
+            text: "Como diabético, el cuidado de mis pies es crucial. Cristina es muy profesional y me ha enseñado técnicas de cuidado preventivo. Muy recomendado.",
             rating: 5,
             verified: true
         },
@@ -190,7 +190,7 @@ export default function Testimonials() {
                         ¿Listo para ser nuestro próximo caso de éxito?
                     </p>
                     <a
-                        href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20He%20visto%20los%20testimonios%20y%20quiero%20agendar%20mi%20primera%20consulta"
+                        href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20He%20visto%20los%20testimonios%20y%20quiero%20agendar%20mi%20primera%20consulta"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300"

@@ -10,8 +10,8 @@ export interface PageMetadata {
 export const SEO_METADATA: Record<string, PageMetadata> = {
   // Página principal
   home: {
-    title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, tratamientos especializados para prevención de pie diabético, hongos. Desde $35. Agenda tu consulta.",
+    title: "Podólogo a Domicilio Quito Norte | Cristina Muñoz - Podoclinicec",
+    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz: uñeros, tratamientos especializados para prevención de pie diabético, hongos. Desde $35. Agenda tu consulta.",
     keywords: "podólogo domicilio quito norte, uñeros quito, pie diabético, hongos uñas, podología a domicilio, dra cristina muñoz",
     canonical: "https://podoclinicec.com"
   },
@@ -19,7 +19,7 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
   // FAQ page
   'faq': {
     title: "Preguntas Frecuentes - Podología | Podoclinicec",
-    description: "Resuelve tus dudas sobre podología, tratamientos y servicios a domicilio en Quito Norte. Respuestas de la Dra. Cristina Muñoz, especialista certificada.",
+    description: "Resuelve tus dudas sobre podología, tratamientos y servicios a domicilio en Quito Norte. Respuestas de Cristina Muñoz, especialista certificada.",
     keywords: "preguntas podología, dudas tratamientos pies, FAQ podólogo quito",
     canonical: "https://podoclinicec.com/faq"
   },
@@ -27,7 +27,7 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
   // Servicios específicos
   'servicios-pie-diabetico': {
     title: "Tratamientos especializados para prevención de pie diabético | Quito - Podoclinicec",
-    description: "Tratamientos especializados para prevención de pie diabético en Quito Norte. Dra. Cristina Muñoz, experta en cuidados preventivos y tratamiento. Consulta a domicilio disponible.",
+    description: "Tratamientos especializados para prevención de pie diabético en Quito Norte. Cristina Muñoz, experta en cuidados preventivos y tratamiento. Consulta a domicilio disponible.",
     keywords: "pie diabético quito, cuidado pie diabético, podólogo diabéticos, prevención pie diabético quito norte",
     canonical: "https://podoclinicec.com/servicios/pie-diabetico"
   },
@@ -58,7 +58,7 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
 
   'servicios-uneros': {
     title: "Tratamiento de Uñeros Quito Norte | Sin Dolor - Podoclinicec",
-    description: "Tratamiento profesional de uñeros (uñas encarnadas) en Quito Norte. Técnica sin dolor, recuperación 24-48h. Especialista Dra. Cristina Muñoz.",
+    description: "Tratamiento profesional de uñeros (uñas encarnadas) en Quito Norte. Técnica sin dolor, recuperación 24-48h. Especialista Cristina Muñoz.",
     keywords: "tratamiento uñeros quito norte, uñas encarnadas, onicocriptosis, podólogo uñeros quito",
     canonical: "https://podoclinicec.com/servicios/uneros"
   },
@@ -87,21 +87,21 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
   // Ubicaciones específicas
   'quito-norte': {
     title: "Podólogo en Quito Norte | Zona La Florida, Iñaquito - Podoclinicec",
-    description: "El mejor podólogo de Quito Norte. Cobertura La Florida, Iñaquito, Rumipamba. Dra. Cristina Muñoz, 8 años experiencia. Atención domicilio.",
+    description: "El mejor podólogo de Quito Norte. Cobertura La Florida, Iñaquito, Rumipamba. Cristina Muñoz, 5 años experiencia. Atención domicilio.",
     keywords: "podólogo quito norte, podología la florida, podólogo iñaquito, podólogo rumipamba",
     canonical: "https://podoclinicec.com/podologia-quito-norte"
   },
 
   'podologo-en-quito': {
     title: "El Mejor Podólogo en Quito | Especialista Certificado - Podoclinicec",
-    description: "Encuentra el mejor podólogo en Quito. Dra. Cristina Muñoz, especialista certificada con 8 años de experiencia. Consulta inicial gratuita.",
-    keywords: "mejor podólogo quito, especialista pies quito, podólogo certificado, doctor pies quito",
+    description: "Encuentra el mejor podólogo en Quito. Cristina Muñoz, especialista certificada con 5 años de experiencia. Consulta inicial gratuita.",
+    keywords: "mejor podólogo quito, especialista pies quito, podólogo certificado, podólogo especialista quito",
     canonical: "https://podoclinicec.com/podologo-en-quito"
   },
 
   'uneros-quito': {
     title: "Especialista en Uñeros Quito | Tratamiento Sin Dolor - Podoclinicec",
-    description: "Especialista en uñeros (uñas encarnadas) en Quito. Tratamiento sin dolor, técnica avanzada. Dra. Cristina Muñoz. Resultados garantizados.",
+    description: "Especialista en uñeros (uñas encarnadas) en Quito. Tratamiento sin dolor, técnica avanzada. Cristina Muñoz. Resultados garantizados.",
     keywords: "especialista uñeros quito, uñas encarnadas quito, onicocriptosis quito, tratamiento uñeros",
     canonical: "https://podoclinicec.com/uneros-quito"
   },
@@ -116,14 +116,14 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
   // Blog y tips
   'blog': {
     title: "Blog de Podología | Consejos y Tips para el Cuidado de Pies",
-    description: "Blog especializado en podología: consejos, tips y guías para el cuidado de pies. Información de calidad por la Dra. Cristina Muñoz, especialista en Quito.",
+    description: "Blog especializado en podología: consejos, tips y guías para el cuidado de pies. Información de calidad por Cristina Muñoz, especialista en Quito.",
     keywords: "blog podología, consejos cuidado pies, tips pies sanos, información podológica",
     canonical: "https://podoclinicec.com/blog"
   },
 
   'tips': {
     title: "Tips para el Cuidado de Pies | Consejos de Podología - Podoclinicec",
-    description: "Tips y consejos profesionales para el cuidado de pies. Prevención de uñeros, hongos y problemas podológicos. Guías prácticas de la Dra. Cristina Muñoz.",
+    description: "Tips y consejos profesionales para el cuidado de pies. Prevención de uñeros, hongos y problemas podológicos. Guías prácticas de Cristina Muñoz.",
     keywords: "tips cuidado pies, consejos podología, prevención uñeros, cuidado pies casa",
     canonical: "https://podoclinicec.com/tips"
   },
@@ -145,7 +145,7 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
 
   'blog-uneros': {
     title: "Uñeros: Causas, Prevención y Tratamiento | Blog Especializado",
-    description: "Guía completa sobre uñeros (uñas encarnadas): causas, síntomas, prevención y tratamiento. Consejos de la Dra. Cristina Muñoz para evitar complicaciones.",
+    description: "Guía completa sobre uñeros (uñas encarnadas): causas, síntomas, prevención y tratamiento. Consejos de Cristina Muñoz para evitar complicaciones.",
     keywords: "uñeros prevención, uñas encarnadas causas, onicocriptosis, tratamiento uñeros casa",
     canonical: "https://podoclinicec.com/blog/uneros"
   }

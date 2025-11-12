@@ -94,7 +94,7 @@ export default function Hero() {
                     </h1>
                     <p className="text-lg sm:text-xl md:text-2xl max-w-4xl text-gray-700 mx-auto leading-relaxed px-2 mt-4">
                         <strong className="text-red-600">¿Uñeros, hongos, dolor al caminar?</strong> 
-                        La <strong>Dra. Cristina Muñoz</strong> (5 años de experiencia) especialista en podología 
+                        La <strong>Cristina Muñoz</strong> (5 años de experiencia) especialista en podología 
                         <strong className="text-green-600"> te brinda tratamiento efectivo</strong>. 
                         <strong className="bg-yellow-200 px-2 py-1 rounded">Citas disponibles - Atención personalizada.</strong>
                     </p>
@@ -133,7 +133,7 @@ export default function Hero() {
                         
                         {/* CTA Secundario - WhatsApp directo */}
                         <a
-                            href="https://wa.me/593995832788?text=Hola%20Dra.%20Cristina,%20tengo%20molestias%20en%20los%20pies%20y%20me%20gustaría%20información%20sobre%20consulta%20y%20tratamiento."
+                            href="https://wa.me/593995832788?text=Hola%20Cristina,%20tengo%20molestias%20en%20los%20pies%20y%20me%20gustaría%20información%20sobre%20consulta%20y%20tratamiento."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-lg text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center transform hover:scale-105"

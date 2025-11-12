@@ -93,7 +93,7 @@ export default function ExitIntentPopup() {
           </h3>
 
           <p className="text-gray-700 mb-6">
-            <strong>No te vayas con dudas:</strong> La Dra. Cristina Muñoz puede 
+            <strong>No te vayas con dudas:</strong> Cristina Muñoz puede 
             <strong className="text-green-600"> resolver tu problema</strong> con 5 años de experiencia especializada.
             Agenda tu consulta profesional ahora.
           </p>
@@ -113,7 +113,7 @@ export default function ExitIntentPopup() {
           {/* CTAs */}
           <div className="space-y-3">
             <a
-              href="https://wa.me/593995832788?text=Hola%20Dra.%20Cristina,%20vi%20su%20sitio%20web%20y%20me%20interesa%20una%20consulta%20especializada.%20¿Podría%20darme%20información%20sobre%20disponibilidad%20y%20precios?"
+              href="https://wa.me/593995832788?text=Hola%20Cristina,%20vi%20su%20sitio%20web%20y%20me%20interesa%20una%20consulta%20especializada.%20¿Podría%20darme%20información%20sobre%20disponibilidad%20y%20precios?"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTAClick("WhatsApp Consult")}
@@ -135,7 +135,7 @@ export default function ExitIntentPopup() {
 
           {/* Professional credibility */}
           <div className="mt-4 text-gray-600 font-medium text-sm">
-            📍 Dra. Cristina Muñoz - 5 años de experiencia especializada
+            📍 Cristina Muñoz - 5 años de experiencia especializada
           </div>
         </div>
       </div>

@@ -31,6 +31,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/servicios`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     }
   ]
 
@@ -91,6 +97,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/podologia-runners`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     }
   ]
 

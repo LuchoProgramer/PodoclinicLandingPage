@@ -26,9 +26,12 @@ const medicalProcedureSchema = {
     "name": "Toe nail"
   },
   "performer": {
-    "@type": "Physician",
-    "name": "Dra. Cristina Muñoz",
-    "specialty": "Podiatry"
+    "@type": "Person",
+    "name": "Cristina Muñoz",
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Podóloga"
+    }
   },
   "location": {
     "@type": "MedicalClinic",
@@ -49,7 +52,7 @@ const homeCareServiceSchema = {
   "description": "Servicio de podología a domicilio con cita previa, especialmente para personas con movilidad reducida",
   "provider": {
     "@type": "Person",
-    "name": "Dra. Cristina Muñoz"
+    "name": "Cristina Muñoz"
   },
   "serviceType": "Podiatric Care",
   "areaServed": {
@@ -339,7 +342,7 @@ export default function UnerosQuitoPage() {
                   "Técnica conservadora, no quirúrgica",
                   "Prevención de recidivas", 
                   "Atención domicilio con cita previa",
-                  "+5 años de experiencia"
+                  "5 años de experiencia"
                 ].map((benefit, idx) => (
                   <div key={idx} className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />

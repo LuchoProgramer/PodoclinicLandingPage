@@ -28,7 +28,7 @@ export function Footer() {
                             PodoClinic
                         </h3>
                         <p className="text-gray-300 mb-4 text-sm">
-                            Especialistas en podología. Dra. Cristina Muñoz, 5 años de experiencia especializada en Quito Norte.
+                            Especialistas en podología. Cristina Muñoz, 5 años de experiencia especializada en Quito Norte.
                         </p>
                         
                         <div className="space-y-3 text-sm">
@@ -233,7 +233,7 @@ export function Footer() {
                 <div className="border-t border-gray-700 mt-8 pt-6">
                     <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                         <div className="text-center md:text-left mb-4 md:mb-0">
-                            <p>&copy; {currentYear} PodoClinic - Dra. Cristina Muñoz. Todos los derechos reservados.</p>
+                            <p>&copy; {currentYear} PodoClinic - Cristina Muñoz. Todos los derechos reservados.</p>
                             <p className="mt-1">
                                 Podólogo certificado en Quito Norte | Tratamientos especializados para prevención de pie diabético
                             </p>

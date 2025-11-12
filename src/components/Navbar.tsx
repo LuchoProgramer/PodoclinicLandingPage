@@ -163,7 +163,7 @@ export default function Navbar({ activeSection: propActiveSection }: NavbarProps
                                 className="flex items-center space-x-2 font-medium text-gray-700 hover:text-[#60BEC3] transition-colors"
                             >
                                 <User className="w-4 h-4" />
-                                <span>Doctora</span>
+                                <span>Podóloga</span>
                             </Link>
                         ) : (
                             <button
@@ -178,7 +178,7 @@ export default function Navbar({ activeSection: propActiveSection }: NavbarProps
                                 }`}
                             >
                                 <User className="w-4 h-4" />
-                                <span>Doctora</span>
+                                <span>Podóloga</span>
                             </button>
                         )}
 

@@ -72,7 +72,7 @@ const beneficios = [
   {
     icon: <Award className="w-8 h-8 text-[#60BEC3]" />,
     title: "Especialista Certificada",
-    description: "Dra. Cristina Muñoz con 8 años de experiencia y certificaciones profesionales"
+    description: "Cristina Muñoz con 5 años de experiencia y certificaciones profesionales"
   },
   {
     icon: <Shield className="w-8 h-8 text-[#60BEC3]" />,

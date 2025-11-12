@@ -31,7 +31,7 @@ export default function AboutDoctor() {
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        Conoce a la <span className="text-[#60BEC3]">Dra. Cristina Muñoz</span>
+                        Conoce a <span className="text-[#60BEC3]">Cristina Muñoz</span>
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         Especialista en podología con amplia experiencia en el tratamiento 
@@ -42,19 +42,19 @@ export default function AboutDoctor() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Imagen y presentación */}
                     <div className="space-y-6">
-                        {/* Imagen de la doctora */}
+                        {/* Imagen de la podóloga */}
                         <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 text-center">
                             <div className="w-48 h-48 mx-auto mb-6 relative">
                                 <Image
                                     src="https://res.cloudinary.com/dltfsttr7/image/upload/c_fill,w_384,h_384,q_auto:eco,f_auto,dpr_auto,fl_progressive:steep,e_sharpen:60/v1759895245/IMG_6853_f0skfi.jpg"
-                                    alt="Dra. Cristina Muñoz - Podóloga Especialista Quito Norte, 8 años experiencia uñeros pie diabético"
+                                    alt="Cristina Muñoz - Podóloga Especialista Quito Norte, 5 años experiencia uñeros pie diabético"
                                     fill
                                     className="rounded-full object-cover border-4 border-white shadow-lg"
                                     priority
                                 />
                             </div>
                             <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                                Dra. Cristina Muñoz
+                                Cristina Muñoz
                             </h3>
                             <p className="text-[#60BEC3] font-medium mb-4">
                                 Especialista en Podología
@@ -147,7 +147,7 @@ export default function AboutDoctor() {
                                 Estoy aquí para ayudarte con cualquier problema en tus pies
                             </p>
                                                         <a
-                                                                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20una%20consulta%20sobre%20mis%20pies"
+                                                                href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Tengo%20una%20consulta%20sobre%20mis%20pies"
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
                                                                 className="inline-flex items-center bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-6 py-3 rounded-lg font-medium transition-colors"

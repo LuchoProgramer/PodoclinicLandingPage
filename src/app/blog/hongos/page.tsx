@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Tratamiento de Hongos en Uñas en Quito | Soluciones Podológicas Efectivas",
-  description: "Tratamiento de hongos en uñas en Quito: causas, síntomas y opciones profesionales con la Dra. Cristina Muñoz.",
+  description: "Tratamiento de hongos en uñas en Quito: causas, síntomas y opciones profesionales con Cristina Muñoz.",
 };
 
 import Link from "next/link";
@@ -43,7 +43,7 @@ export default function HongosIndexPage() {
                       Tratamiento de Hongos en Uñas: Guía Completa
                     </Link>
                   </h2>
-                  <p className="text-gray-600 mb-2">Descubre causas, síntomas, prevención y opciones de tratamiento profesional con la Dra. Cristina Muñoz.</p>
+                  <p className="text-gray-600 mb-2">Descubre causas, síntomas, prevención y opciones de tratamiento profesional con Cristina Muñoz.</p>
                   <Link href="/blog/hongos/hongos-unas-tratamiento-efectivo" className="text-[#60BEC3] font-semibold inline-flex items-center gap-1">
                     Leer artículo <ArrowRight className="w-4 h-4" />
                   </Link>

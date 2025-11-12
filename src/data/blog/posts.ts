@@ -6,14 +6,14 @@ export const blogPosts: BlogPost[] = [
     id: "podologia-domicilio-quito-norte",
     title: "Podología a Domicilio en Quito Norte: ¡Cuidar tus Pies Nunca Fue Tan Fácil!",
     slug: "podologia-domicilio-quito-norte",
-    excerpt: "¿Quieres podología profesional en tu casa? Descubre cómo la Dra. Cristina Muñoz cuida tus pies en Quito norte por solo $15. Comodidad, seguridad y experiencia a domicilio.",
+    excerpt: "¿Quieres podología profesional en tu casa? Descubre cómo Cristina Muñoz cuida tus pies en Quito norte por solo $15. Comodidad, seguridad y experiencia a domicilio.",
     content: ``,
     category: "local",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-10-08",
     tags: ["podología", "a domicilio", "quito", "pie diabético"],
-    metaTitle: "Podología a Domicilio en Quito Norte | Dra. Cristina Muñoz",
-    metaDescription: "Podología a domicilio en Quito norte con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+    metaTitle: "Podología a Domicilio en Quito Norte | Cristina Muñoz",
+    metaDescription: "Podología a domicilio en Quito norte con Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
     image: "https://res.cloudinary.com/dltfsttr7/image/upload/f_auto,q_auto,w_900/v1762797439/IMG_6879_lqniq0.jpg",
     featured: true,
     cta: {
@@ -25,14 +25,14 @@ export const blogPosts: BlogPost[] = [
     id: "guia-prevenir-pie-diabetico-quito",
     title: "Guía Completa para Prevenir el Pie Diabético en Quito: ¡Cuida tus Pies con Podoclinicec!",
     slug: "guia-prevenir-pie-diabetico-quito",
-    excerpt: "¿Sabías que el pie diabético es más común de lo que crees en Quito? Aprende a prevenirlo y cuida tus pies con la Dra. Cristina Muñoz a domicilio por solo $15.",
+    excerpt: "¿Sabías que el pie diabético es más común de lo que crees en Quito? Aprende a prevenirlo y cuida tus pies con Cristina Muñoz a domicilio por solo $15.",
     content: ``,
     category: "pie-diabetico",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-10-08",
     tags: ["pie diabético", "prevención", "podología", "quito"],
     metaTitle: "Guía para Prevenir Pie Diabético en Quito | Podoclinicec",
-    metaDescription: "Prevención de pie diabético en Quito: consejos prácticos y atención a domicilio por la Dra. Cristina Muñoz.",
+    metaDescription: "Prevención de pie diabético en Quito: consejos prácticos y atención a domicilio por Cristina Muñoz.",
     featured: true,
     cta: {
       text: "Agendar Consulta Pie Diabético",
@@ -43,14 +43,14 @@ export const blogPosts: BlogPost[] = [
     id: "podologia-runners-quito",
     title: "Podología para Runners en Quito: ¡Cuida tus Pies y Corre sin Límites!",
     slug: "podologia-runners-quito",
-    excerpt: "¿Listo para volar en la Quito 15K, pero un dolor en los pies te frena? Descubre cómo la Dra. Cristina Muñoz cuida a los runners de Quito norte a domicilio por solo $35.",
+    excerpt: "¿Listo para volar en la Quito 15K, pero un dolor en los pies te frena? Descubre cómo Cristina Muñoz cuida a los runners de Quito norte a domicilio por solo $35.",
     content: ``,
     category: "podologia-deportiva",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-10-08",
     tags: ["runners", "podología deportiva", "uñeros", "fascitis", "quito"],
     metaTitle: "Podología para Runners en Quito | Podoclinicec",
-    metaDescription: "Podología deportiva a domicilio en Quito norte con la Dra. Cristina Muñoz. Prevención y tratamiento de lesiones para runners por solo $15.",
+    metaDescription: "Podología deportiva a domicilio en Quito norte con Cristina Muñoz. Prevención y tratamiento de lesiones para runners por solo $15.",
     featured: true,
     cta: {
       text: "Agendar Consulta Podología Deportiva",
@@ -64,11 +64,11 @@ export const blogPosts: BlogPost[] = [
     excerpt: "¿Buscas un podólogo cerca de casa? Descubre por qué Podoclinicec en La Floreida, Quito norte, es la mejor opción para runners, diabéticos y familias. Atención a domicilio por solo $35.",
     content: ``,
     category: "local",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-10-08",
     tags: ["podólogo", "La Florida", "Quito norte", "a domicilio", "pie diabético"],
     metaTitle: "Podólogo en La Florida Quito Norte | Podoclinicec",
-    metaDescription: "Podología a domicilio en La Florida, Quito norte, con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+    metaDescription: "Podología a domicilio en La Florida, Quito norte, con Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
     featured: true,
     cta: {
       text: "Agendar Podología en La Florida",
@@ -79,14 +79,14 @@ export const blogPosts: BlogPost[] = [
     id: "faq-podologia-domicilio-quito",
     title: "Preguntas Frecuentes sobre Podología a Domicilio en Quito: ¡Todo lo que Necesitas Saber!",
     slug: "faq-podologia-domicilio-quito",
-    excerpt: "Resuelve todas tus dudas sobre podología a domicilio en Quito norte con la Dra. Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
+    excerpt: "Resuelve todas tus dudas sobre podología a domicilio en Quito norte con Cristina Muñoz. Atención profesional, segura y económica en tu casa por solo $15.",
     content: ``,
     category: "uneros",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-10-08",
     tags: ["podología a domicilio", "FAQ", "Quito norte", "uñeros", "pie diabético"],
     metaTitle: "Preguntas Frecuentes Podología a Domicilio Quito | Podoclinicec",
-    metaDescription: "Podología a domicilio en Quito norte: atención profesional, segura y económica en tu casa por la Dra. Cristina Muñoz.",
+    metaDescription: "Podología a domicilio en Quito norte: atención profesional, segura y económica en tu casa por Cristina Muñoz.",
     featured: true,
     cta: {
       text: "Agendar Podología a Domicilio",
@@ -97,14 +97,14 @@ export const blogPosts: BlogPost[] = [
     id: "unas-encarnadas-domicilio-quito",
     title: "Cómo Tratar Uñas Encarnadas a Domicilio en Quito: ¡Tu Alivio Empieza Aquí!",
     slug: "unas-encarnadas-domicilio-quito",
-    excerpt: "¿Uñero en Quito norte? Descubre cómo la Dra. Cristina Muñoz te alivia en casa por solo $15. Consejos, prevención y atención profesional a domicilio.",
+    excerpt: "¿Uñero en Quito norte? Descubre cómo Cristina Muñoz te alivia en casa por solo $15. Consejos, prevención y atención profesional a domicilio.",
     content: ``,
     category: "uneros",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-10-08",
     tags: ["uñeros", "a domicilio", "quito", "tratamiento"],
-    metaTitle: "Uñas Encarnadas a Domicilio en Quito | Dra. Cristina Muñoz",
-    metaDescription: "Tratamiento profesional de uñas encarnadas a domicilio en Quito norte. Alivio rápido, seguro y económico con la Dra. Cristina Muñoz.",
+    metaTitle: "Uñas Encarnadas a Domicilio en Quito | Cristina Muñoz",
+    metaDescription: "Tratamiento profesional de uñas encarnadas a domicilio en Quito norte. Alivio rápido, seguro y económico con Cristina Muñoz.",
     featured: true,
     cta: {
       text: "Agendar Tratamiento a Domicilio",
@@ -118,15 +118,15 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Descubre cuándo un uñero deja de ser un problema menor y se convierte en una emergencia médica que requiere atención profesional inmediata.",
     content: ``,
     category: "uneros",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-10-05",
     tags: ["uñeros", "emergencia", "síntomas", "dolor"],
     metaTitle: "5 Señales de Uñero que Requieren Atención | Cuándo Acudir al Podólogo",
-    metaDescription: "¿Tu uñero es un problema serio? Aprende las 5 señales que indican que necesitas atención médica especializada. Dra. Cristina Muñoz, especialista en Quito.",
+    metaDescription: "¿Tu uñero es un problema serio? Aprende las 5 señales que indican que necesitas atención médica especializada. Cristina Muñoz, especialista en Quito.",
     featured: true,
     cta: {
       text: "Consulta Especializada tu Uñero",
-      link: "https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20síntomas%20de%20uñero%20y%20necesito%20consulta%20especializada"
+      link: "https://wa.me/593995832788?text=¡Hola%20Cristina!%20Tengo%20síntomas%20de%20uñero%20y%20necesito%20consulta%20especializada"
     }
   },
   {
@@ -136,15 +136,15 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Analizamos los remedios caseros más populares para uñeros y te revelamos cuáles funcionan y cuáles pueden empeorar tu condición.",
     content: ``,
     category: "uneros",
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-09-28",
     tags: ["uñeros", "remedios caseros", "mitos", "tratamiento"],
     metaTitle: "Remedios Caseros para Uñeros: ¿Funcionan Realmente?",
-    metaDescription: "Descubre la verdad sobre los remedios caseros para uñeros. Análisis profesional de la Dra. Cristina Muñoz sobre qué funciona y qué no.",
+    metaDescription: "Descubre la verdad sobre los remedios caseros para uñeros. Análisis profesional de Cristina Muñoz sobre qué funciona y qué no.",
     featured: true,
     cta: {
       text: "Consulta Profesional sobre Uñeros",
-      link: "https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20He%20probado%20remedios%20caseros%20y%20quiero%20una%20opinión%20profesional"
+      link: "https://wa.me/593995832788?text=¡Hola%20Cristina!%20He%20probado%20remedios%20caseros%20y%20quiero%20una%20opinión%20profesional"
     }
   },
   {
@@ -154,15 +154,15 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Todo lo que necesitas saber sobre el cuidado de los pies si eres diabético. Prevención, inspección diaria y cuándo acudir al especialista.",
     content: ``,
     category: "pie-diabetico", 
-    author: "Dra. Cristina Muñoz",
+    author: "Cristina Muñoz",
     publishDate: "2025-09-20",
     tags: ["diabetes", "pie diabético", "prevención", "cuidado"],
     metaTitle: "Cuidado de Pies para Diabéticos: Guía Completa 2025",
-    metaDescription: "Guía especializada para el cuidado de pies en diabéticos. Prevención, inspección y tratamiento por Dra. Cristina Muñoz en Quito.",
+    metaDescription: "Guía especializada para el cuidado de pies en diabéticos. Prevención, inspección y tratamiento por Cristina Muñoz en Quito.",
     featured: false,
     cta: {
       text: "Evaluación Especializada Pie Diabético",
-      link: "https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Soy%20diabético%20y%20necesito%20evaluación%20especializada%20de%20mis%20pies"
+      link: "https://wa.me/593995832788?text=¡Hola%20Cristina!%20Soy%20diabético%20y%20necesito%20evaluación%20especializada%20de%20mis%20pies"
     }
   },
   {
@@ -172,15 +172,15 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Aprende sobre los tratamientos más efectivos para hongos en las uñas y cómo prevenir su aparición con consejos profesionales.",
     content: ``,
     category: "hongos",
-    author: "Dra. Cristina Muñoz", 
+    author: "Cristina Muñoz", 
     publishDate: "2025-09-15",
     tags: ["hongos", "onicomicosis", "tratamiento", "prevención"],
-    metaTitle: "Hongos en las Uñas: Tratamiento Efectivo | Dra. Cristina",
+    metaTitle: "Hongos en las Uñas: Tratamiento Efectivo | Cristina Muñoz",
     metaDescription: "Tratamiento profesional para hongos en las uñas. Opciones efectivas y prevención por especialista en podología en Quito.",
     featured: false,
     cta: {
       text: "Consulta Tratamiento Hongos",
-      link: "https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20hongos%20en%20las%20uñas%20y%20quiero%20conocer%20opciones%20de%20tratamiento"
+      link: "https://wa.me/593995832788?text=¡Hola%20Cristina!%20Tengo%20hongos%20en%20las%20uñas%20y%20quiero%20conocer%20opciones%20de%20tratamiento"
     }
   }
 ];
@@ -193,7 +193,7 @@ export const blogCategories: BlogCategory[] = [
     slug: "uneros",
     description: "Todo sobre uñas encarnadas y su tratamiento",
     metaTitle: "Tratamiento de Uñeros en Quito | Podoclinicec",
-    metaDescription: "Especialistas en tratamiento de uñeros a domicilio en Quito norte. Alivio rápido y seguro con la Dra. Cristina Muñoz.",
+    metaDescription: "Especialistas en tratamiento de uñeros a domicilio en Quito norte. Alivio rápido y seguro con Cristina Muñoz.",
     count: 8,
     color: "#EF4444"
   },

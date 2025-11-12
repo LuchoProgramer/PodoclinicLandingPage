@@ -3,15 +3,15 @@ import { Target, MapPin, Clock, Users, CheckCircle, Phone, Calendar, Stethoscope
 
 // Metadata optimizada para "podología quito norte"
 export const metadata = {
-  title: "Podología Quito Norte | Dra. Cristina Muñoz - Especialista Zona Norte",
-  description: "Podología en Quito Norte: La Florida, Iñaquito, Rumipamba. Dra. Cristina Muñoz especialista en uñeros, pie diabético. Consulta a domicilio.",
+  title: "Podología Quito Norte | Cristina Muñoz - Especialista Zona Norte",
+  description: "Podología en Quito Norte: La Florida, Iñaquito, Rumipamba. Cristina Muñoz especialista en uñeros, pie diabético. Consulta a domicilio.",
   keywords: "podología quito norte, podólogo quito norte, podólogos zona norte quito, la florida, iñaquito, rumipamba, gonzález suárez",
   alternates: {
     canonical: "https://podoclinicec.com/podologia-quito-norte",
   },
   openGraph: {
-    title: "Podología Quito Norte | Dra. Cristina Muñoz - Especialista Zona Norte",
-    description: "Podología especializada en Quito Norte: La Florida, Iñaquito, Rumipamba. Atención domicilio y consultorio. +10 años experiencia.",
+    title: "Podología Quito Norte | Cristina Muñoz - Especialista Zona Norte",
+    description: "Podología especializada en Quito Norte: La Florida, Iñaquito, Rumipamba. Atención domicilio y consultorio. 5 años experiencia.",
     url: "https://podoclinicec.com/podologia-quito-norte",
     siteName: "PodoClinicec",
     type: "website",
@@ -20,13 +20,13 @@ export const metadata = {
         url: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
         width: 1200,
         height: 630,
-        alt: "Podología Quito Norte - Dra. Cristina Muñoz",
+        alt: "Podología Quito Norte - Cristina Muñoz",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podología Quito Norte | Dra. Cristina Muñoz",
+    title: "Podología Quito Norte | Cristina Muñoz",
     description: "Especialista en podología para Quito Norte: La Florida, Iñaquito, Rumipamba. Atención domicilio.",
     images: ["https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"],
   },
@@ -37,7 +37,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "PodiatryOffice",
   "name": "PodoClinic Quito Norte",
-  "alternateName": "Podología Quito Norte - Dra. Cristina Muñoz",
+  "alternateName": "Podología Quito Norte - Cristina Muñoz",
   "description": "Clínica de podología especializada en Quito Norte. Atención en La Florida, Iñaquito, Rumipamba y sectores aledaños.",
   "url": "https://podoclinicec.com/podologia-quito-norte",
   "telephone": "+593995832788",
@@ -100,7 +100,7 @@ const localBusinessSchema = {
   },
   "founder": {
     "@type": "Person",
-    "name": "Dra. Cristina Muñoz",
+    "name": "Cristina Muñoz",
     "jobTitle": "Podóloga Certificada"
   }
 };
@@ -172,7 +172,7 @@ export default function PodologiaQuitoNortePage() {
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Vivo%20en%20Quito%20Norte%20y%20necesito%20atención%20podológica"
+                    href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Vivo%20en%20Quito%20Norte%20y%20necesito%20atención%20podológica"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
@@ -342,7 +342,7 @@ export default function PodologiaQuitoNortePage() {
                   <div className="flex justify-between items-center">
                     <span className="text-[#60BEC3] font-bold text-lg">{service.price}</span>
                     <a
-                      href={`https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Vivo%20en%20Quito%20Norte%20y%20necesito%20${encodeURIComponent(service.title)}`}
+                      href={`https://wa.me/593995832788?text=¡Hola%20Cristina!%20Vivo%20en%20Quito%20Norte%20y%20necesito%20${encodeURIComponent(service.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium flex items-center"
@@ -371,7 +371,7 @@ export default function PodologiaQuitoNortePage() {
                 {
                   name: "María González",
                   location: "La Florida",
-                  text: "La Dra. Cristina llegó a mi casa en La Florida en 15 minutos. Solucionó mi uñero sin dolor y con mucha profesionalidad.",
+                  text: "Cristina llegó a mi casa en La Florida en 15 minutos. Solucionó mi uñero sin dolor y con mucha profesionalidad.",
                   rating: 5
                 },
                 {
@@ -383,7 +383,7 @@ export default function PodologiaQuitoNortePage() {
                 {
                   name: "Ana Vásquez",
                   location: "Rumipamba",
-                  text: "Llevaba meses con hongos en las uñas. En Rumipamba no encontraba especialista hasta que conocí a la Dra. Cristina.",
+                  text: "Llevaba meses con hongos en las uñas. En Rumipamba no encontraba especialista hasta que conocí a Cristina.",
                   rating: 5
                 }
               ].map((testimonial, idx) => (
@@ -417,7 +417,7 @@ export default function PodologiaQuitoNortePage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Vivo%20en%20Quito%20Norte%20y%20quiero%20agendar%20mi%20consulta%20podológica"
+                href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Vivo%20en%20Quito%20Norte%20y%20quiero%20agendar%20mi%20consulta%20podológica"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-[#60BEC3] hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 flex items-center justify-center"

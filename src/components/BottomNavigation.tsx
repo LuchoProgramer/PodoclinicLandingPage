@@ -95,7 +95,7 @@ export default function BottomNavigation() {
         },
         {
             id: "doctora",
-            label: "Doctora",
+            label: "Podóloga",
             icon: User,
             isLink: isOnBlogPage,
             href: isOnBlogPage ? "/#doctora" : undefined,

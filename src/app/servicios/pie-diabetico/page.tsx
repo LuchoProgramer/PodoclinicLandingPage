@@ -22,7 +22,7 @@ import {
 // Metadata específica para pie diabético
 const pageMetadata = SEO_METADATA['servicios-pie-diabetico'] || {
   title: "Cuidado del Pie Diabético | Especialista en Quito - Podoclinicec",
-  description: "Atención especializada para pie diabético en Quito Norte. Dra. Cristina Muñoz, experta en cuidados preventivos y tratamiento. Consulta a domicilio disponible.",
+  description: "Atención especializada para pie diabético en Quito Norte. Cristina Muñoz, experta en cuidados preventivos y tratamiento. Consulta a domicilio disponible.",
   keywords: "pie diabético quito, cuidado pie diabético, podólogo diabéticos, prevención pie diabético quito norte",
   canonical: "https://podoclinicec.com/servicios/pie-diabetico"
 };
@@ -218,7 +218,7 @@ export default function PieDiabeticoPage() {
     "description": "Atención especializada para pie diabético en Quito Norte. Prevención, cuidados y seguimiento profesional para pacientes diabéticos.",
     "provider": {
       "@type": "Physician",
-      "name": "Dra. Cristina Muñoz",
+      "name": "Cristina Muñoz",
       "medicalSpecialty": ["Podiatry", "Diabetic Foot Care"]
     },
     "areaServed": {

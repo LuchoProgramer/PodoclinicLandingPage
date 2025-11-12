@@ -33,20 +33,20 @@ export default function SEOContent() {
         <div className="max-w-4xl mx-auto">
           {/* Título H2 con keyword principal */}
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">
-            Tu Doctora de Pies Certificada en <span className="text-[#60BEC3]">Quito Norte</span>
+            Tu Podóloga Certificada en <span className="text-[#60BEC3]">Quito Norte</span>
           </h2>
 
           {/* Párrafo introductorio */}
           <div className="prose prose-lg max-w-none text-gray-700 space-y-4 mb-12">
             <p className="leading-relaxed">
-              Como <strong>doctora de pies especializada en Quito Norte</strong>, la Dra. Cristina Muñoz ofrece 
+              Como <strong>podóloga especializada en Quito Norte</strong>, Cristina Muñoz ofrece 
               atención podológica integral para resolver problemas que afectan tu movilidad y calidad de vida. 
-              Con más de 5 años de experiencia como podóloga certificada, brinda tratamientos efectivos 
+              Con 5 años de experiencia como podóloga certificada, brinda tratamientos efectivos 
               para uñeros, tratamientos especializados para prevención de pie diabético, hongos, callosidades y otras afecciones podológicas.
             </p>
 
             <p className="leading-relaxed">
-              Un <strong>doctor de pies profesional</strong> no solo trata síntomas visibles, sino que identifica 
+              Una <strong>podóloga profesional</strong> no solo trata síntomas visibles, sino que identifica 
               las causas raíz de cada problema. Ya sea que sufras de dolor al caminar, uñas encarnadas 
               recurrentes, o necesites tratamientos especializados para prevención de pie diabético, contar con una especialista 
               certificada marca la diferencia entre un alivio temporal y una solución duradera.
@@ -55,14 +55,14 @@ export default function SEOContent() {
 
           {/* Grid de información */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* ¿Por qué elegir un doctor de pies certificado? */}
+            {/* ¿Por qué elegir una podóloga certificada? */}
             <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8">
               <div className="flex items-center mb-4">
                 <div className="bg-[#60BEC3] rounded-full p-3 mr-4">
                   <Shield className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800">
-                  ¿Por Qué Elegir un Doctor de Pies Certificado?
+                  ¿Por Qué Elegir una Podóloga Certificada?
                 </h3>
               </div>
               <ul className="space-y-3">
@@ -100,7 +100,7 @@ export default function SEOContent() {
                   <Stethoscope className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800">
-                  Especialidades de Nuestra Doctora de Pies
+                  Especialidades de Nuestra Podóloga
                 </h3>
               </div>
               <div className="grid grid-cols-1 gap-2">
@@ -118,7 +118,7 @@ export default function SEOContent() {
           <div className="bg-gray-50 rounded-2xl p-8 mb-12">
             <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
               <Heart className="w-6 h-6 text-[#60BEC3] mr-3" />
-              ¿Cuándo Debes Consultar a un Doctor de Pies?
+              ¿Cuándo Debes Consultar a una Podóloga?
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-white rounded-xl p-4 border-l-4 border-red-500">
@@ -147,7 +147,7 @@ export default function SEOContent() {
             <div className="flex items-center mb-6">
               <MapPin className="w-8 h-8 mr-3" />
               <h3 className="text-2xl font-bold">
-                Doctora de Pies con Atención en Todo Quito Norte
+                Podóloga con Atención en Todo Quito Norte
               </h3>
             </div>
             <p className="mb-6 opacity-90">
@@ -163,7 +163,7 @@ export default function SEOContent() {
             </div>
             <div className="mt-6 text-center">
               <a
-                href="https://wa.me/593995832788?text=¡Hola!%20Necesito%20consulta%20con%20doctora%20de%20pies%20en%20Quito%20Norte"
+                href="https://wa.me/593995832788?text=¡Hola!%20Necesito%20consulta%20con%20podóloga%20en%20Quito%20Norte"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-[#60BEC3] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
@@ -178,11 +178,11 @@ export default function SEOContent() {
             <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-green-50 rounded-full px-6 py-3 mb-4">
               <Award className="w-5 h-5 text-[#60BEC3] mr-2" />
               <span className="text-gray-700 font-medium">
-                Más que un doctor de pies, tu aliada en salud podológica
+                Más que una podóloga, tu aliada en salud podológica
               </span>
             </div>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              La Dra. Cristina Muñoz no solo trata problemas actuales, sino que te educa sobre 
+              Cristina Muñoz no solo trata problemas actuales, sino que te educa sobre 
               el cuidado preventivo de tus pies. Con enfoque personalizado y tecnología moderna, 
               cada tratamiento está diseñado para darte resultados duraderos y mejorar tu calidad de vida.
             </p>

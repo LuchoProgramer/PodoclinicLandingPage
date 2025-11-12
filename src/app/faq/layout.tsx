@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Preguntas Frecuentes | FAQ Podología - PodoClinic Dra. Cristina Muñoz',
-  description: 'Preguntas frecuentes sobre podología en Quito Norte: uñeros, pie diabético, hongos, precios, horarios y más. Respuestas de la Dra. Cristina Muñoz.',
+  title: 'Preguntas Frecuentes | FAQ Podología - PodoClinic Cristina Muñoz',
+  description: 'Preguntas frecuentes sobre podología en Quito Norte: uñeros, pie diabético, hongos, precios, horarios y más. Respuestas de Cristina Muñoz.',
   keywords: [
     'faq podología quito',
     'preguntas frecuentes podólogo',

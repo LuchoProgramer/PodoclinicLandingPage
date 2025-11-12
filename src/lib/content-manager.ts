@@ -273,7 +273,7 @@ export class SEOManager {
 
     return {
       title: `${categoryName} | Blog de Podología en Quito`,
-      description: `Artículos especializados sobre ${categoryName.toLowerCase()} con consejos profesionales de la Dra. Cristina Muñoz en Quito.`,
+      description: `Artículos especializados sobre ${categoryName.toLowerCase()} con consejos profesionales de Cristina Muñoz en Quito.`,
       openGraph: {
         title: `${categoryName} | Blog de Podología en Quito`,
         description: `Artículos especializados sobre ${categoryName.toLowerCase()}`

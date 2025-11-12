@@ -100,12 +100,12 @@ export const ImagePresets = {
   }
 };
 
-// Componente específico para imágenes de doctora
+// Componente específico para imágenes de podóloga
 export function DoctorImage({ className = "", priority = false }: { className?: string, priority?: boolean }) {
   return (
     <OptimizedImage
       src="/images/doctora-cristina.jpg"
-      alt="Dra. Cristina Muñoz"
+      alt="Cristina Muñoz - Podóloga"
       width={400}
       height={400}
       className={className}

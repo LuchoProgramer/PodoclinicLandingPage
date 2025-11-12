@@ -103,9 +103,9 @@ class StaticDataSource implements DataSource {
   async getDoctorInfo(): Promise<DoctorInfo> {
     return new Promise((resolve) => {
       const doctorInfo: DoctorInfo = {
-        name: "Dra. Cristina Muñoz",
+        name: "Cristina Muñoz",
         title: "Podóloga Especialista",
-        description: "Especialista en podología con más de 10 años de experiencia en el cuidado integral de los pies.",
+        description: "Especialista en podología con 5 años de experiencia en el cuidado integral de los pies.",
         image: "/images/doctora-cristina.jpg",
         stats: {
           patients: "5000+",

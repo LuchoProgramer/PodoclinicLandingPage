@@ -5,8 +5,8 @@ import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://podoclinicec.com'),
-  title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-  description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Desde $35. Cobertura 8km.",
+  title: "Podólogo a Domicilio Quito Norte | Cristina Muñoz - Podoclinicec",
+  description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz: uñeros, pie diabético, hongos. Desde $35. Cobertura 8km.",
   robots: "index, follow",
   keywords: [
     "podólogo quito norte",
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     "hongos uñas quito",
     "profilaxis podal",
     "verrugas plantares",
-    "dra cristina muñoz",
+    "cristina muñoz",
     "podólogo domicilio",
     "13 reseñas google 5 estrellas"
   ],
   openGraph: {
-    title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz, 5 años experiencia. Cobertura La Florida.",
+    title: "Podólogo a Domicilio Quito Norte | Cristina Muñoz - Podoclinicec",
+    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz, 5 años experiencia. Cobertura La Florida.",
     url: "https://podoclinicec.com/",
     siteName: "Podoclinicec",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podólogo a Domicilio Quito Norte | Dra. Cristina Muñoz",
+    title: "Podólogo a Domicilio Quito Norte | Cristina Muñoz",
     description: "Especialista en podología: uñeros, pie diabético, hongos. 13 reseñas Google 5 estrellas. Atención domicilio Quito Norte.",
     images: [
       "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"
@@ -139,12 +139,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 {
                   "@type": "MedicalClinic",
                   "@id": "https://podoclinicec.com/#medicalclinic",
-                  "name": "Podoclinicec - Dra. Cristina Muñoz",
+                  "name": "Podoclinicec - Cristina Muñoz",
                   "alternateName": "Podoclinicec",
                   "url": "https://podoclinicec.com",
                   "logo": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
                   "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
-                  "description": "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz: uñeros, pie diabético, hongos. Cobertura 8km.",
+                  "description": "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz: uñeros, pie diabético, hongos. Cobertura 8km.",
                   "medicalSpecialty": [
                     "Podiatry",
                     "Diabetic Foot Care", 
@@ -233,30 +233,31 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   }
                 },
                 {
-                  "@type": "Physician",
-                  "@id": "https://podoclinicec.com/#physician",
-                  "name": "Dra. Cristina Muñoz",
+                  "@type": "Person",
+                  "@id": "https://podoclinicec.com/#podiatrist",
+                  "name": "Cristina Muñoz",
                   "givenName": "Cristina",
                   "familyName": "Muñoz",
-                  "honorificPrefix": "Dra.",
+                  "jobTitle": "Podóloga",
                   "gender": "Female",
                   "nationality": "Ecuadorian",
                   "alumniOf": {
                     "@type": "EducationalOrganization",
                     "name": "Universidad Central del Ecuador"
                   },
-                  "medicalSpecialty": [
-                    "Podiatry",
-                    "Diabetic Foot Care"
-                  ],
-                  "yearsExperience": "8",
+                  "hasOccupation": {
+                    "@type": "Occupation",
+                    "name": "Podóloga",
+                    "occupationalCategory": "Healthcare"
+                  },
+                  "yearsExperience": "5",
                   "workLocation": {
                     "@id": "https://podoclinicec.com/#medicalclinic"
                   },
                   "hasCredential": [
                     {
                       "@type": "EducationalOccupationalCredential",
-                      "credentialCategory": "Medical License",
+                      "credentialCategory": "Professional License",
                       "recognizedBy": {
                         "@type": "Organization",
                         "name": "Ministerio de Salud Pública del Ecuador"

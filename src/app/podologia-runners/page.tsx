@@ -4,14 +4,14 @@ import { Metadata } from "next";
 
 // Metadata optimizada para podología deportiva
 export const metadata: Metadata = {
-  title: "Podología Deportiva para Runners en Quito | Dra. Cristina Muñoz",
+  title: "Podología Deportiva para Runners en Quito | Cristina Muñoz",
   description: "🏃‍♀️ Especialista en podología deportiva para runners en Quito. Prevención y tratamiento de lesiones, fascitis plantar, uñeros. Atención a domicilio. ⭐ 13 reseñas 5 estrellas.",
   keywords: "podología deportiva quito, runners quito, fascitis plantar, lesiones deportivas pies, podólogo runners, tratamiento deportistas, podología atletas",
   alternates: {
     canonical: "https://podoclinicec.com/podologia-runners",
   },
   openGraph: {
-    title: "Podología Deportiva para Runners en Quito | Dra. Cristina Muñoz",
+    title: "Podología Deportiva para Runners en Quito | Cristina Muñoz",
     description: "Especialista en podología deportiva para runners. Prevención y tratamiento de lesiones. Atención a domicilio en Quito.",
     url: "https://podoclinicec.com/podologia-runners",
     siteName: "Podoclinicec",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
         width: 1200,
         height: 630,
-        alt: "Podología Deportiva para Runners en Quito - Dra. Cristina Muñoz",
+        alt: "Podología Deportiva para Runners en Quito - Cristina Muñoz",
       },
     ],
   },
@@ -41,7 +41,7 @@ const sportsPodiarySchema = {
   "description": "Servicios especializados de podología deportiva para runners y atletas, incluyendo prevención y tratamiento de lesiones",
   "provider": {
     "@type": "Person",
-    "name": "Dra. Cristina Muñoz",
+    "name": "Cristina Muñoz",
     "specialty": "Sports Podiatry"
   },
   "serviceType": "Sports Medicine",

@@ -7,24 +7,23 @@ import { generateMetadata } from "@/lib/metadata-utils";
 export const metadata: Metadata = generateMetadata('podologo-en-quito');
 
 // Schema markup específico para esta página
-const physicianSchema = {
+const podiatristSchema = {
   "@context": "https://schema.org",
-  "@type": "Physician",
-  "name": "Dra. Cristina Muñoz",
+  "@type": "Person",
+  "name": "Cristina Muñoz",
   "givenName": "Cristina",
   "familyName": "Muñoz",
-  "honorificPrefix": "Dra.",
+  "jobTitle": "Podóloga",
   "gender": "Female",
   "nationality": "Ecuadorian",
   "url": "https://podoclinicec.com/podologo-en-quito",
   "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
-  "medicalSpecialty": [
-    "Podiatry",
-    "Diabetic Foot Care",
-    "Nail Disorders Treatment",
-    "Sports Podiatry"
-  ],
-  "yearsExperience": "8",
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Podóloga",
+    "occupationalCategory": "Healthcare"
+  },
+  "yearsExperience": "5",
   "workLocation": {
     "@type": "MedicalClinic",
     "name": "Podoclinicec",
@@ -45,7 +44,7 @@ const physicianSchema = {
   "hasCredential": [
     {
       "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Medical License",
+      "credentialCategory": "Professional License",
       "recognizedBy": {
         "@type": "Organization",
         "name": "Ministerio de Salud Pública del Ecuador"
@@ -71,7 +70,7 @@ const faqSchema = {
       "name": "¿Quién es la mejor podóloga en Quito Norte?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La Dra. Cristina Muñoz es una podóloga certificada con 5 años de experiencia en Quito Norte, especializada en tratamiento de uñeros, pie diabético y cuidado integral de los pies. Cuenta con 13 reseñas Google de 5 estrellas."
+        "text": "Cristina Muñoz es una podóloga certificada con 5 años de experiencia en Quito Norte, especializada en tratamiento de uñeros, pie diabético y cuidado integral de los pies. Cuenta con 13 reseñas Google de 5 estrellas."
       }
     },
     {
@@ -97,7 +96,7 @@ export default function PodologoEnQuitoPage() {
   return (
     <LayoutClient>
       {/* Schema markup */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(podiatristSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
@@ -124,7 +123,7 @@ export default function PodologoEnQuitoPage() {
                 
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                   <span className="text-[#60BEC3]">Podólogo en Quito Norte</span><br />
-                  Dra. Cristina Muñoz
+                  Cristina Muñoz
                 </h1>
                 
                 <p className="text-xl text-gray-700 mb-8 leading-relaxed">
@@ -150,7 +149,7 @@ export default function PodologoEnQuitoPage() {
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Busco%20un%20podólogo%20en%20Quito%20Norte%20y%20quisiera%20agendar%20una%20consulta"
+                    href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Busco%20un%20podólogo%20en%20Quito%20Norte%20y%20quisiera%20agendar%20una%20consulta"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[#60BEC3] hover:bg-[#4A9DB8] text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
@@ -177,7 +176,7 @@ export default function PodologoEnQuitoPage() {
                     <div className="w-24 h-24 bg-[#60BEC3] rounded-full mx-auto mb-4 flex items-center justify-center">
                       <Stethoscope className="w-12 h-12 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Dra. Cristina Muñoz</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Cristina Muñoz</h3>
                     <p className="text-gray-600">Podóloga Certificada</p>
                   </div>
                   
@@ -206,12 +205,12 @@ export default function PodologoEnQuitoPage() {
           </div>
         </section>
 
-        {/* Sección: ¿Por qué elegir a la Dra. Cristina Muñoz? */}
+        {/* Sección: ¿Por qué elegir a Cristina Muñoz? */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                ¿Por qué elegir a la <span className="text-[#60BEC3]">Dra. Cristina Muñoz</span>?
+                ¿Por qué elegir a <span className="text-[#60BEC3]">Cristina Muñoz</span>?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 La mejor opción en podología para Quito Norte y sectores aledaños
@@ -316,7 +315,7 @@ export default function PodologoEnQuitoPage() {
                   <div className="flex justify-between items-center">
                     <span className="text-[#60BEC3] font-bold text-lg">{service.price}</span>
                     <a
-                      href={`https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Me%20interesa%20información%20sobre%20${encodeURIComponent(service.title)}`}
+                      href={`https://wa.me/593995832788?text=¡Hola%20Cristina!%20Me%20interesa%20información%20sobre%20${encodeURIComponent(service.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium flex items-center"
@@ -343,7 +342,7 @@ export default function PodologoEnQuitoPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Me%20interesa%20información%20sobre%20consulta%20podológica%20en%20Quito%20Norte"
+                href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Me%20interesa%20información%20sobre%20consulta%20podológica%20en%20Quito%20Norte"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-[#60BEC3] hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 flex items-center justify-center"

@@ -25,7 +25,7 @@ export default function PodologiaDeportivaIndexPage() {
             Podología Deportiva en Quito: <span className="text-[#60BEC3]">Cuida tus Pies y Rinde al Máximo</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Descubre cómo la podología deportiva puede ayudarte a prevenir lesiones y mejorar tu rendimiento. Consejos y tratamientos de la Dra. Cristina Muñoz para runners y deportistas en Quito.
+            Descubre cómo la podología deportiva puede ayudarte a prevenir lesiones y mejorar tu rendimiento. Consejos y tratamientos de Cristina Muñoz para runners y deportistas en Quito.
           </p>
         </header>
         <div className="prose prose-lg mx-auto text-gray-800">
@@ -38,7 +38,7 @@ export default function PodologiaDeportivaIndexPage() {
             <li>Consulta a un podólogo ante cualquier molestia o lesión.</li>
           </ul>
           <h2>Atención profesional en Quito</h2>
-          <p>La Dra. Cristina Muñoz ofrece consultas personalizadas para deportistas y runners, con tratamientos avanzados y seguimiento a domicilio.</p>
+          <p>Cristina Muñoz ofrece consultas personalizadas para deportistas y runners, con tratamientos avanzados y seguimiento a domicilio.</p>
         </div>
       </article>
     </div>

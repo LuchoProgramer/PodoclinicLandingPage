@@ -44,78 +44,24 @@ module.exports = {
     // Páginas principales de servicios médicos (alta prioridad)
     const mainMedicalPages = [
       {
-        loc: '/uneros-quito',
-        priority: 0.9,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/podologo-en-quito',
-        priority: 0.9, 
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/podologia-quito-norte',
-        priority: 0.9,
-        changefreq: 'weekly', 
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/pie-diabetico-quito',
-        priority: 0.8,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/profilaxis-podal-quito',
-        priority: 0.8,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/hongos-unas-quito',
-        priority: 0.8,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/verrugas-plantares-quito',
-        priority: 0.8,
+        loc: '/podologia-runners',
+        priority: 0.85,
         changefreq: 'weekly',
         lastmod: new Date().toISOString(),
       }
     ];
     
-    // Ubicaciones específicas (geo-targeting)
-    const geoPages = [
-      {
-        loc: '/podologo-la-floresta',
-        priority: 0.7,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/podologo-gonzalez-suarez',
-        priority: 0.7,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/podologo-iñaquito',
-        priority: 0.7,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: '/podologo-rumipamba',
-        priority: 0.7,
-        changefreq: 'weekly',
-        lastmod: new Date().toISOString(),
-      }
-    ];
+    // Ubicaciones específicas (geo-targeting) - comentadas porque no existen páginas reales
+    // const geoPages = [
+    //   {
+    //     loc: '/podologo-la-floresta',
+    //     priority: 0.7,
+    //     changefreq: 'weekly',
+    //     lastmod: new Date().toISOString(),
+    //   }
+    // ];
     
-    const allPages = [...mainMedicalPages, ...geoPages];
+    const allPages = [...mainMedicalPages];
     
     return allPages.map(page => ({
       ...page,
@@ -155,7 +101,7 @@ module.exports = {
     }
 
     // Páginas de servicios médicos - alta prioridad SEO
-    if (path.includes('uñeros') || path.includes('podologo') || path.includes('podologia') || path.includes('pie-diabetico')) {
+    if (path.includes('uñeros') || path.includes('podologo') || path.includes('podologia') || path.includes('pie-diabetico') || path.includes('runners')) {
       return {
         loc: path,
         changefreq: 'weekly',

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Tips de Podología - PodoClinic Dra. Cristina Muñoz',
+    template: '%s | Tips de Podología - PodoClinic Cristina Muñoz',
     default: 'Tips de Podología | Consejos Prácticos para el Cuidado de Pies'
   },
   description: 'Tips y consejos prácticos de podología para el cuidado diario de tus pies. Guías estacionales y recomendaciones profesionales.',

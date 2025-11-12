@@ -55,11 +55,11 @@ export default function HomePage() {
 const businessSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
-    "name": "PodoClinic - Podólogo en Quito Norte | Dra. Cristina Muñoz",
+    "name": "PodoClinic - Podólogo en Quito Norte | Cristina Muñoz",
     "alternateName": [
         // Keywords principales (alta prioridad)
-        "Doctor de Pies Quito Norte",
-        "Doctora de Pies Quito",
+        "Podólogo Quito Norte",
+        "Podóloga Quito",
         "Podólogo Quito Norte",
         "Podología Quito Norte",
         
@@ -74,9 +74,9 @@ const businessSchema = {
         
         // Zonas específicas (si aplica)
         "Podólogo La Florida Quito",
-        "Doctor de Pies Iñaquito"
+        "Podólogo Iñaquito"
     ],
-    "description": "Clínica podológica #1 en Quito Norte especializada en uñeros, pie diabético, profilaxis podal y verrugas plantares. Dra. Cristina Muñoz con +10 años experiencia. Atención domicilio y consultorio.",
+    "description": "Clínica podológica #1 en Quito Norte especializada en uñeros, pie diabético, profilaxis podal y verrugas plantares. Cristina Muñoz con 5 años experiencia. Atención domicilio y consultorio.",
     "url": "https://podoclinicec.com",
     "logo": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
     "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
@@ -133,8 +133,8 @@ const businessSchema = {
       "geoRadius": "20000"
     },
     "founder": {
-      "@type": "Physician",
-      "name": "Dra. Cristina Muñoz",
+      "@type": "Person",
+      "name": "Cristina Muñoz",
       "jobTitle": "Podóloga Certificada",
       "worksFor": {
         "@type": "MedicalClinic",
@@ -143,20 +143,19 @@ const businessSchema = {
       "hasCredential": [
         {
           "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Medical License",
+          "credentialCategory": "Professional License",
           "recognizedBy": {
             "@type": "Organization",
             "name": "Ministerio de Salud Pública Ecuador"
           }
         }
       ],
-      "medicalSpecialty": [
-        "Podiatry",
-        "Diabetic Foot Care", 
-        "Nail Disorders",
-        "Sports Podiatry"
-      ],
-      "yearsExperience": "10+"
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Podóloga",
+        "occupationalCategory": "Healthcare"
+      },
+      "yearsExperience": "5"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
