@@ -94,7 +94,7 @@ export default function Hero() {
                     </h1>
                     <p className="text-lg sm:text-xl md:text-2xl max-w-4xl text-gray-700 mx-auto leading-relaxed px-2 mt-4">
                         <strong className="text-red-600">¿Uñeros, hongos, dolor al caminar?</strong> 
-                        La <strong>Cristina Muñoz</strong> (5 años de experiencia) especialista en podología 
+                        <strong>Cristina Muñoz</strong> (5 años de experiencia) especialista en podología 
                         <strong className="text-green-600"> te brinda tratamiento efectivo</strong>. 
                         <strong className="bg-yellow-200 px-2 py-1 rounded">Citas disponibles - Atención personalizada.</strong>
                     </p>
