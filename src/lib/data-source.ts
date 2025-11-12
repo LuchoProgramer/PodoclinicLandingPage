@@ -109,7 +109,7 @@ class StaticDataSource implements DataSource {
         image: "/images/doctora-cristina.jpg",
         stats: {
           patients: "5000+",
-          experience: "10+ años",
+          experience: "5 años",
           satisfaction: "98%",
           surgeries: "500+"
         },

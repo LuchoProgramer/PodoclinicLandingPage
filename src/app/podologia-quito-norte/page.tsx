@@ -248,7 +248,7 @@ export default function PodologiaQuitoNortePage() {
                 {
                   icon: MapPin,
                   title: "Conocemos tu Zona",
-                  description: "10+ años atendiendo familias en La Florida, Iñaquito, Rumipamba. Conocemos cada rincón de Quito Norte.",
+                  description: "5 años atendiendo familias en La Florida, Iñaquito, Rumipamba. Conocemos cada rincón de Quito Norte.",
                   color: "bg-green-50 text-green-600"
                 },
                 {

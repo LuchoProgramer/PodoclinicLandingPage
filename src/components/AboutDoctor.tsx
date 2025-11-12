@@ -20,7 +20,7 @@ export default function AboutDoctor() {
 
     const achievements = [
         { number: "500+", label: "Pacientes atendidos" },
-        { number: "5+", label: "Años de experiencia" },
+        { number: "5", label: "Años de experiencia" },
         { number: "98%", label: "Índice de satisfacción" },
         { number: "50+", label: "Cirugías exitosas" }
     ];
