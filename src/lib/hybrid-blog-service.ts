@@ -4,7 +4,6 @@
  */
 
 import { BlogPost, BlogCategory } from '@/types';
-import { podoclinicCMS, CMSPost } from './podoclinic-cms';
 
 // Importar posts y categorías hardcodeados existentes
 import { 
@@ -24,26 +23,39 @@ class HybridBlogService {
     private cmsAvailable = false;
 
     /**
-     * Convertir post del CMS al formato de Podoclinic
+     * Convertir CMSBlogPost a BlogPost
      */
-    private convertCMSPostToBlogPost(cmsPost: CMSPost): BlogPost {
+    private convertCMSBlogToPost(cmsBlog: any): BlogPost {
+        // Convertir blocks a content HTML
+        const content = cmsBlog.blocks?.map((block: any) => {
+            if (block.type === 'text') {
+                return block.content || '';
+            } else if (block.type === 'image') {
+                return `<img src="${block.src}" alt="${block.alt || ''}" />`;
+            }
+            return '';
+        }).join('\n') || '';
+
         return {
-            id: `cms-${cmsPost.id}`, // Prefijo para identificar posts del CMS
-            title: cmsPost.title,
-            slug: cmsPost.slug,
-            excerpt: cmsPost.excerpt,
-            content: cmsPost.content,
-            category: cmsPost.category,
-            author: cmsPost.author,
-            publishDate: cmsPost.publishDate,
-            lastModified: cmsPost.lastModified,
-            tags: cmsPost.tags,
-            metaTitle: cmsPost.metaTitle,
-            metaDescription: cmsPost.metaDescription,
-            featured: cmsPost.featured,
-            image: cmsPost.image,
-            readTime: cmsPost.readTime,
-            cta: cmsPost.cta
+            id: cmsBlog.id,
+            title: cmsBlog.title || 'Sin título',
+            slug: cmsBlog.id, // Usar ID como slug por ahora
+            excerpt: content.substring(0, 200) + '...',
+            content: content,
+            category: cmsBlog.category || 'general',
+            author: cmsBlog.author?.name || 'CMS',
+            publishDate: cmsBlog.createdAt || new Date().toISOString(),
+            lastModified: cmsBlog.updatedAt || cmsBlog.createdAt || new Date().toISOString(),
+            tags: cmsBlog.tags || [],
+            metaTitle: cmsBlog.title || '',
+            metaDescription: content.substring(0, 160),
+            featured: false,
+            image: cmsBlog.blocks?.find((b: any) => b.type === 'image')?.src,
+            readTime: Math.ceil(content.split(' ').length / 200) + ' min',
+            cta: {
+                text: 'Leer más',
+                link: `/blog/${cmsBlog.id}`
+            }
         };
     }
 
@@ -59,20 +71,29 @@ class HybridBlogService {
         }
 
         try {
-            // Verificar si el CMS está disponible
-            this.cmsAvailable = await podoclinicCMS.checkConnection();
+            // Hacer fetch directo a la API del CMS
+            const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:3000';
+            const tenantId = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
+            const url = `${baseUrl}/api/blogs?tenant=${tenantId}&limit=50`;
             
-            if (!this.cmsAvailable) {
-                console.log('📦 CMS no disponible, usando solo posts hardcodeados');
-                return [];
+            const response = await fetch(url);
+            
+            if (response.ok) {
+                const data = await response.json();
+                if (data.blogs && data.blogs.length > 0) {
+                    // Convertir CMSBlogPost a BlogPost format
+                    this.cmsPosts = data.blogs.map((blog: any) => this.convertCMSBlogToPost(blog));
+                    this.cmsAvailable = true;
+                    this.lastCMSFetch = now;
+                    console.log(`✅ ${this.cmsPosts.length} posts obtenidos del CMS`);
+                } else {
+                    console.log('📦 CMS no disponible, usando solo posts hardcodeados');
+                    this.cmsAvailable = false;
+                }
+            } else {
+                throw new Error(`HTTP ${response.status}`);
             }
-
-            // Obtener posts del CMS
-            const cmsPostsRaw = await podoclinicCMS.getAllPosts(50); // Limite alto para obtener todos
-            this.cmsPosts = cmsPostsRaw.map(post => this.convertCMSPostToBlogPost(post));
-            this.lastCMSFetch = now;
-
-            console.log(`✅ ${this.cmsPosts.length} posts obtenidos del CMS`);
+            
             return this.cmsPosts;
 
         } catch (error) {
@@ -118,9 +139,16 @@ class HybridBlogService {
 
         // Si no se encuentra, buscar en CMS
         try {
-            const cmsPost = await podoclinicCMS.getPostBySlug(slug);
-            if (cmsPost) {
-                return this.convertCMSPostToBlogPost(cmsPost);
+            const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:3000';
+            const tenantId = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
+            const url = `${baseUrl}/api/blogs?tenant=${tenantId}&id=${slug}`;
+            
+            const response = await fetch(url);
+            if (response.ok) {
+                const cmsBlog = await response.json();
+                if (cmsBlog) {
+                    return this.convertCMSBlogToPost(cmsBlog);
+                }
             }
         } catch (error) {
             console.warn('Error buscando post en CMS:', error);
@@ -179,7 +207,6 @@ class HybridBlogService {
     clearCache(): void {
         this.cmsPosts = [];
         this.lastCMSFetch = 0;
-        podoclinicCMS.clearCache();
     }
 }
 
