@@ -4,14 +4,23 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const limit = searchParams.get('limit') || '10';
+    const id = searchParams.get('id');
     
     // Configuración hardcodeada para evitar problemas con env vars
     const CMS_URL = 'http://localhost:3000';
     const TENANT_ID = 'zCXAU8FLaGX4UHgnrPfI';
     
-    console.log('🔗 Proxy fetching from CMS:', `${CMS_URL}/api/blogs?tenant=${TENANT_ID}&limit=${limit}`);
+    // Construir URL según si es búsqueda por ID o lista general
+    let url = `${CMS_URL}/api/blogs?tenant=${TENANT_ID}`;
+    if (id) {
+      url += `&id=${id}`;
+    } else {
+      url += `&limit=${limit}`;
+    }
     
-    const response = await fetch(`${CMS_URL}/api/blogs?tenant=${TENANT_ID}&limit=${limit}`, {
+    console.log('🔗 Proxy fetching from CMS:', url);
+    
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

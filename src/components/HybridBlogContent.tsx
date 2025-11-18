@@ -9,10 +9,15 @@ import { useEffect, useState } from 'react';
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight, Star, User } from "lucide-react";
 import { BlogPost, BlogCategory } from '@/types';
-import { hybridBlogService, blogCategories } from '@/lib/hybrid-blog-service';
+import { 
+  getFeaturedPosts, 
+  getRecentPosts, 
+  getPostStats
+} from '@/data/hybrid-blog-posts';
+import { blogCategories } from '@/data/blog/posts';
 
 interface BlogStats {
-  hardcoded: number;
+  static: number;
   cms: number;
   total: number;
   cmsAvailable: boolean;
@@ -23,7 +28,7 @@ export default function HybridBlogContent() {
   const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
   const [categories] = useState<BlogCategory[]>(blogCategories);
   const [stats, setStats] = useState<BlogStats>({
-    hardcoded: 0,
+    static: 0,
     cms: 0,
     total: 0,
     cmsAvailable: false
@@ -35,19 +40,27 @@ export default function HybridBlogContent() {
       setIsLoading(true);
       
       try {
+        console.log('🔍 Iniciando carga de datos del blog...');
+        
         // Cargar posts en paralelo
         const [featured, recent, blogStats] = await Promise.all([
-          hybridBlogService.getFeaturedPosts(),
-          hybridBlogService.getRecentPosts(6),
-          hybridBlogService.getPostStats()
+          getFeaturedPosts(),
+          getRecentPosts(6),
+          getPostStats()
         ]);
+
+        console.log('📊 Datos cargados:', {
+          featured: featured.length,
+          recent: recent.length,
+          stats: blogStats
+        });
 
         setFeaturedPosts(featured);
         setRecentPosts(recent);
         setStats(blogStats);
         
       } catch (error) {
-        console.error('Error loading blog data:', error);
+        console.error('❌ Error loading blog data:', error);
       } finally {
         setIsLoading(false);
       }
@@ -89,7 +102,7 @@ export default function HybridBlogContent() {
               {stats.cmsAvailable ? (
                 <>
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  Sistema híbrido activo: {stats.hardcoded} posts locales + {stats.cms} posts CMS
+                  Sistema híbrido activo: {stats.static} posts locales + {stats.cms} posts CMS
                 </>
               ) : (
                 <>
@@ -153,10 +166,14 @@ export default function HybridBlogContent() {
                       </div>
                     </div>
                   )}
-                  <div className="absolute top-4 right-4 bg-white text-[#60BEC3] px-3 py-1 rounded-full text-sm font-medium">
-                    Destacado
-                    {post.id.startsWith('cms-') && (
-                      <span className="ml-2 bg-green-100 text-green-600 px-2 py-0.5 rounded text-xs">CMS</span>
+                  <div className="absolute top-4 right-4">
+                    <div className="bg-white text-[#60BEC3] px-3 py-1 rounded-full text-sm font-medium mb-2">
+                      Destacado
+                    </div>
+                    {post.isCMSPost && (
+                      <div className="bg-green-500/90 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-semibold">
+                        🔴 EN VIVO
+                      </div>
                     )}
                   </div>
                 </div>
@@ -280,8 +297,10 @@ export default function HybridBlogContent() {
                     <span className="mr-3">{new Date(post.publishDate).toLocaleDateString('es-ES')}</span>
                     <Clock className="w-3 h-3 mr-1" />
                     <span className="mr-2">{post.readTime}</span>
-                    {post.id.startsWith('cms-') && (
-                      <span className="bg-green-100 text-green-600 px-2 py-0.5 rounded text-xs">CMS</span>
+                    {post.isCMSPost && (
+                      <span className="bg-green-500 text-white px-2 py-0.5 rounded text-xs font-semibold">
+                        🔴 EN VIVO
+                      </span>
                     )}
                   </div>
 

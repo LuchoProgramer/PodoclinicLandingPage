@@ -1,8 +1,18 @@
-# 🏥 PodoClinic Landing Page - Proyecto de Conversión Premium
+# 🏥 PodoClinic Landing Page - Sistema Híbrido Premium
 
 ## 🎯 Descripción del Proyecto
 
-Landing page de alta conversión para clínica podológica especializada, diseñada con enfoque en user experience, segmentación inteligente de leads y múltiples puntos de conversión optimizados.
+Landing page de alta conversión para clínica podológica especializada con **sistema híbrido de blog** que combina contenido estático hardcodeado con contenido dinámico del CMS headless. Diseñada con enfoque en user experience, segmentación inteligente de leads y múltiples puntos de conversión optimizados.
+
+## 🚀 NUEVA FUNCIONALIDAD: Sistema Híbrido de Blog
+
+### ✨ Características del Sistema Híbrido
+- **Contenido Mixto**: Posts estáticos + posts dinámicos del CMS
+- **Renderizado Visual Rico**: Componentes React para contenido CMS
+- **Identificación Visual**: Badge "🔴 EN VIVO" para posts del CMS
+- **Fallback Resiliente**: Funciona sin conexión al CMS
+- **TypeScript Completo**: Type safety en toda la integración
+- **SEO Optimizado**: Metadata dinámica para ambos tipos de contenido
 
 ### 🚀 Re### **Confi### **Eventos Trackeados**
 - `click_blog_cta` - Clicks en CTAs del blog
@@ -23,12 +33,117 @@ Landing page de alta conversión para clínica podológica especializada, diseñ
 
 ---
 
+## 🔄 Sistema Híbrido de Blog - Documentación Técnica
+
+### 🎯 Arquitectura del Sistema Híbrido
+
+```
+Frontend (Next.js :3001) ←→ Sistema Híbrido ←→ CMS Headless (:3000)
+                                    ↓
+                        ┌─────────────────────┐
+                        │   Proxy API Layer   │
+                        │  (/api/cms-proxy)   │
+                        └─────────────────────┘
+                                    ↓
+                    ┌─────────────────┬─────────────────┐
+                    │  Posts Estáticos │  Posts del CMS  │
+                    │   (hardcoded)   │   (dinámicos)   │
+                    │                 │                 │
+                    │ • SEO optimized │ • Badge "EN VIVO"│
+                    │ • Contenido     │ • Renderizado    │
+                    │   específico    │   automático     │
+                    │ • Fallback      │ • Type-safe      │
+                    │   garantizado   │ • Categorizado   │
+                    └─────────────────┴─────────────────┘
+```
+
+### 🧩 Componentes Clave
+
+#### 1. **Sistema Híbrido Core** (`src/data/hybrid-blog-posts.ts`)
+- Combina contenido estático y dinámico seamlessly
+- Fallback automático a contenido estático si CMS falla
+- Ordenamiento inteligente por fecha de publicación
+- Filtrado por categorías y límites
+
+#### 2. **Cliente CMS Especializado** (`src/lib/podoclinic-cms-client.ts`)
+- Mapeo de categorías CMS a categorías PodoclinicLandingPage
+- Conversión de formato CMS a formato local
+- Manejo de URLs absolutas para SSR
+- Cache inteligente con revalidación
+
+#### 3. **Renderizador Dinámico** (`src/components/CMSContentRenderer.tsx`)
+- Genera contenido visual rico para posts del CMS
+- Componentes reutilizables (AlertBox, FeatureGrid, etc.)
+- Contenido específico por categoría podológica
+- CTAs personalizados por especialidad
+
+#### 4. **Proxy API** (`src/app/api/cms-proxy/route.ts`)
+- Resuelve problemas de CORS
+- Habilita Server-Side Rendering (SSR)
+- Manejo de errores robusto
+- Compatibilidad con Next.js App Router
+
+### 📊 Flujo de Datos
+
+1. **Página Principal del Blog** (`/blog`)
+   - `HybridBlogContent.tsx` carga datos híbridos
+   - Muestra estadísticas: X posts estáticos + Y posts CMS
+   - Posts CMS identificados con badge "🔴 EN VIVO"
+
+2. **Posts Individuales** (`/blog/[category]/[slug]`)
+   - Auto-detección de origen (estático vs CMS)
+   - Posts CMS: renderizado dinámico con `CMSContentRenderer`
+   - Posts estáticos: contenido hardcodeado específico
+
+3. **Listado por Categorías** (`/blog/[category]`)
+   - Filtrado híbrido por categoría
+   - Mixing de posts estáticos y CMS de la misma categoría
+
+### 🔧 Configuración del Sistema
+
+#### Variables de Entorno
+```bash
+# .env.local
+NEXT_PUBLIC_CMS_URL=http://localhost:3000
+NEXT_PUBLIC_CMS_TENANT_ID=zCXAU8FLaGX4UHgnrPfI
+```
+
+#### Estructura de Archivos del Sistema Híbrido
+```
+src/
+├── app/
+│   ├── api/cms-proxy/           # Proxy API
+│   └── blog/                    # Blog híbrido
+├── components/
+│   ├── HybridBlogContent.tsx    # Componente principal
+│   └── CMSContentRenderer.tsx   # Renderizador dinámico
+├── data/
+│   ├── blog/posts.ts           # Posts estáticos
+│   └── hybrid-blog-posts.ts    # Sistema híbrido
+└── lib/
+    └── podoclinic-cms-client.ts # Cliente CMS
+```
+
+### 🚀 Funcionalidades Avanzadas
+
+- **Identificación Visual**: Posts del CMS tienen badge "🔴 EN VIVO"
+- **Fallback Resiliente**: Si CMS falla, muestra solo contenido estático
+- **SEO Dinámico**: Metadata generada automáticamente para ambos tipos
+- **Performance Optimizada**: Caching con revalidación cada 5 minutos
+- **Type Safety**: TypeScript completo en toda la integración
+- **Content Categorization**: Mapeo inteligente de categorías CMS
+
+---
+
 ## 🏗️ Arquitectura del Proyecto
 
 ### **Stack Tecnológico**
-- **Framework**: Next.js 15.5.3 (App Router)
+- **Framework**: Next.js 16.0.0 (App Router)
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React, React Icons, Heroicons
+- **CMS Integration**: Sistema híbrido con CMS headless multi-tenant
+- **API Layer**: Proxy pattern para CORS y SSR
+- **Content Rendering**: Sistema de componentes dinámicos React
 - **Analytics**: Google Analytics (GA4), Facebook Pixel, TikTok Pixel, Google Tag Manager
 - **Deployment**: Netlify
 
@@ -396,6 +511,101 @@ git push origin main
 /tips/verano/                      # Consejos de verano
 ```
 
+## 🛠️ Instalación y Configuración del Sistema Híbrido
+
+### **Requisitos Previos**
+- Node.js 18+
+- npm o yarn
+- CMS Headless ejecutándose en puerto 3000
+
+### **Instalación**
+
+```bash
+# 1. Clonar el repositorio
+git clone [repository-url]
+cd PodoclinicLandingPage
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Configurar variables de entorno
+cp .env.example .env.local
+
+# Editar .env.local con:
+NEXT_PUBLIC_CMS_URL=http://localhost:3000
+NEXT_PUBLIC_CMS_TENANT_ID=zCXAU8FLaGX4UHgnrPfI
+```
+
+### **Ejecución en Desarrollo**
+
+```bash
+# Terminal 1: Iniciar CMS Headless
+cd ../CMSheadless/cms-headless
+npm run dev  # Puerto 3000
+
+# Terminal 2: Iniciar PodoclinicLandingPage
+cd PodoclinicLandingPage
+npm run dev  # Puerto 3001
+```
+
+### **Verificación del Sistema**
+
+1. **Blog Principal**: http://localhost:3001/blog
+   - Debe mostrar posts estáticos + posts CMS con badge "🔴 EN VIVO"
+   - Verificar estadísticas: "X posts locales + Y posts CMS"
+
+2. **Posts Individuales**: 
+   - Posts estáticos: Contenido hardcodeado específico
+   - Posts CMS: Contenido renderizado dinámicamente
+
+3. **Sistema de Fallback**:
+   - Detener CMS (puerto 3000)
+   - Blog debe seguir funcionando solo con posts estáticos
+
+### **Comandos Útiles**
+
+```bash
+# Verificar estado de puertos
+lsof -i :3000  # CMS
+lsof -i :3001  # Frontend
+
+# Debug del sistema híbrido
+# Abrir DevTools en navegador y revisar logs de consola
+# Buscar logs: "🔄 getAllPosts", "📄 Posts estáticos", "🌐 Respuesta CMS"
+
+# Build para producción
+npm run build
+npm run start
+```
+
+### **Troubleshooting Rápido**
+
+**Problema**: Blog aparece vacío
+**Solución**: Verificar que ambos servidores estén corriendo y revisar logs de consola
+
+**Problema**: Error "Invalid URL"
+**Solución**: Verificar variables de entorno y URLs absolutas en cliente CMS
+
+**Problema**: Posts CMS sin contenido
+**Solución**: Verificar que CMSContentRenderer esté importado correctamente
+
+---
+
+## 📚 Documentación Adicional
+
+### **Guías Específicas**
+- 📖 [**Guía Completa de Integración CMS**](./GUIA_INTEGRACION_CMS.md) - Documentación técnica detallada
+- 🔧 **Sistema Híbrido**: Ver sección anterior en este README
+- 🎨 **Componentes de Renderizado**: `src/components/CMSContentRenderer.tsx`
+
+### **Para Desarrolladores**
+- **Estructura del Proyecto**: Ver `src/` para organización modular
+- **API Routes**: `src/app/api/cms-proxy/` para integración CMS
+- **Types**: `src/types/index.ts` para interfaces TypeScript
+- **Configuración**: Archivos de configuración en raíz del proyecto
+
+---
+
 ## 📄 Licencia
 
 Este proyecto es propiedad de PodoClinic y Dra. Cristina Muñoz.
@@ -408,8 +618,29 @@ Para soporte técnico o modificaciones:
 
 ---
 
-**Última actualización:** 5 de octubre de 2025  
-**Versión:** 2.0.0 - Sistema de Blog Implementado
+## 🏆 Historial de Versiones
+
+### **v3.0.0 - Sistema Híbrido Completo** (18 Nov 2025)
+- ✅ Sistema híbrido de blog con CMS headless
+- ✅ Renderizador dinámico de contenido CMS  
+- ✅ Proxy API para resolver CORS y SSR
+- ✅ Componentes visuales ricos para posts CMS
+- ✅ Fallback resiliente a contenido estático
+- ✅ TypeScript completo en integración
+- ✅ Documentación técnica completa
+
+### **v2.0.0 - Sistema de Blog** (5 Oct 2025)
+- ✅ Blog estático implementado
+- ✅ Categorización por especialidades
+- ✅ SEO optimizado por artículo
+
+### **v1.0.0 - Landing Page Base** 
+- ✅ Landing page de conversión
+- ✅ Tracking y analytics
+- ✅ Formularios de contacto
+
+**Última actualización:** 18 de noviembre de 2025  
+**Versión Actual:** 3.0.0 - Sistema Híbrido Completo
 
 ---
 

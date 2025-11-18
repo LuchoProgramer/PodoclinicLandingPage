@@ -21,6 +21,7 @@ export interface BlogPost {
     text: string;
     link: string;
   };
+  isCMSPost?: boolean; // Flag para identificar posts del CMS
 }
 
 // Blog Category Types

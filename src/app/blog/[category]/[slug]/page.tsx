@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, ArrowRight, User, Tag, Share2, CheckCircle } from "lucide-react";
-import { getAllPosts, getPostBySlug, getRecentPosts } from "@/data/blog/posts";
+import { getAllPosts, getPostBySlug, getRecentPosts } from "@/data/hybrid-blog-posts";
 import { notFound } from "next/navigation";
 import LayoutClient from "@/components/LayoutClient";
+import CMSContentRenderer from "@/components/CMSContentRenderer";
 
 interface PageProps {
   params: Promise<{
@@ -12,7 +13,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   
   return posts.map((post) => ({
     category: post.category,
@@ -22,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
   const { category, slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   
   if (!post) {
     return {
@@ -87,8 +88,8 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug, category } = await params;
-  const post = getPostBySlug(slug);
-  const recentPosts = getRecentPosts(3);
+  const post = await getPostBySlug(slug);
+  const recentPosts = await getRecentPosts(3);
 
   if (!post) {
     notFound();
@@ -247,16 +248,17 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Artículo principal */}
-
-      <article className="max-w-4xl mx-auto px-6 py-12">
-
-        {/* Contenido del Post - Aquí irá el contenido específico */}
-        <div className="prose prose-lg max-w-none">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            
-            {/* Contenido específico por post */}
-            {post.slug === "senales-unero-urgente" && (
+      {/* Contenido del Post - Sistema Híbrido */}
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        {post.isCMSPost ? (
+          // Renderizar contenido del CMS usando el renderizador dinámico
+          <CMSContentRenderer post={post} />
+        ) : (
+          // Contenido hardcodeado para posts estáticos
+          <div className="prose prose-lg max-w-none">
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+              {/* Contenido específico por post */}
+              {post.slug === "senales-unero-urgente" && (
               <>
                 <h2 className="text-2xl font-bold text-gray-800 mb-6">¿Cuándo un Uñero se Convierte en Emergencia?</h2>
                 
@@ -372,27 +374,28 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </div>
                 </div>
               </>
-            )}
-
-            {/* CTA específico del post */}
-            <div className="bg-gradient-to-r from-[#60BEC3] to-[#79A373] rounded-2xl p-8 text-center text-white mt-12">
-              <h3 className="text-2xl font-bold mb-4">¿Reconoces alguna de estas señales?</h3>
-              <p className="text-lg mb-6 opacity-90">
-                No esperes a que empeore. La atención temprana es clave para un tratamiento exitoso.
-              </p>
-              {post.cta && (
-                <a
-                  href={post.cta.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-white text-[#60BEC3] px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-                >
-                  {post.cta.text}
-                </a>
               )}
+
+              {/* CTA específico del post */}
+              <div className="bg-gradient-to-r from-[#60BEC3] to-[#79A373] rounded-2xl p-8 text-center text-white mt-12">
+                <h3 className="text-2xl font-bold mb-4">¿Reconoces alguna de estas señales?</h3>
+                <p className="text-lg mb-6 opacity-90">
+                  No esperes a que empeore. La atención temprana es clave para un tratamiento exitoso.
+                </p>
+                {post.cta && (
+                  <a
+                    href={post.cta.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center bg-white text-[#60BEC3] px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                  >
+                    {post.cta.text}
+                  </a>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Tags */}
         <div className="flex items-center flex-wrap gap-3 mt-8">
@@ -405,13 +408,14 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
 
         {/* Botón compartir */}
+        {/* Botón compartir */}
         <div className="flex items-center justify-center mt-8">
           <button className="flex items-center bg-white text-gray-600 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
             <Share2 className="w-5 h-5 mr-2" />
             Compartir artículo
           </button>
         </div>
-      </article>
+      </div>
 
       {/* Posts relacionados */}
       <section className="py-16 bg-white">

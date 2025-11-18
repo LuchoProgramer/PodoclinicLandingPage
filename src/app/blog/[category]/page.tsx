@@ -1,5 +1,5 @@
 
-import { getAllPosts, getPostsByCategory, getAllCategories } from '@/data/blog/posts';
+import { getAllPosts, getPostsByCategory, getAvailableCategories } from '@/data/hybrid-blog-posts';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Home, FileText, ChevronRight } from 'lucide-react';
@@ -11,7 +11,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const categories = getAllCategories();
+  const categories = await getAvailableCategories();
   
   return categories.map((category) => ({
     category: category,
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
   const { category } = await params;
-  const posts = getPostsByCategory(category);
+  const posts = await getPostsByCategory(category);
   const firstPost = posts && posts.length > 0 ? posts[0] : null;
   const baseUrl = 'https://podoclinicec.com';
   const canonicalUrl = `${baseUrl}/blog/${category}`;
@@ -66,7 +66,7 @@ export default async function CategoryPage({ params }: PageProps) {
     return null;
   }
 
-  const posts = getPostsByCategory(category);
+  const posts = await getPostsByCategory(category);
 
   const categoryTitles: Record<string, string> = {
     'uneros': 'Uñeros',
