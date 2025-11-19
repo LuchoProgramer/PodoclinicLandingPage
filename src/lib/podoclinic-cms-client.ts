@@ -40,7 +40,7 @@ class PodoclinicCMSClient {
       // Durante el build time, no hacer fetch al CMS
       if (typeof window === 'undefined' && !process.env.NEXT_RUNTIME) {
         console.log('⏭️ Skipping CMS fetch during build time');
-        throw new Error('CMS not available during build time');
+        return { blogs: [], total: 0, tenant: this.tenantId };
       }
 
       // Usar URL absoluta para SSR
@@ -68,7 +68,14 @@ class PodoclinicCMSClient {
       
       return await response.json();
     } catch (error) {
-      console.error('Error fetching blogs from CMS:', error);
+      // Durante build time, devolver respuesta vacía sin logs
+      if (typeof window === 'undefined' && !process.env.NEXT_RUNTIME) {
+        return { blogs: [], total: 0, tenant: this.tenantId };
+      }
+      
+      // En runtime, log normal
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.log('⚠️ CMS not available:', errorMessage);
       throw error;
     }
   }
@@ -103,7 +110,13 @@ class PodoclinicCMSClient {
       
       return await response.json();
     } catch (error) {
-      console.error('Error fetching blog by ID:', error);
+      // Durante build time, este método no debería llamarse
+      if (typeof window === 'undefined' && !process.env.NEXT_RUNTIME) {
+        throw new Error(`Blog with ID ${blogId} not available during build time`);
+      }
+      
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.log('⚠️ CMS blog by ID not available:', errorMessage);
       throw error;
     }
   }

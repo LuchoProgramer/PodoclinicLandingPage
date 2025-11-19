@@ -55,10 +55,13 @@ export async function getAllPosts(options: { limit?: number; category?: string }
 
     return filteredPosts;
   } catch (error) {
-    console.error('❌ Error fetching hybrid posts:', error);
-    // En caso de error con el CMS, devolver solo posts estáticos
+    // En caso de error con el CMS, devolver solo posts estáticos sin ruido en logs
     const staticPosts = await getStaticPosts();
-    console.log('🔄 Fallback a posts estáticos:', staticPosts.length);
+    
+    // Solo logear en desarrollo/runtime, no durante build
+    if (process.env.NODE_ENV !== 'production' || typeof window !== 'undefined') {
+      console.log('🔄 Fallback a posts estáticos:', staticPosts.length);
+    }
     
     // Aplicar filtros a los posts estáticos
     let filteredPosts = staticPosts;

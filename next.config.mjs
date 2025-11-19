@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Comentar temporalmente para desarrollo con CMS
-    // output: "export", // 🔹 Asegura la exportación estática
+    output: "export", // 🔹 Exportación estática para Netlify
     reactStrictMode: true,
     trailingSlash: true, // 🔹 Asegura que las URLs terminen con "/"
     images: {

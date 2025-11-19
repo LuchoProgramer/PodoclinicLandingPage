@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "out" # 👈 MUY IMPORTANTE: Publicar desde "out/"
+  publish = "out" # Para Next.js con output: "export"
 
 [[redirects]]
   from = "/*"
