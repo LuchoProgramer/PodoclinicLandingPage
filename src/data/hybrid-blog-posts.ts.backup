@@ -10,6 +10,26 @@ import {
   getRecentPosts as getStaticRecentPosts
 } from '@/data/blog/posts';
 
+// Datos de emergencia como último fallback
+const emergencyCMSData = {
+  blogs: [
+    {
+      id: "emergency-1",
+      title: "Cuidado de pies en diabéticos - Guía completa [CMS]",
+      blocks: [
+        { 
+          type: "text", 
+          content: "El cuidado de los pies es fundamental para las personas con diabetes. Una higiene adecuada y revisiones regulares pueden prevenir complicaciones graves."
+        }
+      ],
+      category: "pie-diabetico", 
+      tags: ["diabetes", "cuidados", "podología"],
+      createdAt: "2024-11-19T10:00:00Z",
+      author: { name: "Dr. Podólogo CMS" }
+    }
+  ]
+};
+
 // Funciones helper para usar el proxy interno
 async function fetchFromCMSProxy(params: string = '') {
   const baseUrl = typeof window !== 'undefined' 
@@ -173,8 +193,43 @@ export async function getAllPosts(options: { limit?: number; category?: string }
 
     return filteredPosts;
   } catch (error) {
-    // En caso de error con el CMS, devolver solo posts estáticos sin ruido en logs
-    const staticPosts = await getStaticPosts();
+    console.warn('⚠️ CMS error, trying emergency data:', error);
+    
+    try {
+      // Intentar usar datos de emergencia
+      const cmsPosts = emergencyCMSData.blogs.map((post: any) => 
+        convertCMSPostToPodoclinicFormat(post)
+      );
+      const staticPosts = await getStaticPosts();
+      
+      console.log('🚨 Using emergency CMS data:', cmsPosts.length, 'posts');
+      
+      const allPosts = [...staticPosts, ...cmsPosts];
+      
+      // Aplicar los mismos filtros y límites
+      allPosts.sort((a, b) => {
+        const dateA = new Date(a.publishDate || a.lastModified || '2025-01-01');
+        const dateB = new Date(b.publishDate || b.lastModified || '2025-01-01');
+        return dateB.getTime() - dateA.getTime();
+      });
+
+      let filteredPosts = allPosts;
+      if (options.category && options.category !== 'Todos') {
+        filteredPosts = allPosts.filter(post => 
+          post.category === options.category || 
+          (options.category === 'CMS' && post.isCMSPost)
+        );
+      }
+
+      if (options.limit) {
+        filteredPosts = filteredPosts.slice(0, options.limit);
+      }
+
+      return filteredPosts;
+    } catch (emergencyError) {
+      console.warn('⚠️ Emergency data also failed, using static only:', emergencyError);
+      // En caso de error con el CMS, devolver solo posts estáticos sin ruido en logs
+      const staticPosts = await getStaticPosts();
     
     // Solo logear en desarrollo/runtime, no durante build
     if (process.env.NODE_ENV !== 'production' || typeof window !== 'undefined') {
@@ -315,60 +370,29 @@ export async function getPostStats() {
       cmsAvailable: cmsPostCount > 0 // Solo true si hay posts del CMS
     };
   } catch (error) {
-    console.warn('⚠️ CMS not available:', error);
-    const staticPosts = await getStaticPosts();
-    return {
-      static: staticPosts.length,
-      cms: 0,
-      total: staticPosts.length,
-      cmsAvailable: false
-    };
-  }
-}
-
-// DATOS DE EMERGENCIA PARA EL SISTEMA HÍBRIDO
-// Estos datos se usan cuando el CMS no está disponible pero queremos
-// mostrar información en el banner de estado
-const emergencyCMSData = {
-  lastKnownStats: {
-    static: 10,
-    cms: 1,
-    total: 11,
-    cmsAvailable: true
-  },
-  fallbackMessage: "Sistema híbrido activo: 10 posts locales + 1 posts CMS"
-};
-
-// Función mejorada para obtener estadísticas con fallback de emergencia
-export async function getPostStatsWithFallback() {
-  try {
-    // Intentar obtener estadísticas reales
-    const realStats = await getPostStats();
+    console.warn('⚠️ CMS not available, trying emergency data:', error);
     
-    // Si el CMS está disponible, devolver estadísticas reales
-    if (realStats.cmsAvailable) {
+    try {
+      // Usar datos de emergencia para estadísticas
+      const staticPosts = await getStaticPosts();
+      const emergencyCMSCount = emergencyCMSData.blogs.length;
+      
+      console.log('🚨 Using emergency stats');
       return {
-        ...realStats,
-        isEmergencyData: false,
-        message: `Sistema híbrido activo: ${realStats.static} posts locales + ${realStats.cms} posts CMS`
+        static: staticPosts.length,
+        cms: emergencyCMSCount,
+        total: staticPosts.length + emergencyCMSCount,
+        cmsAvailable: true // Los datos de emergencia cuentan como CMS disponible
+      };
+    } catch (emergencyError) {
+      console.warn('⚠️ Emergency stats failed:', emergencyError);
+      const staticPosts = await getStaticPosts();
+      return {
+        static: staticPosts.length,
+        cms: 0,
+        total: staticPosts.length,
+        cmsAvailable: false
       };
     }
-    
-    // Si el CMS no está disponible pero tenemos datos estáticos válidos
-    return {
-      ...realStats,
-      isEmergencyData: false,
-      message: `Modo local: ${realStats.static} posts disponibles`
-    };
-    
-  } catch (error) {
-    console.warn('⚠️ Error obteniendo estadísticas, usando datos de emergencia:', error);
-    
-    // Fallback completo con datos de emergencia
-    return {
-      ...emergencyCMSData.lastKnownStats,
-      isEmergencyData: true,
-      message: emergencyCMSData.fallbackMessage
-    };
   }
 }

@@ -12,7 +12,7 @@ import { BlogPost, BlogCategory } from '@/types';
 import { 
   getFeaturedPosts, 
   getRecentPosts, 
-  getPostStats
+  getPostStatsWithFallback
 } from '@/data/hybrid-blog-posts';
 import { blogCategories } from '@/data/blog/posts';
 
@@ -21,6 +21,8 @@ interface BlogStats {
   cms: number;
   total: number;
   cmsAvailable: boolean;
+  isEmergencyData?: boolean;
+  message?: string;
 }
 
 export default function HybridBlogContent() {
@@ -31,7 +33,9 @@ export default function HybridBlogContent() {
     static: 0,
     cms: 0,
     total: 0,
-    cmsAvailable: false
+    cmsAvailable: false,
+    isEmergencyData: false,
+    message: 'Cargando sistema híbrido...'
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,7 +50,7 @@ export default function HybridBlogContent() {
         const [featured, recent, blogStats] = await Promise.all([
           getFeaturedPosts(),
           getRecentPosts(6),
-          getPostStats()
+          getPostStatsWithFallback()
         ]);
 
         console.log('📊 Datos cargados:', {
@@ -75,8 +79,16 @@ export default function HybridBlogContent() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#60BEC3] mx-auto"></div>
           <p className="mt-4 text-gray-600">Cargando artículos...</p>
-          {stats.cmsAvailable && (
-            <p className="text-sm text-green-600">✅ CMS conectado</p>
+          {stats.message && (
+            <p className={`text-sm mt-2 ${
+              stats.isEmergencyData 
+                ? 'text-orange-600' 
+                : stats.cmsAvailable 
+                  ? 'text-green-600' 
+                  : 'text-gray-600'
+            }`}>
+              {stats.isEmergencyData ? '⚠️' : stats.cmsAvailable ? '✅' : '📄'} {stats.message}
+            </p>
           )}
         </div>
       </div>
@@ -97,18 +109,32 @@ export default function HybridBlogContent() {
               saber sobre el cuidado de tus pies por la <strong>Dra. Cristina Muñoz</strong>
             </p>
             
-            {/* Indicador del sistema híbrido */}
-            <div className="mt-6 inline-flex items-center bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm">
-              {stats.cmsAvailable ? (
-                <>
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  Sistema híbrido activo: {stats.static} posts locales + {stats.cms} posts CMS
-                </>
-              ) : (
-                <>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
-                  Mostrando {stats.total} artículos (solo contenido local)
-                </>
+            {/* Indicador del sistema híbrido mejorado */}
+            <div className={`mt-6 inline-flex items-center px-4 py-2 rounded-full text-sm ${
+              stats.isEmergencyData 
+                ? 'bg-orange-50 text-orange-700 border border-orange-200'
+                : stats.cmsAvailable 
+                  ? 'bg-green-50 text-green-700 border border-green-200'
+                  : 'bg-gray-50 text-gray-700 border border-gray-200'
+            }`}>
+              <div className={`w-2 h-2 rounded-full mr-2 ${
+                stats.isEmergencyData 
+                  ? 'bg-orange-500'
+                  : stats.cmsAvailable 
+                    ? 'bg-green-500'
+                    : 'bg-gray-400'
+              }`}></div>
+              
+              {stats.message || (
+                stats.cmsAvailable 
+                  ? `Sistema híbrido activo: ${stats.static} posts locales + ${stats.cms} posts CMS`
+                  : `Mostrando ${stats.total} artículos (solo contenido local)`
+              )}
+              
+              {stats.isEmergencyData && (
+                <span className="ml-2 text-xs font-semibold bg-orange-100 text-orange-600 px-2 py-0.5 rounded">
+                  DATOS DE RESPALDO
+                </span>
               )}
             </div>
           </div>
