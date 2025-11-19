@@ -1,0 +1,114 @@
+{
+  "name": "template-profesional-configurable",
+  "version": "1.0.0",
+  "description": "Template Next.js profesional y configurable para múltiples industrias",
+  "keywords": [
+    "nextjs",
+    "template", 
+    "typescript",
+    "tailwind",
+    "configurable",
+    "medical",
+    "business",
+    "creative",
+    "cms",
+    "seo"
+  ],
+  "author": {
+    "name": "Luis Viteri",
+    "email": "contacto@luisviteri.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuchoProgramer/template-profesional.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    
+    "setup": "node scripts/setup-template.js",
+    "setup:medical": "node scripts/setup-template.js --preset=medical",
+    "setup:business": "node scripts/setup-template.js --preset=business", 
+    "setup:creative": "node scripts/setup-template.js --preset=creative",
+    "setup:local": "node scripts/setup-template.js --preset=local",
+    
+    "template:reset": "rm -f config/client.config.ts .env.local && echo 'Template reset complete'",
+    "template:export": "node scripts/export-config.js",
+    "template:validate": "node scripts/validate-config.js",
+    
+    "build:medical": "npm run setup:medical && npm run build",
+    "build:business": "npm run setup:business && npm run build",
+    "build:creative": "npm run setup:creative && npm run build",
+    
+    "deploy:netlify": "npm run build && netlify deploy --prod",
+    "deploy:vercel": "npm run build && vercel --prod",
+    
+    "demo": "npm run setup:medical && npm run dev",
+    "demo:business": "npm run setup:business && npm run dev",
+    "demo:creative": "npm run setup:creative && npm run dev",
+    
+    "analyze": "cross-env ANALYZE=true npm run build",
+    "clean": "rm -rf .next out coverage",
+    "fresh": "npm run clean && npm install && npm run dev"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "lucide-react": "^0.400.0",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "clsx": "^2.0.0",
+    "class-variance-authority": "^0.7.0"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^15.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^15.0.0",
+    "cross-env": "^7.0.3",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "template": {
+    "version": "1.0.0",
+    "industries": ["medical", "business", "creative", "local"],
+    "features": [
+      "configurable",
+      "multi-theme",
+      "cms-ready",
+      "seo-optimized", 
+      "mobile-responsive",
+      "analytics-integrated"
+    ],
+    "setup_time": "5-30 minutes",
+    "difficulty": "beginner",
+    "documentation": "README_TEMPLATE.md"
+  }
+}
