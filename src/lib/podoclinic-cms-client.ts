@@ -37,6 +37,12 @@ class PodoclinicCMSClient {
     const { limit } = options;
     
     try {
+      // Durante el build time, no hacer fetch al CMS
+      if (typeof window === 'undefined' && !process.env.NEXT_RUNTIME) {
+        console.log('⏭️ Skipping CMS fetch during build time');
+        throw new Error('CMS not available during build time');
+      }
+
       // Usar URL absoluta para SSR
       const baseUrl = process.env.NODE_ENV === 'production' 
         ? 'https://podoclinicec.com' 
@@ -69,6 +75,12 @@ class PodoclinicCMSClient {
 
   async getBlogById(blogId: string): Promise<CMSBlogPost> {
     try {
+      // Durante el build time, no hacer fetch al CMS
+      if (typeof window === 'undefined' && !process.env.NEXT_RUNTIME) {
+        console.log('⏭️ Skipping CMS fetch for blog by ID during build time');
+        throw new Error('CMS not available during build time');
+      }
+
       // Usar URL absoluta para SSR
       const baseUrl = process.env.NODE_ENV === 'production' 
         ? 'https://podoclinicec.com' 
