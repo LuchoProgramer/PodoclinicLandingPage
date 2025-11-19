@@ -12,7 +12,7 @@ import {
     Linkedin,
     Youtube
 } from "lucide-react";
-import { getTemplateConfig } from "@/config/template.config";
+import { getTemplateConfig } from "../../config/template.config";
 
 // Declaraciones globales para Analytics
 declare global {

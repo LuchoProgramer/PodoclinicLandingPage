@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { TemplateConfig, MEDICAL_TEMPLATE_CONFIG, BUSINESS_TEMPLATE_CONFIG, CREATIVE_TEMPLATE_CONFIG } from '@/config/template.config';
+import { TemplateConfig, MEDICAL_TEMPLATE_CONFIG, BUSINESS_TEMPLATE_CONFIG, CREATIVE_TEMPLATE_CONFIG } from '../../config/template.config';
 
 // Intentar cargar configuración del cliente si existe
 let CLIENT_CONFIG: TemplateConfig;

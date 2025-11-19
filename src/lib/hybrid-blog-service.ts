@@ -25,21 +25,37 @@ class HybridBlogService {
     /**
      * Convertir CMSBlogPost a BlogPost
      */
-    private convertCMSBlogToPost(cmsBlog: any): BlogPost {
-        // Convertir blocks a content HTML
-        const content = cmsBlog.blocks?.map((block: any) => {
-            if (block.type === 'text') {
-                return block.content || '';
-            } else if (block.type === 'image') {
-                return `<img src="${block.src}" alt="${block.alt || ''}" />`;
-            }
-            return '';
-        }).join('\n') || '';
+    private convertCMSBlogToPost(cmsBlog: any): BlogPost | null {
+        // Validar que tenga los campos mínimos requeridos
+        if (!cmsBlog.slug || !cmsBlog.title) {
+            console.warn('⚠️ Blog del CMS sin slug o title, omitiendo:', cmsBlog.id);
+            return null;
+        }
+
+        // Usar el content HTML generado por el CMS si existe, sino generarlo
+        let content = cmsBlog.content || '';
+        
+        if (!content && cmsBlog.blocks) {
+            content = cmsBlog.blocks.map((block: any) => {
+                if (block.type === 'text') {
+                    return block.content || '';
+                } else if (block.type === 'image') {
+                    const imgSrc = block.url || block.src || '';
+                    return `<img src="${imgSrc}" alt="${block.alt || ''}" class="img-fluid" />`;
+                }
+                return '';
+            }).join('\n');
+        }
+
+        // Obtener imagen destacada: primero del campo image, luego del primer bloque de imagen
+        const featuredImage = cmsBlog.image || 
+            cmsBlog.blocks?.find((b: any) => b.type === 'image')?.url || 
+            cmsBlog.blocks?.find((b: any) => b.type === 'image')?.src;
 
         return {
             id: cmsBlog.id,
-            title: cmsBlog.title || 'Sin título',
-            slug: cmsBlog.slug || cmsBlog.id, // Usar slug real del CMS
+            title: cmsBlog.title,
+            slug: cmsBlog.slug,
             excerpt: cmsBlog.excerpt || content.substring(0, 200) + '...',
             content: content,
             category: cmsBlog.category || 'general',
@@ -47,14 +63,14 @@ class HybridBlogService {
             publishDate: cmsBlog.createdAt || new Date().toISOString(),
             lastModified: cmsBlog.updatedAt || cmsBlog.createdAt || new Date().toISOString(),
             tags: cmsBlog.tags || [],
-            metaTitle: cmsBlog.title || '',
+            metaTitle: cmsBlog.title,
             metaDescription: cmsBlog.excerpt || content.substring(0, 160),
             featured: false,
-            image: cmsBlog.image || cmsBlog.blocks?.find((b: any) => b.type === 'image')?.src,
-            readTime: Math.ceil(content.split(' ').length / 200) + ' min',
+            image: featuredImage,
+            readTime: Math.ceil((content.split(' ').length || 0) / 200) + ' min',
             cta: {
                 text: 'Leer más',
-                link: `/blog/${cmsBlog.slug || cmsBlog.id}`
+                link: `/blog/${cmsBlog.slug}`
             }
         };
     }
@@ -81,8 +97,10 @@ class HybridBlogService {
             if (response.ok) {
                 const data = await response.json();
                 if (data.blogs && data.blogs.length > 0) {
-                    // Convertir CMSBlogPost a BlogPost format
-                    this.cmsPosts = data.blogs.map((blog: any) => this.convertCMSBlogToPost(blog));
+                    // Convertir CMSBlogPost a BlogPost format, filtrando los que fallen validación
+                    this.cmsPosts = data.blogs
+                        .map((blog: any) => this.convertCMSBlogToPost(blog))
+                        .filter((post: BlogPost | null): post is BlogPost => post !== null);
                     this.cmsAvailable = true;
                     this.lastCMSFetch = now;
                     console.log(`✅ ${this.cmsPosts.length} posts obtenidos del CMS`);

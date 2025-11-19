@@ -7,9 +7,9 @@ export async function GET(request: NextRequest) {
     const limit = searchParams.get('limit') || '10';
     const id = searchParams.get('id');
     
-    // Configuración usando variables de entorno
+    // Configuración usando variables de entorno - PukaPress CMS
     const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app';
-    const TENANT_ID = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
+    const TENANT_ID = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'podoclinic-tenant-id';
     
     // Log para debugging de variables de entorno
     console.log('🔧 Environment variables:', {
@@ -75,7 +75,12 @@ export async function GET(request: NextRequest) {
     }
     
     const data = await response.json();
-    console.log('✅ CMS data received:', data);
+    console.log('✅ CMS data received:', {
+      blogsCount: data.blogs?.length || 0,
+      total: data.total,
+      tenant: data.tenant,
+      firstBlogTitle: data.blogs?.[0]?.title || 'No blogs'
+    });
     
     // Añadir headers CORS
     const apiResponse = NextResponse.json(data);

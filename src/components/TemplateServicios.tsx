@@ -18,7 +18,7 @@ import {
     Heart,
     Clock
 } from "lucide-react";
-import { getTemplateConfig, ServiceConfig } from "@/config/template.config";
+import { getTemplateConfig, ServiceConfig } from "../../config/template.config";
 
 // Declaraciones globales para Analytics
 declare global {
@@ -48,7 +48,6 @@ const ICON_MAP: { [key: string]: LucideIcon } = {
     
     // Creative
     'palette': Palette,
-    'sparkles': Sparkles,
     
     // Genéricos
     'checkCircle': CheckCircle,
@@ -83,7 +82,8 @@ function getDefaultServiceImage(industry: string, serviceId: string): string {
         }
     };
     
-    return industryImages[industry as keyof typeof industryImages]?.[serviceId] || 
+    const industryMap = industryImages[industry as keyof typeof industryImages];
+    return (industryMap as any)?.[serviceId] || 
            "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800";
 }
 

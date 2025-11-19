@@ -14,7 +14,7 @@ import {
     MessageCircle,
     Activity
 } from "lucide-react";
-import { getTemplateConfig } from "@/config/template.config";
+import { getTemplateConfig } from "../../config/template.config";
 
 // Declaraciones globales para Analytics
 declare global {
@@ -72,6 +72,9 @@ export default function TemplateHero() {
             case 'contact':
                 window.location.href = '/contacto';
                 break;
+            case 'services':
+                window.location.href = '/servicios';
+                break;
         }
     };
 
@@ -112,6 +115,9 @@ export default function TemplateHero() {
             case 'blog':
                 window.location.href = '/blog';
                 break;
+            case 'contact':
+                window.location.href = '/contacto';
+                break;
         }
     };
 
@@ -149,7 +155,7 @@ export default function TemplateHero() {
 
                             {/* Badges */}
                             <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-4 mb-6 sm:mb-8">
-                                {config.hero.badges.map((badge, index) => (
+                                {config.hero.badges.map((badge: string, index: number) => (
                                     <div key={index} className="flex items-center bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full px-3 py-1 text-xs sm:text-sm">
                                         <span className="text-yellow-500 mr-1">
                                             {badge.includes('⭐') ? '⭐' : badge.includes('🏥') ? '🏥' : '🦶'}
@@ -197,16 +203,11 @@ export default function TemplateHero() {
 
                             {/* Quick Links */}
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-md mx-auto lg:mx-0">
-                                {config.hero.quickLinks.map((link, index) => (
+                                {config.hero.quickLinks.map((link: any, index: number) => (
                                     <a
                                         key={index}
                                         href={link.link}
-                                        className="group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg p-2 sm:p-3 hover:shadow-lg transition-all duration-300 min-h-[70px] sm:min-h-[80px] flex flex-col justify-center"
-                                        style={{ 
-                                            '&:hover': { 
-                                                borderColor: config.branding.primaryColor 
-                                            } 
-                                        }}
+                                        className="group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg p-2 sm:p-3 hover:shadow-lg transition-all duration-300 min-h-[70px] sm:min-h-[80px] flex flex-col justify-center hover:border-primary"
                                         onClick={() => {
                                             if (typeof window !== "undefined" && window.gtag) {
                                                 window.gtag("event", "click_quick_link", {
@@ -276,7 +277,7 @@ export default function TemplateHero() {
                                     <h4 className="text-lg font-bold text-center text-gray-800 mb-4">
                                         Servicios Principales
                                     </h4>
-                                    {config.services.slice(0, 3).map((service, index) => (
+                                    {config.services.slice(0, 3).map((service: any, index: number) => (
                                         <div key={index} className="flex items-start p-3 bg-gray-50 rounded-lg">
                                             <span className="text-2xl mr-3">{service.icon}</span>
                                             <div className="flex-1">

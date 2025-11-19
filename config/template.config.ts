@@ -53,11 +53,11 @@ export interface TemplateConfig {
     backgroundImage?: string;
     ctaPrimary: {
       text: string;
-      action: 'contact' | 'phone' | 'whatsapp' | 'modal';
+      action: 'contact' | 'phone' | 'whatsapp' | 'modal' | 'services';
     };
     ctaSecondary?: {
       text: string;
-      action: 'services' | 'about' | 'blog';
+      action: 'services' | 'about' | 'blog' | 'contact';
     };
     badges: string[];
     quickLinks: QuickLink[];
