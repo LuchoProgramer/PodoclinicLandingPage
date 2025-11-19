@@ -19,15 +19,28 @@ const CACHE_DURATION = 60000; // 1 minuto
 const emergencyCMSData = {
   blogs: [
     {
-      id: 1,
-      title: "Cuidado de pies en diabéticos - Guía completa",
+      id: "cms-1",
+      title: "Cuidado de pies en diabéticos - Guía completa [CMS]",
       blocks: [
-        { type: "text", content: "El cuidado de los pies es fundamental para las personas con diabetes..." },
-        { type: "image", src: "/images/pie-diabetico.jpg" }
+        { 
+          type: "text", 
+          content: "El cuidado de los pies es fundamental para las personas con diabetes. Una higiene adecuada y revisiones regulares pueden prevenir complicaciones graves. En este artículo te explicamos todo lo que necesitas saber para mantener tus pies sanos."
+        },
+        { 
+          type: "image", 
+          src: "/images/pie-diabetico.jpg",
+          alt: "Cuidado de pies diabéticos"
+        }
       ],
-      category: "pie-diabetico",
-      tags: ["diabetes", "cuidados", "podología"],
-      createdAt: "2024-11-15T10:00:00Z"
+      category: "pie-diabetico", 
+      tags: ["diabetes", "cuidados", "podología", "cms"],
+      createdAt: "2024-11-19T10:00:00Z",
+      updatedAt: "2024-11-19T10:00:00Z",
+      excerpt: "Guía completa para el cuidado de pies en personas con diabetes",
+      author: "Dr. Podólogo CMS",
+      readTime: 5,
+      featured: true,
+      published: true
     }
   ]
 };
@@ -210,13 +223,17 @@ export async function getAllPosts(options: { limit?: number; category?: string }
     const cmsResponse = await fetchCMSData();
     console.log('🌐 Respuesta CMS:', cmsResponse);
     
-    const cmsPosts = cmsResponse.blogs?.map((post: any) => 
-      convertCMSPostToPodoclinicFormat(post)
-    ) || [];
+    const cmsPosts = cmsResponse.blogs?.map((post: any) => {
+      const converted = convertCMSPostToPodoclinicFormat(post);
+      console.log('🔄 Post CMS convertido:', converted.title, converted.slug);
+      return converted;
+    }) || [];
     console.log('🔄 Posts CMS convertidos:', cmsPosts.length);
 
     // Combinar posts estáticos y del CMS
     const allPosts = [...staticPosts, ...cmsPosts];
+    console.log('📝 All posts combined:', allPosts.length, '(static:', staticPosts.length, '+ cms:', cmsPosts.length, ')');
+    console.log('📝 Posts titles:', allPosts.map(p => p.title).slice(0, 3));
 
     // Ordenar por fecha (más recientes primero)
     allPosts.sort((a, b) => {
