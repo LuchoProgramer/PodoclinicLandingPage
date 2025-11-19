@@ -1,6 +1,5 @@
 // src/data/hybrid-blog-posts.ts
 import { BlogPost } from '@/types';
-import { podoclinicCMSClient } from '@/lib/podoclinic-cms-client';
 
 // Importar posts estáticos existentes
 import { 
@@ -11,6 +10,125 @@ import {
   getRecentPosts as getStaticRecentPosts
 } from '@/data/blog/posts';
 
+// Funciones helper para usar el proxy interno
+async function fetchFromCMSProxy(params: string = '') {
+  const baseUrl = typeof window !== 'undefined' 
+    ? window.location.origin 
+    : 'https://podoclinicec.com';
+  
+  const url = `${baseUrl}/api/cms-proxy${params ? `?${params}` : ''}`;
+  console.log('🔗 Fetching from proxy:', url);
+  
+  const response = await fetch(url, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
+  
+  if (!response.ok) {
+    throw new Error(`Proxy error: ${response.status} ${response.statusText}`);
+  }
+  
+  return response.json();
+}
+
+// Convertir post del CMS al formato de PodoclinicLandingPage
+function convertCMSPostToPodoclinicFormat(cmsPost: any): BlogPost {
+  // Extraer primer párrafo como excerpt
+  const textBlocks = cmsPost.blocks?.filter((block: any) => block.type === 'text') || [];
+  const firstTextContent = textBlocks[0]?.content || '';
+  const excerpt = extractExcerpt(firstTextContent);
+
+  // Obtener primera imagen como imagen destacada
+  const imageBlocks = cmsPost.blocks?.filter((block: any) => block.type === 'image') || [];
+  const featuredImage = imageBlocks[0]?.src || '/images/default-blog.jpg';
+
+  // Convertir bloques a HTML
+  const content = convertBlocksToHTML(cmsPost.blocks || []);
+
+  // Generar slug
+  const slug = `cms-${cmsPost.id}`;
+
+  // Estimar tiempo de lectura
+  const readTime = estimateReadTime(content);
+
+  // Mapear categoría del CMS a categorías de Podoclinic
+  const category = mapCMSCategoryToPodoclinic(cmsPost.category);
+
+  // Usar tags del CMS o tags por defecto de podología
+  const tags = cmsPost.tags && cmsPost.tags.length > 0 
+    ? cmsPost.tags 
+    : ["podología", "cms"];
+
+  return {
+    id: `cms-${cmsPost.id}`,
+    title: cmsPost.title || 'Sin título',
+    slug,
+    excerpt,
+    content,
+    category,
+    author: cmsPost.author?.name || 'CMS',
+    publishDate: cmsPost.createdAt || new Date().toISOString(),
+    lastModified: cmsPost.updatedAt || cmsPost.createdAt || new Date().toISOString(),
+    tags,
+    metaTitle: cmsPost.title || '',
+    metaDescription: excerpt,
+    featured: false,
+    image: featuredImage,
+    readTime: `${readTime} min`,
+    cta: {
+      text: "Leer más",
+      link: `/blog/${slug}`
+    },
+    isCMSPost: true // Flag para identificar posts del CMS
+  };
+}
+
+function extractExcerpt(htmlContent: string): string {
+  const textOnly = htmlContent.replace(/<[^>]*>/g, '');
+  const words = textOnly.split(' ').slice(0, 30);
+  return words.join(' ') + '...';
+}
+
+function convertBlocksToHTML(blocks: any[]): string {
+  return blocks.map(block => {
+    switch (block.type) {
+      case 'text':
+        return block.content || '';
+      case 'image':
+        return `<img src="${block.src}" alt="${block.alt || 'Imagen'}" class="w-full h-auto rounded-lg my-4" />`;
+      case 'video':
+        return `<iframe src="${block.src}" width="100%" height="315" frameborder="0" allowfullscreen class="my-4 rounded-lg"></iframe>`;
+      default:
+        return '';
+    }
+  }).join('\n\n');
+}
+
+function mapCMSCategoryToPodoclinic(cmsCategory?: string): string {
+  const categoryMap: { [key: string]: string } = {
+    'salud': 'cuidado-preventivo',
+    'hongos': 'hongos',
+    'uñas': 'uneros',
+    'diabetes': 'pie-diabetico',
+    'deportes': 'podologia-deportiva',
+    'deporte': 'podologia-deportiva',
+    'general': 'cuidado-preventivo'
+  };
+
+  if (!cmsCategory) return 'cuidado-preventivo';
+  
+  const normalizedCategory = cmsCategory.toLowerCase();
+  return categoryMap[normalizedCategory] || 'cuidado-preventivo';
+}
+
+function estimateReadTime(content: string): number {
+  const wordsPerMinute = 200;
+  const words = content.split(' ').length;
+  return Math.ceil(words / wordsPerMinute);
+}
+
 // Función para obtener todos los posts (estáticos + CMS)
 export async function getAllPosts(options: { limit?: number; category?: string } = {}): Promise<BlogPost[]> {
   try {
@@ -20,13 +138,13 @@ export async function getAllPosts(options: { limit?: number; category?: string }
     const staticPosts = await getStaticPosts();
     console.log('📄 Posts estáticos obtenidos:', staticPosts.length);
 
-    // Obtener posts del CMS
-    const cmsResponse = await podoclinicCMSClient.getAllBlogs({ limit: 50 });
+    // Obtener posts del CMS a través del proxy
+    const cmsResponse = await fetchFromCMSProxy(`limit=${options.limit || 50}`);
     console.log('🌐 Respuesta CMS:', cmsResponse);
     
-    const cmsPosts = cmsResponse.blogs.map(post => 
-      podoclinicCMSClient.convertCMSPostToPodoclinicFormat(post)
-    );
+    const cmsPosts = cmsResponse.blogs?.map((post: any) => 
+      convertCMSPostToPodoclinicFormat(post)
+    ) || [];
     console.log('🔄 Posts CMS convertidos:', cmsPosts.length);
 
     // Combinar posts estáticos y del CMS
@@ -84,8 +202,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | undefined>
   if (slug.startsWith('cms-')) {
     try {
       const blogId = slug.replace('cms-', '');
-      const cmsPost = await podoclinicCMSClient.getBlogById(blogId);
-      return podoclinicCMSClient.convertCMSPostToPodoclinicFormat(cmsPost);
+      const cmsPost = await fetchFromCMSProxy(`id=${blogId}`);
+      return convertCMSPostToPodoclinicFormat(cmsPost);
     } catch (error) {
       console.error('Error fetching CMS post:', error);
       return undefined;
@@ -129,9 +247,8 @@ export async function getAvailableCategories(): Promise<string[]> {
     const staticPosts = await getStaticPosts();
     const staticCategories = new Set(staticPosts.map(post => post.category));
     
-    // Categorías del CMS
-    const cmsResponse = await podoclinicCMSClient.getCategories();
-    const cmsCategories = new Set(cmsResponse.categories);
+    // Categorías del CMS - simplificado por ahora
+    const cmsCategories = new Set(['cuidado-preventivo', 'hongos', 'uneros', 'pie-diabetico', 'podologia-deportiva']);
     
     // Combinar ambas y agregar categoría especial para CMS
     const allCategories = new Set<string>();
@@ -188,15 +305,16 @@ export async function getRelatedPosts(currentSlug: string, limit: number = 3): P
 export async function getPostStats() {
   try {
     const staticPosts = await getStaticPosts();
-    const cmsResponse = await podoclinicCMSClient.getAllBlogs({ limit: 100 });
+    const cmsResponse = await fetchFromCMSProxy('limit=100');
     
     return {
       static: staticPosts.length,
-      cms: cmsResponse.blogs.length,
-      total: staticPosts.length + cmsResponse.blogs.length,
+      cms: cmsResponse.blogs?.length || 0,
+      total: staticPosts.length + (cmsResponse.blogs?.length || 0),
       cmsAvailable: true
     };
   } catch (error) {
+    console.warn('⚠️ CMS not available:', error);
     const staticPosts = await getStaticPosts();
     return {
       static: staticPosts.length,
