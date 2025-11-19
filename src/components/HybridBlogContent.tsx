@@ -18,12 +18,10 @@ import {
 import { blogCategories } from '@/data/blog/posts';
 
 interface BlogStats {
-  static: number;
+  hardcoded: number;
   cms: number;
   total: number;
   cmsAvailable: boolean;
-  isEmergencyData?: boolean;
-  message?: string;
 }
 
 export default function HybridBlogContent() {
@@ -31,12 +29,10 @@ export default function HybridBlogContent() {
   const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
   const [categories] = useState<BlogCategory[]>(blogCategories);
   const [stats, setStats] = useState<BlogStats>({
-    static: 0,
+    hardcoded: 0,
     cms: 0,
     total: 0,
-    cmsAvailable: false,
-    isEmergencyData: false,
-    message: 'Cargando sistema híbrido...'
+    cmsAvailable: false
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -80,15 +76,9 @@ export default function HybridBlogContent() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#60BEC3] mx-auto"></div>
           <p className="mt-4 text-gray-600">Cargando artículos...</p>
-          {stats.message && (
-            <p className={`text-sm mt-2 ${
-              stats.isEmergencyData 
-                ? 'text-orange-600' 
-                : stats.cmsAvailable 
-                  ? 'text-green-600' 
-                  : 'text-gray-600'
-            }`}>
-              {stats.isEmergencyData ? '⚠️' : stats.cmsAvailable ? '✅' : '📄'} {stats.message}
+          {!isLoading && (
+            <p className={`text-sm mt-2 ${stats.cmsAvailable ? 'text-green-600' : 'text-gray-600'}`}>
+              {stats.cmsAvailable ? '✅' : '📄'} Sistema híbrido: {stats.total} posts totales
             </p>
           )}
         </div>
@@ -112,31 +102,18 @@ export default function HybridBlogContent() {
             
             {/* Indicador del sistema híbrido mejorado */}
             <div className={`mt-6 inline-flex items-center px-4 py-2 rounded-full text-sm ${
-              stats.isEmergencyData 
-                ? 'bg-orange-50 text-orange-700 border border-orange-200'
-                : stats.cmsAvailable 
-                  ? 'bg-green-50 text-green-700 border border-green-200'
-                  : 'bg-gray-50 text-gray-700 border border-gray-200'
+              stats.cmsAvailable 
+                ? 'bg-green-50 text-green-700 border border-green-200'
+                : 'bg-gray-50 text-gray-700 border border-gray-200'
             }`}>
               <div className={`w-2 h-2 rounded-full mr-2 ${
-                stats.isEmergencyData 
-                  ? 'bg-orange-500'
-                  : stats.cmsAvailable 
-                    ? 'bg-green-500'
-                    : 'bg-gray-400'
+                stats.cmsAvailable ? 'bg-green-500' : 'bg-gray-400'
               }`}></div>
               
-              {stats.message || (
-                stats.cmsAvailable 
-                  ? `Sistema híbrido activo: ${stats.static} posts locales + ${stats.cms} posts CMS`
-                  : `Mostrando ${stats.total} artículos (solo contenido local)`
-              )}
-              
-              {stats.isEmergencyData && (
-                <span className="ml-2 text-xs font-semibold bg-orange-100 text-orange-600 px-2 py-0.5 rounded">
-                  DATOS DE RESPALDO
-                </span>
-              )}
+              {stats.cmsAvailable 
+                ? `Sistema híbrido activo: ${stats.hardcoded} posts locales + ${stats.cms} posts CMS`
+                : `Mostrando ${stats.total} artículos (solo contenido local)`
+              }
             </div>
           </div>
 
