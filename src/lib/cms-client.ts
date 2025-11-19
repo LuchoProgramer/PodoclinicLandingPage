@@ -206,7 +206,7 @@ class PodoclinicCMSClient {
 
 // Configuración
 const CMS_CONFIG = {
-  baseUrl: process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:3000',
+  baseUrl: process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app',
   tenantId: process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI'
 };
 

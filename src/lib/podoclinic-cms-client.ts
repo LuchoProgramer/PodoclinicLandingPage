@@ -29,7 +29,7 @@ class PodoclinicCMSClient {
   private tenantId: string;
 
   constructor() {
-    this.baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:3000';
+    this.baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app';
     this.tenantId = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
   }
 
@@ -44,10 +44,7 @@ class PodoclinicCMSClient {
       }
 
       // Usar URL absoluta para SSR
-      const baseUrl = process.env.NODE_ENV === 'production' 
-        ? 'https://podoclinicec.com' 
-        : 'http://localhost:3001';
-        
+      const baseUrl = process.env.NEXT_PUBLIC_CMS_PROXY_URL || 'https://podoclinicec.com';
       let url = `${baseUrl}/api/cms-proxy`;
       if (limit) {
         url += `?limit=${limit}`;
@@ -89,10 +86,7 @@ class PodoclinicCMSClient {
       }
 
       // Usar URL absoluta para SSR
-      const baseUrl = process.env.NODE_ENV === 'production' 
-        ? 'https://podoclinicec.com' 
-        : 'http://localhost:3001';
-      
+      const baseUrl = process.env.NEXT_PUBLIC_CMS_PROXY_URL || 'https://podoclinicec.com';
       const response = await fetch(
         `${baseUrl}/api/cms-proxy?id=${blogId}`,
         { 

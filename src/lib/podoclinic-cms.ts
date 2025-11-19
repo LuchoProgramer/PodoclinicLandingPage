@@ -52,19 +52,11 @@ export class PodoclinicCMSClient {
     private getDefaultBaseUrl(): string {
         // Si estamos en el navegador
         if (typeof window !== 'undefined') {
-            const { protocol, hostname } = window.location;
-            
-            // En desarrollo local
-            if (hostname === 'localhost' || hostname === '127.0.0.1') {
-                return 'http://localhost:3000'; // Puerto del CMS en desarrollo
-            }
-            
-            // En producción, usar variable de entorno o URL personalizada
-            return process.env.NEXT_PUBLIC_CMS_URL || 'https://tu-cms-production.com';
+            // Usar variable de entorno o URL pública
+            return process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app/';
         }
-        
         // Si estamos en servidor (SSR)
-        return process.env.CMS_URL || process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:3000';
+        return process.env.CMS_URL || process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app/';
     }
 
     // Método privado para hacer requests con cache
@@ -197,8 +189,7 @@ export const configureCMSClient = (config: {
 }) => {
     const isDev = process.env.NODE_ENV === 'development';
     const baseUrl = isDev ? 
-        (config.developmentUrl || 'http://localhost:3000') : 
-        (config.productionUrl || process.env.NEXT_PUBLIC_CMS_URL);
-    
+        (config.developmentUrl || process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app/') : 
+        (config.productionUrl || process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app/');
     return new PodoclinicCMSClient(baseUrl);
 };

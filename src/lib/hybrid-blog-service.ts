@@ -72,7 +72,7 @@ class HybridBlogService {
 
         try {
             // Hacer fetch directo a la API del CMS
-            const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:3000';
+            const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app';
             const tenantId = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
             const url = `${baseUrl}/api/blogs?tenant=${tenantId}&limit=50`;
             
@@ -139,7 +139,7 @@ class HybridBlogService {
 
         // Si no se encuentra, buscar en CMS
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:3000';
+            const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app';
             const tenantId = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
             const url = `${baseUrl}/api/blogs?tenant=${tenantId}&id=${slug}`;
             

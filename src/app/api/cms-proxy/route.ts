@@ -8,8 +8,8 @@ export async function GET(request: NextRequest) {
     const id = searchParams.get('id');
     
     // Configuración hardcodeada para evitar problemas con env vars
-    const CMS_URL = 'http://localhost:3000';
-    const TENANT_ID = 'zCXAU8FLaGX4UHgnrPfI';
+    const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL || 'https://cmsheadless.vercel.app';
+    const TENANT_ID = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
     
     // Construir URL según si es búsqueda por ID o lista general
     let url = `${CMS_URL}/api/blogs?tenant=${TENANT_ID}`;
