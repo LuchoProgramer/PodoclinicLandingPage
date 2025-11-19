@@ -48,7 +48,12 @@ class PodoclinicCMSClient {
       }
 
       const response = await fetch(url, {
-        next: { revalidate: 300 } // Revalidar cada 5 minutos
+        next: { revalidate: 300 }, // Revalidar cada 5 minutos
+        headers: {
+          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+          'Accept': 'application/json',
+          'User-Agent': 'PodoclinicBot/1.0'
+        }
       });
       
       if (!response.ok) {
@@ -71,7 +76,13 @@ class PodoclinicCMSClient {
       
       const response = await fetch(
         `${baseUrl}/api/cms-proxy?id=${blogId}`,
-        { next: { revalidate: 300 } }
+        { 
+          next: { revalidate: 300 },
+          headers: {
+            'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+            'Accept': 'application/json'
+          }
+        }
       );
       
       if (!response.ok) {

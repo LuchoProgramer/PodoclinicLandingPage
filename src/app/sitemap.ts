@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import blogPosts, { blogCategories } from '@/data/blog/posts'
+import { getAllPosts } from '@/data/hybrid-blog-posts'
 import faqs from '@/data/faqs'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -126,14 +127,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               0.7,
   }))
 
-  // URLs de posts específicos del blog (dinámicas)
-  const blogPostUrls: MetadataRoute.Sitemap = blogPosts.map(post => ({
+  // URLs de posts específicos del blog (estáticos + CMS)
+  const allBlogPosts = await getAllPosts(); // Obtiene posts estáticos + CMS
+  const blogPostUrls: MetadataRoute.Sitemap = allBlogPosts.map(post => ({
     url: `${baseUrl}/blog/${post.category}/${post.slug}`,
-    lastModified: post.publishDate ? new Date(post.publishDate).toISOString() : currentDate,
-    changeFrequency: 'monthly' as const,
+    lastModified: post.lastModified ? new Date(post.lastModified).toISOString() : 
+                   post.publishDate ? new Date(post.publishDate).toISOString() : 
+                   currentDate,
+    changeFrequency: post.isCMSPost ? 'weekly' as const : 'monthly' as const,
     priority: post.category === 'uneros' ? 0.75 :
               post.category === 'pie-diabetico' ? 0.7 :
-              post.featured ? 0.7 : 0.6,
+              post.featured ? 0.7 : 
+              post.isCMSPost ? 0.65 : 0.6, // Prioridad ligeramente mayor para posts CMS
   }))
 
   // URLs de tips dinámicas
@@ -168,7 +173,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       index === self.findIndex(u => u.url === url.url)
     )
 
-    console.log(`✅ Sitemap generado: ${uniqueUrls.length} URLs`)
+    console.log(`✅ Sitemap generado: ${uniqueUrls.length} URLs (incluye posts CMS)`)
+    console.log(`📊 Posts CMS incluidos: ${allBlogPosts.filter(p => p.isCMSPost).length}`)
     return uniqueUrls
 
   } catch (error) {

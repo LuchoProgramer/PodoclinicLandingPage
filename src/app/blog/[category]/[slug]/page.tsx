@@ -4,6 +4,7 @@ import { getAllPosts, getPostBySlug, getRecentPosts } from "@/data/hybrid-blog-p
 import { notFound } from "next/navigation";
 import LayoutClient from "@/components/LayoutClient";
 import CMSContentRenderer from "@/components/CMSContentRenderer";
+import Image from "next/image";
 
 interface PageProps {
   params: Promise<{
@@ -29,65 +30,97 @@ export async function generateMetadata({ params }: PageProps) {
     return {
       title: 'Artículo no encontrado - Podoclinic',
       description: 'El artículo que buscas no existe.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
   const baseUrl = 'https://podoclinicec.com';
-  const canonicalUrl = `${baseUrl}/blog/${category}/${slug}`;
+  const canonicalUrl = `${baseUrl}/blog/${post.category}/${slug}`;
+  
+  // Generar metadatos SEO completos
+  const metaTitle = post.metaTitle || `${post.title} | Dra. Cristina Muñoz - PodoClinicec`;
+  const metaDescription = post.metaDescription || post.excerpt || `Artículo sobre ${post.category} por la Dra. Cristina Muñoz, especialista en podología en Quito Norte.`;
+  const imageUrl = post.image || `${baseUrl}/images/blog/default-article.jpg`;
   
   return {
-    title: post.metaTitle || `${post.title} | PodoClinicec`,
-    description: post.metaDescription || post.excerpt,
-    keywords: post.tags?.join(', '),
-    authors: [{ name: post.author }],
-    creator: post.author,
-    publisher: 'PodoClinicec',
+    title: metaTitle,
+    description: metaDescription,
+    keywords: post.tags?.join(', ') || `podología, ${post.category}, Quito Norte, Dra. Cristina Muñoz`,
+    authors: [{ name: post.author || 'Dra. Cristina Muñoz' }],
+    creator: post.author || 'Dra. Cristina Muñoz',
+    publisher: 'PodoClinicec - Dra. Cristina Muñoz',
+    category: post.category,
+    classification: 'Medical Article',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.excerpt,
+      title: metaTitle,
+      description: metaDescription,
       url: canonicalUrl,
-      siteName: 'PodoClinicec',
+      siteName: 'PodoClinicec - Dra. Cristina Muñoz',
+      locale: 'es_EC',
       type: 'article',
       publishedTime: post.publishDate,
       modifiedTime: post.lastModified || post.publishDate,
-      authors: [post.author],
+      expirationTime: undefined, // Los artículos médicos no expiran
+      authors: [post.author || 'Dra. Cristina Muñoz'],
       section: post.category,
-      tags: post.tags,
+      tags: post.tags || [`podología`, `${post.category}`, `Quito Norte`],
       images: [
         {
-          url: post.image || `${baseUrl}/blog/default-article.jpg`,
+          url: imageUrl,
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: `${post.title} - Artículo de podología por Dra. Cristina Muñoz`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.excerpt,
-      images: [post.image || `${baseUrl}/blog/default-article.jpg`],
+      site: '@podoclinicec',
       creator: '@podoclinicec',
+      title: metaTitle,
+      description: metaDescription,
+      images: [
+        {
+          url: imageUrl,
+          alt: `${post.title} - PodoClinicec`,
+        }
+      ],
     },
     robots: {
       index: true,
       follow: true,
+      nocache: false,
       googleBot: {
         index: true,
         follow: true,
+        noimageindex: false,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
+    },
+    // Metadatos adicionales para SEO médico
+    other: {
+      'medical-specialty': 'Podiatry',
+      'content-language': 'es-EC',
+      'geo.region': 'EC-P',
+      'geo.placename': 'Quito',
+      'geo.position': '-0.1807;-78.4678',
+      'ICBM': '-0.1807, -78.4678',
     },
   };
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug, category } = await params;
+  
+  // Server-side fetch para SEO optimizado
   const post = await getPostBySlug(slug);
   const recentPosts = await getRecentPosts(3);
 
@@ -95,48 +128,98 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  // Validar que la categoría en la URL coincida con la del post
+  if (post.category !== category) {
+    // Redirigir a la URL correcta si la categoría no coincide
+    notFound();
+  }
+
   const baseUrl = 'https://podoclinicec.com';
   const canonicalUrl = `${baseUrl}/blog/${category}/${slug}`;
 
-  // Schema.org para el artículo
+  // Schema.org para el artículo (optimizado para SEO médico)
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "description": post.excerpt,
-    "image": post.image || `${baseUrl}/blog/default-article.jpg`,
-    "author": {
-      "@type": "Person",
-      "name": post.author,
-      "jobTitle": "Especialista en Podología",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "PodoClinicec",
-        "url": baseUrl
+    "@type": "MedicalWebPage",
+    "mainEntity": {
+      "@type": "Article",
+      "headline": post.title,
+      "description": post.excerpt || post.metaDescription,
+      "image": {
+        "@type": "ImageObject",
+        "url": post.image || `${baseUrl}/images/blog/default-article.jpg`,
+        "width": 1200,
+        "height": 630,
+        "caption": post.title
+      },
+      "author": {
+        "@type": "Person",
+        "name": post.author || "Dra. Cristina Muñoz",
+        "jobTitle": "Especialista en Podología",
+        "qualification": "Doctora en Podología",
+        "worksFor": {
+          "@type": "MedicalClinic",
+          "name": "PodoClinicec",
+          "url": baseUrl,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Manuel Jordan y Av La Florida",
+            "addressLocality": "Quito",
+            "addressRegion": "Pichincha",
+            "postalCode": "170511",
+            "addressCountry": "EC"
+          }
+        },
+        "alumniOf": "Universidad Especializada en Podología",
+        "knowsAbout": ["Podología", "Pie Diabético", "Onicocriptosis", "Onicomicosis"]
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "PodoClinicec - Dra. Cristina Muñoz",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/logo-podoclinic.png`,
+          "width": 200,
+          "height": 60
+        },
+        "url": baseUrl,
+        "telephone": "+593995832788",
+        "medicalSpecialty": "Podiatry"
+      },
+      "url": canonicalUrl,
+      "datePublished": post.publishDate,
+      "dateModified": post.lastModified || post.publishDate,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      },
+      "articleSection": post.category,
+      "keywords": post.tags?.join(', ') || `podología, ${post.category}, Quito Norte`,
+      "wordCount": post.content?.length || 1500,
+      "timeRequired": post.readTime || "5 min",
+      "inLanguage": "es-EC",
+      "isAccessibleForFree": true,
+      "audience": {
+        "@type": "PeopleAudience",
+        "audienceType": "Patients seeking podiatric care"
+      },
+      "about": {
+        "@type": "MedicalCondition",
+        "name": post.category === 'uneros' ? 'Onicocriptosis' :
+               post.category === 'pie-diabetico' ? 'Pie Diabético' :
+               post.category === 'hongos' ? 'Onicomicosis' : 'Condición Podológica'
       }
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "PodoClinicec",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${baseUrl}/logo-podoclinic.png`
-      },
-      "url": baseUrl
+    "medicalAudience": {
+      "@type": "PeopleAudience", 
+      "audienceType": "Patient"
     },
-    "url": canonicalUrl,
-    "datePublished": post.publishDate,
-    "dateModified": post.lastModified || post.publishDate,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": canonicalUrl
-    },
-    "articleSection": post.category,
-    "keywords": post.tags?.join(', '),
-    "wordCount": post.content?.length || 1500,
-    "timeRequired": post.readTime,
-    "inLanguage": "es-EC",
-    "isAccessibleForFree": true
+    "lastReviewed": post.lastModified || post.publishDate,
+    "reviewedBy": {
+      "@type": "Person",
+      "name": post.author || "Dra. Cristina Muñoz",
+      "jobTitle": "Especialista en Podología"
+    }
   };
 
   // Schema.org para breadcrumbs
@@ -427,8 +510,21 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-8">
             {recentPosts.map((relatedPost) => (
               <article key={relatedPost.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="h-32 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">{relatedPost.category}</span>
+                <div className="relative h-32 bg-gradient-to-r from-gray-100 to-gray-200">
+                  {relatedPost.image ? (
+                    <Image
+                      src={relatedPost.image}
+                      alt={relatedPost.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="h-full flex items-center justify-center">
+                      <span className="text-gray-500 text-sm">{relatedPost.category}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6">
