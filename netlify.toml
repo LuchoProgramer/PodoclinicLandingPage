@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "out" # Para Next.js con output: "export"
+  publish = ".next" # Para Next.js server runtime
 
 [[redirects]]
   from = "/*"

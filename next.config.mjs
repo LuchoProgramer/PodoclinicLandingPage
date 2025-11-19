@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: "export", // 🔹 Exportación estática para Netlify
     reactStrictMode: true,
     trailingSlash: true, // 🔹 Asegura que las URLs terminen con "/"
     images: {
