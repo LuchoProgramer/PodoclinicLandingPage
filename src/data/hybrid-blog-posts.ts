@@ -306,12 +306,13 @@ export async function getPostStats() {
   try {
     const staticPosts = await getStaticPosts();
     const cmsResponse = await fetchFromCMSProxy('limit=100');
+    const cmsPostCount = cmsResponse.blogs?.length || 0;
     
     return {
       static: staticPosts.length,
-      cms: cmsResponse.blogs?.length || 0,
-      total: staticPosts.length + (cmsResponse.blogs?.length || 0),
-      cmsAvailable: true
+      cms: cmsPostCount,
+      total: staticPosts.length + cmsPostCount,
+      cmsAvailable: cmsPostCount > 0 // Solo true si hay posts del CMS
     };
   } catch (error) {
     console.warn('⚠️ CMS not available:', error);
