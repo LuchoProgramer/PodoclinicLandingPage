@@ -7,9 +7,17 @@ export async function GET(request: NextRequest) {
     const limit = searchParams.get('limit') || '10';
     const id = searchParams.get('id');
     
-    // Configuración hardcodeada para evitar problemas con env vars
-    const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL || 'https://cmsheadless.vercel.app';
+    // Configuración usando variables de entorno
+    const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app';
     const TENANT_ID = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
+    
+    // Log para debugging de variables de entorno
+    console.log('🔧 Environment variables:', {
+      CMS_URL: process.env.NEXT_PUBLIC_CMS_URL ? 'SET' : 'USING_FALLBACK',
+      TENANT_ID: process.env.NEXT_PUBLIC_CMS_TENANT_ID ? 'SET' : 'USING_FALLBACK',
+      actualCmsUrl: CMS_URL,
+      actualTenantId: TENANT_ID
+    });
     
     // Construir URL según si es búsqueda por ID o lista general
     let url = `${CMS_URL}/api/blogs?tenant=${TENANT_ID}`;
@@ -25,14 +33,28 @@ export async function GET(request: NextRequest) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        'User-Agent': 'PodoclinicProxy/1.0'
       },
-      cache: 'no-store' // No cache para debugging
+      cache: 'no-store', // No cache para debugging
+      signal: AbortSignal.timeout(10000) // 10 segundos timeout
     });
     
+    console.log('📊 Response status:', response.status, response.statusText);
+    
     if (!response.ok) {
-      console.error('❌ CMS API Error:', response.status, response.statusText);
+      const errorText = await response.text().catch(() => 'No error text available');
+      console.error('❌ CMS API Error:', {
+        status: response.status,
+        statusText: response.statusText,
+        url: url,
+        errorBody: errorText
+      });
       return NextResponse.json(
-        { error: `CMS API Error: ${response.status} ${response.statusText}` },
+        { 
+          error: `CMS API Error: ${response.status} ${response.statusText}`,
+          url: url,
+          details: errorText
+        },
         { status: response.status }
       );
     }
@@ -49,11 +71,16 @@ export async function GET(request: NextRequest) {
     return apiResponse;
     
   } catch (error) {
-    console.error('❌ Proxy error:', error);
+    console.error('❌ Proxy error:', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+      name: error instanceof Error ? error.name : undefined
+    });
     return NextResponse.json(
       { 
         error: 'Error connecting to CMS', 
         details: error instanceof Error ? error.message : 'Unknown error',
+        errorType: error instanceof Error ? error.name : 'UnknownError',
         timestamp: new Date().toISOString()
       },
       { status: 500 }
