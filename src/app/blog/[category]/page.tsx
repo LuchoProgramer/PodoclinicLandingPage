@@ -1,5 +1,6 @@
 
-import { getAllPosts, getPostsByCategory, getAvailableCategories } from '@/data/hybrid-blog-posts';
+import { getAllPosts, getPostsByCategory } from '@/lib/hybrid-blog-service';
+import { blogCategories } from '@/data/blog/posts';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Home, FileText, ChevronRight } from 'lucide-react';
@@ -11,10 +12,9 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const categories = await getAvailableCategories();
-  
-  return categories.map((category) => ({
-    category: category,
+  // Usar las categorías predefinidas del blog
+  return blogCategories.map((cat) => ({
+    category: cat.slug,
   }));
 }
 

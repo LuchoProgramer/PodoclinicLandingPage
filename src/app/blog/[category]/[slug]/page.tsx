@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, ArrowRight, User, Tag, Share2, CheckCircle } from "lucide-react";
-import { getAllPosts, getPostBySlug, getRecentPosts } from "@/data/hybrid-blog-posts";
+import { getAllPosts, getPostBySlug, getRecentPosts } from "@/lib/hybrid-blog-service";
 import { notFound } from "next/navigation";
 import LayoutClient from "@/components/LayoutClient";
 import CMSContentRenderer from "@/components/CMSContentRenderer";
