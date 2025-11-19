@@ -12,9 +12,27 @@ import {
 
 // Cache simple para evitar múltiples llamadas al CMS
 let cmsCache: { data: any; timestamp: number } | null = null;
+let cmsPromise: Promise<any> | null = null; // Para evitar llamadas concurrentes
 const CACHE_DURATION = 60000; // 1 minuto
 
-// Función para obtener datos del CMS con caché
+// Datos de emergencia para testing cuando el CMS falla
+const emergencyCMSData = {
+  blogs: [
+    {
+      id: 1,
+      title: "Cuidado de pies en diabéticos - Guía completa",
+      blocks: [
+        { type: "text", content: "El cuidado de los pies es fundamental para las personas con diabetes..." },
+        { type: "image", src: "/images/pie-diabetico.jpg" }
+      ],
+      category: "pie-diabetico",
+      tags: ["diabetes", "cuidados", "podología"],
+      createdAt: "2024-11-15T10:00:00Z"
+    }
+  ]
+};
+
+// Función para obtener datos del CMS con caché y singleton pattern
 async function fetchCMSData(forceRefresh = false): Promise<any> {
   const now = Date.now();
   
@@ -24,20 +42,38 @@ async function fetchCMSData(forceRefresh = false): Promise<any> {
     return cmsCache.data;
   }
   
-  try {
-    console.log('🔄 Fetching fresh CMS data');
-    const data = await fetchFromCMSProxy('limit=50'); // Una sola llamada con límite razonable
-    cmsCache = { data, timestamp: now };
-    return data;
-  } catch (error) {
-    console.warn('⚠️ Failed to fetch CMS data:', error);
-    // Si hay caché aunque sea viejo, usarlo como fallback
-    if (cmsCache) {
-      console.log('📦 Using stale cached data as fallback');
-      return cmsCache.data;
-    }
-    throw error;
+  // Si ya hay una llamada en progreso, esperarla en lugar de hacer otra
+  if (cmsPromise) {
+    console.log('🔄 Waiting for existing CMS request');
+    return cmsPromise;
   }
+  
+  // Crear nueva promesa y cachearla
+  cmsPromise = (async () => {
+    try {
+      console.log('🔄 Fetching fresh CMS data');
+      const data = await fetchFromCMSProxy('limit=50');
+      cmsCache = { data, timestamp: now };
+      return data;
+    } catch (error) {
+      console.warn('⚠️ Failed to fetch CMS data:', error);
+      
+      // Si hay caché aunque sea viejo, usarlo como fallback
+      if (cmsCache) {
+        console.log('📦 Using stale cached data as fallback');
+        return cmsCache.data;
+      }
+      
+      // Como último recurso, usar datos de emergencia para testing
+      console.log('🚨 Using emergency mock data - CMS completely unavailable');
+      return emergencyCMSData;
+    } finally {
+      // Limpiar la promesa cuando termine (éxito o error)
+      cmsPromise = null;
+    }
+  })();
+  
+  return cmsPromise;
 }
 
 // Funciones helper para usar el proxy interno
@@ -49,42 +85,20 @@ async function fetchFromCMSProxy(params: string = '') {
   const url = `${baseUrl}/api/cms-proxy${params ? `?${params}` : ''}`;
   console.log('🔗 Fetching from proxy:', url);
   
-  // Retry logic en el cliente también
-  let lastError;
-  const maxRetries = 2;
+  console.log('🔗 Making single client request (no retries for now)');
   
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    try {
-      console.log(`🔄 Client attempt ${attempt}/${maxRetries}`);
-      
-      const response = await fetch(url, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      if (response.ok) {
-        return response.json();
-      } else {
-        lastError = `${response.status} ${response.statusText}`;
-        console.warn(`⚠️ Client attempt ${attempt} failed:`, lastError);
-        
-        if (attempt < maxRetries) {
-          await new Promise(resolve => setTimeout(resolve, 800)); // Esperar 800ms
-        }
-      }
-    } catch (error) {
-      lastError = error instanceof Error ? error.message : 'Network error';
-      console.warn(`⚠️ Client attempt ${attempt} error:`, lastError);
-      
-      if (attempt < maxRetries) {
-        await new Promise(resolve => setTimeout(resolve, 800)); // Esperar 800ms
-      }
+  const response = await fetch(url, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     }
+  });
+  
+  if (!response.ok) {
+    throw new Error(`Proxy error: ${response.status} ${response.statusText}`);
   }
   
-  throw new Error(`Proxy error after ${maxRetries} attempts: ${lastError}`);
+  return response.json();
 }
 
 // Convertir post del CMS al formato de PodoclinicLandingPage

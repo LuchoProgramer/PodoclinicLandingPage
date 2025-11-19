@@ -29,52 +29,25 @@ export async function GET(request: NextRequest) {
     
     console.log('🔗 Proxy fetching from CMS:', url);
     
-    // Retry logic para mejorar la robustez
-    let response;
-    let lastError;
-    const maxRetries = 2;
+    console.log('🔗 Making single request to CMS (no retries for now)');
     
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        console.log(`🔄 Attempt ${attempt}/${maxRetries} for CMS request`);
-        
-        response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'User-Agent': 'PodoclinicProxy/1.0'
-          },
-          cache: 'no-store',
-          signal: AbortSignal.timeout(8000) // 8 segundos timeout
-        });
-        
-        if (response.ok) {
-          break; // Éxito, salir del loop
-        } else {
-          lastError = `HTTP ${response.status}: ${response.statusText}`;
-          console.warn(`⚠️ Attempt ${attempt} failed:`, lastError);
-          
-          if (attempt < maxRetries) {
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1s before retry
-          }
-        }
-      } catch (error) {
-        lastError = error instanceof Error ? error.message : 'Network error';
-        console.warn(`⚠️ Attempt ${attempt} error:`, lastError);
-        
-        if (attempt < maxRetries) {
-          await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1s before retry
-        }
-      }
-    }
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'PodoclinicProxy/1.0'
+      },
+      cache: 'no-store',
+      signal: AbortSignal.timeout(15000) // 15 segundos timeout
+    });
     
-    // Si no hay response después de todos los intentos
+    // Si no hay response
     if (!response) {
-      console.error('❌ All attempts failed, no response received');
+      console.error('❌ No response received from CMS');
       return NextResponse.json(
         { 
-          error: 'Failed to connect to CMS after multiple attempts',
-          details: lastError || 'All retry attempts failed',
+          error: 'Failed to connect to CMS',
+          details: 'No response received',
           url: url
         },
         { status: 503 }
