@@ -39,8 +39,8 @@ class HybridBlogService {
         return {
             id: cmsBlog.id,
             title: cmsBlog.title || 'Sin título',
-            slug: cmsBlog.id, // Usar ID como slug por ahora
-            excerpt: content.substring(0, 200) + '...',
+            slug: cmsBlog.slug || cmsBlog.id, // Usar slug real del CMS
+            excerpt: cmsBlog.excerpt || content.substring(0, 200) + '...',
             content: content,
             category: cmsBlog.category || 'general',
             author: cmsBlog.author?.name || 'CMS',
@@ -48,13 +48,13 @@ class HybridBlogService {
             lastModified: cmsBlog.updatedAt || cmsBlog.createdAt || new Date().toISOString(),
             tags: cmsBlog.tags || [],
             metaTitle: cmsBlog.title || '',
-            metaDescription: content.substring(0, 160),
+            metaDescription: cmsBlog.excerpt || content.substring(0, 160),
             featured: false,
-            image: cmsBlog.blocks?.find((b: any) => b.type === 'image')?.src,
+            image: cmsBlog.image || cmsBlog.blocks?.find((b: any) => b.type === 'image')?.src,
             readTime: Math.ceil(content.split(' ').length / 200) + ' min',
             cta: {
                 text: 'Leer más',
-                link: `/blog/${cmsBlog.id}`
+                link: `/blog/${cmsBlog.slug || cmsBlog.id}`
             }
         };
     }
