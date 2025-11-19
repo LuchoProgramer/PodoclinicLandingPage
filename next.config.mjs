@@ -3,7 +3,18 @@ const nextConfig = {
     reactStrictMode: true,
     trailingSlash: true, // 🔹 Asegura que las URLs terminen con "/"
     images: {
-        unoptimized: true, // 🔹 Evita problemas con imágenes en Next.js estático
+        // ✅ Configuración para imágenes optimizadas
+        domains: [
+            'res.cloudinary.com', // Cloudinary para CMS
+            'pukapresscms.vercel.app', // CMS directo
+            'podoclinicec.com' // Dominio propio
+        ],
+        deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+        imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+        formats: ['image/webp', 'image/avif'],
+        minimumCacheTTL: 60 * 60 * 24 * 30, // 30 días cache
+        dangerouslyAllowSVG: false, // Seguridad SVG
+        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     },
     // CSP temporalmente deshabilitado para desarrollo con CMS
     // async headers() {

@@ -97,6 +97,16 @@ export const ImagePresets = {
   facilityImage: {
     geoKeywords: ['Quito Norte', 'La Florida', 'Manuel Jordan'],
     serviceKeywords: ['clínica podológica', 'consultorio', 'esterilizado']
+  },
+  
+  blogImageFeatured: {
+    geoKeywords: ['Quito Norte'],
+    serviceKeywords: ['podólogo especialista', 'blog podológico', 'cuidado pies']
+  },
+  
+  blogImageRecent: {
+    geoKeywords: ['Quito Norte'],
+    serviceKeywords: ['podología', 'cuidado pies', 'especialista']
   }
 };
 
@@ -127,6 +137,46 @@ export function ClinicLogo({ className = "", size = 200 }: { className?: string,
       priority={true}
       {...ImagePresets.clinicLogo}
     />
+  );
+}
+
+// Componente optimizado para imágenes de blog
+export function BlogImage({ 
+  src, 
+  alt, 
+  size = 'featured',
+  className = "",
+  priority = false 
+}: { 
+  src: string,
+  alt: string,
+  size?: 'featured' | 'recent',
+  className?: string,
+  priority?: boolean
+}) {
+  const dimensions = size === 'featured' 
+    ? { width: 800, height: 400 } // Mayor resolución para featured
+    : { width: 600, height: 300 }; // Mayor resolución para recent
+    
+  const preset = size === 'featured' 
+    ? ImagePresets.blogImageFeatured
+    : ImagePresets.blogImageRecent;
+
+  return (
+    <div className={`relative overflow-hidden ${className}`}>
+      <OptimizedImage
+        src={src}
+        alt={alt}
+        width={dimensions.width}
+        height={dimensions.height}
+        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        priority={priority}
+        {...preset}
+      />
+      
+      {/* Overlay sutil para mejorar legibilidad */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </div>
   );
 }
 

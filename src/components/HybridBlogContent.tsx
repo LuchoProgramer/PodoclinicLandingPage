@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight, Star, User } from "lucide-react";
 import { BlogPost, BlogCategory } from '@/types';
+import { BlogImage } from '@/components/OptimizedImage';
 import { 
   getFeaturedPosts, 
   getRecentPosts, 
@@ -174,20 +175,30 @@ export default function HybridBlogContent() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {featuredPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
                 <div className="relative">
                   {post.image ? (
-                    <img 
+                    <BlogImage
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-48 object-cover"
+                      size="featured"
+                      className="h-48 sm:h-56 md:h-48"
+                      priority={true}
                     />
                   ) : (
-                    <div className="h-48 bg-gradient-to-br from-[#60BEC3] to-[#79A373] flex items-center justify-center">
-                      <div className="text-white text-center">
-                        <h3 className="text-lg font-semibold mb-2">Imagen del Post</h3>
+                    <div className="h-48 sm:h-56 md:h-48 bg-gradient-to-br from-[#60BEC3] to-[#79A373] flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 opacity-10">
+                        <div className="w-full h-full bg-[url('/images/blog-pattern.svg')] bg-repeat bg-center"></div>
+                      </div>
+                      <div className="text-white text-center relative z-10">
+                        <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center">
+                          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                          </svg>
+                        </div>
+                        <h3 className="text-lg font-semibold mb-2">Artículo Especializado</h3>
                         <p className="text-sm opacity-80">{post.category}</p>
                       </div>
                     </div>
@@ -302,18 +313,29 @@ export default function HybridBlogContent() {
             <span className="text-sm text-gray-600">{recentPosts.length} artículos</span>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {recentPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
                 {post.image ? (
-                  <img 
+                  <BlogImage
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-32 object-cover"
+                    size="recent"
+                    className="h-40 sm:h-32"
                   />
                 ) : (
-                  <div className="h-32 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">{post.category}</span>
+                  <div className="h-40 sm:h-32 bg-gradient-to-r from-[#60BEC3]/10 to-[#79A373]/10 flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-5">
+                      <div className="w-full h-full bg-[url('/images/blog-pattern.svg')] bg-repeat bg-center"></div>
+                    </div>
+                    <div className="text-center relative z-10">
+                      <div className="w-8 h-8 mx-auto mb-2 rounded-full bg-[#60BEC3]/20 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-[#60BEC3]" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                        </svg>
+                      </div>
+                      <span className="text-[#60BEC3] text-sm font-medium">{post.category}</span>
+                    </div>
                   </div>
                 )}
 
