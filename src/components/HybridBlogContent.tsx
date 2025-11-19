@@ -12,9 +12,9 @@ import { BlogPost, BlogCategory } from '@/types';
 import { BlogImage } from '@/components/OptimizedImage';
 import { 
   getFeaturedPosts, 
-  getRecentPosts, 
-  getPostStatsWithFallback
-} from '@/data/hybrid-blog-posts';
+  getRecentPosts,
+  hybridBlogService
+} from '@/lib/hybrid-blog-service';
 import { blogCategories } from '@/data/blog/posts';
 
 interface BlogStats {
@@ -51,7 +51,7 @@ export default function HybridBlogContent() {
         const [featured, recent, blogStats] = await Promise.all([
           getFeaturedPosts(),
           getRecentPosts(6),
-          getPostStatsWithFallback()
+          hybridBlogService.getPostStats()
         ]);
 
         console.log('📊 Datos cargados:', {

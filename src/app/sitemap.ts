@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import blogPosts, { blogCategories } from '@/data/blog/posts'
-import { getAllPosts } from '@/data/hybrid-blog-posts'
+import { getAllPosts } from '@/lib/hybrid-blog-service'
 import faqs from '@/data/faqs'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
