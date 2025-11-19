@@ -10,53 +10,48 @@ import {
   getRecentPosts as getStaticRecentPosts
 } from '@/data/blog/posts';
 
-// Cache simple para evitar múltiples llamadas al CMS
-let cmsCache: { data: any; timestamp: number } | null = null;
-let cmsPromise: Promise<any> | null = null; // Para evitar llamadas concurrentes
-const CACHE_DURATION = 60000; // 1 minuto
-
-// Datos de emergencia para testing cuando el CMS falla
+// Datos de emergencia como último fallback
 const emergencyCMSData = {
   blogs: [
     {
-      id: "cms-1",
+      id: "emergency-1",
       title: "Cuidado de pies en diabéticos - Guía completa [CMS]",
       blocks: [
         { 
           type: "text", 
-          content: "El cuidado de los pies es fundamental para las personas con diabetes. Una higiene adecuada y revisiones regulares pueden prevenir complicaciones graves. En este artículo te explicamos todo lo que necesitas saber para mantener tus pies sanos."
-        },
-        { 
-          type: "image", 
-          src: "/images/pie-diabetico.jpg",
-          alt: "Cuidado de pies diabéticos"
+          content: "El cuidado de los pies es fundamental para las personas con diabetes. Una higiene adecuada y revisiones regulares pueden prevenir complicaciones graves."
         }
       ],
       category: "pie-diabetico", 
-      tags: ["diabetes", "cuidados", "podología", "cms"],
+      tags: ["diabetes", "cuidados", "podología"],
       createdAt: "2024-11-19T10:00:00Z",
-      updatedAt: "2024-11-19T10:00:00Z",
-      excerpt: "Guía completa para el cuidado de pies en personas con diabetes",
-      author: "Dr. Podólogo CMS",
-      readTime: 5,
-      featured: true,
-      published: true
+      author: { name: "Dr. Podólogo CMS" }
     }
   ]
 };
 
-// Función simplificada que siempre funciona
-async function fetchCMSData(): Promise<any> {
-  // Por ahora, siempre devolver datos de emergencia para que funcione
-  console.log('🔄 Using emergency CMS data for stable operation');
-  return emergencyCMSData;
+// Funciones helper para usar el proxy interno
+async function fetchFromCMSProxy(params: string = '') {
+  const baseUrl = typeof window !== 'undefined' 
+    ? window.location.origin 
+    : 'https://podoclinicec.com';
+  
+  const url = `${baseUrl}/api/cms-proxy${params ? `?${params}` : ''}`;
+  console.log('🔗 Fetching from proxy:', url);
+  
+  const response = await fetch(url, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
+  
+  if (!response.ok) {
+    throw new Error(`Proxy error: ${response.status} ${response.statusText}`);
+  }
+  
+  return response.json();
 }
-
-// Funciones helper simplificadas - comentadas por ahora
-// async function fetchFromCMSProxy(params: string = '') {
-//   // Función deshabilitada temporalmente para estabilidad
-//   throw new Error('CMS proxy disabled for testing');
-// }
 
 // Convertir post del CMS al formato de PodoclinicLandingPage
 function convertCMSPostToPodoclinicFormat(cmsPost: any): BlogPost {
@@ -163,21 +158,17 @@ export async function getAllPosts(options: { limit?: number; category?: string }
     const staticPosts = await getStaticPosts();
     console.log('📄 Posts estáticos obtenidos:', staticPosts.length);
 
-    // Obtener posts del CMS usando caché
-    const cmsResponse = await fetchCMSData();
+    // Obtener posts del CMS a través del proxy
+    const cmsResponse = await fetchFromCMSProxy(`limit=${options.limit || 50}`);
     console.log('🌐 Respuesta CMS:', cmsResponse);
     
-    const cmsPosts = cmsResponse.blogs?.map((post: any) => {
-      const converted = convertCMSPostToPodoclinicFormat(post);
-      console.log('🔄 Post CMS convertido:', converted.title, converted.slug);
-      return converted;
-    }) || [];
+    const cmsPosts = cmsResponse.blogs?.map((post: any) => 
+      convertCMSPostToPodoclinicFormat(post)
+    ) || [];
     console.log('🔄 Posts CMS convertidos:', cmsPosts.length);
 
     // Combinar posts estáticos y del CMS
     const allPosts = [...staticPosts, ...cmsPosts];
-    console.log('📝 All posts combined:', allPosts.length, '(static:', staticPosts.length, '+ cms:', cmsPosts.length, ')');
-    console.log('📝 Posts titles:', allPosts.map(p => p.title).slice(0, 3));
 
     // Ordenar por fecha (más recientes primero)
     allPosts.sort((a, b) => {
@@ -202,8 +193,43 @@ export async function getAllPosts(options: { limit?: number; category?: string }
 
     return filteredPosts;
   } catch (error) {
-    // En caso de error con el CMS, devolver solo posts estáticos sin ruido en logs
-    const staticPosts = await getStaticPosts();
+    console.warn('⚠️ CMS error, trying emergency data:', error);
+    
+    try {
+      // Intentar usar datos de emergencia
+      const cmsPosts = emergencyCMSData.blogs.map((post: any) => 
+        convertCMSPostToPodoclinicFormat(post)
+      );
+      const staticPosts = await getStaticPosts();
+      
+      console.log('🚨 Using emergency CMS data:', cmsPosts.length, 'posts');
+      
+      const allPosts = [...staticPosts, ...cmsPosts];
+      
+      // Aplicar los mismos filtros y límites
+      allPosts.sort((a, b) => {
+        const dateA = new Date(a.publishDate || a.lastModified || '2025-01-01');
+        const dateB = new Date(b.publishDate || b.lastModified || '2025-01-01');
+        return dateB.getTime() - dateA.getTime();
+      });
+
+      let filteredPosts = allPosts;
+      if (options.category && options.category !== 'Todos') {
+        filteredPosts = allPosts.filter(post => 
+          post.category === options.category || 
+          (options.category === 'CMS' && post.isCMSPost)
+        );
+      }
+
+      if (options.limit) {
+        filteredPosts = filteredPosts.slice(0, options.limit);
+      }
+
+      return filteredPosts;
+    } catch (emergencyError) {
+      console.warn('⚠️ Emergency data also failed, using static only:', emergencyError);
+      // En caso de error con el CMS, devolver solo posts estáticos sin ruido en logs
+      const staticPosts = await getStaticPosts();
     
     // Solo logear en desarrollo/runtime, no durante build
     if (process.env.NODE_ENV !== 'production' || typeof window !== 'undefined') {
@@ -334,7 +360,7 @@ export async function getRelatedPosts(currentSlug: string, limit: number = 3): P
 export async function getPostStats() {
   try {
     const staticPosts = await getStaticPosts();
-    const cmsResponse = await fetchCMSData(); // Usar caché en lugar de llamada directa
+    const cmsResponse = await fetchFromCMSProxy('limit=100');
     const cmsPostCount = cmsResponse.blogs?.length || 0;
     
     return {
@@ -344,13 +370,29 @@ export async function getPostStats() {
       cmsAvailable: cmsPostCount > 0 // Solo true si hay posts del CMS
     };
   } catch (error) {
-    console.warn('⚠️ CMS not available:', error);
-    const staticPosts = await getStaticPosts();
-    return {
-      static: staticPosts.length,
-      cms: 0,
-      total: staticPosts.length,
-      cmsAvailable: false
-    };
+    console.warn('⚠️ CMS not available, trying emergency data:', error);
+    
+    try {
+      // Usar datos de emergencia para estadísticas
+      const staticPosts = await getStaticPosts();
+      const emergencyCMSCount = emergencyCMSData.blogs.length;
+      
+      console.log('🚨 Using emergency stats');
+      return {
+        static: staticPosts.length,
+        cms: emergencyCMSCount,
+        total: staticPosts.length + emergencyCMSCount,
+        cmsAvailable: true // Los datos de emergencia cuentan como CMS disponible
+      };
+    } catch (emergencyError) {
+      console.warn('⚠️ Emergency stats failed:', emergencyError);
+      const staticPosts = await getStaticPosts();
+      return {
+        static: staticPosts.length,
+        cms: 0,
+        total: staticPosts.length,
+        cmsAvailable: false
+      };
+    }
   }
 }
