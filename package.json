@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:netlify": "netlify dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "netlify:functions": "netlify functions:list",
+    "test:cms": "curl https://podoclinicec.com/api/cms-proxy?limit=5"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -22,6 +25,7 @@
     "@types/node": "^24.9.2",
     "@types/react": "^19.2.2",
     "autoprefixer": "^10.4.20",
+    "netlify-cli": "^17.36.4",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.3"
