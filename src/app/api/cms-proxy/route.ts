@@ -29,15 +29,57 @@ export async function GET(request: NextRequest) {
     
     console.log('🔗 Proxy fetching from CMS:', url);
     
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': 'PodoclinicProxy/1.0'
-      },
-      cache: 'no-store', // No cache para debugging
-      signal: AbortSignal.timeout(10000) // 10 segundos timeout
-    });
+    // Retry logic para mejorar la robustez
+    let response;
+    let lastError;
+    const maxRetries = 2;
+    
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        console.log(`🔄 Attempt ${attempt}/${maxRetries} for CMS request`);
+        
+        response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'User-Agent': 'PodoclinicProxy/1.0'
+          },
+          cache: 'no-store',
+          signal: AbortSignal.timeout(8000) // 8 segundos timeout
+        });
+        
+        if (response.ok) {
+          break; // Éxito, salir del loop
+        } else {
+          lastError = `HTTP ${response.status}: ${response.statusText}`;
+          console.warn(`⚠️ Attempt ${attempt} failed:`, lastError);
+          
+          if (attempt < maxRetries) {
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1s before retry
+          }
+        }
+      } catch (error) {
+        lastError = error instanceof Error ? error.message : 'Network error';
+        console.warn(`⚠️ Attempt ${attempt} error:`, lastError);
+        
+        if (attempt < maxRetries) {
+          await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1s before retry
+        }
+      }
+    }
+    
+    // Si no hay response después de todos los intentos
+    if (!response) {
+      console.error('❌ All attempts failed, no response received');
+      return NextResponse.json(
+        { 
+          error: 'Failed to connect to CMS after multiple attempts',
+          details: lastError || 'All retry attempts failed',
+          url: url
+        },
+        { status: 503 }
+      );
+    }
     
     console.log('📊 Response status:', response.status, response.statusText);
     

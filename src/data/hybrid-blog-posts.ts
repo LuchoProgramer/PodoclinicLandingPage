@@ -10,6 +10,36 @@ import {
   getRecentPosts as getStaticRecentPosts
 } from '@/data/blog/posts';
 
+// Cache simple para evitar múltiples llamadas al CMS
+let cmsCache: { data: any; timestamp: number } | null = null;
+const CACHE_DURATION = 60000; // 1 minuto
+
+// Función para obtener datos del CMS con caché
+async function fetchCMSData(forceRefresh = false): Promise<any> {
+  const now = Date.now();
+  
+  // Usar caché si está disponible y no es muy viejo
+  if (!forceRefresh && cmsCache && (now - cmsCache.timestamp) < CACHE_DURATION) {
+    console.log('📦 Using cached CMS data');
+    return cmsCache.data;
+  }
+  
+  try {
+    console.log('🔄 Fetching fresh CMS data');
+    const data = await fetchFromCMSProxy('limit=50'); // Una sola llamada con límite razonable
+    cmsCache = { data, timestamp: now };
+    return data;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch CMS data:', error);
+    // Si hay caché aunque sea viejo, usarlo como fallback
+    if (cmsCache) {
+      console.log('📦 Using stale cached data as fallback');
+      return cmsCache.data;
+    }
+    throw error;
+  }
+}
+
 // Funciones helper para usar el proxy interno
 async function fetchFromCMSProxy(params: string = '') {
   const baseUrl = typeof window !== 'undefined' 
@@ -19,18 +49,42 @@ async function fetchFromCMSProxy(params: string = '') {
   const url = `${baseUrl}/api/cms-proxy${params ? `?${params}` : ''}`;
   console.log('🔗 Fetching from proxy:', url);
   
-  const response = await fetch(url, {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  });
+  // Retry logic en el cliente también
+  let lastError;
+  const maxRetries = 2;
   
-  if (!response.ok) {
-    throw new Error(`Proxy error: ${response.status} ${response.statusText}`);
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      console.log(`🔄 Client attempt ${attempt}/${maxRetries}`);
+      
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        return response.json();
+      } else {
+        lastError = `${response.status} ${response.statusText}`;
+        console.warn(`⚠️ Client attempt ${attempt} failed:`, lastError);
+        
+        if (attempt < maxRetries) {
+          await new Promise(resolve => setTimeout(resolve, 800)); // Esperar 800ms
+        }
+      }
+    } catch (error) {
+      lastError = error instanceof Error ? error.message : 'Network error';
+      console.warn(`⚠️ Client attempt ${attempt} error:`, lastError);
+      
+      if (attempt < maxRetries) {
+        await new Promise(resolve => setTimeout(resolve, 800)); // Esperar 800ms
+      }
+    }
   }
   
-  return response.json();
+  throw new Error(`Proxy error after ${maxRetries} attempts: ${lastError}`);
 }
 
 // Convertir post del CMS al formato de PodoclinicLandingPage
@@ -138,8 +192,8 @@ export async function getAllPosts(options: { limit?: number; category?: string }
     const staticPosts = await getStaticPosts();
     console.log('📄 Posts estáticos obtenidos:', staticPosts.length);
 
-    // Obtener posts del CMS a través del proxy
-    const cmsResponse = await fetchFromCMSProxy(`limit=${options.limit || 50}`);
+    // Obtener posts del CMS usando caché
+    const cmsResponse = await fetchCMSData();
     console.log('🌐 Respuesta CMS:', cmsResponse);
     
     const cmsPosts = cmsResponse.blogs?.map((post: any) => 
@@ -305,7 +359,7 @@ export async function getRelatedPosts(currentSlug: string, limit: number = 3): P
 export async function getPostStats() {
   try {
     const staticPosts = await getStaticPosts();
-    const cmsResponse = await fetchFromCMSProxy('limit=100');
+    const cmsResponse = await fetchCMSData(); // Usar caché en lugar de llamada directa
     const cmsPostCount = cmsResponse.blogs?.length || 0;
     
     return {
