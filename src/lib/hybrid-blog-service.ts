@@ -165,7 +165,8 @@ class HybridBlogService {
             if (response.ok) {
                 const cmsBlog = await response.json();
                 if (cmsBlog) {
-                    return this.convertCMSBlogToPost(cmsBlog);
+                    const converted = this.convertCMSBlogToPost(cmsBlog);
+                    return converted || undefined;
                 }
             }
         } catch (error) {
