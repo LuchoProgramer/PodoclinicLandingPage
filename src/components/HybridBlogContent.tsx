@@ -27,6 +27,7 @@ interface BlogStats {
 export default function HybridBlogContent() {
   const [featuredPosts, setFeaturedPosts] = useState<BlogPost[]>([]);
   const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+  const [cmsPosts, setCMSPosts] = useState<BlogPost[]>([]);
   const [categories] = useState<BlogCategory[]>(blogCategories);
   const [stats, setStats] = useState<BlogStats>({
     hardcoded: 0,
@@ -43,21 +44,33 @@ export default function HybridBlogContent() {
       try {
         console.log('🔍 Iniciando carga de datos del blog...');
         
-        // Cargar posts en paralelo
-        const [featured, recent, blogStats] = await Promise.all([
-          getFeaturedPosts(),
-          getRecentPosts(6),
-          hybridBlogService.getPostStats()
-        ]);
+        // Cargar todos los posts
+        const allPosts = await hybridBlogService.getAllPosts();
+        
+        // Separar posts del CMS
+        const cmsOnlyPosts = allPosts.filter(post => post.isCMSPost);
+        const hardcodedOnlyPosts = allPosts.filter(post => !post.isCMSPost);
+        
+        // Posts destacados (solo hardcoded)
+        const featured = hardcodedOnlyPosts.filter(post => post.featured);
+        
+        // Posts recientes (solo hardcoded, excluyendo los ya destacados)
+        const recent = hardcodedOnlyPosts
+          .filter(post => !post.featured)
+          .slice(0, 6);
+        
+        const blogStats = await hybridBlogService.getPostStats();
 
         console.log('📊 Datos cargados:', {
           featured: featured.length,
           recent: recent.length,
+          cms: cmsOnlyPosts.length,
           stats: blogStats
         });
 
         setFeaturedPosts(featured);
         setRecentPosts(recent);
+        setCMSPosts(cmsOnlyPosts);
         setStats(blogStats);
         
       } catch (error) {
@@ -138,6 +151,130 @@ export default function HybridBlogContent() {
           </div>
         </div>
       </section>
+
+      {/* Posts del CMS - NUEVA SECCIÓN DESTACADA */}
+      {cmsPosts.length > 0 && (
+        <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-3 bg-green-500 text-white px-6 py-3 rounded-full mb-4 animate-pulse shadow-lg">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                </span>
+                <span className="font-bold text-lg">ARTÍCULOS EN VIVO</span>
+              </div>
+              
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                Últimos Artículos del <span className="text-green-600">CMS</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Contenido actualizado en tiempo real por la Dra. Cristina Muñoz
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {cmsPosts.map((post) => (
+                <article 
+                  key={post.id} 
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group border-2 border-green-200 hover:border-green-400 relative"
+                >
+                  {/* Badge EN VIVO */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                      </span>
+                      EN VIVO
+                    </div>
+                  </div>
+
+                  {/* Imagen */}
+                  <div className="relative">
+                    {post.image ? (
+                      <BlogImage
+                        src={post.image}
+                        alt={post.title}
+                        size="recent"
+                        className="h-48 sm:h-40"
+                        priority={true}
+                      />
+                    ) : (
+                      <div className="h-48 sm:h-40 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <div className="text-white text-center">
+                          <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/30 flex items-center justify-center">
+                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                            </svg>
+                          </div>
+                          <p className="text-sm font-semibold">{post.category}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Contenido */}
+                  <div className="p-6">
+                    {/* Categoría y fecha */}
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+                      <div className="flex items-center">
+                        <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">
+                          {post.category}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-3 h-3" />
+                        <span>{new Date(post.publishDate).toLocaleDateString('es-ES')}</span>
+                      </div>
+                    </div>
+
+                    {/* Título */}
+                    <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+
+                    {/* Excerpt */}
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+
+                    {/* Meta info y CTA */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-xs text-gray-500 gap-3">
+                        <div className="flex items-center">
+                          <User className="w-3 h-3 mr-1" />
+                          <span>{post.author}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Clock className="w-3 h-3 mr-1" />
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Botón de leer más */}
+                    <Link 
+                      href={`/blog/${post.category}/${post.slug}`}
+                      className="mt-4 w-full inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-blue-500 text-white px-4 py-2.5 rounded-xl font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
+                    >
+                      Leer Artículo Completo
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {/* Info adicional */}
+            <div className="mt-12 text-center">
+              <p className="text-gray-600 text-sm">
+                💡 Estos artículos están publicados directamente desde nuestro sistema de gestión de contenidos
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Posts Destacados */}
       <section className="py-16">

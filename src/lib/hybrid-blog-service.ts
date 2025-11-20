@@ -68,6 +68,7 @@ class HybridBlogService {
             featured: false,
             image: featuredImage,
             readTime: Math.ceil((content.split(' ').length || 0) / 200) + ' min',
+            isCMSPost: true, // Marcar como post del CMS
             cta: {
                 text: 'Leer más',
                 link: `/blog/${cmsBlog.slug}`
