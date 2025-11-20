@@ -23,6 +23,36 @@ class HybridBlogService {
     private cmsAvailable = false;
 
     /**
+     * Normalizar slug para URLs seguras
+     */
+    private normalizeSlug(slug: string): string {
+        return slug
+            .toLowerCase()
+            .normalize('NFD') // Descompone caracteres con acentos
+            .replace(/[\u0300-\u036f]/g, '') // Elimina los acentos
+            .replace(/[^a-z0-9\-]/g, '-') // Reemplaza caracteres especiales con guiones
+            .replace(/-+/g, '-') // Combina múltiples guiones consecutivos
+            .replace(/^-|-$/g, ''); // Elimina guiones al inicio y final
+    }
+
+    /**
+     * Mapear categoría del CMS a categoría válida del sistema
+     */
+    private mapCMSCategory(cmsCategory: string): string {
+        const categoryMap: Record<string, string> = {
+            'Nutrición': 'cuidado-preventivo',
+            'Podología': 'uneros',
+            'Diabeticos': 'pie-diabetico',
+            'Hongos': 'hongos',
+            'Deportiva': 'podologia-deportiva',
+            'General': 'cuidado-preventivo',
+            // Agregar más mapeos según sea necesario
+        };
+
+        return categoryMap[cmsCategory] || 'cuidado-preventivo'; // default a cuidado-preventivo
+    }
+
+    /**
      * Convertir CMSBlogPost a BlogPost
      */
     private convertCMSBlogToPost(cmsBlog: any): BlogPost | null {
@@ -52,13 +82,22 @@ class HybridBlogService {
             cmsBlog.blocks?.find((b: any) => b.type === 'image')?.url || 
             cmsBlog.blocks?.find((b: any) => b.type === 'image')?.src;
 
+        // Mapear la categoría del CMS a una categoría válida del sistema
+        const category = this.mapCMSCategory(cmsBlog.category || 'General');
+        
+        // Normalizar el slug para evitar problemas con caracteres especiales
+        const normalizedSlug = this.normalizeSlug(cmsBlog.slug);
+        
+        console.log(`🔄 Mapeando categoría CMS "${cmsBlog.category}" → "${category}"`);
+        console.log(`🔄 Normalizando slug "${cmsBlog.slug}" → "${normalizedSlug}"`);
+        
         return {
             id: cmsBlog.id,
             title: cmsBlog.title,
-            slug: cmsBlog.slug,
+            slug: normalizedSlug,
             excerpt: cmsBlog.excerpt || content.substring(0, 200) + '...',
             content: content,
-            category: cmsBlog.category || 'general',
+            category: category,
             author: cmsBlog.author?.name || 'CMS',
             publishDate: cmsBlog.createdAt || new Date().toISOString(),
             lastModified: cmsBlog.updatedAt || cmsBlog.createdAt || new Date().toISOString(),
@@ -71,7 +110,7 @@ class HybridBlogService {
             isCMSPost: true, // Marcar como post del CMS
             cta: {
                 text: 'Leer más',
-                link: `/blog/${cmsBlog.slug}`
+                link: `/blog/${category}/${normalizedSlug}`
             }
         };
     }
