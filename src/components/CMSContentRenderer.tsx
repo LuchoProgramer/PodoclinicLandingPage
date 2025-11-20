@@ -7,6 +7,8 @@
 
 import { BlogPost } from '@/types';
 import { CheckCircle, AlertTriangle, Info, Lightbulb, Heart } from 'lucide-react';
+import { processHTMLContent } from '@/utils/content-processor';
+import '@/styles/blog-content.css';
 
 interface CMSContentRendererProps {
   post: BlogPost;
@@ -120,14 +122,19 @@ const ContentComponents = {
 };
 
 export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
-  // Si el post tiene contenido personalizado, renderizarlo
+  // Si el post tiene contenido personalizado, procesarlo y renderizarlo
   if (post.content && post.content.trim()) {
+    // Procesar el contenido para convertir URLs de video en embeds
+    const processedContent = processHTMLContent(post.content);
+    
     return (
       <div className="prose prose-lg max-w-none">
-        <div 
-          className="cms-content"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div 
+            className="cms-content"
+            dangerouslySetInnerHTML={{ __html: processedContent }}
+          />
+        </div>
       </div>
     );
   }

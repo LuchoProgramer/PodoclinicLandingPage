@@ -1,0 +1,255 @@
+/**
+ * Estilos para contenido del blog renderizado desde el CMS
+ * Asegura que el contenido HTML tenga formato apropiado
+ */
+
+/* Contenedor principal del contenido CMS */
+.cms-content {
+  @apply text-gray-800 leading-relaxed;
+}
+
+/* Encabezados */
+.cms-content h1 {
+  @apply text-4xl font-bold text-gray-900 mb-6 mt-8 leading-tight;
+  @apply border-b-2 border-[#60BEC3] pb-3;
+}
+
+.cms-content h2 {
+  @apply text-3xl font-bold text-gray-900 mb-5 mt-8 leading-tight;
+}
+
+.cms-content h3 {
+  @apply text-2xl font-semibold text-gray-800 mb-4 mt-6;
+}
+
+.cms-content h4 {
+  @apply text-xl font-semibold text-gray-800 mb-3 mt-5;
+}
+
+.cms-content h5 {
+  @apply text-lg font-semibold text-gray-700 mb-3 mt-4;
+}
+
+.cms-content h6 {
+  @apply text-base font-semibold text-gray-700 mb-2 mt-3;
+}
+
+/* Párrafos */
+.cms-content p {
+  @apply text-gray-700 mb-4 leading-relaxed text-base;
+}
+
+.cms-content p:last-child {
+  @apply mb-0;
+}
+
+/* Enlaces */
+.cms-content a {
+  @apply text-[#60BEC3] hover:text-[#4A9DB8] underline transition-colors duration-200;
+}
+
+.cms-content a:visited {
+  @apply text-[#79A373];
+}
+
+/* Listas */
+.cms-content ul {
+  @apply list-disc list-outside ml-6 mb-4 space-y-2;
+}
+
+.cms-content ol {
+  @apply list-decimal list-outside ml-6 mb-4 space-y-2;
+}
+
+.cms-content li {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.cms-content li > p {
+  @apply mb-2;
+}
+
+/* Listas anidadas */
+.cms-content ul ul,
+.cms-content ol ol,
+.cms-content ul ol,
+.cms-content ol ul {
+  @apply mt-2 mb-2;
+}
+
+/* Texto enfatizado */
+.cms-content strong,
+.cms-content b {
+  @apply font-bold text-gray-900;
+}
+
+.cms-content em,
+.cms-content i {
+  @apply italic;
+}
+
+.cms-content u {
+  @apply underline;
+}
+
+.cms-content mark {
+  @apply bg-yellow-200 px-1 rounded;
+}
+
+/* Citas */
+.cms-content blockquote {
+  @apply border-l-4 border-[#60BEC3] pl-4 py-2 mb-4 italic text-gray-700 bg-gray-50 rounded-r;
+}
+
+.cms-content blockquote p {
+  @apply mb-2;
+}
+
+/* Código */
+.cms-content code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800;
+}
+
+.cms-content pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.cms-content pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+/* Tablas */
+.cms-content table {
+  @apply w-full border-collapse mb-6 bg-white shadow-sm rounded-lg overflow-hidden;
+}
+
+.cms-content thead {
+  @apply bg-[#60BEC3] text-white;
+}
+
+.cms-content th {
+  @apply px-4 py-3 text-left font-semibold;
+}
+
+.cms-content td {
+  @apply px-4 py-3 border-b border-gray-200;
+}
+
+.cms-content tbody tr:hover {
+  @apply bg-gray-50;
+}
+
+/* Imágenes */
+.cms-content img {
+  @apply max-w-full h-auto rounded-lg shadow-md my-6 mx-auto;
+}
+
+.cms-content figure {
+  @apply mb-6;
+}
+
+.cms-content figcaption {
+  @apply text-sm text-gray-600 text-center mt-2 italic;
+}
+
+/* Líneas horizontales */
+.cms-content hr {
+  @apply border-0 border-t-2 border-gray-300 my-8;
+}
+
+/* Contenedores de video responsivos */
+.cms-content .video-container {
+  @apply relative w-full mb-6 rounded-lg overflow-hidden shadow-lg;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+}
+
+.cms-content .video-container iframe {
+  @apply absolute top-0 left-0 w-full h-full;
+}
+
+/* TikTok embeds tienen su propio tamaño */
+.cms-content .tiktok-embed {
+  @apply mx-auto mb-6;
+  padding-bottom: 0 !important;
+}
+
+/* Botones y CTAs dentro del contenido */
+.cms-content .btn,
+.cms-content button {
+  @apply inline-block px-6 py-3 bg-[#60BEC3] text-white font-semibold rounded-lg;
+  @apply hover:bg-[#4A9DB8] transition-all duration-300 shadow-md hover:shadow-lg;
+}
+
+/* Cajas de alerta/info personalizadas */
+.cms-content .alert {
+  @apply p-4 mb-4 rounded-lg border-l-4;
+}
+
+.cms-content .alert-info {
+  @apply bg-blue-50 border-blue-500 text-blue-800;
+}
+
+.cms-content .alert-warning {
+  @apply bg-yellow-50 border-yellow-500 text-yellow-800;
+}
+
+.cms-content .alert-success {
+  @apply bg-green-50 border-green-500 text-green-800;
+}
+
+.cms-content .alert-danger {
+  @apply bg-red-50 border-red-500 text-red-800;
+}
+
+/* Espaciado adicional */
+.cms-content > *:first-child {
+  @apply mt-0;
+}
+
+.cms-content > *:last-child {
+  @apply mb-0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cms-content h1 {
+    @apply text-3xl;
+  }
+  
+  .cms-content h2 {
+    @apply text-2xl;
+  }
+  
+  .cms-content h3 {
+    @apply text-xl;
+  }
+  
+  .cms-content h4 {
+    @apply text-lg;
+  }
+  
+  .cms-content table {
+    @apply text-sm;
+  }
+  
+  .cms-content th,
+  .cms-content td {
+    @apply px-2 py-2;
+  }
+}
+
+/* Animaciones suaves al cargar */
+.cms-content {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
