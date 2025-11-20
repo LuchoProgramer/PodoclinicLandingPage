@@ -53,8 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Facebook Domain Verification */}
         <meta name="facebook-domain-verification" content="ms0gw8rk4q2dih57znfb3d392zj3j0" />
         
-        {/* Content Security Policy for tracking scripts */}
-        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://analytics.tiktok.com https://ads.tiktok.com https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://analytics.tiktok.com https://ads.tiktok.com https://connect.facebook.net https://www.clarity.ms; img-src 'self' data: https: https://www.facebook.com https://www.clarity.ms;" />
+        {/* Content Security Policy for tracking scripts and CMS API */}
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://analytics.tiktok.com https://ads.tiktok.com https://www.clarity.ms https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.tiktok.com https://ads.tiktok.com https://connect.facebook.net https://www.clarity.ms https://pukapresscms.vercel.app; img-src 'self' data: https: https://www.facebook.com https://www.clarity.ms;" />
         
         {/* Google Tag Manager */}
         <Script
