@@ -166,9 +166,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       },
       "author": {
         "@type": "Person",
-        "name": post.author || "Dra. Cristina Muñoz",
-        "jobTitle": "Especialista en Podología",
-        "qualification": "Doctora en Podología",
+        "name": post.author || "Cristina Muñoz",
+        "jobTitle": "Podóloga Especialista",
+        "qualification": "Especialista en Podología",
         "worksFor": {
           "@type": "MedicalClinic",
           "name": "PodoClinicec",
@@ -229,8 +229,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     "lastReviewed": post.lastModified || post.publishDate,
     "reviewedBy": {
       "@type": "Person",
-      "name": post.author || "Dra. Cristina Muñoz",
-      "jobTitle": "Especialista en Podología"
+      "name": post.author || "Cristina Muñoz",
+      "jobTitle": "Podóloga Especialista"
     }
   };
 
