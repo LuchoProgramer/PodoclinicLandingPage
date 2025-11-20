@@ -83,6 +83,7 @@ class HybridBlogService {
         
         // Usar cache si es reciente
         if (now - this.lastCMSFetch < this.cacheTimeout && this.cmsPosts.length > 0) {
+            console.log(`📦 Using cached CMS posts: ${this.cmsPosts.length} posts`);
             return this.cmsPosts;
         }
 
@@ -92,10 +93,23 @@ class HybridBlogService {
             const tenantId = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
             const url = `${baseUrl}/api/blogs?tenant=${tenantId}&limit=50`;
             
-            const response = await fetch(url);
+            console.log(`🔍 Fetching CMS posts from: ${url}`);
+            console.log(`   CMS_URL: ${baseUrl}`);
+            console.log(`   TENANT_ID: ${tenantId}`);
+            
+            const response = await fetch(url, {
+                next: { revalidate: 60 }, // Revalidar cada 60 segundos
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            
+            console.log(`📡 CMS API Response Status: ${response.status}`);
             
             if (response.ok) {
                 const data = await response.json();
+                console.log(`📦 CMS API returned ${data.blogs?.length || 0} blogs`);
+                
                 if (data.blogs && data.blogs.length > 0) {
                     // Convertir CMSBlogPost a BlogPost format, filtrando los que fallen validación
                     this.cmsPosts = data.blogs
@@ -103,19 +117,25 @@ class HybridBlogService {
                         .filter((post: BlogPost | null): post is BlogPost => post !== null);
                     this.cmsAvailable = true;
                     this.lastCMSFetch = now;
-                    console.log(`✅ ${this.cmsPosts.length} posts obtenidos del CMS`);
+                    console.log(`✅ Successfully converted ${this.cmsPosts.length} CMS posts`);
+                    this.cmsPosts.forEach(post => {
+                        console.log(`   - ${post.title} (${post.category}/${post.slug})`);
+                    });
                 } else {
-                    console.log('📦 CMS no disponible, usando solo posts hardcodeados');
+                    console.log('📦 CMS returned empty blogs array');
                     this.cmsAvailable = false;
                 }
             } else {
+                const errorText = await response.text();
+                console.error(`❌ CMS API HTTP ${response.status}: ${errorText}`);
                 throw new Error(`HTTP ${response.status}`);
             }
             
             return this.cmsPosts;
 
         } catch (error) {
-            console.warn('⚠️ Error obteniendo posts del CMS:', error);
+            console.error('❌ Error fetching CMS posts:', error);
+            console.error('   Error details:', error instanceof Error ? error.message : String(error));
             this.cmsAvailable = false;
             return [];
         }
@@ -149,30 +169,25 @@ class HybridBlogService {
      * Obtener post por slug (busca en hardcodeados primero, luego en CMS)
      */
     async getPostBySlug(slug: string): Promise<BlogPost | undefined> {
+        console.log(`🔍 Searching for post with slug: ${slug}`);
+        
         // Buscar primero en posts hardcodeados
         const hardcodedPost = getHardcodedPostBySlug(slug);
         if (hardcodedPost) {
+            console.log(`✅ Found hardcoded post: ${hardcodedPost.title}`);
             return hardcodedPost;
         }
 
-        // Si no se encuentra, buscar en CMS
-        try {
-            const baseUrl = process.env.NEXT_PUBLIC_CMS_URL || 'https://pukapresscms.vercel.app';
-            const tenantId = process.env.NEXT_PUBLIC_CMS_TENANT_ID || 'zCXAU8FLaGX4UHgnrPfI';
-            const url = `${baseUrl}/api/blogs?tenant=${tenantId}&id=${slug}`;
-            
-            const response = await fetch(url);
-            if (response.ok) {
-                const cmsBlog = await response.json();
-                if (cmsBlog) {
-                    const converted = this.convertCMSBlogToPost(cmsBlog);
-                    return converted || undefined;
-                }
-            }
-        } catch (error) {
-            console.warn('Error buscando post en CMS:', error);
+        // Si no se encuentra, buscar en todos los posts del CMS
+        const allPosts = await this.getCombinedPosts();
+        const cmsPost = allPosts.find(post => post.slug === slug);
+        
+        if (cmsPost) {
+            console.log(`✅ Found CMS post: ${cmsPost.title}`);
+            return cmsPost;
         }
 
+        console.warn(`❌ Post not found with slug: ${slug}`);
         return undefined;
     }
 

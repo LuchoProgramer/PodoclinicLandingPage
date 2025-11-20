@@ -14,12 +14,24 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
+  console.log('🏗️  [BUILD] generateStaticParams called for blog posts');
+  
   const posts = await getAllPosts();
   
-  return posts.map((post) => ({
-    category: post.category,
-    slug: post.slug,
-  }));
+  console.log(`📊 [BUILD] Total posts found: ${posts.length}`);
+  console.log(`📝 [BUILD] Posts breakdown:`);
+  
+  const params = posts.map((post) => {
+    console.log(`   - ${post.title} → /blog/${post.category}/${post.slug}`);
+    return {
+      category: post.category,
+      slug: post.slug,
+    };
+  });
+  
+  console.log(`✅ [BUILD] Generated ${params.length} static params`);
+  
+  return params;
 }
 
 export async function generateMetadata({ params }: PageProps) {
