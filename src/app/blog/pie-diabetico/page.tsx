@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Pie Diabético en Quito | Prevención, Síntomas y Tratamientos Podológicos",
-  description: "Pie diabético en Quito: síntomas, prevención y tratamientos podológicos por la Dra. Cristina Muñoz.",
+  description: "Pie diabético en Quito: síntomas, prevención y tratamientos podológicos por Cristina Muñoz, Podóloga Especialista.",
 };
 
 import Link from "next/link";
@@ -38,7 +38,7 @@ export default function PieDiabeticoIndexPage() {
             <li>Consulta a un podólogo ante cualquier herida o cambio en la piel.</li>
           </ul>
           <h2>Tratamientos y atención en Quito</h2>
-          <p>La Dra. Cristina Muñoz ofrece atención podológica especializada para pie diabético en Quito, con consultas a domicilio y seguimiento personalizado.</p>
+          <p>Cristina Muñoz, Podóloga Especialista, ofrece atención podológica especializada para pie diabético en Quito, con consultas a domicilio y seguimiento personalizado.</p>
         </div>
       </article>
     </div>

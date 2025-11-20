@@ -6,7 +6,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata = {
   title: "Cuidado Diario de Pies para Personas con Diabetes en Quito | Guía Práctica",
-  description: "Guía para cuidar pies diabéticos en Quito: consejos diarios, señales de alerta y prevención por la Dra. Cristina Muñoz.",
+  description: "Guía para cuidar pies diabéticos en Quito: consejos diarios, señales de alerta y prevención por la Cristina Muñoz, Podóloga Especialista.",
   keywords: "pie diabético, cuidado pies diabéticos, prevención, podólogo Quito, diabetes",
 };
 
@@ -60,7 +60,7 @@ export default function CuidadoPiesDiabeticosGuiaPage() {
           {/* Meta información */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4" /> Dra. Cristina Muñoz
+              <User className="w-4 h-4" /> Cristina Muñoz, Podóloga Especialista
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" /> 20/09/2025
@@ -77,7 +77,7 @@ export default function CuidadoPiesDiabeticosGuiaPage() {
         {/* CTA principal */}
         <div className="mt-12 flex flex-col items-center">
           <CTAButton 
-            href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Soy%20diabético%20y%20necesito%20evaluación%20especializada%20de%20mis%20pies"
+            href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Soy%20diabético%20y%20necesito%20evaluación%20especializada%20de%20mis%20pies"
             className="inline-flex items-center bg-[#60BEC3] text-white px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
             trackingLabel="evaluacion_pie_diabetico"
             isExternal={true}

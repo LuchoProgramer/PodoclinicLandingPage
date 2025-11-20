@@ -9,11 +9,11 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Shield, CheckCircle, Calendar, Users } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Cauterización de Verrugas Plantares Quito Norte | Dra. Cristina Muñoz - Podoclinicec",
-  description: "🏥 Eliminación de verrugas plantares en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Dra. Cristina Muñoz. Técnica avanzada desde $35.",
+  title: "Cauterización de Verrugas Plantares Quito Norte | Cristina Muñoz, Podóloga Especialista - Podoclinicec",
+  description: "🏥 Eliminación de verrugas plantares en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Cristina Muñoz, Podóloga Especialista. Técnica avanzada desde $35.",
   keywords: "verrugas plantares quito norte, cauterización verrugas, eliminación verrugas pies, podólogo verrugas",
   openGraph: {
-    title: "Cauterización de Verrugas Plantares Quito Norte | Dra. Cristina Muñoz",
+    title: "Cauterización de Verrugas Plantares Quito Norte | Cristina Muñoz, Podóloga Especialista",
     description: "Eliminación de verrugas plantares en Quito Norte. 13 reseñas Google 5 estrellas. Técnica avanzada y resultados efectivos.",
     type: "website",
     locale: "es_EC"

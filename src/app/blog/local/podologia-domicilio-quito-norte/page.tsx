@@ -19,7 +19,7 @@ const localBusinessSchema = {
   "url": "https://podoclinicec.com/blog/local/podologia-domicilio-quito-norte",
   "telephone": "+593995832788",
   "priceRange": "$15 primera consulta",
-  "description": "Podología a domicilio en Quito norte con Dra. Cristina Muñoz, especialista en uñas encarnadas, pie diabético y podología deportiva.",
+  "description": "Podología a domicilio en Quito norte con Cristina Muñoz, Podóloga Especialista, especialista en uñas encarnadas, pie diabético y podología deportiva.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Manuel Jordan y Av. La Florida",
@@ -105,7 +105,7 @@ const faqSchema = {
       "name": "¿Qué es un podólogo a domicilio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Es un especialista que lleva el cuidado de tus pies a tu casa. En Podoclinicec, la Dra. Muñoz atiende en Quito norte por $15."
+        "text": "Es un especialista que lleva el cuidado de tus pies a tu casa. En Podoclinicec, la Cristina Muñoz atiende en Quito norte por $15."
       }
     },
     {
@@ -191,13 +191,13 @@ export default function PodologiaDomicilioQuitoNortePage() {
 
           {/* Excerpt */}
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            ¿Te imaginas cuidar tus pies sin moverte de tu sofá en Quito norte? ¡Te cuento una aventura que cambia todo! En Podoclinicec, llevamos la podología a tu casa en La Florida y alrededores, con la Dra. Cristina Muñoz lista para aliviarte por solo $15. Nada de tráfico, nada de esperas: solo bienestar directo a tu puerta. ¿Quieres saber cómo funciona y por qué es la mejor opción en Quito? Sigue leyendo, ¡esto va a ser un hit! 😎
+            ¿Te imaginas cuidar tus pies sin moverte de tu sofá en Quito norte? ¡Te cuento una aventura que cambia todo! En Podoclinicec, llevamos la podología a tu casa en La Florida y alrededores, con la Cristina Muñoz, Podóloga Especialista lista para aliviarte por solo $15. Nada de tráfico, nada de esperas: solo bienestar directo a tu puerta. ¿Quieres saber cómo funciona y por qué es la mejor opción en Quito? Sigue leyendo, ¡esto va a ser un hit! 😎
           </p>
 
           {/* Meta información */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4" /> Dra. Cristina Muñoz
+              <User className="w-4 h-4" /> Cristina Muñoz, Podóloga Especialista
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" /> 08/10/2025
@@ -212,7 +212,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
             <img 
               src="https://res.cloudinary.com/dltfsttr7/image/upload/f_auto,q_auto,w_900/v1762797439/IMG_6879_lqniq0.jpg" 
-              alt="Dra. Cristina Muñoz brindando podología a domicilio en Quito Norte"
+              alt="Cristina Muñoz, Podóloga Especialista brindando podología a domicilio en Quito Norte"
               className="w-full h-64 md:h-96 object-cover"
               loading="lazy"
             />
@@ -236,7 +236,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                   Te ha pasado: un dolor en el pie, un uñero molesto, o simplemente quieres prevenir problemas, pero la idea de ir a una clínica te frena. En Quito, con el ritmo de La Florida o Carcelén, el tiempo es oro.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Por eso, en Podoclinicec creamos un servicio a domicilio que es como un viaje a la comodidad: la Dra. Muñoz llega con su equipo esterilizado y su expertise para cuidarte donde estés. 
+                  Por eso, en Podoclinicec creamos un servicio a domicilio que es como un viaje a la comodidad: la Cristina Muñoz llega con su equipo esterilizado y su expertise para cuidarte donde estés. 
                   <span className="font-semibold text-[#60BEC3]"> ¿Sabías que el 70% de las búsquedas de podólogos en Quito son desde celulares? ¡Eso grita conveniencia!</span>
                 </p>
               </div>
@@ -327,7 +327,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                   },
                   {
                     step: "3",
-                    title: "La Dra. Muñoz Llega", 
+                    title: "La Cristina Muñoz Llega", 
                     description: "Con equipos esterilizados, evalúa tus pies (uñas encarnadas, pie diabético, o chequeo general).",
                     image: "https://res.cloudinary.com/TU_CLOUD_NAME/image/upload/v1/blog/dra-cristina-munoz.jpg",
                     icon: <Stethoscope className="w-7 h-7 mx-auto text-[#60BEC3]" />
@@ -424,10 +424,10 @@ export default function PodologiaDomicilioQuitoNortePage() {
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Por Qué Elegir Podoclinicec en Quito Norte</h2>
               <img 
                 src="https://res.cloudinary.com/dltfsttr7/image/upload/c_fill,w_384,h_384,q_auto:eco,f_auto,dpr_auto,fl_progressive:steep,e_sharpen:60/v1759895245/IMG_6853_f0skfi.jpg"
-                alt="Dra. Cristina Muñoz - Especialista en Podología"
+                alt="Cristina Muñoz, Podóloga Especialista - Especialista en Podología"
                 className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-[#60BEC3]"
               />
-              <p className="text-lg text-gray-600">Con la Dra. Cristina Muñoz, especialista certificada</p>
+              <p className="text-lg text-gray-600">Con la Cristina Muñoz, Podóloga Especialista, especialista certificada</p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-8">
@@ -442,7 +442,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                   {
                     icon: <GraduationCap className="w-6 h-6 text-blue-600" />,
                     title: "Expertise",
-                    description: "La Dra. Cristina Muñoz es especialista en uñas encarnadas, pie diabético y podología deportiva.",
+                    description: "La Cristina Muñoz, Podóloga Especialista es especialista en uñas encarnadas, pie diabético y podología deportiva.",
                     color: "bg-blue-100 text-blue-600"
                   }
                 ].map((item, index) => (
@@ -502,7 +502,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
               {[
                 {
                   question: "¿Qué es un podólogo a domicilio?",
-                  answer: "Es un especialista que lleva el cuidado de tus pies a tu casa. En Podoclinicec, la Dra. Muñoz atiende en Quito norte por $15.",
+                  answer: "Es un especialista que lleva el cuidado de tus pies a tu casa. En Podoclinicec, la Cristina Muñoz atiende en Quito norte por $15.",
                   icon: <HelpCircle className="w-5 h-5 text-white" />
                 },
                 {
@@ -552,7 +552,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                 {
                   name: "María González",
                   location: "La Florida", 
-                  testimonial: "¡Increíble! La Dra. Muñoz vino a mi casa y solucionó mi uñero en una hora. Super profesional y cómodo.",
+                  testimonial: "¡Increíble! La Cristina Muñoz vino a mi casa y solucionó mi uñero en una hora. Super profesional y cómodo.",
                   rating: 5,
                   image: "https://res.cloudinary.com/TU_CLOUD_NAME/image/upload/v1/blog/testimonio-maria.jpg"
                 },

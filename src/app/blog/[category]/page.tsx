@@ -82,7 +82,7 @@ export default async function CategoryPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": `Artículos sobre ${categoryTitles[category]}`,
-    "description": `Artículos especializados sobre ${categoryTitles[category]} por la Dra. Cristina Muñoz`,
+    "description": `Artículos especializados sobre ${categoryTitles[category]} por la Cristina Muñoz, Podóloga Especialista`,
     "url": `${baseUrl}/blog/${category}`,
     "mainEntity": {
       "@type": "ItemList",
@@ -184,7 +184,7 @@ export default async function CategoryPage({ params }: PageProps) {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Información especializada y consejos profesionales sobre {categoryTitles[category]?.toLowerCase()} 
-            por Dra. Cristina Muñoz
+            por Cristina Muñoz, Podóloga Especialista
           </p>
         </div>
 
@@ -221,7 +221,7 @@ export default async function CategoryPage({ params }: PageProps) {
                         <span className="text-blue-600 font-medium text-sm">DC</span>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900">Dra. Cristina Muñoz</p>
+                        <p className="text-sm font-medium text-gray-900">Cristina Muñoz, Podóloga Especialista</p>
                         <p className="text-xs text-gray-500">{post.publishDate}</p>
                       </div>
                     </div>
@@ -260,7 +260,7 @@ export default async function CategoryPage({ params }: PageProps) {
             ¿Necesitas atención especializada?
           </h3>
           <p className="text-gray-600 mb-6">
-            Agenda tu consulta con Dra. Cristina Muñoz para un diagnóstico y tratamiento personalizado
+            Agenda tu consulta con Cristina Muñoz, Podóloga Especialista para un diagnóstico y tratamiento personalizado
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

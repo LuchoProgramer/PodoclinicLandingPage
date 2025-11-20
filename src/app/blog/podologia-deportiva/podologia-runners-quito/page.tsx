@@ -7,7 +7,7 @@ const localBusinessSchema = {
   "url": "https://podoclinicec.com/blog/podologia-deportiva/podologia-runners-quito",
   "telephone": "+593995832788",
   "priceRange": "$15 primera consulta",
-  "description": "Podología deportiva a domicilio en Quito norte con Dra. Cristina Muñoz, especialista en runners, uñas encarnadas y pie diabético.",
+  "description": "Podología deportiva a domicilio en Quito norte con Cristina Muñoz, Podóloga Especialista, especialista en runners, uñas encarnadas y pie diabético.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Manuel Jordan y Av. La Florida",
@@ -91,7 +91,7 @@ import LayoutClient from "@/components/LayoutClient";
 
 export const metadata = {
   title: "Podología Deportiva para Runners en Quito | Prevención y Recuperación",
-  description: "Podología deportiva para runners en Quito: prevención de lesiones y tratamiento profesional con la Dra. Cristina Muñoz.",
+  description: "Podología deportiva para runners en Quito: prevención de lesiones y tratamiento profesional con la Cristina Muñoz, Podóloga Especialista.",
   keywords: "podología runners Quito, podología deportiva Quito, uñas encarnadas runners, fascitis plantar Quito, podólogo deportivo domicilio",
 };
 
@@ -106,7 +106,7 @@ const sportsActivitySchema = {
     "addressCountry": "EC"
   },
   "telephone": "+593995832788",
-  "description": "Podología deportiva a domicilio en Quito norte con Dra. Cristina Muñoz, especialista en runners, uñas encarnadas y pie diabético.",
+  "description": "Podología deportiva a domicilio en Quito norte con Cristina Muñoz, Podóloga Especialista, especialista en runners, uñas encarnadas y pie diabético.",
   "priceRange": "$15 primera consulta"
 };
 
@@ -176,12 +176,12 @@ export default function PodologiaRunnersQuitoPage() {
                 Podología para Runners en <span className="text-[#60BEC3]">Quito</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Prevención, recuperación y consejos profesionales para corredores. Servicio a domicilio en Quito norte con la Dra. Cristina Muñoz.
+                Prevención, recuperación y consejos profesionales para corredores. Servicio a domicilio en Quito norte con la Cristina Muñoz, Podóloga Especialista.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
               <div className="flex items-center gap-2">
-                <User className="w-4 h-4" /> Dra. Cristina Muñoz
+                <User className="w-4 h-4" /> Cristina Muñoz, Podóloga Especialista
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" /> 08/10/2025
@@ -259,14 +259,14 @@ export default function PodologiaRunnersQuitoPage() {
             </ul>
             <p>¿Te suena? Un podólogo especializado es tu boleto para seguir corriendo.</p>
             <h2>Cómo Podoclinicec Cuida tus Pies de Runner</h2>
-            <p>En Podoclinicec, llevamos la podología deportiva a tu casa en Quito norte. La Dra. Cristina Muñoz, experta en runners, te ayuda a prevenir y tratar problemas para que no pares. Por solo $15, tu primera consulta incluye:</p>
+            <p>En Podoclinicec, llevamos la podología deportiva a tu casa en Quito norte. La Cristina Muñoz, Podóloga Especialista, experta en runners, te ayuda a prevenir y tratar problemas para que no pares. Por solo $15, tu primera consulta incluye:</p>
             <ul>
               <li>Evaluación biomecánica para ver cómo pisas.</li>
               <li>Tratamiento de uñeros, callos o fascitis (sin dolor).</li>
               <li>Consejos para zapatillas y cuidados diarios.</li>
               <li>Servicio a domicilio en La Florida, Carcelén, Cumbayá y más.</li>
             </ul>
-            <p>Imagina: estás en casa, la Dra. Muñoz llega con equipos esterilizados, y en una hora tus pies están listos para la próxima carrera. ¿No es una aventura que vale la pena?</p>
+            <p>Imagina: estás en casa, la Cristina Muñoz llega con equipos esterilizados, y en una hora tus pies están listos para la próxima carrera. ¿No es una aventura que vale la pena?</p>
             <h2>Consejos para Runners: Previene Problemas en tus Pies</h2>
             <ul>
               <li><strong>Elige zapatillas adecuadas:</strong> Busca modelos con soporte y espacio para los dedos. Pregúntanos cuáles son ideales para Quito 15K.</li>
@@ -275,11 +275,11 @@ export default function PodologiaRunnersQuitoPage() {
               <li><strong>Estira y fortalece:</strong> Ejercicios simples para el arco del pie te salvan de fascitis.</li>
               <li><strong>Revisa tus pies:</strong> Un pequeño corte puede complicarse si lo ignoras.</li>
             </ul>
-            <p>¿Quieres más tips personalizados? La Dra. Muñoz te los da en tu consulta.</p>
+            <p>¿Quieres más tips personalizados? La Cristina Muñoz te los da en tu consulta.</p>
             <h2>¿Por Qué Elegir Podoclinicec para Runners en Quito?</h2>
             <ul>
               <li><strong>A domicilio:</strong> Cuidamos tus pies en tu casa, sin interrumpir tu rutina.</li>
-              <li><strong>Expertise:</strong> La Dra. Muñoz es especialista en podología deportiva, uñas encarnadas y pie diabético.</li>
+              <li><strong>Expertise:</strong> La Cristina Muñoz es especialista en podología deportiva, uñas encarnadas y pie diabético.</li>
               <li><strong>Precio imbatible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
               <li><strong>Confianza:</strong> Equipos esterilizados y protocolos de bioseguridad al 100%.</li>
             </ul>
@@ -291,7 +291,7 @@ export default function PodologiaRunnersQuitoPage() {
               <li><strong>¿Es seguro el servicio a domicilio?</strong> ¡Claro! Usamos equipos esterilizados y protocolos estrictos en La Florida y Quito norte.</li>
               <li><strong>¿Qué problemas tratan para runners?</strong> Uñas encarnadas, fascitis, callos, y más. Perfecto para Quito 15K o entrenamientos diarios.</li>
               <li><strong>¿Cubren todo Quito norte?</strong> Sí, llegamos a La Florida, Carcelén, Cumbayá y más. Pregunta por tu zona: +593 995 832 788.</li>
-              <li><strong>¿Cuánto tarda una consulta?</strong> Una hora, con resultados desde el primer día. La Dra. Muñoz te prepara para correr sin límites.</li>
+              <li><strong>¿Cuánto tarda una consulta?</strong> Una hora, con resultados desde el primer día. La Cristina Muñoz te prepara para correr sin límites.</li>
             </ul>
           </div>
           {/* CTA principal */}

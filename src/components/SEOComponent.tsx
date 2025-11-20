@@ -34,7 +34,7 @@ export default function SEOComponent({ post, baseUrl = 'https://podoclinicec.com
           "@type": "Person",
           "name": post.author || MEDICAL_SEO_CONFIG.MEDICAL_AUTHORITY.doctor,
           "jobTitle": MEDICAL_SEO_CONFIG.MEDICAL_AUTHORITY.specialty,
-          "qualification": "Doctora en Podología",
+          "qualification": "Especialista en Podología",
           "url": baseUrl,
           "worksFor": {
             "@type": "MedicalClinic",

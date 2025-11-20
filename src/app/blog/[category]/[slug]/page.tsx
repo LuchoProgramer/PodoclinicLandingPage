@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: PageProps) {
     keywords: post.tags?.join(', ') || `podología, ${post.category}, Quito Norte, Cristina Muñoz`,
     authors: [{ name: post.author || 'Cristina Muñoz' }],
     creator: post.author || 'Cristina Muñoz',
-    publisher: 'PodoClinicec - Dra. Cristina Muñoz',
+    publisher: 'PodoClinicec - Cristina Muñoz, Podóloga Especialista',
     category: post.category,
     classification: 'Medical Article',
     alternates: {
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: PageProps) {
       title: metaTitle,
       description: metaDescription,
       url: canonicalUrl,
-      siteName: 'PodoClinicec - Dra. Cristina Muñoz',
+      siteName: 'PodoClinicec - Cristina Muñoz, Podóloga Especialista',
       locale: 'es_EC',
       type: 'article',
       publishedTime: post.publishDate,
@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: PageProps) {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `${post.title} - Artículo de podología por Dra. Cristina Muñoz`,
+          alt: `${post.title} - Artículo de podología por Cristina Muñoz, Podóloga Especialista`,
         },
       ],
     },
@@ -187,7 +187,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       },
       "publisher": {
         "@type": "MedicalClinic",
-        "name": "PodoClinicec - Dra. Cristina Muñoz",
+        "name": "PodoClinicec - Cristina Muñoz, Podóloga Especialista",
         "logo": {
           "@type": "ImageObject",
           "url": `${baseUrl}/logo-podoclinic.png`,
@@ -423,7 +423,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <p className="text-blue-700">
                     "En mi experiencia, los pacientes que acuden tempranamente tienen un 95% de éxito con tratamientos 
                     mínimamente invasivos. Esperar puede convertir un procedimiento simple en una cirugía compleja." 
-                    - Dra. Cristina Muñoz
+                    - Cristina Muñoz, Podóloga Especialista
                   </p>
                 </div>
 

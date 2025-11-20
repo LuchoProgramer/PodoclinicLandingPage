@@ -127,7 +127,7 @@ export default function BlogPage() {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Consejos profesionales, tratamientos especializados y todo lo que necesitas 
-              saber sobre el cuidado de tus pies por la <strong>Dra. Cristina Muñoz</strong>
+              saber sobre el cuidado de tus pies por la <strong>Cristina Muñoz, Podóloga Especialista</strong>
             </p>
           </div>
 
@@ -345,17 +345,17 @@ export default function BlogPage() {
             ¿Necesitas Consulta Personalizada?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Después de leer nuestros artículos, consulta directamente con la Dra. Cristina Muñoz
+            Después de leer nuestros artículos, consulta directamente con la Cristina Muñoz, Podóloga Especialista
           </p>
           
           <a
-            href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20He%20leído%20artículos%20en%20su%20blog%20y%20me%20gustaría%20una%20consulta%20personalizada"
+            href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20He%20leído%20artículos%20en%20su%20blog%20y%20me%20gustaría%20una%20consulta%20personalizada"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-white text-[#60BEC3] px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
             <User className="w-5 h-5 mr-2" />
-            Consulta con la Dra. Cristina
+            Consulta con Cristina Muñoz, Podóloga Especialista, Cristina
           </a>
         </div>
       </section>

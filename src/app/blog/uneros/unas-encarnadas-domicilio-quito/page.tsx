@@ -25,7 +25,7 @@ const medicalServiceSchema = {
     "telephone": "+593995832788"
   },
   "priceRange": "$15 primera consulta",
-  "description": "Tratamiento profesional de uñas encarnadas a domicilio en Quito norte con Dra. Cristina Muñoz."
+  "description": "Tratamiento profesional de uñas encarnadas a domicilio en Quito norte con Cristina Muñoz, Podóloga Especialista."
 };
 
 const faqSchema = {
@@ -61,7 +61,7 @@ const faqSchema = {
       "name": "¿Cuánto tarda el tratamiento?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La mayoría de los uñeros se resuelven en 1-2 sesiones. La Dra. Muñoz evalúa tu caso en la primera cita."
+        "text": "La mayoría de los uñeros se resuelven en 1-2 sesiones. La Cristina Muñoz evalúa tu caso en la primera cita."
       }
     },
     {
@@ -121,13 +121,13 @@ export default function UnasEncarnadasDomicilioQuitoPage() {
 
           {/* Excerpt */}
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            ¿Te ha pasado que un uñero te tiene al borde de la desesperación, sin poder caminar tranquilo? ¡Te cuento mi experiencia! En Podoclinicec, descubrimos que las uñas encarnadas son más comunes de lo que crees en Quito, especialmente entre runners y quienes pasan horas de pie. Pero aquí va lo mejor: no necesitas salir de casa para solucionarlo. La Dra. Cristina Muñoz lleva el alivio directo a tu puerta en Quito norte, ¡y por solo $15! ¿Quieres saber cómo? Sigue leyendo y descubre cómo transformar el dolor en bienestar. 😎
+            ¿Te ha pasado que un uñero te tiene al borde de la desesperación, sin poder caminar tranquilo? ¡Te cuento mi experiencia! En Podoclinicec, descubrimos que las uñas encarnadas son más comunes de lo que crees en Quito, especialmente entre runners y quienes pasan horas de pie. Pero aquí va lo mejor: no necesitas salir de casa para solucionarlo. La Cristina Muñoz, Podóloga Especialista lleva el alivio directo a tu puerta en Quito norte, ¡y por solo $15! ¿Quieres saber cómo? Sigue leyendo y descubre cómo transformar el dolor en bienestar. 😎
           </p>
 
           {/* Meta información */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4" /> Dra. Cristina Muñoz
+              <User className="w-4 h-4" /> Cristina Muñoz, Podóloga Especialista
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" /> 08/10/2025
@@ -149,7 +149,7 @@ export default function UnasEncarnadasDomicilioQuitoPage() {
           </ul>
           <p>Si sientes un pinchazo que no te deja en paz, es hora de actuar. Pero tranquilo, no tienes que ir lejos.</p>
           <h2>La Solución: Tratamiento Profesional a Domicilio con Podoclinicec</h2>
-          <p>Imagina esto: no tienes que moverte de tu casa en Quito norte. En Podoclinicec, la Dra. Cristina Muñoz, nuestra experta en podología, llega a ti con todo lo necesario para aliviar tus uñas encarnadas. Por solo $15, tu primera consulta incluye:</p>
+          <p>Imagina esto: no tienes que moverte de tu casa en Quito norte. En Podoclinicec, la Cristina Muñoz, Podóloga Especialista, nuestra experta en podología, llega a ti con todo lo necesario para aliviar tus uñas encarnadas. Por solo $15, tu primera consulta incluye:</p>
           <ul>
             <li>Revisión completa para entender tu caso.</li>
             <li>Tratamiento sin dolor (corte preciso, desinflamación).</li>
@@ -169,7 +169,7 @@ export default function UnasEncarnadasDomicilioQuitoPage() {
           <ul>
             <li><strong>A domicilio:</strong> Llegamos a tu casa en La Florida o cerca (¡sin tráfico para ti!).</li>
             <li><strong>Precio imbatible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
-            <li><strong>Expertise:</strong> La Dra. Cristina Muñoz no solo trata uñeros, sino que es experta en pie diabético y runners.</li>
+            <li><strong>Expertise:</strong> La Cristina Muñoz, Podóloga Especialista no solo trata uñeros, sino que es experta en pie diabético y runners.</li>
             <li><strong>Fácil y rápido:</strong> Agenda en un toque por WhatsApp: +593 995 832 788.</li>
           </ul>
           <p>Hemos ayudado a runners de Quito 15K a volver a la pista y a personas que solo quieren caminar sin dolor. ¿Listo para ser el próximo?</p>
@@ -178,7 +178,7 @@ export default function UnasEncarnadasDomicilioQuitoPage() {
             <li><strong>¿Cómo aliviar una uña encarnada en casa?</strong> Lava con agua tibia y jabón neutro, aplica una crema antibiótica y usa zapatos sueltos. Pero para un alivio real, confía en Podoclinicec por $15.</li>
             <li><strong>¿Cuánto cuesta tratar uñas encarnadas en Quito?</strong> En Podoclinicec, la primera consulta es solo $15, con tratamiento y tips incluidos. ¡Llama ya!</li>
             <li><strong>¿Es seguro el servicio a domicilio?</strong> ¡Totalmente! Usamos equipos esterilizados y seguimos protocolos de bioseguridad en La Florida.</li>
-            <li><strong>¿Cuánto tarda el tratamiento?</strong> La mayoría de los uñeros se resuelven en 1-2 sesiones. La Dra. Muñoz evalúa tu caso en la primera cita.</li>
+            <li><strong>¿Cuánto tarda el tratamiento?</strong> La mayoría de los uñeros se resuelven en 1-2 sesiones. La Cristina Muñoz evalúa tu caso en la primera cita.</li>
             <li><strong>¿Cubren todo Quito norte?</strong> Sí, llegamos a La Florida, Carcelén, Cumbayá y más. Pregunta por tu zona: +593 995 832 788.</li>
           </ul>
         </div>

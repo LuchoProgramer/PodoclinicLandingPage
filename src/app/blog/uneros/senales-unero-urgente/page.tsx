@@ -6,7 +6,7 @@ import { Breadcrumbs, RelatedLinks } from "@/components/InternalLinks";
 
 export const metadata = {
   title: "5 Señales de Uñero que Requieren Atención | Cuándo Acudir al Podólogo",
-  description: "¿Tu uñero es un problema serio? Aprende las 5 señales que indican que necesitas atención médica especializada. Dra. Cristina Muñoz, especialista en Quito.",
+  description: "¿Tu uñero es un problema serio? Aprende las 5 señales que indican que necesitas atención médica especializada. Cristina Muñoz, Podóloga Especialista, especialista en Quito.",
   keywords: "uñero problema, uña encarnada síntomas, podólogo Quito, infección uñero",
 };
 
@@ -23,7 +23,7 @@ export default function SeñalesUneroUrgentePage() {
     "image": "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
     "author": {
       "@type": "Person",
-      "name": "Dra. Cristina Muñoz",
+      "name": "Cristina Muñoz, Podóloga Especialista",
       "jobTitle": "Podóloga Especialista",
       "worksFor": {
         "@type": "MedicalOrganization",
@@ -117,7 +117,7 @@ export default function SeñalesUneroUrgentePage() {
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
             <div className="flex items-center">
               <User className="w-4 h-4 mr-2" />
-              <span className="font-medium">Dra. Cristina Muñoz</span>
+              <span className="font-medium">Cristina Muñoz, Podóloga Especialista</span>
             </div>
             <div className="flex items-center">
               <Calendar className="w-4 h-4 mr-2" />
@@ -210,7 +210,7 @@ export default function SeñalesUneroUrgentePage() {
               <p className="text-blue-700">
                 "En mi experiencia, los pacientes que acuden tempranamente tienen un 95% de éxito con tratamientos 
                 mínimamente invasivos. Esperar puede convertir un procedimiento simple en una cirugía compleja." 
-                <br />- <strong>Dra. Cristina Muñoz</strong>
+                <br />- <strong>Cristina Muñoz, Podóloga Especialista</strong>
               </p>
             </div>
 
@@ -298,7 +298,7 @@ export default function SeñalesUneroUrgentePage() {
                 No esperes a que empeore. La atención temprana es clave para un tratamiento exitoso.
               </p>
               <WhatsAppButton
-                href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20Tengo%20síntomas%20de%20uñero%20y%20necesito%20consulta%20especializada"
+                href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Tengo%20síntomas%20de%20uñero%20y%20necesito%20consulta%20especializada"
                 className="inline-flex items-center bg-white text-red-600 px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
                 trackingLabel="Señales Uñero Urgente CTA"
               >

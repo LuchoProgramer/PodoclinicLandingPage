@@ -4,8 +4,8 @@ import { CTAButton } from "@/components/BlogButtons";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata = {
-  title: "Guía Paso a Paso para Prevenir el Pie Diabético en Quito | Consejos de la Dra. Cristina Muñoz",
-  description: "Prevención de pie diabético en Quito: consejos, señales de alerta y atención podológica a domicilio por la Dra. Cristina Muñoz.",
+  title: "Guía Paso a Paso para Prevenir el Pie Diabético en Quito | Consejos de la Cristina Muñoz, Podóloga Especialista",
+  description: "Prevención de pie diabético en Quito: consejos, señales de alerta y atención podológica a domicilio por la Cristina Muñoz, Podóloga Especialista.",
   keywords: "pie diabético Quito, prevención pie diabético, podología a domicilio Quito, cuidado de pies diabéticos, podólogo Quito norte",
 };
 
@@ -129,13 +129,13 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
 
           {/* Excerpt */}
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            ¿Sabías que el pie diabético es más común de lo que crees en Quito? ¡Te cuento una experiencia que puede cambiarte la vida! Con un 7.8% de personas con diabetes en nuestra ciudad, cuidar tus pies es clave para evitar complicaciones como úlceras o infecciones. En Podoclinicec, la Dra. Cristina Muñoz lleva el cuidado profesional a tu casa en Quito norte, ¡y por solo $15! ¿Quieres aprender a prevenir el pie diabético y caminar sin preocupaciones? Sigue leyendo, ¡esto es para ti! 😎
+            ¿Sabías que el pie diabético es más común de lo que crees en Quito? ¡Te cuento una experiencia que puede cambiarte la vida! Con un 7.8% de personas con diabetes en nuestra ciudad, cuidar tus pies es clave para evitar complicaciones como úlceras o infecciones. En Podoclinicec, la Cristina Muñoz, Podóloga Especialista lleva el cuidado profesional a tu casa en Quito norte, ¡y por solo $15! ¿Quieres aprender a prevenir el pie diabético y caminar sin preocupaciones? Sigue leyendo, ¡esto es para ti! 😎
           </p>
 
           {/* Meta información */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 mb-8">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4" /> Dra. Cristina Muñoz
+              <User className="w-4 h-4" /> Cristina Muñoz, Podóloga Especialista
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" /> 08/10/2025
@@ -167,7 +167,7 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
           </ul>
           <p>¿Y si necesitas ayuda? Ahí entra Podoclinicec con un servicio que te va a encantar.</p>
           <h2>Podología a Domicilio con Podoclinicec: Tu Solución en Quito Norte</h2>
-          <p>Imagina esto: estás en tu casa en La Florida, y la Dra. Cristina Muñoz llega con su equipo esterilizado para cuidar tus pies. Por solo $15, tu primera consulta incluye:</p>
+          <p>Imagina esto: estás en tu casa en La Florida, y la Cristina Muñoz, Podóloga Especialista llega con su equipo esterilizado para cuidar tus pies. Por solo $15, tu primera consulta incluye:</p>
           <ul>
             <li>Evaluación completa para detectar riesgos de pie diabético.</li>
             <li>Tratamiento preventivo (corte de uñas, cuidado de callos).</li>
@@ -178,7 +178,7 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
           <h2>¿Por Qué Elegir Podoclinicec?</h2>
           <ul>
             <li><strong>A domicilio:</strong> Cuidamos tus pies en tu casa, ideal para diabéticos con movilidad limitada.</li>
-            <li><strong>Expertise:</strong> La Dra. Muñoz ofrece tratamientos especializados para prevención de pie diabético, uñas encarnadas y podología deportiva.</li>
+            <li><strong>Expertise:</strong> La Cristina Muñoz ofrece tratamientos especializados para prevención de pie diabético, uñas encarnadas y podología deportiva.</li>
             <li><strong>Precio accesible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
             <li><strong>Confianza:</strong> Equipos esterilizados y protocolos de bioseguridad al 100%.</li>
           </ul>
@@ -190,7 +190,7 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
             <li><strong>¿Es seguro el servicio a domicilio?</strong> ¡Claro! Usamos equipos esterilizados y seguimos protocolos estrictos en La Florida y Quito norte.</li>
             <li><strong>¿Quiénes necesitan un podólogo para pie diabético?</strong> Cualquier persona con diabetes, especialmente si notas heridas, rojez o pérdida de sensibilidad.</li>
             <li><strong>¿Cubren todo Quito norte?</strong> Sí, llegamos a La Florida, Carcelén, Cumbayá y más. Pregunta por tu zona: +593 995 832 788.</li>
-            <li><strong>¿Cuánto tarda el cuidado preventivo?</strong> Una consulta de una hora puede prevenir problemas graves. La Dra. Muñoz te guía desde el primer día.</li>
+            <li><strong>¿Cuánto tarda el cuidado preventivo?</strong> Una consulta de una hora puede prevenir problemas graves. La Cristina Muñoz te guía desde el primer día.</li>
           </ul>
         </div>
         {/* CTA principal */}

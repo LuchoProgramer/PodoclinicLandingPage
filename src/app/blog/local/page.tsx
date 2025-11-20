@@ -45,7 +45,7 @@ export default function BlogLocalPage() {
     "description": "Artículos e información específica sobre servicios de podología en Quito Norte, testimonios locales y guías para residentes.",
     "author": {
       "@type": "Person",
-      "name": "Dra. Cristina Muñoz"
+      "name": "Cristina Muñoz, Podóloga Especialista"
     },
     "publisher": {
       "@type": "Organization",
