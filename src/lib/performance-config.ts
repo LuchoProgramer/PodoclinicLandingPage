@@ -150,7 +150,7 @@ export const MEDICAL_SEO_CONFIG = {
   
   // Configuración de autoridad médica
   MEDICAL_AUTHORITY: {
-    doctor: 'Dra. Cristina Muñoz',
+    doctor: 'Cristina Muñoz',
     specialty: 'Podología',
     clinic: 'PodoClinicec',
     location: 'Quito Norte, Ecuador',

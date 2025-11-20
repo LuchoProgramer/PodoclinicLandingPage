@@ -110,7 +110,7 @@ class PodoclinicCMSClient {
       excerpt,
       content,
       category,
-      author: cmsPost.author.name || "Dra. Cristina Muñoz",
+      author: cmsPost.author.name || "Cristina Muñoz",
       publishDate: cmsPost.createdAt,
       lastModified: cmsPost.updatedAt,
       tags,

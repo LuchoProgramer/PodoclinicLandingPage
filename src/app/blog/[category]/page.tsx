@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps) {
   const baseUrl = 'https://podoclinicec.com';
   const canonicalUrl = `${baseUrl}/blog/${category}`;
   let title = firstPost?.metaTitle || `Artículos de ${category} - Podoclinic`;
-  let description = firstPost?.metaDescription || `Artículos especializados en ${category} por la Dra. Cristina Muñoz en Quito.`;
+  let description = firstPost?.metaDescription || `Artículos especializados en ${category} por Cristina Muñoz, podóloga en Quito.`;
   if (category === 'cuidado-preventivo') {
     title = 'Cuidado Preventivo de los Pies en Quito | Consejos y Guías de Podología';
     description = 'Descubre consejos y guías de podología para el cuidado preventivo de los pies en Quito. Información profesional para prevenir problemas y mantener tus pies sanos.';

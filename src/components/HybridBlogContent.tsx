@@ -110,7 +110,7 @@ export default function HybridBlogContent() {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Consejos profesionales, tratamientos especializados y todo lo que necesitas 
-              saber sobre el cuidado de tus pies por la <strong>Dra. Cristina Muñoz</strong>
+              saber sobre el cuidado de tus pies por <strong>Cristina Muñoz, Podóloga Especialista</strong>
             </p>
             
             {/* Indicador del sistema híbrido mejorado */}
@@ -169,7 +169,7 @@ export default function HybridBlogContent() {
                 Últimos Artículos del <span className="text-green-600">CMS</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Contenido actualizado en tiempo real por la Dra. Cristina Muñoz
+                Contenido actualizado en tiempo real por Cristina Muñoz, Podóloga
               </p>
             </div>
 
@@ -495,10 +495,8 @@ export default function HybridBlogContent() {
             ¿Necesitas Consulta Personalizada?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Después de leer nuestros artículos, consulta directamente con la Dra. Cristina Muñoz
-          </p>
-          
-          <a
+              Después de leer nuestros artículos, consulta directamente con Cristina Muñoz, Podóloga
+            </p>          <a
             href="https://wa.me/593995832788?text=¡Hola%20Dra.%20Cristina!%20He%20leído%20artículos%20en%20su%20blog%20y%20me%20gustaría%20una%20consulta%20personalizada"
             target="_blank"
             rel="noopener noreferrer"

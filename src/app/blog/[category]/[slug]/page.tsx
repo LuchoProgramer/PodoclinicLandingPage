@@ -53,16 +53,16 @@ export async function generateMetadata({ params }: PageProps) {
   const canonicalUrl = `${baseUrl}/blog/${post.category}/${slug}`;
   
   // Generar metadatos SEO completos
-  const metaTitle = post.metaTitle || `${post.title} | Dra. Cristina Muñoz - PodoClinicec`;
-  const metaDescription = post.metaDescription || post.excerpt || `Artículo sobre ${post.category} por la Dra. Cristina Muñoz, especialista en podología en Quito Norte.`;
+  const metaTitle = post.metaTitle || `${post.title} | Cristina Muñoz - PodoClinicec`;
+  const metaDescription = post.metaDescription || post.excerpt || `Artículo sobre ${post.category} por Cristina Muñoz, podóloga especialista en Quito Norte.`;
   const imageUrl = post.image || `${baseUrl}/images/blog/default-article.jpg`;
   
   return {
     title: metaTitle,
     description: metaDescription,
-    keywords: post.tags?.join(', ') || `podología, ${post.category}, Quito Norte, Dra. Cristina Muñoz`,
-    authors: [{ name: post.author || 'Dra. Cristina Muñoz' }],
-    creator: post.author || 'Dra. Cristina Muñoz',
+    keywords: post.tags?.join(', ') || `podología, ${post.category}, Quito Norte, Cristina Muñoz`,
+    authors: [{ name: post.author || 'Cristina Muñoz' }],
+    creator: post.author || 'Cristina Muñoz',
     publisher: 'PodoClinicec - Dra. Cristina Muñoz',
     category: post.category,
     classification: 'Medical Article',
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: PageProps) {
       publishedTime: post.publishDate,
       modifiedTime: post.lastModified || post.publishDate,
       expirationTime: undefined, // Los artículos médicos no expiran
-      authors: [post.author || 'Dra. Cristina Muñoz'],
+      authors: [post.author || 'Cristina Muñoz'],
       section: post.category,
       tags: post.tags || [`podología`, `${post.category}`, `Quito Norte`],
       images: [
