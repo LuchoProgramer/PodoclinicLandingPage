@@ -147,7 +147,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
           <>
             <ContentComponents.Introduction>
               Los uñeros son una de las consultas más frecuentes en podología. 
-              En este artículo, la Cristina Muñoz, Podóloga Especialista te explica todo lo que necesitas saber 
+              En este artículo, Cristina Muñoz, Podóloga Especialista te explica todo lo que necesitas saber 
               sobre esta condición y cómo tratarla correctamente.
             </ContentComponents.Introduction>
 
@@ -202,7 +202,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
 
             <ContentComponents.CustomCTA 
               title="¿Sufres de uñeros recurrentes?"
-              description="La Cristina Muñoz, Podóloga Especialista puede ayudarte con técnicas modernas y efectivas"
+              description="Cristina Muñoz, Podóloga Especialista puede ayudarte con técnicas modernas y efectivas"
               buttonText="Consulta Especializada"
               link="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Necesito%20tratamiento%20para%20uñeros"
             />
@@ -214,7 +214,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
           <>
             <ContentComponents.Introduction>
               El cuidado de los pies en personas diabéticas es fundamental para prevenir 
-              complicaciones graves. La Cristina Muñoz, Podóloga Especialista te guía en este proceso esencial.
+              complicaciones graves. Cristina Muñoz, Podóloga Especialista te guía en este proceso esencial.
             </ContentComponents.Introduction>
 
             <ContentComponents.AlertBox type="info" title="💡 Dato Importante">
@@ -247,7 +247,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
 
             <ContentComponents.CustomCTA 
               title="¿Eres diabético y necesitas evaluación podológica?"
-              description="Programa tu revisión preventiva con la Cristina Muñoz, Podóloga Especialista"
+              description="Programa tu revisión preventiva con Cristina Muñoz, Podóloga Especialista"
               buttonText="Agendar Evaluación Preventiva"
               link="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Soy%20diabético%20y%20necesito%20evaluación%20podológica"
             />
@@ -317,13 +317,13 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
               <p className="text-gray-700">
                 Este artículo forma parte de nuestra biblioteca de contenido podológico especializado. 
                 Para información más detallada y personalizada, no dudes en contactar directamente 
-                con la Cristina Muñoz, Podóloga Especialista.
+                con Cristina Muñoz, Podóloga Especialista.
               </p>
             </ContentComponents.Section>
 
             <ContentComponents.CustomCTA 
               title="¿Necesitas más información sobre este tema?"
-              description="La Cristina Muñoz, Podóloga Especialista puede brindarte asesoría personalizada"
+              description="Cristina Muñoz, Podóloga Especialista puede brindarte asesoría personalizada"
               buttonText="Consulta Especializada"
               link="https://wa.me/593995832788?text=¡Hola%20Cristina!%20Me%20interesa%20información%20sobre%20podología"
             />

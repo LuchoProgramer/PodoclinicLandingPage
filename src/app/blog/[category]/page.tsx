@@ -82,7 +82,7 @@ export default async function CategoryPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": `Artículos sobre ${categoryTitles[category]}`,
-    "description": `Artículos especializados sobre ${categoryTitles[category]} por la Cristina Muñoz, Podóloga Especialista`,
+    "description": `Artículos especializados sobre ${categoryTitles[category]} por Cristina Muñoz, Podóloga Especialista`,
     "url": `${baseUrl}/blog/${category}`,
     "mainEntity": {
       "@type": "ItemList",

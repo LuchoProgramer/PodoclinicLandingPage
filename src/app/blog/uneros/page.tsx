@@ -25,7 +25,7 @@ export default function UnerosIndexPage() {
             Uñeros en Quito: <span className="text-[#60BEC3]">Prevención y Tratamiento</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Todo lo que necesitas saber sobre uñeros, uñas encarnadas y tratamientos podológicos en Quito. La Cristina Muñoz, Podóloga Especialista te explica cómo prevenir, tratar y cuándo consultar a un especialista.
+            Todo lo que necesitas saber sobre uñeros, uñas encarnadas y tratamientos podológicos en Quito. Cristina Muñoz, Podóloga Especialista te explica cómo prevenir, tratar y cuándo consultar a un especialista.
           </p>
         </header>
         <div className="prose prose-lg mx-auto text-gray-800">

@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Tratamiento de Hongos en Uñas en Quito | Soluciones Podológicas Efectivas",
-  description: "Tratamiento efectivo de hongos en uñas en Quito: síntomas, prevención y atención profesional con la Cristina Muñoz, Podóloga Especialista.",
+  description: "Tratamiento efectivo de hongos en uñas en Quito: síntomas, prevención y atención profesional con Cristina Muñoz, Podóloga Especialista.",
 };
 
 import Link from "next/link";
@@ -316,7 +316,7 @@ export default function HongosIndexPage() {
                 Tratamientos <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60BEC3] to-[#79A373]">Profesionales</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                La Cristina Muñoz, Podóloga Especialista ofrece tratamientos avanzados y personalizados
+                Cristina Muñoz, Podóloga Especialista ofrece tratamientos avanzados y personalizados
               </p>
             </div>
 
@@ -471,7 +471,7 @@ export default function HongosIndexPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "Después de años luchando con hongos, finalmente encontré una solución efectiva. La Cristina Muñoz es increíble."
+                  "Después de años luchando con hongos, finalmente encontré una solución efectiva. Cristina Muñoz es increíble."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#60BEC3] to-[#79A373] rounded-full flex items-center justify-center text-white font-bold">

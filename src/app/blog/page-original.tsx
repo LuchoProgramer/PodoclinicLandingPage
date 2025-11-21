@@ -345,7 +345,7 @@ export default function BlogPage() {
             ¿Necesitas Consulta Personalizada?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Después de leer nuestros artículos, consulta directamente con la Cristina Muñoz, Podóloga Especialista
+            Después de leer nuestros artículos, consulta directamente con Cristina Muñoz, Podóloga Especialista
           </p>
           
           <a

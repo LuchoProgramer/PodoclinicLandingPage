@@ -105,7 +105,7 @@ const faqSchema = {
       "name": "¿Qué es un podólogo a domicilio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Es un especialista que lleva el cuidado de tus pies a tu casa. En Podoclinicec, la Cristina Muñoz atiende en Quito norte por $15."
+        "text": "Es un especialista que lleva el cuidado de tus pies a tu casa. En Podoclinicec, Cristina Muñoz atiende en Quito norte por $15."
       }
     },
     {
@@ -191,7 +191,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
 
           {/* Excerpt */}
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            ¿Te imaginas cuidar tus pies sin moverte de tu sofá en Quito norte? ¡Te cuento una aventura que cambia todo! En Podoclinicec, llevamos la podología a tu casa en La Florida y alrededores, con la Cristina Muñoz, Podóloga Especialista lista para aliviarte por solo $15. Nada de tráfico, nada de esperas: solo bienestar directo a tu puerta. ¿Quieres saber cómo funciona y por qué es la mejor opción en Quito? Sigue leyendo, ¡esto va a ser un hit! 😎
+            ¿Te imaginas cuidar tus pies sin moverte de tu sofá en Quito norte? ¡Te cuento una aventura que cambia todo! En Podoclinicec, llevamos la podología a tu casa en La Florida y alrededores, con Cristina Muñoz, Podóloga Especialista lista para aliviarte por solo $15. Nada de tráfico, nada de esperas: solo bienestar directo a tu puerta. ¿Quieres saber cómo funciona y por qué es la mejor opción en Quito? Sigue leyendo, ¡esto va a ser un hit! 😎
           </p>
 
           {/* Meta información */}
@@ -327,7 +327,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                   },
                   {
                     step: "3",
-                    title: "La Cristina Muñoz Llega", 
+                    title: "Cristina Muñoz Llega", 
                     description: "Con equipos esterilizados, evalúa tus pies (uñas encarnadas, pie diabético, o chequeo general).",
                     image: "https://res.cloudinary.com/TU_CLOUD_NAME/image/upload/v1/blog/dra-cristina-munoz.jpg",
                     icon: <Stethoscope className="w-7 h-7 mx-auto text-[#60BEC3]" />
@@ -427,7 +427,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                 alt="Cristina Muñoz, Podóloga Especialista - Especialista en Podología"
                 className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-[#60BEC3]"
               />
-              <p className="text-lg text-gray-600">Con la Cristina Muñoz, Podóloga Especialista, especialista certificada</p>
+              <p className="text-lg text-gray-600">Con Cristina Muñoz, Podóloga Especialista, especialista certificada</p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-8">
@@ -442,7 +442,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                   {
                     icon: <GraduationCap className="w-6 h-6 text-blue-600" />,
                     title: "Expertise",
-                    description: "La Cristina Muñoz, Podóloga Especialista es especialista en uñas encarnadas, pie diabético y podología deportiva.",
+                    description: "Cristina Muñoz, Podóloga Especialista es especialista en uñas encarnadas, pie diabético y podología deportiva.",
                     color: "bg-blue-100 text-blue-600"
                   }
                 ].map((item, index) => (
@@ -552,7 +552,7 @@ export default function PodologiaDomicilioQuitoNortePage() {
                 {
                   name: "María González",
                   location: "La Florida", 
-                  testimonial: "¡Increíble! La Cristina Muñoz vino a mi casa y solucionó mi uñero en una hora. Super profesional y cómodo.",
+                  testimonial: "¡Increíble! Cristina Muñoz vino a mi casa y solucionó mi uñero en una hora. Super profesional y cómodo.",
                   rating: 5,
                   image: "https://res.cloudinary.com/TU_CLOUD_NAME/image/upload/v1/blog/testimonio-maria.jpg"
                 },

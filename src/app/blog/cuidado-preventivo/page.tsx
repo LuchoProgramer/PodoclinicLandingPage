@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Cuidado Preventivo de los Pies en Quito | Consejos y Guías de Podología",
-  description: "Consejos de podología para el cuidado preventivo de los pies en Quito. Información profesional por la Cristina Muñoz, Podóloga Especialista.",
+  description: "Consejos de podología para el cuidado preventivo de los pies en Quito. Información profesional por Cristina Muñoz, Podóloga Especialista.",
 };
 
 import Link from "next/link";
@@ -32,7 +32,7 @@ export default function CuidadoPreventivoIndexPage() {
             <li>Revisa tus pies en busca de heridas, ampollas o cambios de color.</li>
           </ul>
           <h2>¿Cuándo consultar a un podólogo?</h2>
-          <p>Si notas dolor, enrojecimiento, hinchazón o cualquier cambio inusual, consulta a un especialista. La Cristina Muñoz, Podóloga Especialista puede ayudarte a prevenir complicaciones y mantener tus pies sanos.</p>
+          <p>Si notas dolor, enrojecimiento, hinchazón o cualquier cambio inusual, consulta a un especialista. Cristina Muñoz, Podóloga Especialista puede ayudarte a prevenir complicaciones y mantener tus pies sanos.</p>
         </div>
       </article>
     </div>

@@ -174,7 +174,7 @@ export default function PodologoLaFloridaQuitoNortePage() {
           <h2>Ventajas de un Podólogo en tu Zona</h2>
           <ul>
             <li><strong>Cercanía:</strong> Basados en La Florida, cubrimos Carcelén, Cumbayá y más.</li>
-            <li><strong>A domicilio:</strong> No necesitas moverte; la Cristina Muñoz llega a ti.</li>
+            <li><strong>A domicilio:</strong> No necesitas moverte; Cristina Muñoz llega a ti.</li>
             <li><strong>Conexión local:</strong> Conocemos las necesidades de runners de Quito 15K o diabéticos en Quito norte.</li>
             <li><strong>Rapidez:</strong> Agenda en un toque por WhatsApp (+593 995 832 788).</li>
           </ul>
@@ -186,7 +186,7 @@ export default function PodologoLaFloridaQuitoNortePage() {
             <li>Consejos prácticos: Para que tus pies estén listos para el día a día.</li>
             <li>Servicio a domicilio: En La Florida o cualquier rincón de Quito norte.</li>
           </ul>
-          <p>La Cristina Muñoz, Podóloga Especialista llega con equipos esterilizados y un trato que te hace sentir en casa. En una hora, tus pies estarán agradecidos, ¡y tú sin salir de tu zona!</p>
+          <p>Cristina Muñoz, Podóloga Especialista llega con equipos esterilizados y un trato que te hace sentir en casa. En una hora, tus pies estarán agradecidos, ¡y tú sin salir de tu zona!</p>
           <h2>¿Quiénes Necesitan un Podólogo en La Florida?</h2>
           <p>Nuestro servicio es ideal para:</p>
           <ul>
@@ -199,7 +199,7 @@ export default function PodologoLaFloridaQuitoNortePage() {
           <h2>Por Qué Podoclinicec es la Mejor Opción</h2>
           <ul>
             <li><strong>Hiperlocalidad:</strong> Estamos en La Florida, a minutos de Parque La Carolina o Cumbayá.</li>
-            <li><strong>Expertise:</strong> La Cristina Muñoz es experta en uñas encarnadas, pie diabético y podología deportiva.</li>
+            <li><strong>Expertise:</strong> Cristina Muñoz es experta en uñas encarnadas, pie diabético y podología deportiva.</li>
             <li><strong>Precio imbatible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
             <li><strong>Confianza:</strong> Equipos esterilizados y protocolos de bioseguridad al 100%.</li>
           </ul>
@@ -211,7 +211,7 @@ export default function PodologoLaFloridaQuitoNortePage() {
             <li><strong>¿Es seguro el servicio a domicilio?</strong> ¡Claro! Usamos equipos esterilizados y protocolos estrictos en Quito norte.</li>
             <li><strong>¿Qué problemas tratan?</strong> Uñas encarnadas, pie diabético, fascitis, callos, y más. Ideal para runners y diabéticos.</li>
             <li><strong>¿Cubren todo Quito norte?</strong> Sí, llegamos a La Florida, Carcelén, Cumbayá y más. Pregunta por tu zona: +593 995 832 788.</li>
-            <li><strong>¿Cuánto tarda una consulta?</strong> Una hora, con resultados desde el primer día. La Cristina Muñoz te guía al instante.</li>
+            <li><strong>¿Cuánto tarda una consulta?</strong> Una hora, con resultados desde el primer día. Cristina Muñoz te guía al instante.</li>
           </ul>
         </div>
         {/* CTA principal */}
