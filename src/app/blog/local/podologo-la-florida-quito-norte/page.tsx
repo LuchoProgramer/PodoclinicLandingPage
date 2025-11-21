@@ -17,7 +17,7 @@ const localBusinessSchema = {
   "@id": "https://podoclinicec.com/blog/local/podologo-la-florida-quito-norte",
   "url": "https://podoclinicec.com/blog/local/podologo-la-florida-quito-norte",
   "telephone": "+593995832788",
-  "priceRange": "$15 primera consulta",
+  "priceRange": "desde $35 primera consulta",
   "description": "Podología a domicilio en La Florida, Quito norte, con Cristina Muñoz, Podóloga Especialista, especialista en uñas encarnadas, pie diabético y podología deportiva.",
   "address": {
     "@type": "PostalAddress",
@@ -104,7 +104,7 @@ const faqSchema = {
       "name": "¿Dónde encontrar un podólogo en Quito norte?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En Podoclinicec, estamos en La Florida y llegamos a tu casa por $15. Escribe al +593995832788."
+        "text": "En Podoclinicec, estamos en La Florida y llegamos a tu casa desde $35. Escribe al +593995832788."
       }
     },
     {
@@ -112,7 +112,7 @@ const faqSchema = {
       "name": "¿Cuánto cuesta una consulta en La Florida?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La primera consulta es solo $15, con evaluación y tratamiento. Agenda ya."
+        "text": "La primera consulta es desde $35, con evaluación y tratamiento. Agenda ya."
       }
     },
     {
@@ -179,7 +179,7 @@ export default function PodologoLaFloridaQuitoNortePage() {
             <li><strong>Rapidez:</strong> Agenda en un toque por WhatsApp (+593 995 832 788).</li>
           </ul>
           <h2>Qué Ofrece Podoclinicec en Quito Norte</h2>
-          <p>En Podoclinicec, hacemos que cuidar tus pies sea una aventura sin complicaciones. Por $15, tu primera consulta incluye:</p>
+          <p>En Podoclinicec, hacemos que cuidar tus pies sea una aventura sin complicaciones. Desde $35, tu primera consulta incluye:</p>
           <ul>
             <li>Evaluación completa: Uñas encarnadas, pie diabético, fascitis o chequeo general.</li>
             <li>Tratamiento personalizado: Desde cortes precisos hasta cuidados para runners.</li>
@@ -200,14 +200,14 @@ export default function PodologoLaFloridaQuitoNortePage() {
           <ul>
             <li><strong>Hiperlocalidad:</strong> Estamos en La Florida, a minutos de Parque La Carolina o Cumbayá.</li>
             <li><strong>Expertise:</strong> Cristina Muñoz es experta en uñas encarnadas, pie diabético y podología deportiva.</li>
-            <li><strong>Precio imbatible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
+            <li><strong>Precio imbatible:</strong> desde $35 por la primera consulta, con evaluación gratis.</li>
             <li><strong>Confianza:</strong> Equipos esterilizados y protocolos de bioseguridad al 100%.</li>
           </ul>
           <p>Hemos ayudado a runners a volver a la pista y a abuelitos a caminar sin dolor. ¿Listo para ser el próximo?</p>
           <h2>Preguntas Frecuentes sobre Podología en La Florida</h2>
           <ul>
-            <li><strong>¿Dónde encontrar un podólogo en Quito norte?</strong> En Podoclinicec, estamos en La Florida y llegamos a tu casa por $15. ¡Escribe al +593 995 832 788!</li>
-            <li><strong>¿Cuánto cuesta una consulta en La Florida?</strong> La primera consulta es solo $15, con evaluación y tratamiento. ¡Agenda ya!</li>
+            <li><strong>¿Dónde encontrar un podólogo en Quito norte?</strong> En Podoclinicec, estamos en La Florida y llegamos a tu casa desde $35. ¡Escribe al +593 995 832 788!</li>
+            <li><strong>¿Cuánto cuesta una consulta en La Florida?</strong> La primera consulta es desde $35, con evaluación y tratamiento. ¡Agenda ya!</li>
             <li><strong>¿Es seguro el servicio a domicilio?</strong> ¡Claro! Usamos equipos esterilizados y protocolos estrictos en Quito norte.</li>
             <li><strong>¿Qué problemas tratan?</strong> Uñas encarnadas, pie diabético, fascitis, callos, y más. Ideal para runners y diabéticos.</li>
             <li><strong>¿Cubren todo Quito norte?</strong> Sí, llegamos a La Florida, Carcelén, Cumbayá y más. Pregunta por tu zona: +593 995 832 788.</li>
