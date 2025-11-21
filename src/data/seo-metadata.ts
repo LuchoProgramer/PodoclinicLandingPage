@@ -11,7 +11,7 @@ export const SEO_METADATA: Record<string, PageMetadata> = {
   // Página principal
   home: {
     title: "Podólogo a Domicilio Quito Norte | Cristina Muñoz - Podoclinicec",
-    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz: uñeros, tratamientos especializados para prevención de pie diabético, hongos. Desde $35. Agenda tu consulta.",
+    description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz: uñeros, tratamientos especializados para prevención de pie diabético, hongos. Servicios a partir de $35. Agenda tu consulta.",
     keywords: "podólogo domicilio quito norte, uñeros quito, pie diabético, hongos uñas, podología a domicilio, dra cristina muñoz",
     canonical: "https://podoclinicec.com"
   },

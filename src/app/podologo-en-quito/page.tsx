@@ -78,7 +78,7 @@ const faqSchema = {
       "name": "¿Cuánto cuesta una consulta con podólogo en Quito Norte?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Las consultas podológicas tienen precios accesibles desde $35. Ofrecemos información inmediata por WhatsApp para evaluar tu caso específico y coordinar la cita."
+        "text": "Las consultas podológicas tienen precios accesibles - servicios a partir de $35 domicilio, $20 consultorio. Ofrecemos información inmediata por WhatsApp para evaluar tu caso específico y coordinar la cita."
       }
     },
     {
@@ -270,7 +270,7 @@ export default function PodologoEnQuitoPage() {
                 {
                   title: "Tratamiento de Uñeros",
                   description: "Especialización en uñeros (servicio más rentable). Técnica sin dolor, recuperación rápida.",
-                  price: "Desde $35",
+                  price: "Servicios a partir de $20",
                   urgent: true
                 },
                 {
@@ -282,25 +282,25 @@ export default function PodologoEnQuitoPage() {
                 {
                   title: "Profilaxis Podal",
                   description: "Limpieza profunda, corte de uñas, eliminación de callosidades e hidratación.",
-                  price: "Desde $35", 
+                  price: "Servicios a partir de $20", 
                   urgent: false
                 },
                 {
                   title: "Tratamiento de Hongos",
                   description: "Eliminación de hongos en uñas y pies con productos antifúngicos especializados.",
-                  price: "Desde $35",
+                  price: "Servicios a partir de $20",
                   urgent: false
                 },
                 {
                   title: "Verrugas Plantares",
                   description: "Cauterización profesional para eliminar verrugas plantares definitivamente.",
-                  price: "Desde $35",
+                  price: "Servicios a partir de $20",
                   urgent: false
                 },
                 {
                   title: "Podología Infantil",
                   description: "Cuidado especializado para niños con técnicas suaves y ambiente amigable.",
-                  price: "Desde $35",
+                  price: "Servicios a partir de $20",
                   urgent: false
                 }
               ].map((service, idx) => (

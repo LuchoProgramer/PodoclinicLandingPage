@@ -24,7 +24,7 @@ const servicios = [
     icon: "🦶",
     features: ["Sin dolor", "Técnica especializada", "Recuperación rápida", "Prevención de recaídas"],
     link: "/servicios/uneros",
-    price: "Desde $15"
+    price: "Servicios a partir de $20"
   },
   {
     title: "Cuidado Pie Diabético",
@@ -32,7 +32,7 @@ const servicios = [
     icon: "🩺",
     features: ["Prevención", "Control especializado", "Cuidado integral", "Seguimiento continuo"],
     link: "/servicios/pie-diabetico",
-    price: "Desde $25"
+    price: "Servicios a partir de $20"
   },
   {
     title: "Tratamiento de Hongos",
@@ -40,7 +40,7 @@ const servicios = [
     icon: "🧪",
     features: ["Tratamiento profesional", "Resultados visibles", "Productos especializados", "Sin recidiva"],
     link: "/servicios/hongos",
-    price: "Desde $20"
+    price: "Servicios a partir de $20"
   },
   {
     title: "Eliminación de Verrugas",
@@ -48,7 +48,7 @@ const servicios = [
     icon: "⚡",
     features: ["Cauterización segura", "Procedimiento efectivo", "Sin recidiva", "Técnica avanzada"],
     link: "/servicios/verrugas",
-    price: "Desde $30"
+    price: "Servicios a partir de $20"
   },
   {
     title: "Profilaxis Podal",
@@ -56,7 +56,7 @@ const servicios = [
     icon: "✨",
     features: ["Limpieza completa", "Corte profesional", "Eliminación callos", "Hidratación"],
     link: "/servicios/profilaxis",
-    price: "Desde $25"
+    price: "Servicios a partir de $20"
   },
   {
     title: "Atención a Domicilio",
@@ -64,7 +64,7 @@ const servicios = [
     icon: "🏠",
     features: ["En tu hogar", "Sin costo extra", "Misma calidad", "Horarios flexibles"],
     link: "/servicios/domicilio",
-    price: "Mismo precio"
+    price: "Servicios a partir de $35"
   }
 ];
 

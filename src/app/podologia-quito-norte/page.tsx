@@ -290,14 +290,14 @@ export default function PodologiaQuitoNortePage() {
                 {
                   title: "Uñeros Urgentes",
                   description: "El problema #1 en Quito Norte. Técnica sin dolor, recuperación en 24h.",
-                  price: "Desde $15",
+                  price: "Servicios a partir de $20",
                   popular: true,
                   stats: "40% de consultas"
                 },
                 {
                   title: "Profilaxis Podal", 
                   description: "Servicio premium muy solicitado en La Florida.",
-                  price: "Desde $20",
+                  price: "Servicios a partir de $20",
                   popular: false,
                   stats: "25% de consultas"
                 },
@@ -311,21 +311,21 @@ export default function PodologiaQuitoNortePage() {
                 {
                   title: "Hongos en Uñas",
                   description: "Problema frecuente por clima húmedo de Quito Norte.",
-                  price: "Desde $25",
+                  price: "Servicios a partir de $20",
                   popular: false,
                   stats: "15% de consultas"
                 },
                 {
                   title: "Atención Domicilio",
                   description: "Muy popular entre adultos mayores de Quito Norte.",
-                  price: "Sin costo adicional",
+                  price: "Servicios a partir de $35",
                   popular: true,
                   stats: "70% prefiere"
                 },
                 {
                   title: "Podología Deportiva",
                   description: "Para runners del Parque La Carolina y deportistas locales.",
-                  price: "Desde $25",
+                  price: "Servicios a partir de $20",
                   popular: false,
                   stats: "10% de consultas"
                 }

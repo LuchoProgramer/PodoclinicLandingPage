@@ -221,7 +221,7 @@ export default function Hero() {
                             <BadgePercent className="w-5 h-5 mr-3 text-[#60BEC3] flex-shrink-0" />
                             <div className="text-center">
                                 <p className="font-bold text-sm sm:text-base text-gray-900 mb-1">
-                                    Primera consulta desde $15
+                                    Servicios a partir de $20
                                 </p>
                                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                                     Lun-Vie 8:00-18:00 | Sáb 8:00-14:00 • Rango $$

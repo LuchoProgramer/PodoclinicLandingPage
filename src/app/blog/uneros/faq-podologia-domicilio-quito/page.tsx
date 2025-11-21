@@ -20,7 +20,7 @@ const localBusinessSchema = {
     "addressCountry": "EC"
   },
   "telephone": "+593995832788",
-  "priceRange": "$15 primera consulta",
+  "priceRange": "desde $35 primera consulta",
   "description": "Podología a domicilio en Quito norte con Cristina Muñoz, Podóloga Especialista, especialista en uñas encarnadas, pie diabético y podología deportiva."
 };
 
@@ -33,7 +33,7 @@ const faqSchema = {
       "name": "¿Cuánto cuesta una consulta de podología a domicilio en Quito?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En Podoclinicec, la primera consulta es solo $15, con evaluación y tratamiento. Escribe al +593995832788."
+        "text": "En Podoclinicec, la primera consulta a domicilio es desde $35, con evaluación y tratamiento. Escribe al +593995832788."
       }
     },
     {
@@ -116,8 +116,8 @@ export default function FAQPodologiaDomicilioQuitoPage() {
           </h1>
 
           {/* Excerpt */}
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            ¿Te has preguntado qué hace un podólogo a domicilio o cuánto cuesta cuidar tus pies sin salir de casa? ¡Te cuento todo en esta aventura! En Podoclinicec, llevamos el cuidado profesional a tu puerta en Quito norte, con Cristina Muñoz, Podóloga Especialista resolviendo tus dudas y aliviando tus pies por solo $15. Desde uñas encarnadas hasta pie diabético, aquí respondemos las preguntas más comunes que nos hacen en La Florida. ¿Listo para caminar sin preocupaciones? Sigue leyendo, ¡esto es para ti! 😎
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              ¿Te has preguntado qué hace un podólogo a domicilio o cuánto cuesta cuidar tus pies sin salir de casa? ¡Te cuento todo en esta aventura! En Podoclinicec, llevamos el cuidado profesional a tu puerta en Quito norte, con Cristina Muñoz, Podóloga Especialista resolviendo tus dudas y aliviando tus pies desde $35. Desde uñas encarnadas hasta pie diabético, aquí respondemos las preguntas más comunes que nos hacen en La Florida. ¿Listo para caminar sin preocupaciones? Sigue leyendo, ¡esto es para ti! 😎
           </p>
 
           {/* Meta información */}
@@ -140,7 +140,7 @@ export default function FAQPodologiaDomicilioQuitoPage() {
           <h2>Las Preguntas que Todos se Hacen</h2>
           <p>Aquí van las dudas más comunes que nos llegan por WhatsApp (+593 995 832 788). ¡Vamos a resolverlas!</p>
           <h3>¿Cuánto Cuesta una Consulta de Podología a Domicilio en Quito?</h3>
-          <p>Por solo $15, tu primera consulta con Podoclinicec incluye evaluación completa y tratamiento. Ya sea un uñero, pie diabético o chequeo para runners, te damos un servicio top en La Florida. ¡Y sin costos escondidos! Escribe al +593 995 832 788 para agendar en un toque.</p>
+          <p>Desde $35, tu primera consulta a domicilio con Podoclinicec incluye evaluación completa y tratamiento. Ya sea un uñero, pie diabético o chequeo para runners, te damos un servicio top en La Florida. ¡Y sin costos escondidos! Escribe al +593 995 832 788 para agendar en un toque.</p>
           <h3>¿Es Seguro el Servicio a Domicilio?</h3>
           <p>¡Claro que sí! Usamos equipos 100% esterilizados y seguimos protocolos de bioseguridad estrictos. Cristina Muñoz llega a tu casa en Quito norte con todo listo para cuidarte, como si estuvieras en una clínica, pero con la comodidad de tu sofá.</p>
           <h3>¿Qué Problemas Trata un Podólogo a Domicilio?</h3>
@@ -166,7 +166,7 @@ export default function FAQPodologiaDomicilioQuitoPage() {
           <ul>
             <li><strong>Cercanía:</strong> Estamos en La Florida, entendemos Quito norte.</li>
             <li><strong>Expertise:</strong> Cristina Muñoz es especialista en uñas encarnadas, pie diabético y podología deportiva.</li>
-            <li><strong>Precio:</strong> $15 por la primera consulta, con evaluación gratis.</li>
+            <li><strong>Precio:</strong> servicios a partir de $15, con evaluación gratis.</li>
             <li><strong>Confianza:</strong> Equipos esterilizados y un trato que te hace sentir en casa.</li>
           </ul>
           <h2>¿Y si Tienes Más Dudas?</h2>

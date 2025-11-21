@@ -32,7 +32,7 @@ const medicalConditionSchema = {
       },
       "telephone": "+593995832788"
     },
-    "priceRange": "$15 primera consulta"
+    "priceRange": "desde $35 primera consulta"
   }
 };
 
@@ -45,7 +45,7 @@ const faqSchema = {
       "name": "¿Cómo prevenir el pie diabético en casa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Revisa tus pies diario, usa calzado cómodo y mantén la piel hidratada. Para un cuidado experto, agenda con Podoclinicec por $15."
+        "text": "Revisa tus pies diario, usa calzado cómodo y mantén la piel hidratada. Para un cuidado experto, agenda con Podoclinicec a domicilio desde $35."
       }
     },
     {
@@ -53,7 +53,7 @@ const faqSchema = {
       "name": "¿Cuánto cuesta una consulta para pie diabético en Quito?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En Podoclinicec, la primera consulta es solo $15, con evaluación y tratamiento. Escribe al +593995832788."
+        "text": "En Podoclinicec, la primera consulta a domicilio es desde $35, con evaluación y tratamiento. Escribe al +593995832788."
       }
     },
     {
@@ -128,8 +128,8 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
           </h1>
 
           {/* Excerpt */}
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            ¿Sabías que el pie diabético es más común de lo que crees en Quito? ¡Te cuento una experiencia que puede cambiarte la vida! Con un 7.8% de personas con diabetes en nuestra ciudad, cuidar tus pies es clave para evitar complicaciones como úlceras o infecciones. En Podoclinicec, Cristina Muñoz, Podóloga Especialista lleva el cuidado profesional a tu casa en Quito norte, ¡y por solo $15! ¿Quieres aprender a prevenir el pie diabético y caminar sin preocupaciones? Sigue leyendo, ¡esto es para ti! 😎
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              ¿Sabías que el pie diabético es más común de lo que crees en Quito? ¡Te cuento una experiencia que puede cambiarte la vida! Con un 7.8% de personas con diabetes en nuestra ciudad, cuidar tus pies es clave para evitar complicaciones como úlceras o infecciones. En Podoclinicec, Cristina Muñoz, Podóloga Especialista lleva el cuidado profesional a tu casa en Quito norte, ¡y desde $35! ¿Quieres aprender a prevenir el pie diabético y caminar sin preocupaciones? Sigue leyendo, ¡esto es para ti! 😎
           </p>
 
           {/* Meta información */}
@@ -167,7 +167,7 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
           </ul>
           <p>¿Y si necesitas ayuda? Ahí entra Podoclinicec con un servicio que te va a encantar.</p>
           <h2>Podología a Domicilio con Podoclinicec: Tu Solución en Quito Norte</h2>
-          <p>Imagina esto: estás en tu casa en La Florida, y Cristina Muñoz, Podóloga Especialista llega con su equipo esterilizado para cuidar tus pies. Por solo $15, tu primera consulta incluye:</p>
+          <p>Imagina esto: estás en tu casa en La Florida, y Cristina Muñoz, Podóloga Especialista llega con su equipo esterilizado para cuidar tus pies. Desde $35, tu primera consulta a domicilio incluye:</p>
           <ul>
             <li>Evaluación completa para detectar riesgos de pie diabético.</li>
             <li>Tratamiento preventivo (corte de uñas, cuidado de callos).</li>
@@ -179,14 +179,14 @@ export default function GuiaPrevenirPieDiabeticoQuitoPage() {
           <ul>
             <li><strong>A domicilio:</strong> Cuidamos tus pies en tu casa, ideal para diabéticos con movilidad limitada.</li>
             <li><strong>Expertise:</strong> Cristina Muñoz ofrece tratamientos especializados para prevención de pie diabético, uñas encarnadas y podología deportiva.</li>
-            <li><strong>Precio accesible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
+            <li><strong>Precio accesible:</strong> servicios a partir de $15, con evaluación gratis.</li>
             <li><strong>Confianza:</strong> Equipos esterilizados y protocolos de bioseguridad al 100%.</li>
           </ul>
           <p>Hemos ayudado a pacientes diabéticos a evitar complicaciones y a runners de Quito 15K a mantener sus pies en forma. ¿Listo para unirte?</p>
           <h2>Preguntas Frecuentes sobre el Pie Diabético</h2>
           <ul>
-            <li><strong>¿Cómo prevenir el pie diabético en casa?</strong> Revisa tus pies diario, usa calzado cómodo y mantén la piel hidratada. Para un cuidado experto, agenda con Podoclinicec por $15.</li>
-            <li><strong>¿Cuánto cuesta una consulta para pie diabético en Quito?</strong> En Podoclinicec, la primera consulta es solo $15, con evaluación y tratamiento. ¡Escribe al +593 995 832 788!</li>
+            <li><strong>¿Cómo prevenir el pie diabético en casa?</strong> Revisa tus pies diario, usa calzado cómodo y mantén la piel hidratada. Para un cuidado experto, agenda con Podoclinicec a domicilio desde $35.</li>
+            <li><strong>¿Cuánto cuesta una consulta para pie diabético en Quito?</strong> En Podoclinicec, la primera consulta a domicilio es desde $35, con evaluación y tratamiento. ¡Escribe al +593 995 832 788!</li>
             <li><strong>¿Es seguro el servicio a domicilio?</strong> ¡Claro! Usamos equipos esterilizados y seguimos protocolos estrictos en La Florida y Quito norte.</li>
             <li><strong>¿Quiénes necesitan un podólogo para pie diabético?</strong> Cualquier persona con diabetes, especialmente si notas heridas, rojez o pérdida de sensibilidad.</li>
             <li><strong>¿Cubren todo Quito norte?</strong> Sí, llegamos a La Florida, Carcelén, Cumbayá y más. Pregunta por tu zona: +593 995 832 788.</li>

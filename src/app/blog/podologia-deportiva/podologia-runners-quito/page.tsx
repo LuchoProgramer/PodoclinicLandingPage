@@ -6,7 +6,7 @@ const localBusinessSchema = {
   "@id": "https://podoclinicec.com/blog/podologia-deportiva/podologia-runners-quito",
   "url": "https://podoclinicec.com/blog/podologia-deportiva/podologia-runners-quito",
   "telephone": "+593995832788",
-  "priceRange": "$15 primera consulta",
+  "priceRange": "desde $35 primera consulta",
   "description": "Podología deportiva a domicilio en Quito norte con Cristina Muñoz, Podóloga Especialista, especialista en runners, uñas encarnadas y pie diabético.",
   "address": {
     "@type": "PostalAddress",
@@ -107,7 +107,7 @@ const sportsActivitySchema = {
   },
   "telephone": "+593995832788",
   "description": "Podología deportiva a domicilio en Quito norte con Cristina Muñoz, Podóloga Especialista, especialista en runners, uñas encarnadas y pie diabético.",
-  "priceRange": "$15 primera consulta"
+  "priceRange": "desde $35 primera consulta"
 };
 
 const faqSchema = {
@@ -119,7 +119,7 @@ const faqSchema = {
       "name": "¿Cómo evitar uñas encarnadas al correr?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Corta las uñas recto, usa zapatillas con espacio y revisa tus pies. En Podoclinicec, tratamos uñeros por $15."
+        "text": "Corta las uñas recto, usa zapatillas con espacio y revisa tus pies. En Podoclinicec, tratamos uñeros a domicilio desde $35."
       }
     },
     {
@@ -127,7 +127,7 @@ const faqSchema = {
       "name": "¿Cuánto cuesta una consulta para runners en Quito?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La primera consulta es solo $15, con evaluación biomecánica. Escribe al +593995832788."
+        "text": "La primera consulta a domicilio es desde $35, con evaluación biomecánica. Escribe al +593995832788."
       }
     },
     {
@@ -259,7 +259,7 @@ export default function PodologiaRunnersQuitoPage() {
             </ul>
             <p>¿Te suena? Un podólogo especializado es tu boleto para seguir corriendo.</p>
             <h2>Cómo Podoclinicec Cuida tus Pies de Runner</h2>
-            <p>En Podoclinicec, llevamos la podología deportiva a tu casa en Quito norte. Cristina Muñoz, Podóloga Especialista, experta en runners, te ayuda a prevenir y tratar problemas para que no pares. Por solo $15, tu primera consulta incluye:</p>
+            <p>En Podoclinicec, llevamos la podología deportiva a tu casa en Quito norte. Cristina Muñoz, Podóloga Especialista, experta en runners, te ayuda a prevenir y tratar problemas para que no pares. Desde $35, tu primera consulta a domicilio incluye:</p>
             <ul>
               <li>Evaluación biomecánica para ver cómo pisas.</li>
               <li>Tratamiento de uñeros, callos o fascitis (sin dolor).</li>
@@ -280,14 +280,14 @@ export default function PodologiaRunnersQuitoPage() {
             <ul>
               <li><strong>A domicilio:</strong> Cuidamos tus pies en tu casa, sin interrumpir tu rutina.</li>
               <li><strong>Expertise:</strong> Cristina Muñoz es especialista en podología deportiva, uñas encarnadas y pie diabético.</li>
-              <li><strong>Precio imbatible:</strong> $15 por la primera consulta, con evaluación gratis.</li>
+              <li><strong>Precio imbatible:</strong> servicios a partir de $15, con evaluación gratis.</li>
               <li><strong>Confianza:</strong> Equipos esterilizados y protocolos de bioseguridad al 100%.</li>
             </ul>
             <p>Hemos ayudado a runners de Quito 15K a volver a la pista sin dolor y a principiantes a correr su primera 5K. ¿Listo para ser el próximo?</p>
             <h2>Preguntas Frecuentes sobre Podología para Runners</h2>
             <ul>
-              <li><strong>¿Cómo evitar uñas encarnadas al correr?</strong> Corta las uñas recto, usa zapatillas con espacio y revisa tus pies. En Podoclinicec, tratamos uñeros por $15.</li>
-              <li><strong>¿Cuánto cuesta una consulta para runners en Quito?</strong> La primera consulta es solo $15, con evaluación biomecánica. ¡Escribe al +593 995 832 788!</li>
+              <li><strong>¿Cómo evitar uñas encarnadas al correr?</strong> Corta las uñas recto, usa zapatillas con espacio y revisa tus pies. En Podoclinicec, tratamos uñeros a domicilio desde $35.</li>
+              <li><strong>¿Cuánto cuesta una consulta para runners en Quito?</strong> La primera consulta a domicilio es desde $35, con evaluación biomecánica. ¡Escribe al +593 995 832 788!</li>
               <li><strong>¿Es seguro el servicio a domicilio?</strong> ¡Claro! Usamos equipos esterilizados y protocolos estrictos en La Florida y Quito norte.</li>
               <li><strong>¿Qué problemas tratan para runners?</strong> Uñas encarnadas, fascitis, callos, y más. Perfecto para Quito 15K o entrenamientos diarios.</li>
               <li><strong>¿Cubren todo Quito norte?</strong> Sí, llegamos a La Florida, Carcelén, Cumbayá y más. Pregunta por tu zona: +593 995 832 788.</li>

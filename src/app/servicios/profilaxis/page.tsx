@@ -11,7 +11,7 @@ import { Sparkles, CheckCircle, Calendar, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Profilaxis Podal Quito Norte | Cristina Muñoz, Podóloga Especialista - Podoclinicec",
-  description: "🏥 Profilaxis podal en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Cristina Muñoz, Podóloga Especialista. Limpieza profunda, corte de uñas y cuidado integral desde $35.",
+  description: "🏥 Profilaxis podal en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Cristina Muñoz, Podóloga Especialista. Limpieza profunda, corte de uñas y cuidado integral - servicios a partir de $20.",
   keywords: "profilaxis podal quito norte, limpieza pies, corte uñas, cuidado pies, podólogo quito norte",
   openGraph: {
     title: "Profilaxis Podal Quito Norte | Cristina Muñoz, Podóloga Especialista",

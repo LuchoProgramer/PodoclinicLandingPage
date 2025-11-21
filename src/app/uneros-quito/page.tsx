@@ -184,7 +184,7 @@ export default function UnerosQuitoPage() {
                   </div>
 
                   <div className="mt-6 text-center">
-                    <div className="text-3xl font-bold text-[#60BEC3] mb-1">$35</div>
+                    <div className="text-lg font-bold text-[#60BEC3] mb-1">Servicios a partir de $35</div>
                     <div className="text-sm text-gray-600">Tratamiento a domicilio</div>
                   </div>
                   

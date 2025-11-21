@@ -10,7 +10,7 @@ import { Stethoscope, CheckCircle, Calendar, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tratamiento de Hongos Quito Norte | Cristina Muñoz - Podoclinicec",
-  description: "🏥 Tratamiento de hongos en uñas y pies en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Cristina Muñoz. Resultados efectivos desde $35.",
+  description: "🏥 Tratamiento de hongos en uñas y pies en Quito Norte. ⭐ 13 reseñas Google 5 estrellas. Cristina Muñoz. Resultados efectivos - servicios a partir de $20.",
   keywords: "hongos uñas quito norte, tratamiento hongos pies, onicomicosis, podólogo hongos",
   openGraph: {
     title: "Tratamiento de Hongos Quito Norte | Cristina Muñoz",

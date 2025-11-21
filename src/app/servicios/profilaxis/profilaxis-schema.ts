@@ -20,7 +20,7 @@ const profilaxisServiceSchema = {
   },
   "areaServed": "Quito Norte",
   "description": "Profilaxis podal profesional: limpieza profunda, corte anatómico de uñas, eliminación de callosidades y masoterapia. Atención por Cristina Muñoz, Podóloga Especialista.",
-  "priceRange": "$35+",
+  "priceRange": "servicios a partir de $20",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Servicios Podológicos",

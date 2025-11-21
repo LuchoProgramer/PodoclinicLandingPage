@@ -106,7 +106,7 @@ export default function ExitIntentPopup() {
             </div>
             <div className="text-lg">
               <span className="text-blue-800 font-semibold">Consulta especializada + Evaluación completa</span>
-              <span className="text-sm text-gray-600 block">Atención a domicilio disponible - $35</span>
+              <span className="text-sm text-gray-600 block">Atención a domicilio - servicios a partir de $35</span>
             </div>
           </div>
 

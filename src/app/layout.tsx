@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 export const metadata: Metadata = {
   metadataBase: new URL('https://podoclinicec.com'),
   title: "Podólogo a Domicilio Quito Norte | Cristina Muñoz - Podoclinicec",
-  description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz: uñeros, pie diabético, hongos. Desde $35. Cobertura 8km.",
+  description: "Podólogo especialista a domicilio en Quito Norte. 13 reseñas Google 5 estrellas. Cristina Muñoz: uñeros, pie diabético, hongos. Servicios a partir de $35. Cobertura 8km.",
   robots: "index, follow",
   keywords: [
     "podólogo quito norte",
