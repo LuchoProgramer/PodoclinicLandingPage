@@ -16,7 +16,7 @@ export default function LocationHub() {
     const contactInfo = {
         address: "Manuel Jordan y Av La Florida, Quito",
         phone: "+593 995 832 788",
-        email: "info@podoclinic.ec",
+        email: "podoclinic.cm@gmail.com",
         hours: {
             weekdays: "Lunes - Viernes: 8:00 - 18:00",
             weekend: "Sábado: 8:00 - 14:00",

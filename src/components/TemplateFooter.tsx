@@ -244,20 +244,20 @@ export function TemplateFooter() {
                         <ul className="space-y-2 text-sm">
                             <li>
                                 <Link 
-                                    href="/privacidad" 
+                                    href="/faq" 
                                     className="text-gray-300 hover:text-white transition-colors"
-                                    onClick={() => handleFooterLinkClick("Privacidad")}
+                                    onClick={() => handleFooterLinkClick("FAQ")}
                                 >
-                                    Política de Privacidad
+                                    Preguntas Frecuentes
                                 </Link>
                             </li>
                             <li>
                                 <Link 
-                                    href="/terminos" 
+                                    href="/servicios" 
                                     className="text-gray-300 hover:text-white transition-colors"
-                                    onClick={() => handleFooterLinkClick("Términos")}
+                                    onClick={() => handleFooterLinkClick("Servicios")}
                                 >
-                                    Términos y Condiciones
+                                    Nuestros Servicios
                                 </Link>
                             </li>
                         </ul>

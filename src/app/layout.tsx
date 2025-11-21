@@ -165,7 +165,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     "longitude": "-78.4678"
                   },
                   "telephone": "+593995832788",
-                  "email": "contacto@podoclinicec.com",
+                  "email": "podoclinic.cm@gmail.com",
                   "openingHours": "Mo-Fr 08:00-18:00",
                   "serviceArea": {
                     "@type": "GeoCircle",

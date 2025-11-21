@@ -137,7 +137,7 @@ class StaticDataSource implements DataSource {
         keywords: ["podología", "quito", "pie diabético", "uñeros"],
         contact: {
           phone: "+593995832788",
-          email: "contacto@podoclinic.ec",
+          email: "podoclinic.cm@gmail.com",
           whatsapp: "https://wa.me/593995832788"
         }
       };

@@ -89,7 +89,7 @@ const businessSchema = {
       "addressCountry": "EC"
     },
     "telephone": "+593995832788",
-    "email": "info@podoclinicec.com",
+    "email": "podoclinic.cm@gmail.com",
     "openingHours": [
       "Mo-Fr 08:00-18:00",
       "Sa 08:00-14:00"

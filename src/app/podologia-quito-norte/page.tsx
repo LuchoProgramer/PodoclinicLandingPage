@@ -41,7 +41,7 @@ const localBusinessSchema = {
   "description": "Clínica de podología especializada en Quito Norte. Atención en La Florida, Iñaquito, Rumipamba y sectores aledaños.",
   "url": "https://podoclinicec.com/podologia-quito-norte",
   "telephone": "+593995832788",
-  "email": "info@podoclinicec.com",
+  "email": "podoclinic.cm@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Manuel Jordan y Av La Florida",

@@ -46,11 +46,11 @@ export function Footer() {
                             <div className="flex items-center text-gray-300">
                                 <Mail className="w-4 h-4 mr-2 text-[#60BEC3]" />
                                 <a 
-                                    href="mailto:contacto@podoclinicec.com" 
+                                    href="mailto:podoclinic.cm@gmail.com" 
                                     className="hover:text-[#60BEC3] transition-colors"
                                     onClick={() => handleFooterLinkClick("Email")}
                                 >
-                                    contacto@podoclinicec.com
+                                    podoclinic.cm@gmail.com
                                 </a>
                             </div>
                             
