@@ -171,7 +171,7 @@ export default function Hero() {
                         </a>
 
                         <a
-                            href="/podologo-la-floresta"
+                            href="/podologia-quito-norte"
                             className="group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg p-3 sm:p-4 hover:border-[#60BEC3] hover:shadow-lg transition-all duration-300 min-h-[80px] sm:min-h-[100px] flex flex-col justify-center"
                             onClick={() => {
                                 if (typeof window !== "undefined" && window.gtag) {
