@@ -8,9 +8,9 @@
   @apply text-gray-800 leading-relaxed;
 }
 
-/* Encabezados */
+/* Encabezados - El H1 principal está en el header, los H1 dentro del contenido son secundarios */
 .cms-content h1 {
-  @apply text-4xl font-bold text-gray-900 mb-6 mt-8 leading-tight;
+  @apply text-3xl font-bold text-gray-900 mb-6 mt-8 leading-tight;
   @apply border-b-2 border-[#60BEC3] pb-3;
 }
 
@@ -140,16 +140,30 @@
 }
 
 /* Imágenes */
-.cms-content img {
-  @apply max-w-full h-auto rounded-lg shadow-md my-6 mx-auto;
+.cms-content img,
+.cms-content .img-fluid {
+  @apply max-w-full h-auto rounded-lg shadow-md my-6 mx-auto block;
+}
+
+.cms-content img[loading="lazy"] {
+  @apply transition-opacity duration-300;
 }
 
 .cms-content figure {
-  @apply mb-6;
+  @apply mb-6 text-center;
 }
 
 .cms-content figcaption {
   @apply text-sm text-gray-600 text-center mt-2 italic;
+}
+
+/* Contenedor de imagen con mejor aspecto */
+.cms-content .image-container {
+  @apply relative w-full mb-6 rounded-lg overflow-hidden shadow-lg;
+}
+
+.cms-content .image-container img {
+  @apply w-full h-auto object-cover my-0;
 }
 
 /* Líneas horizontales */

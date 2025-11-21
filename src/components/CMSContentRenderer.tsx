@@ -6,8 +6,9 @@
 'use client';
 
 import { BlogPost } from '@/types';
-import { CheckCircle, AlertTriangle, Info, Lightbulb, Heart } from 'lucide-react';
+import { CheckCircle, AlertTriangle, Info, Lightbulb, Heart, Calendar, Clock, User } from 'lucide-react';
 import { processHTMLContent } from '@/utils/content-processor';
+import Image from 'next/image';
 import '@/styles/blog-content.css';
 
 interface CMSContentRendererProps {
@@ -130,6 +131,55 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
     return (
       <div className="prose prose-lg max-w-none">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          {/* Header del post con título H1 y metadatos */}
+          <header className="mb-8 border-b border-gray-200 pb-8">
+            {/* Título principal como H1 */}
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              {post.title}
+            </h1>
+            
+            {/* Imagen destacada */}
+            {post.image && (
+              <div className="relative w-full h-64 md:h-96 mb-6 rounded-xl overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
+            
+            {/* Metadatos del artículo */}
+            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
+              <div className="flex items-center">
+                <User className="w-4 h-4 mr-2 text-[#60BEC3]" />
+                <span>{post.author || 'Cristina Muñoz'}</span>
+              </div>
+              
+              <div className="flex items-center">
+                <Calendar className="w-4 h-4 mr-2 text-[#60BEC3]" />
+                <time dateTime={post.publishDate}>
+                  {new Date(post.publishDate).toLocaleDateString('es-EC', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+              </div>
+              
+              {post.readTime && (
+                <div className="flex items-center">
+                  <Clock className="w-4 h-4 mr-2 text-[#60BEC3]" />
+                  <span>{post.readTime} de lectura</span>
+                </div>
+              )}
+            </div>
+        </header>
+          
+          {/* Contenido principal del CMS */}
           <div 
             className="cms-content"
             dangerouslySetInnerHTML={{ __html: processedContent }}
@@ -335,6 +385,55 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
   return (
     <div className="prose prose-lg max-w-none">
       <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        {/* Header del post con título H1 y metadatos */}
+        <header className="mb-8 border-b border-gray-200 pb-8">
+          {/* Título principal como H1 */}
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            {post.title}
+          </h1>
+          
+          {/* Imagen destacada */}
+          {post.image && (
+            <div className="relative w-full h-64 md:h-96 mb-6 rounded-xl overflow-hidden">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
+          
+          {/* Metadatos del artículo */}
+          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
+            <div className="flex items-center">
+              <User className="w-4 h-4 mr-2 text-[#60BEC3]" />
+              <span>{post.author || 'Cristina Muñoz'}</span>
+            </div>
+            
+            <div className="flex items-center">
+              <Calendar className="w-4 h-4 mr-2 text-[#60BEC3]" />
+              <time dateTime={post.publishDate}>
+                {new Date(post.publishDate).toLocaleDateString('es-EC', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </div>
+            
+            {post.readTime && (
+              <div className="flex items-center">
+                <Clock className="w-4 h-4 mr-2 text-[#60BEC3]" />
+                <span>{post.readTime} de lectura</span>
+              </div>
+            )}
+          </div>
+        </header>
+        
+        {/* Contenido generado por defecto */}
         {renderDefaultContent()}
       </div>
     </div>

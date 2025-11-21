@@ -147,6 +147,62 @@ export function processVideoEmbeds(content: string): string {
 }
 
 /**
+ * Procesa imágenes en el contenido para asegurar compatibilidad
+ */
+export function processImages(content: string): string {
+  let processedContent = content;
+  
+  // Agregar loading="lazy" a las imágenes que no lo tengan
+  processedContent = processedContent.replace(
+    /<img([^>]*?)(?<!loading=["'][^"']*["'])\s*>/gi,
+    '<img$1 loading="lazy">'
+  );
+  
+  // Agregar clase responsiva a todas las imágenes
+  processedContent = processedContent.replace(
+    /<img([^>]*?)(?<!class=["'][^"']*["'])\s*>/gi,
+    '<img$1 class="img-fluid">'
+  );
+  
+  // Si ya tiene class, agregar img-fluid si no está presente
+  processedContent = processedContent.replace(
+    /<img([^>]*)class=["']([^"']*?)["']([^>]*?)>/gi,
+    (match, before, classes, after) => {
+      if (!classes.includes('img-fluid')) {
+        return `<img${before}class="${classes} img-fluid"${after}>`;
+      }
+      return match;
+    }
+  );
+  
+  return processedContent;
+}
+
+/**
+ * Procesa enlaces para abrir externos en nueva pestaña
+ */
+export function processExternalLinks(content: string): string {
+  let processedContent = content;
+  
+  // Agregar target="_blank" y rel="noopener noreferrer" a enlaces externos
+  processedContent = processedContent.replace(
+    /<a([^>]*?)href=["'](https?:\/\/[^"']+)["']([^>]*?)>/gi,
+    (match, before, url, after) => {
+      // Verificar si es un enlace externo (no es del mismo dominio)
+      if (!url.includes('podoclinicec.com') && !url.includes('localhost')) {
+        // Verificar si ya tiene target
+        if (!match.includes('target=')) {
+          return `<a${before}href="${url}"${after} target="_blank" rel="noopener noreferrer">`;
+        }
+      }
+      return match;
+    }
+  );
+  
+  return processedContent;
+}
+
+/**
  * Sanitiza y procesa contenido HTML completo
  */
 export function processHTMLContent(content: string): string {
@@ -155,8 +211,11 @@ export function processHTMLContent(content: string): string {
   // Procesar embeds de video
   let processedContent = processVideoEmbeds(content);
   
-  // Aquí puedes agregar más procesamiento si es necesario
-  // Por ejemplo: lazy loading de imágenes, enlaces externos con target="_blank", etc.
+  // Procesar imágenes
+  processedContent = processImages(processedContent);
+  
+  // Procesar enlaces externos
+  processedContent = processExternalLinks(processedContent);
   
   return processedContent;
 }

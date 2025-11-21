@@ -3,11 +3,24 @@ const nextConfig = {
     reactStrictMode: true,
     trailingSlash: true, // 🔹 Asegura que las URLs terminen con "/"
     images: {
-        // ✅ Configuración para imágenes optimizadas
-        domains: [
-            'res.cloudinary.com', // Cloudinary para CMS
-            'pukapresscms.vercel.app', // CMS directo
-            'podoclinicec.com' // Dominio propio
+        // ✅ Configuración para imágenes optimizadas con remotePatterns
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'pukapresscms.vercel.app',
+            },
+            {
+                protocol: 'https',
+                hostname: 'podoclinicec.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.clinicaplanas.com',
+            },
         ],
         deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
         imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
