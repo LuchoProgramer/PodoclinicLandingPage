@@ -10,8 +10,8 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowRight, Star, User } from "lucide-react";
 import { BlogPost, BlogCategory } from '@/types';
 import { BlogImage } from '@/components/OptimizedImage';
-import { 
-  getFeaturedPosts, 
+import {
+  getFeaturedPosts,
   getRecentPosts,
   hybridBlogService
 } from '@/lib/hybrid-blog-service';
@@ -40,25 +40,25 @@ export default function HybridBlogContent() {
   useEffect(() => {
     async function loadBlogData() {
       setIsLoading(true);
-      
+
       try {
         console.log('🔍 Iniciando carga de datos del blog...');
-        
+
         // Cargar todos los posts
         const allPosts = await hybridBlogService.getAllPosts();
-        
+
         // Separar posts del CMS
         const cmsOnlyPosts = allPosts.filter(post => post.isCMSPost);
         const hardcodedOnlyPosts = allPosts.filter(post => !post.isCMSPost);
-        
+
         // Posts destacados (solo hardcoded)
         const featured = hardcodedOnlyPosts.filter(post => post.featured);
-        
+
         // Posts recientes (solo hardcoded, excluyendo los ya destacados)
         const recent = hardcodedOnlyPosts
           .filter(post => !post.featured)
           .slice(0, 6);
-        
+
         const blogStats = await hybridBlogService.getPostStats();
 
         console.log('📊 Datos cargados:', {
@@ -72,7 +72,7 @@ export default function HybridBlogContent() {
         setRecentPosts(recent);
         setCMSPosts(cmsOnlyPosts);
         setStats(blogStats);
-        
+
       } catch (error) {
         console.error('❌ Error loading blog data:', error);
       } finally {
@@ -109,21 +109,19 @@ export default function HybridBlogContent() {
               Blog <span className="text-[#60BEC3]">Podológico</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Consejos profesionales, tratamientos especializados y todo lo que necesitas 
+              Consejos profesionales, tratamientos especializados y todo lo que necesitas
               saber sobre el cuidado de tus pies por <strong>Cristina Muñoz, Podóloga Especialista</strong>
             </p>
-            
+
             {/* Indicador del sistema híbrido mejorado */}
-            <div className={`mt-6 inline-flex items-center px-4 py-2 rounded-full text-sm ${
-              stats.cmsAvailable 
+            <div className={`mt-6 inline-flex items-center px-4 py-2 rounded-full text-sm ${stats.cmsAvailable
                 ? 'bg-green-50 text-green-700 border border-green-200'
                 : 'bg-gray-50 text-gray-700 border border-gray-200'
-            }`}>
-              <div className={`w-2 h-2 rounded-full mr-2 ${
-                stats.cmsAvailable ? 'bg-green-500' : 'bg-gray-400'
-              }`}></div>
-              
-              {stats.cmsAvailable 
+              }`}>
+              <div className={`w-2 h-2 rounded-full mr-2 ${stats.cmsAvailable ? 'bg-green-500' : 'bg-gray-400'
+                }`}></div>
+
+              {stats.cmsAvailable
                 ? `Sistema híbrido activo: ${stats.hardcoded} posts locales + ${stats.cms} posts CMS`
                 : `Mostrando ${stats.total} artículos (solo contenido local)`
               }
@@ -164,7 +162,7 @@ export default function HybridBlogContent() {
                 </span>
                 <span className="font-bold text-lg">ARTÍCULOS EN VIVO</span>
               </div>
-              
+
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
                 Últimos Artículos del <span className="text-green-600">CMS</span>
               </h2>
@@ -175,8 +173,8 @@ export default function HybridBlogContent() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {cmsPosts.map((post) => (
-                <article 
-                  key={post.id} 
+                <article
+                  key={post.id}
                   className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group border-2 border-green-200 hover:border-green-400 relative"
                 >
                   {/* Badge EN VIVO */}
@@ -205,7 +203,7 @@ export default function HybridBlogContent() {
                         <div className="text-white text-center">
                           <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/30 flex items-center justify-center">
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                              <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
                             </svg>
                           </div>
                           <p className="text-sm font-semibold">{post.category}</p>
@@ -254,7 +252,7 @@ export default function HybridBlogContent() {
                     </div>
 
                     {/* Botón de leer más */}
-                    <Link 
+                    <Link
                       href={`/blog/${post.category}/${post.slug}`}
                       className="mt-4 w-full inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-blue-500 text-white px-4 py-2.5 rounded-xl font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
                     >
@@ -309,7 +307,7 @@ export default function HybridBlogContent() {
                       <div className="text-white text-center relative z-10">
                         <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center">
                           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                            <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
                           </svg>
                         </div>
                         <h3 className="text-lg font-semibold mb-2">Artículo Especializado</h3>
@@ -348,7 +346,7 @@ export default function HybridBlogContent() {
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <Link 
+                    <Link
                       href={`/blog/${post.category}/${post.slug}`}
                       className="inline-flex items-center text-[#60BEC3] font-semibold hover:text-[#4A9DB8] transition-colors"
                     >
@@ -380,27 +378,27 @@ export default function HybridBlogContent() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((category) => (
-              <Link 
+              <Link
                 key={category.id}
                 href={`/blog/${category.id}`}
                 className="group"
               >
                 <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-gray-100">
                   <div className="text-center">
-                    <div 
+                    <div
                       className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
                       style={{ backgroundColor: `${category.color || '#60BEC3'}20` }}
                     >
-                      <div 
+                      <div
                         className="w-8 h-8 rounded"
                         style={{ backgroundColor: category.color || '#60BEC3' }}
                       ></div>
                     </div>
-                    
+
                     <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#60BEC3] transition-colors">
                       {category.name}
                     </h3>
-                    
+
                     <p className="text-sm text-gray-600 mb-4">
                       {category.description}
                     </p>
@@ -445,7 +443,7 @@ export default function HybridBlogContent() {
                     <div className="text-center relative z-10">
                       <div className="w-8 h-8 mx-auto mb-2 rounded-full bg-[#60BEC3]/20 flex items-center justify-center">
                         <svg className="w-4 h-4 text-[#60BEC3]" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                          <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
                         </svg>
                       </div>
                       <span className="text-[#60BEC3] text-sm font-medium">{post.category}</span>
@@ -474,7 +472,7 @@ export default function HybridBlogContent() {
                     {post.excerpt}
                   </p>
 
-                  <Link 
+                  <Link
                     href={`/blog/${post.category}/${post.slug}`}
                     className="inline-flex items-center text-[#60BEC3] font-semibold text-sm hover:text-[#4A9DB8] transition-colors"
                   >
@@ -495,8 +493,8 @@ export default function HybridBlogContent() {
             ¿Necesitas Consulta Personalizada?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-              Después de leer nuestros artículos, consulta directamente con Cristina Muñoz, Podóloga
-            </p>          <a
+            Después de leer nuestros artículos, consulta directamente con Cristina Muñoz, Podóloga
+          </p>          <a
             href="https://wa.me/593995832788?text=¡Hola%20Cristina!%20He%20leído%20artículos%20en%20su%20blog%20y%20me%20gustaría%20una%20consulta%20personalizada"
             target="_blank"
             rel="noopener noreferrer"

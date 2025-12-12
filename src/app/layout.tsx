@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   keywords: [
     "podólogo quito norte",
-    "podología domicilio quito", 
+    "podología domicilio quito",
     "uñeros quito norte",
     "pie diabético quito",
     "hongos uñas quito",
@@ -44,6 +44,11 @@ export const metadata: Metadata = {
       "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png"
     ],
   },
+  icons: {
+    icon: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+    shortcut: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+    apple: "https://res.cloudinary.com/dbbukhtz5/image/upload/v1739392953/PODOCLINIC_LOGO_uerq9h.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -52,10 +57,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         {/* Facebook Domain Verification */}
         <meta name="facebook-domain-verification" content="ms0gw8rk4q2dih57znfb3d392zj3j0" />
-        
+
         {/* Content Security Policy for tracking scripts and CMS API */}
         <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://analytics.tiktok.com https://ads.tiktok.com https://www.clarity.ms https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.tiktok.com https://ads.tiktok.com https://connect.facebook.net https://www.clarity.ms https://pukapresscms.vercel.app; img-src 'self' data: https: https://www.facebook.com https://www.clarity.ms;" />
-        
+
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
@@ -83,7 +88,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('config', 'G-FHN5JGKH34');
           `}
         </Script>
-        
+
         {/* Facebook Pixel */}
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
@@ -100,14 +105,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           `}
         </Script>
         <noscript>
-          <img 
-            height="1" 
-            width="1" 
-            style={{display: 'none'}}
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
             src="https://www.facebook.com/tr?id=827077656519595&ev=PageView&noscript=1"
           />
         </noscript>
-        
+
         {/* TikTok Pixel */}
         <Script id="tiktok-pixel" strategy="afterInteractive">
           {`

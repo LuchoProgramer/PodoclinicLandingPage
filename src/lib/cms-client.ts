@@ -36,7 +36,7 @@ class PodoclinicCMSClient {
   async getAllBlogs(options: { limit?: number } = {}): Promise<CMSResponse> {
     const { limit } = options;
     let url = `${this.baseUrl}/api/blogs?tenant=${this.tenantId}`;
-    
+
     if (limit) {
       url += `&limit=${limit}`;
     }
@@ -45,11 +45,11 @@ class PodoclinicCMSClient {
       const response = await fetch(url, {
         next: { revalidate: 300 } // Revalidar cada 5 minutos
       });
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       return await response.json();
     } catch (error) {
       console.error('Error fetching blogs from CMS:', error);
@@ -63,11 +63,11 @@ class PodoclinicCMSClient {
         `${this.baseUrl}/api/blogs?tenant=${this.tenantId}&id=${blogId}`,
         { next: { revalidate: 300 } }
       );
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       return await response.json();
     } catch (error) {
       console.error('Error fetching blog by ID:', error);
@@ -99,8 +99,8 @@ class PodoclinicCMSClient {
     const category = this.mapCMSCategory(cmsPost.category);
 
     // Usar tags del CMS o tags por defecto de podología
-    const tags = cmsPost.tags && cmsPost.tags.length > 0 
-      ? cmsPost.tags 
+    const tags = cmsPost.tags && cmsPost.tags.length > 0
+      ? cmsPost.tags
       : ["podología", "salud", "pies"];
 
     return {
@@ -140,9 +140,21 @@ class PodoclinicCMSClient {
         case 'text':
           return block.content || '';
         case 'image':
-          return `![${block.alt || 'Imagen'}](${block.src})`;
+          // @ts-ignore
+          const imgSrc = block.src || block.url;
+          return `![${block.alt || 'Imagen'}](${imgSrc})`;
         case 'video':
-          return `<iframe src="${block.src}" width="100%" height="315" frameborder="0" allowfullscreen></iframe>`;
+          // @ts-ignore
+          const videoUrl = block.src || block.url;
+
+          if (videoUrl?.includes('tiktok')) {
+            const videoIdMatch = videoUrl.match(/video\/(\d+)/i);
+            const videoId = videoIdMatch ? videoIdMatch[1] : '';
+            if (!videoId) return '';
+            return `<blockquote class="tiktok-embed" cite="${videoUrl}" data-video-id="${videoId}" style="max-width: 605px;min-width: 325px;"><section><a target="_blank" href="${videoUrl}">Ver en TikTok</a></section></blockquote><script async src="https://www.tiktok.com/embed.js"></script>`;
+          }
+
+          return `<iframe src="${videoUrl}" width="100%" height="315" frameborder="0" allowfullscreen></iframe>`;
         default:
           return '';
       }
@@ -197,8 +209,8 @@ class PodoclinicCMSClient {
     } catch (error) {
       console.error('Error fetching categories:', error);
       // Fallback a categorías estáticas de PodoClinic
-      return { 
-        categories: ["uneros", "hongos", "pie-diabetico", "podologia-deportiva", "cuidado-preventivo"] 
+      return {
+        categories: ["uneros", "hongos", "pie-diabetico", "podologia-deportiva", "cuidado-preventivo"]
       };
     }
   }

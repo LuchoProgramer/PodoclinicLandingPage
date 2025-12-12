@@ -51,10 +51,10 @@ const ContentComponents = {
   ),
 
   // Caja de alerta/advertencia
-  AlertBox: ({ type, title, children }: { 
-    type: 'warning' | 'info' | 'success' | 'tip'; 
-    title: string; 
-    children: React.ReactNode 
+  AlertBox: ({ type, title, children }: {
+    type: 'warning' | 'info' | 'success' | 'tip';
+    title: string;
+    children: React.ReactNode
   }) => {
     const config = {
       warning: { bg: 'bg-red-50', border: 'border-red-500', text: 'text-red-800', icon: AlertTriangle },
@@ -122,12 +122,41 @@ const ContentComponents = {
   )
 };
 
+// Componente helper para cargar el script de TikTok
+// Esto es necesario porque los scripts dentro de dangerouslySetInnerHTML no se ejecutan
+const TikTokScriptLoader = ({ content }: { content: string }) => {
+  const { useEffect } = require('react');
+
+  useEffect(() => {
+    // Solo cargar si hay contenido de TikTok
+    if (content && content.includes('tiktok-embed')) {
+      const scriptId = 'tiktok-embed-script';
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = 'https://www.tiktok.com/embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+      } else {
+        // Si ya existe, forzar re-escaneo
+        // @ts-ignore
+        if (window.tiktok && window.tiktok.embed) {
+          // @ts-ignore
+          window.tiktok.embed.check();
+        }
+      }
+    }
+  }, [content]);
+
+  return null;
+};
+
 export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
   // Si el post tiene contenido personalizado, procesarlo y renderizarlo
   if (post.content && post.content.trim()) {
     // Procesar el contenido para convertir URLs de video en embeds
     const processedContent = processHTMLContent(post.content);
-    
+
     return (
       <div className="prose prose-lg max-w-none">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
@@ -137,7 +166,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               {post.title}
             </h1>
-            
+
             {/* Imagen destacada */}
             {post.image && (
               <div className="relative w-full h-64 md:h-96 mb-6 rounded-xl overflow-hidden">
@@ -151,14 +180,14 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
                 />
               </div>
             )}
-            
+
             {/* Metadatos del artículo */}
             <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
               <div className="flex items-center">
                 <User className="w-4 h-4 mr-2 text-[#60BEC3]" />
                 <span>{post.author || 'Cristina Muñoz'}</span>
               </div>
-              
+
               <div className="flex items-center">
                 <Calendar className="w-4 h-4 mr-2 text-[#60BEC3]" />
                 <time dateTime={post.publishDate}>
@@ -169,7 +198,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
                   })}
                 </time>
               </div>
-              
+
               {post.readTime && (
                 <div className="flex items-center">
                   <Clock className="w-4 h-4 mr-2 text-[#60BEC3]" />
@@ -177,13 +206,16 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
                 </div>
               )}
             </div>
-        </header>
-          
+          </header>
+
           {/* Contenido principal del CMS */}
-          <div 
+          <div
             className="cms-content"
             dangerouslySetInnerHTML={{ __html: processedContent }}
           />
+
+          {/* Script loader para TikTok embeds */}
+          <TikTokScriptLoader content={processedContent} />
         </div>
       </div>
     );
@@ -196,20 +228,20 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
         return (
           <>
             <ContentComponents.Introduction>
-              Los uñeros son una de las consultas más frecuentes en podología. 
-              En este artículo, Cristina Muñoz, Podóloga Especialista te explica todo lo que necesitas saber 
+              Los uñeros son una de las consultas más frecuentes en podología.
+              En este artículo, Cristina Muñoz, Podóloga Especialista te explica todo lo que necesitas saber
               sobre esta condición y cómo tratarla correctamente.
             </ContentComponents.Introduction>
 
             <ContentComponents.AlertBox type="warning" title="⚠️ Atención Inmediata">
-              Si presentas fiebre, pus abundante, líneas rojas que se extienden, 
+              Si presentas fiebre, pus abundante, líneas rojas que se extienden,
               dolor incapacitante o eres diabético, busca atención profesional inmediata.
             </ContentComponents.AlertBox>
 
             <ContentComponents.Section title="¿Qué son los Uñeros exactamente?">
               <p className="text-gray-700 mb-4">
-                Los uñeros, técnicamente llamados onicocriptosis, ocurren cuando el borde de la uña 
-                se curva y crece dentro de la piel circundante, causando dolor, inflamación y 
+                Los uñeros, técnicamente llamados onicocriptosis, ocurren cuando el borde de la uña
+                se curva y crece dentro de la piel circundante, causando dolor, inflamación y
                 potenciales infecciones.
               </p>
             </ContentComponents.Section>
@@ -250,7 +282,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
               ]} />
             </ContentComponents.Section>
 
-            <ContentComponents.CustomCTA 
+            <ContentComponents.CustomCTA
               title="¿Sufres de uñeros recurrentes?"
               description="Cristina Muñoz, Podóloga Especialista puede ayudarte con técnicas modernas y efectivas"
               buttonText="Consulta Especializada"
@@ -263,12 +295,12 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
         return (
           <>
             <ContentComponents.Introduction>
-              El cuidado de los pies en personas diabéticas es fundamental para prevenir 
+              El cuidado de los pies en personas diabéticas es fundamental para prevenir
               complicaciones graves. Cristina Muñoz, Podóloga Especialista te guía en este proceso esencial.
             </ContentComponents.Introduction>
 
             <ContentComponents.AlertBox type="info" title="💡 Dato Importante">
-              El 85% de las amputaciones relacionadas con diabetes se pueden prevenir 
+              El 85% de las amputaciones relacionadas con diabetes se pueden prevenir
               con cuidados podológicos adecuados y revisiones periódicas.
             </ContentComponents.AlertBox>
 
@@ -295,7 +327,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
               </ContentComponents.AlertBox>
             </ContentComponents.Section>
 
-            <ContentComponents.CustomCTA 
+            <ContentComponents.CustomCTA
               title="¿Eres diabético y necesitas evaluación podológica?"
               description="Programa tu revisión preventiva con Cristina Muñoz, Podóloga Especialista"
               buttonText="Agendar Evaluación Preventiva"
@@ -308,7 +340,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
         return (
           <>
             <ContentComponents.Introduction>
-              Los hongos en pies y uñas son más comunes de lo que piensas, especialmente 
+              Los hongos en pies y uñas son más comunes de lo que piensas, especialmente
               en el clima de Quito. Aprende a identificarlos y tratarlos correctamente.
             </ContentComponents.Introduction>
 
@@ -347,7 +379,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
               ]} />
             </ContentComponents.AlertBox>
 
-            <ContentComponents.CustomCTA 
+            <ContentComponents.CustomCTA
               title="¿Sospechas que tienes hongos en los pies?"
               description="Un diagnóstico temprano facilita el tratamiento. Consulta con la especialista."
               buttonText="Diagnóstico Profesional"
@@ -365,13 +397,13 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
 
             <ContentComponents.Section title="Información Profesional">
               <p className="text-gray-700">
-                Este artículo forma parte de nuestra biblioteca de contenido podológico especializado. 
-                Para información más detallada y personalizada, no dudes en contactar directamente 
+                Este artículo forma parte de nuestra biblioteca de contenido podológico especializado.
+                Para información más detallada y personalizada, no dudes en contactar directamente
                 con Cristina Muñoz, Podóloga Especialista.
               </p>
             </ContentComponents.Section>
 
-            <ContentComponents.CustomCTA 
+            <ContentComponents.CustomCTA
               title="¿Necesitas más información sobre este tema?"
               description="Cristina Muñoz, Podóloga Especialista puede brindarte asesoría personalizada"
               buttonText="Consulta Especializada"
@@ -391,7 +423,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             {post.title}
           </h1>
-          
+
           {/* Imagen destacada */}
           {post.image && (
             <div className="relative w-full h-64 md:h-96 mb-6 rounded-xl overflow-hidden">
@@ -405,14 +437,14 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
               />
             </div>
           )}
-          
+
           {/* Metadatos del artículo */}
           <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
             <div className="flex items-center">
               <User className="w-4 h-4 mr-2 text-[#60BEC3]" />
               <span>{post.author || 'Cristina Muñoz'}</span>
             </div>
-            
+
             <div className="flex items-center">
               <Calendar className="w-4 h-4 mr-2 text-[#60BEC3]" />
               <time dateTime={post.publishDate}>
@@ -423,7 +455,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
                 })}
               </time>
             </div>
-            
+
             {post.readTime && (
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2 text-[#60BEC3]" />
@@ -432,7 +464,7 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
             )}
           </div>
         </header>
-        
+
         {/* Contenido generado por defecto */}
         {renderDefaultContent()}
       </div>
