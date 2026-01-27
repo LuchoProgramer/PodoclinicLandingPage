@@ -50,7 +50,6 @@ export function convertTikTokToEmbed(url: string): string {
             <a target="_blank" title="Ver en TikTok" href="${url}">Ver este video en TikTok</a>
           </section>
         </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
       </div>
     `;
   }
