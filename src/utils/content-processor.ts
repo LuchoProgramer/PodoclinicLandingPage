@@ -9,7 +9,7 @@
 export function convertYouTubeToEmbed(url: string): string {
   const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const match = url.match(youtubeRegex);
-  
+
   if (match && match[1]) {
     const videoId = match[1];
     return `
@@ -24,7 +24,7 @@ export function convertYouTubeToEmbed(url: string): string {
       </div>
     `;
   }
-  
+
   return url;
 }
 
@@ -32,9 +32,10 @@ export function convertYouTubeToEmbed(url: string): string {
  * Convierte URLs de TikTok en embeds responsivos
  */
 export function convertTikTokToEmbed(url: string): string {
-  const tiktokRegex = /(?:https?:\/\/)?(?:www\.)?tiktok\.com\/@[\w.-]+\/video\/(\d+)/;
+  // Regex relajado para soportar cualquier URL que contenga /video/123456
+  const tiktokRegex = /video\/(\d+)/i;
   const match = url.match(tiktokRegex);
-  
+
   if (match && match[1]) {
     const videoId = match[1];
     return `
@@ -53,7 +54,7 @@ export function convertTikTokToEmbed(url: string): string {
       </div>
     `;
   }
-  
+
   return url;
 }
 
@@ -63,7 +64,7 @@ export function convertTikTokToEmbed(url: string): string {
 export function convertVimeoToEmbed(url: string): string {
   const vimeoRegex = /(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(\d+)/;
   const match = url.match(vimeoRegex);
-  
+
   if (match && match[1]) {
     const videoId = match[1];
     return `
@@ -78,7 +79,7 @@ export function convertVimeoToEmbed(url: string): string {
       </div>
     `;
   }
-  
+
   return url;
 }
 
@@ -87,7 +88,7 @@ export function convertVimeoToEmbed(url: string): string {
  */
 export function processVideoEmbeds(content: string): string {
   let processedContent = content;
-  
+
   // Buscar enlaces a YouTube
   const youtubeLinks = content.match(/<a[^>]*href="(https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)[a-zA-Z0-9_-]{11})[^"]*"[^>]*>.*?<\/a>/gi);
   if (youtubeLinks) {
@@ -99,9 +100,10 @@ export function processVideoEmbeds(content: string): string {
       }
     });
   }
-  
+
   // Buscar enlaces a TikTok
-  const tiktokLinks = content.match(/<a[^>]*href="(https?:\/\/(?:www\.)?tiktok\.com\/@[\w.-]+\/video\/\d+)[^"]*"[^>]*>.*?<\/a>/gi);
+  // Buscar enlaces a TikTok (Regex relajado)
+  const tiktokLinks = content.match(/<a[^>]*href="([^"]*video\/\d+[^"]*)"[^>]*>.*?<\/a>/gi);
   if (tiktokLinks) {
     tiktokLinks.forEach(link => {
       const urlMatch = link.match(/href="([^"]+)"/);
@@ -111,7 +113,7 @@ export function processVideoEmbeds(content: string): string {
       }
     });
   }
-  
+
   // Buscar enlaces a Vimeo
   const vimeoLinks = content.match(/<a[^>]*href="(https?:\/\/(?:www\.)?vimeo\.com\/\d+)[^"]*"[^>]*>.*?<\/a>/gi);
   if (vimeoLinks) {
@@ -123,26 +125,26 @@ export function processVideoEmbeds(content: string): string {
       }
     });
   }
-  
+
   // También buscar URLs planas (sin etiqueta <a>)
   // YouTube
   processedContent = processedContent.replace(
     /(?<!href="|src=")(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})(?![^<]*<\/a>)/gi,
     (match) => convertYouTubeToEmbed(match)
   );
-  
+
   // TikTok
   processedContent = processedContent.replace(
-    /(?<!href="|src=")(?:https?:\/\/)?(?:www\.)?tiktok\.com\/@[\w.-]+\/video\/(\d+)(?![^<]*<\/a>)/gi,
+    /(?<!href="|src=")(?:https?:\/\/)?(?:www\.)?tiktok\.com\/[^\/]+\/video\/(\d+)(?![^<]*<\/a>)/gi,
     (match) => convertTikTokToEmbed(match)
   );
-  
+
   // Vimeo
   processedContent = processedContent.replace(
     /(?<!href="|src=")(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(\d+)(?![^<]*<\/a>)/gi,
     (match) => convertVimeoToEmbed(match)
   );
-  
+
   return processedContent;
 }
 
@@ -151,19 +153,19 @@ export function processVideoEmbeds(content: string): string {
  */
 export function processImages(content: string): string {
   let processedContent = content;
-  
+
   // Agregar loading="lazy" a las imágenes que no lo tengan
   processedContent = processedContent.replace(
     /<img([^>]*?)(?<!loading=["'][^"']*["'])\s*>/gi,
     '<img$1 loading="lazy">'
   );
-  
+
   // Agregar clase responsiva a todas las imágenes
   processedContent = processedContent.replace(
     /<img([^>]*?)(?<!class=["'][^"']*["'])\s*>/gi,
     '<img$1 class="img-fluid">'
   );
-  
+
   // Si ya tiene class, agregar img-fluid si no está presente
   processedContent = processedContent.replace(
     /<img([^>]*)class=["']([^"']*?)["']([^>]*?)>/gi,
@@ -174,7 +176,7 @@ export function processImages(content: string): string {
       return match;
     }
   );
-  
+
   return processedContent;
 }
 
@@ -183,7 +185,7 @@ export function processImages(content: string): string {
  */
 export function processExternalLinks(content: string): string {
   let processedContent = content;
-  
+
   // Agregar target="_blank" y rel="noopener noreferrer" a enlaces externos
   processedContent = processedContent.replace(
     /<a([^>]*?)href=["'](https?:\/\/[^"']+)["']([^>]*?)>/gi,
@@ -198,7 +200,7 @@ export function processExternalLinks(content: string): string {
       return match;
     }
   );
-  
+
   return processedContent;
 }
 
@@ -207,15 +209,15 @@ export function processExternalLinks(content: string): string {
  */
 export function processHTMLContent(content: string): string {
   if (!content) return '';
-  
+
   // Procesar embeds de video
   let processedContent = processVideoEmbeds(content);
-  
+
   // Procesar imágenes
   processedContent = processImages(processedContent);
-  
+
   // Procesar enlaces externos
   processedContent = processExternalLinks(processedContent);
-  
+
   return processedContent;
 }
