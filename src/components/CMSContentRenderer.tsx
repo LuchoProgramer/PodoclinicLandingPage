@@ -114,6 +114,31 @@ const ContentComponents = {
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center bg-white text-[#60BEC3] px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+        onClick={() => {
+          // Google Analytics
+          if (typeof window !== "undefined" && (window as any).gtag) {
+            (window as any).gtag("event", "click_whatsapp_blog", {
+              event_category: "engagement",
+              event_label: title,
+              value: 1
+            });
+          }
+          // TikTok Pixel
+          if (typeof window !== "undefined" && (window as any).ttq) {
+            (window as any).ttq.track('Contact', {
+              content_type: 'whatsapp_contact',
+              content_name: 'Blog CTA',
+              description: title
+            });
+          }
+          // Facebook Pixel
+          if (typeof window !== "undefined" && (window as any).fbq) {
+            (window as any).fbq('track', 'Contact', {
+              content_name: 'Blog CTA',
+              source: 'blog_post_footer'
+            });
+          }
+        }}
       >
         <Heart className="w-5 h-5 mr-2" />
         {buttonText}
@@ -212,6 +237,14 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
           <div
             className="cms-content"
             dangerouslySetInnerHTML={{ __html: processedContent }}
+          />
+
+          {/* CTA Automático al final del post */}
+          <ContentComponents.CustomCTA
+            title="¿Necesitas atención profesional?"
+            description="Cristina Muñoz, Podóloga Especialista está lista para ayudarte con un diagnóstico preciso."
+            buttonText="Agendar Cita por WhatsApp"
+            link={`https://wa.me/593995832788?text=Hola%20Cristina,%20leí%20su%20artículo%20"${encodeURIComponent(post.title)}"%20y%20quisiera%20agendar%20una%20cita.`}
           />
 
           {/* Script loader para TikTok embeds */}
