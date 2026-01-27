@@ -151,7 +151,7 @@ class PodoclinicCMSClient {
             const videoIdMatch = videoUrl.match(/video\/(\d+)/i);
             const videoId = videoIdMatch ? videoIdMatch[1] : '';
             if (!videoId) return '';
-            return `<blockquote class="tiktok-embed" cite="${videoUrl}" data-video-id="${videoId}" style="max-width: 605px;min-width: 325px;"><section><a target="_blank" href="${videoUrl}">Ver en TikTok</a></section></blockquote><script async src="https://www.tiktok.com/embed.js"></script>`;
+            return `<blockquote class="tiktok-embed" cite="${videoUrl}" data-video-id="${videoId}" style="max-width: 605px;min-width: 325px;"><section><a target="_blank" href="${videoUrl}">Ver en TikTok</a></section></blockquote>`;
           }
 
           return `<iframe src="${videoUrl}" width="100%" height="315" frameborder="0" allowfullscreen></iframe>`;
