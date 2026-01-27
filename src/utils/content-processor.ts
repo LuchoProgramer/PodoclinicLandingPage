@@ -210,7 +210,9 @@ export function processHTMLContent(content: string): string {
   if (!content) return '';
 
   // Procesar embeds de video
-  let processedContent = processVideoEmbeds(content);
+  // DESHABILITADO: El CMS ya genera el HTML correcto, procesarlo con regex lo rompe
+  // let processedContent = processVideoEmbeds(content);
+  let processedContent = content;
 
   // Procesar imágenes
   processedContent = processImages(processedContent);
