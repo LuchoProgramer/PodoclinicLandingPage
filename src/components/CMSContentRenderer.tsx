@@ -10,7 +10,6 @@ import { CheckCircle, AlertTriangle, Info, Lightbulb, Heart, Calendar, Clock, Us
 import { processHTMLContent } from '@/utils/content-processor';
 import Image from 'next/image';
 import '@/styles/blog-content.css';
-import TikTokLoader from '@/components/TikTokLoader';
 
 interface CMSContentRendererProps {
   post: BlogPost;
@@ -220,9 +219,6 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
             buttonText="Agendar Cita por WhatsApp"
             link={`https://wa.me/593995832788?text=Hola%20Cristina,%20leí%20su%20artículo%20"${encodeURIComponent(post.title)}"%20y%20quisiera%20agendar%20una%20cita.`}
           />
-
-          {/* Script loader para TikTok embeds (Usando MutationObserver como en EudiqHotel) */}
-          <TikTokLoader />
         </div>
       </div>
     );
