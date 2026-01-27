@@ -14,6 +14,8 @@ interface PageProps {
   }>;
 }
 
+export const revalidate = 60; // Enable ISR
+
 export async function generateStaticParams() {
   console.log('🏗️  [BUILD] generateStaticParams called for blog posts');
 

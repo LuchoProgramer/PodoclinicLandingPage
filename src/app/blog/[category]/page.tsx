@@ -11,6 +11,8 @@ interface PageProps {
   params: Promise<{ category: string }>;
 }
 
+export const revalidate = 60; // Enable ISR
+
 export async function generateStaticParams() {
   // Usar las categorías predefinidas del blog
   return blogCategories.map((cat) => ({
@@ -134,152 +136,152 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <LayoutClient>
       {/* Datos estructurados para SEO */}
-      <script 
-        type="application/ld+json" 
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(categorySchema) }} 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(categorySchema) }}
       />
-      <script 
-        type="application/ld+json" 
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      
+
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pt-32 md:pb-12">
-        {/* Breadcrumbs mejorado */}
-  <nav className="mb-8 mt-8" aria-label="Breadcrumb">
-          <ol className="flex items-center space-x-2 text-sm bg-white rounded-lg shadow-sm px-4 py-3">
-            <li>
-              <Link 
-                href="/" 
-                className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium transition-colors"
-                itemProp="item"
-              >
-                <span itemProp="name">🏠 Inicio</span>
-              </Link>
-            </li>
-            <li className="text-gray-400">›</li>
-            <li>
-              <Link 
-                href="/blog" 
-                className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium transition-colors"
-                itemProp="item"
-              >
-                <span itemProp="name">📝 Blog</span>
-              </Link>
-            </li>
-            <li className="text-gray-400">›</li>
-            <li className="text-gray-800 font-semibold" itemProp="name">
-              {category === 'uneros' && '🦶 Uñeros'}
-              {category === 'pie-diabetico' && '🩺 Pie Diabético'}
-              {category === 'hongos' && '🍄 Hongos'}
-              {!['uneros', 'pie-diabetico', 'hongos'].includes(category) && '📄 Artículos'}
-            </li>
-          </ol>
-        </nav>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pt-32 md:pb-12">
+          {/* Breadcrumbs mejorado */}
+          <nav className="mb-8 mt-8" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2 text-sm bg-white rounded-lg shadow-sm px-4 py-3">
+              <li>
+                <Link
+                  href="/"
+                  className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium transition-colors"
+                  itemProp="item"
+                >
+                  <span itemProp="name">🏠 Inicio</span>
+                </Link>
+              </li>
+              <li className="text-gray-400">›</li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-[#60BEC3] hover:text-[#4A9DB8] font-medium transition-colors"
+                  itemProp="item"
+                >
+                  <span itemProp="name">📝 Blog</span>
+                </Link>
+              </li>
+              <li className="text-gray-400">›</li>
+              <li className="text-gray-800 font-semibold" itemProp="name">
+                {category === 'uneros' && '🦶 Uñeros'}
+                {category === 'pie-diabetico' && '🩺 Pie Diabético'}
+                {category === 'hongos' && '🍄 Hongos'}
+                {!['uneros', 'pie-diabetico', 'hongos'].includes(category) && '📄 Artículos'}
+              </li>
+            </ol>
+          </nav>
 
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Artículos sobre {categoryTitles[category]}
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Información especializada y consejos profesionales sobre {categoryTitles[category]?.toLowerCase()} 
-            por Cristina Muñoz, Podóloga Especialista
-          </p>
-        </div>
-
-        {/* Posts Grid */}
-        {posts.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <article key={post.slug} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="relative h-48">
-                  <Image
-                    src={post.image || '/default-blog-image.jpg'}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {categoryTitles[post.category] || post.category}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <span className="text-blue-600 font-medium text-sm">DC</span>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">Cristina Muñoz, Podóloga Especialista</p>
-                        <p className="text-xs text-gray-500">{post.publishDate}</p>
-                      </div>
-                    </div>
-                    
-                    <Link 
-                      href={`/blog/${post.category}/${post.slug}`}
-                      className="text-blue-600 hover:text-blue-800 font-medium text-sm"
-                    >
-                      Leer más →
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              Próximamente más contenido
-            </h3>
-            <p className="text-gray-600 mb-8">
-              Estamos preparando más artículos especializados sobre {categoryTitles[category]?.toLowerCase()}.
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Artículos sobre {categoryTitles[category]}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Información especializada y consejos profesionales sobre {categoryTitles[category]?.toLowerCase()}
+              por Cristina Muñoz, Podóloga Especialista
             </p>
-            <Link 
-              href="/blog"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Ver todos los artículos
-            </Link>
           </div>
-        )}
 
-        {/* CTA Section */}
-        <div className="mt-16 bg-blue-50 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            ¿Necesitas atención especializada?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Agenda tu consulta con Cristina Muñoz, Podóloga Especialista para un diagnóstico y tratamiento personalizado
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="https://wa.me/5930999999999?text=Hola, me interesa agendar una consulta sobre {categoryTitles[category]?.toLowerCase()}"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Consultar por WhatsApp
-            </a>
-            <Link 
-              href="/#contacto"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Agendar Cita
-            </Link>
+          {/* Posts Grid */}
+          {posts.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <article key={post.slug} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="relative h-48">
+                    <Image
+                      src={post.image || '/default-blog-image.jpg'}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        {categoryTitles[post.category] || post.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-6">
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                          <span className="text-blue-600 font-medium text-sm">DC</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">Cristina Muñoz, Podóloga Especialista</p>
+                          <p className="text-xs text-gray-500">{post.publishDate}</p>
+                        </div>
+                      </div>
+
+                      <Link
+                        href={`/blog/${post.category}/${post.slug}`}
+                        className="text-blue-600 hover:text-blue-800 font-medium text-sm"
+                      >
+                        Leer más →
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                Próximamente más contenido
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Estamos preparando más artículos especializados sobre {categoryTitles[category]?.toLowerCase()}.
+              </p>
+              <Link
+                href="/blog"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Ver todos los artículos
+              </Link>
+            </div>
+          )}
+
+          {/* CTA Section */}
+          <div className="mt-16 bg-blue-50 rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              ¿Necesitas atención especializada?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Agenda tu consulta con Cristina Muñoz, Podóloga Especialista para un diagnóstico y tratamiento personalizado
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://wa.me/5930999999999?text=Hola, me interesa agendar una consulta sobre {categoryTitles[category]?.toLowerCase()}"
+                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Consultar por WhatsApp
+              </a>
+              <Link
+                href="/#contacto"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Agendar Cita
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </LayoutClient>
   );

@@ -1,6 +1,8 @@
 import LayoutClient from "@/components/LayoutClient";
 import HybridBlogContent from "@/components/HybridBlogContent";
 
+export const revalidate = 60; // Enable ISR
+
 export const metadata = {
   title: "Blog Podológico | Consejos y Tratamientos | Cristina Muñoz",
   description: "Blog de podología en Quito: prevención, tratamientos modernos y experiencias de pacientes. Cuida tus pies con expertos.",
@@ -18,9 +20,9 @@ export const metadata = {
     siteName: "PodoClinicec",
     type: "website",
     images: [
-      { 
-        url: "https://podoclinicec.com/blog/blog-og-image.jpg", 
-        width: 1200, 
+      {
+        url: "https://podoclinicec.com/blog/blog-og-image.jpg",
+        width: 1200,
         height: 630,
         alt: "Blog Podológico PodoClinicec"
       }
@@ -77,11 +79,11 @@ export default function BlogPage() {
   return (
     <LayoutClient>
       {/* Datos estructurados para SEO */}
-      <script 
-        type="application/ld+json" 
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
-      
+
       {/* Componente híbrido que maneja posts hardcodeados + CMS */}
       <HybridBlogContent />
     </LayoutClient>
