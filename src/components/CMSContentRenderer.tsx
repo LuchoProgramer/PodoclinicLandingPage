@@ -165,14 +165,15 @@ const TikTokScriptLoader = ({ content }: { content: string }) => {
       } else {
         // Si ya existe, forzar re-escaneo
         // @ts-ignore
-        // @ts-ignore
-        window.tiktok.embed.load();
+        if (window.tiktok && window.tiktok.embed) {
+          // @ts-ignore
+          window.tiktok.embed.load();
+        }
       }
     }
-  }
   }, [content]);
 
-return null;
+  return null;
 };
 
 export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
