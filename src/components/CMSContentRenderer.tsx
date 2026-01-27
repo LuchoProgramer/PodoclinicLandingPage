@@ -10,6 +10,7 @@ import { CheckCircle, AlertTriangle, Info, Lightbulb, Heart, Calendar, Clock, Us
 import { processHTMLContent } from '@/utils/content-processor';
 import Image from 'next/image';
 import '@/styles/blog-content.css';
+import TikTokLoader from '@/components/TikTokLoader';
 
 interface CMSContentRendererProps {
   post: BlogPost;
@@ -147,34 +148,7 @@ const ContentComponents = {
   )
 };
 
-// Componente helper para cargar el script de TikTok
-// Esto es necesario porque los scripts dentro de dangerouslySetInnerHTML no se ejecutan
-const TikTokScriptLoader = ({ content }: { content: string }) => {
-  const { useEffect } = require('react');
 
-  useEffect(() => {
-    // Solo cargar si hay contenido de TikTok
-    if (content && content.includes('tiktok-embed')) {
-      const scriptId = 'tiktok-embed-script';
-      if (!document.getElementById(scriptId)) {
-        const script = document.createElement('script');
-        script.id = scriptId;
-        script.src = 'https://www.tiktok.com/embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-      } else {
-        // Si ya existe, forzar re-escaneo
-        // @ts-ignore
-        if (window.tiktok && window.tiktok.embed) {
-          // @ts-ignore
-          window.tiktok.embed.load();
-        }
-      }
-    }
-  }, [content]);
-
-  return null;
-};
 
 export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
   // Si el post tiene contenido personalizado, procesarlo y renderizarlo
@@ -247,8 +221,8 @@ export default function CMSContentRenderer({ post }: CMSContentRendererProps) {
             link={`https://wa.me/593995832788?text=Hola%20Cristina,%20leí%20su%20artículo%20"${encodeURIComponent(post.title)}"%20y%20quisiera%20agendar%20una%20cita.`}
           />
 
-          {/* Script loader para TikTok embeds */}
-          <TikTokScriptLoader content={processedContent} />
+          {/* Script loader para TikTok embeds (Usando MutationObserver como en EudiqHotel) */}
+          <TikTokLoader />
         </div>
       </div>
     );

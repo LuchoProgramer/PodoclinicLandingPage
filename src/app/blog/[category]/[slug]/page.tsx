@@ -140,13 +140,13 @@ export default async function BlogPostPage({ params }: PageProps) {
   const recentPosts = await getRecentPosts(3);
 
   if (!post) {
-    notFound();
+    return notFound();
   }
 
   // Validar que la categoría en la URL coincida con la del post
   if (post.category !== category) {
     // Redirigir a la URL correcta si la categoría no coincide
-    notFound();
+    return notFound();
   }
 
   const baseUrl = 'https://podoclinicec.com';
