@@ -78,14 +78,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Mantén GA4 por ahora; lo migraremos a GTM */}
         <Script
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-MQB913L72F`}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-FHN5JGKH34`}
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-MQB913L72F');
+            gtag('config', 'G-FHN5JGKH34');
           `}
         </Script>
 

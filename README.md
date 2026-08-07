@@ -20,7 +20,7 @@ Landing page de alta conversión para clínica podológica especializada con **s
 - `emergency_contact` - Clicks en botón de emergencia
 - `page_view` - Vistas de página
 - **Mapas de Calor** - Comportamiento visual de usuarios (Clarity)ión Actual**
-- **Google Analytics:** G-MQB913L72F
+- **Google Analytics:** G-FHN5JGKH34
 - **Facebook Pixel:** 827077656519595  
 - **TikTok Pixel:** D3FD2NBC77U7D8VS5C00
 - **Google Tag Manager:** GTM-WXW86JFH
@@ -421,7 +421,7 @@ const contactInfo = {
 ## 📊 Analytics y Tracking
 
 ### Configuración Actual
-- **Google Analytics:** G-MQB913L72F
+- **Google Analytics:** G-FHN5JGKH34
 - **Facebook Pixel:** 827077656519595  
 - **TikTok Pixel:** D3FD2NBC77U7D8VS5C00
 - **Google Tag Manager:** GTM-WXW86JFH
