@@ -61,21 +61,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Content Security Policy for tracking scripts and CMS API */}
         <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://analytics.tiktok.com https://ads.tiktok.com https://www.tiktok.com https://*.tiktokcdn.com https://*.tiktokv.com https://*.ttwstatic.com https://www.clarity.ms https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://analytics.tiktok.com https://ads.tiktok.com https://connect.facebook.net https://www.clarity.ms https://pukapresscms.vercel.app https://*.tiktokcdn.com https://*.tiktokv.com https://*.ttwstatic.com https://www.tiktok.com; img-src 'self' data: https: https://www.facebook.com https://www.clarity.ms;" />
 
-        {/* Google Tag Manager */}
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-WXW86JFH');
-            `,
-          }}
-        />
-        {/* Mantén GA4 por ahora; lo migraremos a GTM */}
+        {/*
+          GTM (GTM-WXW86JFH) removido del sitio el 2026-08-08: duplicaba el page_view de GA4
+          (el Google tag del contenedor mandaba a G-FHN5JGKH34 igual que el gtag.js de abajo) y
+          además fanned-out a 2 properties GA4 muertas por config de GTM. El contenedor sigue
+          existiendo en tagmanager.google.com por si se necesita reactivar: volver a pegar el
+          snippet de gtm.js aquí y el <noscript> del iframe al inicio de <body>.
+        */}
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-FHN5JGKH34`}
@@ -295,15 +287,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </Script>
       </head>
       <body className="flex flex-col min-h-screen">
-        {/* Google Tag Manager (noscript) */}
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `
-              <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXW86JFH"
-              height="0" width="0" style="display:none;visibility:hidden"></iframe>
-            `,
-          }}
-        />
         <main className="flex-grow">{children}</main>
         {/* SEO Debugger - solo en desarrollo */}
         {process.env.NODE_ENV === 'development' && (
